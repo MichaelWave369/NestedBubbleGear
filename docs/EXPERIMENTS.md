@@ -29,6 +29,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH24 | Heterogeneous / correlated failure regimes | QUALIFIED · 36/36 checks · 15/15 tests |
 | AH25 | Failure-domain discovery / redundancy auditing | QUALIFIED · 30/30 checks · 15/15 tests |
 | AH26 | Sequential failure auditing / evidence persistence | QUALIFIED · 24/24 checks · 15/15 tests |
+| AH27 | Windowed evidence / horizon-indexed memory | QUALIFIED · 25/25 checks · 15/15 tests |
 
 ## Research progression
 
@@ -57,6 +58,7 @@ hidden residue
   -> heterogeneous / correlated failure regimes
   -> failure-domain discovery / redundancy auditing
   -> sequential failure auditing / evidence persistence
+  -> windowed evidence / horizon-indexed memory
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
