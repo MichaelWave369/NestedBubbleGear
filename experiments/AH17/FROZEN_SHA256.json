@@ -1,0 +1,15 @@
+{
+  "change": "v0.1.0 corrected one preregistered numeric expectation; v0.1.1 corrected one mistaken unit-test expectation. Experiment construction unchanged.",
+  "experiment": "NBG-AH17",
+  "files": {
+    "SPEC.md": "f062ba6095b1f72d5c4dacf00a40e39d2336ebff486a3cca580821ddfd49e50a",
+    "src/ah17.py": "2d0ed109cfb6df1e0f4915dcd9c6e623c634c324800dafdf7aa86c037694045c",
+    "tests/test_ah17.py": "7581d5fb255a82265c8d85d8642da29b86af325e4cea246af95f7b470e3ada50"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "supersedes_unqualified_candidates": [
+    "v0.1.0",
+    "v0.1.1"
+  ],
+  "version": "0.1.2"
+}
