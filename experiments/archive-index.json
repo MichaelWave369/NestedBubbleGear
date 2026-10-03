@@ -417,6 +417,19 @@
       "headline": "Task richness / coalition privacy frontier",
       "key_result": "Nested task requirements produce a monotone frozen utility/privacy frontier: COMMON_ONLY leaves 1.160964 bits residual, TRIAGE leaves 0.4, while FULL_STATUS leaves zero and admits no coalition-safe task-sufficient release design.",
       "info": "10 panels · 243 release designs · safe counts by task profile: 106 / 4 / 0 · FULL_STATUS exact reconstruction"
+    },
+    {
+      "id": "AH34",
+      "package": "NBG-AH34_Mixed_Task_Privacy_Budgets_v0.1.0.zip",
+      "sha256": "c55b9d7514258070e44772b7a4aa255a41f10960c3805dfa1c403310e8ce6f97",
+      "bytes": 31916,
+      "checks": "49/49",
+      "tests": "15/15",
+      "verdict": "PASS_AH34_QUALIFIED",
+      "replay": "exact",
+      "headline": "Mixed task profiles / authority-aware privacy budgets",
+      "key_result": "Across 243 mixed task profiles, 106 retain positive privacy and 137 exactly reconstruct Q_MULTI; specific distinction combinations create abrupt privacy collapse while some task upgrades are free.",
+      "info": "min collapse richness=3; max safe richness=7; epsilon 0.4 -> 71 feasible / 2 co-optima; epsilon 0.8 -> 8 feasible / unique optimum"
     }
   ]
 }
