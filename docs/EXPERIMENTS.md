@@ -16,6 +16,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH11 | Path compression / minimal connector memory | PASS · 34/34 checks · 12/12 tests |
 | AH12 | Task-dependent memory / query-indexed residue | PASS · 35/35 checks · 13/13 tests |
 | AH13 | Authorized query memory / retention minimization | PASS · 41/41 checks · 15/15 tests |
+| AH14 | Revocation / memory downgrade / receipt leakage | PASS · 43/43 checks · 15/15 tests |
 
 ## Research progression
 
@@ -29,6 +30,9 @@ hidden residue
   -> neighboring plaquettes / local-to-global cancellation
   -> basepoint-aware local-to-global composition
   -> three-plaquette transported associativity
+  -> path compression / task memory
+  -> authorized memory
+  -> revocation + downgrade + receipt semantics
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.

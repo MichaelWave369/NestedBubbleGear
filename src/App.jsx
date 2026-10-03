@@ -22,15 +22,17 @@ const experiments = [
   { id:'AH10', title:'Three-plaquette transport', checks:'158/158', tests:'11/11', verdict:'PASS_AH10', hash:'596a4295a05381b0cb24224b98157787859e70925e40623a67d4ab16879f5df0', result:'Three local loops reconstruct the direct outer boundary exactly when cumulative connector paths are retained; both transported parenthesizations agree.', info:'G∂=(T₁T₂)C(T₁T₂)⁻¹(T₁BT₁⁻¹)A · naive CBA succeeds 1/16' },
   { id:'AH11', title:'Minimal connector memory', checks:'34/34', tests:'12/12', verdict:'PASS_AH11', hash:'8838f3ac961079f17b1e39cd6d9ab8b288119584388448da56721bfd867f37cc', result:'Full path history compresses to a task-specific causal residue that preserves the global operator exactly.', info:'H(G|RΓ)=0 · H(G|P₂)=0.25 bits · same entropy, different sufficiency' },
   { id:'AH12', title:'Task-dependent memory', checks:'35/35', tests:'13/13', verdict:'PASS_AH12', hash:'6bb16f7c3d61202a50c885e3e70c399f7a871f59929143ebb9ceba839669ae4c', result:'The coarsest sufficient retained residue changes when the permitted future query family changes.', info:'Q_G→13 classes · Q_ALL→15 classes · H(H₂|RΓ)=0.25 bits' },
+  { id:'AH13', title:'Authorized query memory', checks:'41/41', tests:'15/15', verdict:'PASS_AH13', hash:'8c204d74ae76c1ae783759060b377fa4044145c7405dc680b88d790fb9cd4e76', result:'Restricted roles retain coarser sufficient memory than full capability memory while preserving every authorized answer.', info:'CAPABILITY ≠ AUTHORITY · selected role memory has zero excess unauthorized leakage above the correlation floor' },
+  { id:'AH14', title:'Revocation + memory downgrade', checks:'43/43', tests:'15/15', verdict:'PASS_AH14', hash:'921d4e091984fb8d3122d35d2e25f05d436eff2dd9659dd90ea3e968bdb0aa0e', result:'Full-capability memory deterministically downgrades to role-specific memory while preserving authorized answers; an old-state hash receipt defeats minimization in the tiny enumerable domain.', info:'permission revoked ≠ memory downgraded ≠ secure erasure · H(revoked|new)>0 · H(revoked|new,old-hash)=0' },
 ]
 
 
 const bubbleFamilies = [
   { id: 'nested', mark: '◎', name: 'Nested', subtitle: 'Domains inside domains', equation: 'B₀ ⊃ B₁ ⊃ B₂', text: 'Tracks ancestry, coarse/fine state, and which distinctions survive projection across nesting levels.', evidence: 'Core NBG architecture' },
   { id: 'boundary', mark: 'Σ', name: 'Boundary', subtitle: 'Interface as state', equation: 'B = (X, Σ)', text: 'Treats the boundary itself as an active encoder, eraser, polarity carrier, or adaptive transport surface.', evidence: 'AH3 · boundary transfer' },
-  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH13' },
+  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH14' },
   { id: 'keyhole', mark: '◉', name: 'Keyhole', subtitle: 'Observer-limited domain', equation: 'O = P(X)', text: 'Makes observability explicit: the full system may contain distinctions collapsed by the current projection.', evidence: 'Observer hierarchy' },
-  { id: 'altermath', mark: 'A', name: 'Altermath', subtitle: 'Causal structure behind cancellation', equation: 'P(X)=P(X′),  X ≉ X′', text: 'Captures systems that look equivalent now but respond differently to an admissible future interaction.', evidence: 'AH2–AH13' },
+  { id: 'altermath', mark: 'A', name: 'Altermath', subtitle: 'Causal structure behind cancellation', equation: 'P(X)=P(X′),  X ≉ X′', text: 'Captures systems that look equivalent now but respond differently to an admissible future interaction.', evidence: 'AH2–AH14' },
   { id: 'flux', mark: 'J', name: 'Dynamic / Flux', subtitle: 'Stable through motion', equation: 'Ẋ = 0,  J ≠ 0', text: 'Separates dead equilibrium from nonequilibrium steady state maintained by persistent throughput.', evidence: 'ALTM-F branch · planned' },
   { id: 'symbolic', mark: '→', name: 'Symbolic / Conveyor', subtitle: 'State between states', equation: 'Xᵢ → Zᵢⱼ → Xⱼ', text: 'Gives the transport packet its own symbol, frame, polarity, residue, timing, flux, and provenance.', evidence: 'Conveyor calculus · under development' },
   { id: 'experimental', mark: 'E', name: 'Experimental', subtitle: 'One cage, one trick', equation: 'model → control → receipt', text: 'Minimal finite constructions designed to isolate one claim with controls and frozen expected outcomes.', evidence: 'AH experiment ladder' },
@@ -139,7 +141,7 @@ function App() {
           <a className="button ghost" href="#keyholes">Open the keyhole</a>
         </div>
         <div className="stats">
-          <div><strong>AH2→AH13</strong><span>frozen experiment ladder</span></div>
+          <div><strong>AH2→AH14</strong><span>frozen experiment ladder</span></div>
           <div><strong>{totalChecks}</strong><span>frozen acceptance checks passed</span></div>
           <div><strong>7</strong><span>layers in the current stack</span></div>
         </div>
@@ -309,7 +311,7 @@ function App() {
               <small>FROZEN PACKAGE SHA-256</small>
               <strong>{activeExperiment.hash}</strong>
             </div>
-            <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/AH2-AH13_DOSSIERS.md">
+            <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/AH2-AH14_DOSSIERS.md">
               Open frozen result dossiers ↗
             </a>
           </aside>
@@ -326,7 +328,8 @@ function App() {
           <span>three-plaquette transport</span><i>→</i>
           <span>minimal memory</span><i>→</i>
           <span>task-dependent memory</span><i>→</i>
-          <span>authorized memory</span>
+          <span>authorized memory</span><i>→</i>
+          <span>revocation + downgrade</span>
         </div>
       </section>
 
