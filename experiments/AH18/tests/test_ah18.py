@@ -60,6 +60,7 @@ class AH18Tests(unittest.TestCase):
 
     def test_route_to_global_pair_matrix(self):
         cs=self.cases()
+        local=m.values(cs,"P2")
         target=m.values(cs,"G")
         def h(pair):
             return m.conditional_entropy(target,[tuple([c["P2"]]+[c[s] for s in pair]) for c in cs])

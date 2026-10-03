@@ -211,6 +211,7 @@ def main():
             {"name":f"{pair}:capability","pass":(hcond<1e-12)==capable},
         ])
 
+    # E1 and E3 induce the same partition.
     checks.extend([
         {"name":"redundancy:E3_function_of_E1","pass":functional_map(cases,("E1",),"E3") is not None},
         {"name":"redundancy:E1_function_of_E3","pass":functional_map(cases,("E3",),"E1") is not None},

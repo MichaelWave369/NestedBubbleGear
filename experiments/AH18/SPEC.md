@@ -324,7 +324,7 @@ For each grant, the policy-authorized pair must:
 
 Define a naive policy:
 
-> any two of the three authorities are sufficient.
+> any two of three authorities are sufficient.
 
 AH18 rejects this policy because:
 
