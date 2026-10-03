@@ -404,6 +404,19 @@
       "headline": "Coalition-safe release design / task-sufficient coarsening",
       "key_result": "Exactly 8/32 task-exact RAW/RISK designs block exact grand-coalition Q_MULTI reconstruction; the unique minimum coarsens both lifetime carriers.",
       "info": "minimum transforms=2; H(M|Zgrand)=0.2857142857142857 bits; C/F share hardened release but differ in target"
+    },
+    {
+      "id": "AH33",
+      "package": "NBG-AH33_Task_Richness_Privacy_Frontier_v0.1.0.zip",
+      "sha256": "2561ffdd7b59e2d364036d963a7448c47f492e77bdda3a74a158034e49b0c046",
+      "bytes": 28591,
+      "checks": "39/39",
+      "tests": "15/15",
+      "verdict": "PASS_AH33_QUALIFIED",
+      "replay": "exact",
+      "headline": "Task richness / coalition privacy frontier",
+      "key_result": "Nested task requirements produce a monotone frozen utility/privacy frontier: COMMON_ONLY leaves 1.160964 bits residual, TRIAGE leaves 0.4, while FULL_STATUS leaves zero and admits no coalition-safe task-sufficient release design.",
+      "info": "10 panels · 243 release designs · safe counts by task profile: 106 / 4 / 0 · FULL_STATUS exact reconstruction"
     }
   ]
 }
