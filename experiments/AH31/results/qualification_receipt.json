@@ -1,0 +1,13 @@
+{
+  "checks_passed": 26,
+  "checks_total": 26,
+  "experiment": "NBG-AH31",
+  "frozen_hashes_unchanged": true,
+  "harness_verdict": "PASS_AH31",
+  "qualification_verdict": "PASS_AH31_QUALIFIED",
+  "replay_exact": true,
+  "result_sha256": "a47197f0a3ace19be56eb8ea64eff4457e674fbe8b1aa58d8a4a098a030f2289",
+  "unit_test_count": 15,
+  "unit_tests_passed": true,
+  "version": "0.1.0"
+}
