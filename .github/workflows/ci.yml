@@ -13,6 +13,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify AH9 frozen hashes
+        run: |
+          printf '%s  %s\n' \
+            ac02ab547f6ea607e7998c99dfcb3b06f4e98da56b24b6fd71f48734851e9ca5 experiments/AH9/SPEC.md \
+            7afce9d719769b11d36c5d3ccfd94f28cdfc6e91963202813835a29dfcbd5bee experiments/AH9/src/ah9.py \
+            470f81bf5cd48b47a14d2895a1d4f64a9afb581373122795b1afdb6772e0002f experiments/AH9/tests/test_ah9.py \
+            | sha256sum -c -
+      - name: Run AH9 frozen harness
+        run: python experiments/AH9/src/ah9.py
+      - name: Run AH9 unit tests
+        run: python -m unittest discover -s experiments/AH9/tests -v
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22

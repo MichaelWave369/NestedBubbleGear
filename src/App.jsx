@@ -18,15 +18,16 @@ const experiments = [
   { id:'AH6', title:'Closed commutator loop', checks:'41/41', tests:'9/9', verdict:'PASS_AH6', hash:'912a0c2df491480fe632dc03ae5f00bff7a133da2cc9d687b5f7b8c05e3aa5fb', result:'A closed loop returns the declared observable while leaving nonzero full-state loop residue.', info:'π(Lx)=π(x) while Lx≠x' },
   { id:'AH7', title:'Oriented cancellation', checks:'65/65', tests:'9/9', verdict:'PASS_AH7', hash:'7b2afc2b9e5d8c1a4c6762e352e22fb4ddaa04d7ee98a7c4b79ab24c3976666c', result:'CW and CCW loops are coarse-identical, retain different residues, and exactly cancel under inverse composition.', info:'T = S·R · exact inverse cancellation' },
   { id:'AH8', title:'Plaquette transport', checks:'63/63', tests:'10/10', verdict:'PASS_AH8', hash:'bccba3c5dbeb43ef6f55cedcac20d622d3e75e157a6ff9a206f00abc7ef1e603', result:'Two local plaquettes are individually nontrivial while the complete outer boundary is exactly trivial.', info:'K_L≠0 · K_R≠0 · K_outer=0' },
+  { id:'AH9', title:'Basepoint transport', checks:'106/106', tests:'10/10', verdict:'PASS_AH9', hash:'9c1280b6d63bb0164d305a4e7e4c99a3601512c5c57f064be07200933782bb29', result:'Local loop operators based at different vertices compose correctly only after transport to a common basepoint.', info:'G∂=(TBT⁻¹)A · naive BA is valid iff TB=BT' },
 ]
 
 
 const bubbleFamilies = [
   { id: 'nested', mark: '◎', name: 'Nested', subtitle: 'Domains inside domains', equation: 'B₀ ⊃ B₁ ⊃ B₂', text: 'Tracks ancestry, coarse/fine state, and which distinctions survive projection across nesting levels.', evidence: 'Core NBG architecture' },
   { id: 'boundary', mark: 'Σ', name: 'Boundary', subtitle: 'Interface as state', equation: 'B = (X, Σ)', text: 'Treats the boundary itself as an active encoder, eraser, polarity carrier, or adaptive transport surface.', evidence: 'AH3 · boundary transfer' },
-  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH8' },
+  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH9' },
   { id: 'keyhole', mark: '◉', name: 'Keyhole', subtitle: 'Observer-limited domain', equation: 'O = P(X)', text: 'Makes observability explicit: the full system may contain distinctions collapsed by the current projection.', evidence: 'Observer hierarchy' },
-  { id: 'altermath', mark: 'A', name: 'Altermath', subtitle: 'Causal structure behind cancellation', equation: 'P(X)=P(X′),  X ≉ X′', text: 'Captures systems that look equivalent now but respond differently to an admissible future interaction.', evidence: 'AH2–AH8' },
+  { id: 'altermath', mark: 'A', name: 'Altermath', subtitle: 'Causal structure behind cancellation', equation: 'P(X)=P(X′),  X ≉ X′', text: 'Captures systems that look equivalent now but respond differently to an admissible future interaction.', evidence: 'AH2–AH9' },
   { id: 'flux', mark: 'J', name: 'Dynamic / Flux', subtitle: 'Stable through motion', equation: 'Ẋ = 0,  J ≠ 0', text: 'Separates dead equilibrium from nonequilibrium steady state maintained by persistent throughput.', evidence: 'ALTM-F branch · planned' },
   { id: 'symbolic', mark: '→', name: 'Symbolic / Conveyor', subtitle: 'State between states', equation: 'Xᵢ → Zᵢⱼ → Xⱼ', text: 'Gives the transport packet its own symbol, frame, polarity, residue, timing, flux, and provenance.', evidence: 'Conveyor calculus · under development' },
   { id: 'experimental', mark: 'E', name: 'Experimental', subtitle: 'One cage, one trick', equation: 'model → control → receipt', text: 'Minimal finite constructions designed to isolate one claim with controls and frozen expected outcomes.', evidence: 'AH experiment ladder' },
@@ -135,7 +136,7 @@ function App() {
           <a className="button ghost" href="#keyholes">Open the keyhole</a>
         </div>
         <div className="stats">
-          <div><strong>AH2→AH8</strong><span>frozen experiment ladder</span></div>
+          <div><strong>AH2→AH9</strong><span>frozen experiment ladder</span></div>
           <div><strong>{totalChecks}</strong><span>frozen acceptance checks passed</span></div>
           <div><strong>7</strong><span>layers in the current stack</span></div>
         </div>
@@ -317,7 +318,8 @@ function App() {
           <span>path order</span><i>→</i>
           <span>loop residue</span><i>→</i>
           <span>orientation</span><i>→</i>
-          <span>plaquettes</span>
+          <span>plaquettes</span><i>→</i>
+          <span>basepoint transport</span>
         </div>
       </section>
 
@@ -352,7 +354,7 @@ function App() {
           <article className="claim demonstrated">
             <span>DEMONSTRATED</span>
             <h3>Finite toy-model results</h3>
-            <p>Hidden residue, boundary transfer, noncommuting order, closed-loop residue, inverse cancellation, and local/global plaquette cancellation.</p>
+            <p>Hidden residue, boundary transfer, noncommuting order, closed-loop residue, inverse cancellation, local/global plaquette cancellation, and basepoint-aware local-to-global composition.</p>
           </article>
           <article className="claim formal">
             <span>UNDER DEVELOPMENT</span>

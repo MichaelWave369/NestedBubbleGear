@@ -92,6 +92,19 @@
       "headline": "Plaquette transport / curvature proxy",
       "key_result": "Neighboring local loops are nontrivial while the complete outer boundary is exactly trivial.",
       "info": "K_L≠0, K_R≠0, K_outer=0; H(T)=log2(3)"
+    },
+    {
+      "id": "AH9",
+      "package": "NBG-AH9_Basepoint_Transport_Local_to_Global_v0.1.0.zip",
+      "sha256": "9c1280b6d63bb0164d305a4e7e4c99a3601512c5c57f064be07200933782bb29",
+      "bytes": 19422,
+      "checks": "106/106",
+      "tests": "10/10",
+      "verdict": "PASS_AH9",
+      "replay": "exact",
+      "headline": "Basepoint transport / local-to-global composition",
+      "key_result": "Direct outer composition equals transported local composition in 12/12 frozen connectors; naive composition succeeds only in the 4 commuting controls.",
+      "info": "G_boundary=(T B T^-1) A; naive BA is valid iff TB=BT"
     }
   ]
 }
