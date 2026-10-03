@@ -320,7 +320,7 @@ K_Q
 Frozen results:
 
 \[
-K^ıH2}
+K_{H2}
 =
 K_G
 =
@@ -351,7 +351,7 @@ Minimal authorized coalition:
 \{E_1,E_2\}.
 \]
 
-Authorized famili:
+Authorized family:
 
 \[
 \mathcal P_{H2}
@@ -490,4 +490,11 @@ with:
 AH19 does not establish:
 
 - cryptographic access structures;
-- monotone span programs;B‹HÙXÜ™]\Ú\š[™ÈÙXİ\š]NÂ‹H™\ÚÛÚYÛ˜]\™\ÎÂ‹HÙXİ\™H][\\HÛÛ\]][ÛÂ‹HÛÛ\Ú[Ûˆ™\Ú\İ[˜ÙNÂ‹H™X[]ÛÜ›Y[]H[™›Ü˜Ù[Y[‚‚’]›İ™\ÈÛ›Hš[š]HXØÙ\ÜË\İXİ\™K\][Û‹[™ÛXŞH˜XİÈ›ÜˆHœ›Ş™[ˆ‘ÈÙ^ZÛH[Ù[‚
+- monotone span programs;
+- secret-sharing security;
+- threshold signatures;
+- secure multiparty computation;
+- collusion resistance;
+- real-world identity enforcement.
+
+It proves only finite access-structure, partition, and policy facts for the frozen NBG Keyhole model.
