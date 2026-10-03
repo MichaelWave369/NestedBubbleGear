@@ -19,6 +19,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH14 | Revocation / memory downgrade / receipt leakage | PASS · 43/43 checks · 15/15 tests |
 | AH15 | Revocation chains / path independence / reauthorization barrier | PASS · 21/21 checks · 15/15 tests |
 | AH16 | External authority reauthorization / selective handoff | PASS · 43/43 checks · 15/15 tests |
+| AH17 | Split authority / Keyhole parallax reauthorization | QUALIFIED · 28/28 checks · 13/13 tests |
 
 ## Research progression
 
@@ -36,6 +37,8 @@ hidden residue
   -> authorized memory
   -> revocation + downgrade + receipt semantics
   -> revocation chains + reauthorization barriers
+  -> external authority selective handoff
+  -> split-authority Keyhole parallax
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
