@@ -261,6 +261,19 @@
       "headline": "Policy hardening / redundancy synthesis",
       "key_result": "Every frozen policy removes policy-induced singleton cuts by authorizing exactly one additional coalition; the alarm hardens from 0.900 to 0.981 reliability at p=0.1 while keeping singleton E1 explicitly denied.",
       "info": "full tasks recover capability resilience; alarm adds {E1,E2}, remains a strict capability subset, and has no singleton cut"
+    },
+    {
+      "id": "AH22",
+      "package": "NBG-AH22_Costed_Policy_Pareto_v0.1.0.zip",
+      "sha256": "0949fe80fa8efcb700495f470b13067a5d3eddda8890df63f865a8b28d90f257",
+      "bytes": 27685,
+      "checks": "44/44",
+      "tests": "15/15",
+      "verdict": "PASS_AH22_QUALIFIED",
+      "replay": "exact",
+      "headline": "Costed policy synthesis / Pareto frontiers",
+      "key_result": "Legal governance policies form explicit nondominated cost-fragility-reliability frontiers; hard denies remove points from the feasible set rather than merely raising their cost.",
+      "info": "alarm soft frontier=(0,1,0.900),(1,0,0.981),(5,0,0.990); hard deny removes the 0.990 point"
     }
   ]
 }
