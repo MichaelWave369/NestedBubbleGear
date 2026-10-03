@@ -26,15 +26,16 @@ const experiments = [
   { id:'AH14', title:'Revocation + memory downgrade', checks:'43/43', tests:'15/15', verdict:'PASS_AH14', hash:'921d4e091984fb8d3122d35d2e25f05d436eff2dd9659dd90ea3e968bdb0aa0e', result:'Full-capability memory deterministically downgrades to role-specific memory while preserving authorized answers; an old-state hash receipt defeats minimization in the tiny enumerable domain.', info:'permission revoked ≠ memory downgraded ≠ secure erasure · H(revoked|new)>0 · H(revoked|new,old-hash)=0' },
   { id:'AH15', title:'Revocation chains', checks:'21/21', tests:'15/15', verdict:'PASS_AH15', hash:'69aee683f5ce416169dab5c7aa51d8b157cda6fab08002c16f568ff4e5bb47dd', result:'Monotone downgrade is path-independent, while lateral reauthorization can be blocked after prior forgetting; intermediate receipts can preserve distinctions later revoked.', info:'FULL→P₂→H₃ = FULL→H₃ · H(P₂|RΓ)=0.25 · H(P₂|H₃,R_mid)=0' },
   { id:'AH16', title:'External authority reauthorization', checks:'43/43', tests:'15/15', verdict:'PASS_AH16', hash:'3314bc18b7c21dee9acee4134b008fab4136de06ec32eb5387d1a7331fdb8c70', result:'A higher-authority store resolves local reauthorization barriers while releasing only the newly authorized role memory instead of full capability state.', info:'H(Qnew|Dlocal)>0 · H(Qnew|Dlocal,Descrow)=0 · minimal handoff has zero excess leakage' },
+  { id:'AH17', title:'Split authority parallax', checks:'28/28', tests:'13/13', verdict:'PASS_AH17_QUALIFIED', hash:'8198df521b365e42df6e9d1930cf6891885ad576d4d34b0a36893204e14baabe', result:'Two individually insufficient authority Keyholes jointly reconstruct the newly authorized distinction; only the target-role residue is released.', info:'H(Q|local,E₁)>0 · H(Q|local,E₂)>0 · H(Q|local,E₁,E₂)=0' },
 ]
 
 
 const bubbleFamilies = [
   { id: 'nested', mark: '◎', name: 'Nested', subtitle: 'Domains inside domains', equation: 'B₀ ⊃ B₁ ⊃ B₂', text: 'Tracks ancestry, coarse/fine state, and which distinctions survive projection across nesting levels.', evidence: 'Core NBG architecture' },
   { id: 'boundary', mark: 'Σ', name: 'Boundary', subtitle: 'Interface as state', equation: 'B = (X, Σ)', text: 'Treats the boundary itself as an active encoder, eraser, polarity carrier, or adaptive transport surface.', evidence: 'AH3 · boundary transfer' },
-  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH16' },
+  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH17' },
   { id: 'keyhole', mark: '◉', name: 'Keyhole', subtitle: 'Observer-limited domain', equation: 'O = P(X)', text: 'Makes observability explicit: the full system may contain distinctions collapsed by the current projection.', evidence: 'Observer hierarchy' },
-  { id: 'altermath', mark: 'A', name: 'Altermath', subtitle: 'Causal structure behind cancellation', equation: 'P(X)=P(X′),  X ≉ X′', text: 'Captures systems that look equivalent now but respond differently to an admissible future interaction.', evidence: 'AH2–AH16' },
+  { id: 'altermath', mark: 'A', name: 'Altermath', subtitle: 'Causal structure behind cancellation', equation: 'P(X)=P(X′),  X ≉ X′', text: 'Captures systems that look equivalent now but respond differently to an admissible future interaction.', evidence: 'AH2–AH17' },
   { id: 'flux', mark: 'J', name: 'Dynamic / Flux', subtitle: 'Stable through motion', equation: 'Ẋ = 0,  J ≠ 0', text: 'Separates dead equilibrium from nonequilibrium steady state maintained by persistent throughput.', evidence: 'ALTM-F branch · planned' },
   { id: 'symbolic', mark: '→', name: 'Symbolic / Conveyor', subtitle: 'State between states', equation: 'Xᵢ → Zᵢⱼ → Xⱼ', text: 'Gives the transport packet its own symbol, frame, polarity, residue, timing, flux, and provenance.', evidence: 'Conveyor calculus · under development' },
   { id: 'experimental', mark: 'E', name: 'Experimental', subtitle: 'One cage, one trick', equation: 'model → control → receipt', text: 'Minimal finite constructions designed to isolate one claim with controls and frozen expected outcomes.', evidence: 'AH experiment ladder' },
@@ -143,7 +144,7 @@ function App() {
           <a className="button ghost" href="#keyholes">Open the keyhole</a>
         </div>
         <div className="stats">
-          <div><strong>AH2→AH16</strong><span>frozen experiment ladder</span></div>
+          <div><strong>AH2→AH17</strong><span>frozen experiment ladder</span></div>
           <div><strong>{totalChecks}</strong><span>frozen acceptance checks passed</span></div>
           <div><strong>7</strong><span>layers in the current stack</span></div>
         </div>
