@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-AH22",
+  "files": {
+    "SPEC.md": "ecd4ecd1530f303143e35319ae9f2b602474a23b4532eda0413560df761ddaf4",
+    "src/ah22.py": "107bc67284757e38a2a854f14ecd5f0e29410260026c118ccd60046ece4f93ca",
+    "tests/test_ah22.py": "4862caac8a655fd0cbf6749233376a86424a8b979bb3aea1ba670d13a3a0e9a7"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
