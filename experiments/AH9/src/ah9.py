@@ -66,6 +66,7 @@ CONNECTORS: dict[str,Matrix] = {
 }
 
 def evaluate_connector(name: str, T: Matrix) -> dict:
+    # Edge assignment for two adjacent plaquettes.
     a=T
     b=B
     c=mul(inv(A),T)
