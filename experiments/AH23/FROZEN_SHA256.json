@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-AH23",
+  "files": {
+    "SPEC.md": "87b7abe1f26c2023c0be2f7252d27da51b0e5179a0687f5bc093762cf7062d3e",
+    "src/ah23.py": "a8a65da705ddaec28016af64091cb799036b84911686a68f1d2479f38e8a4238",
+    "tests/test_ah23.py": "bbd195aea02af0f3d1a506e7def0a2ac3e9d98881840c536ca7cadf7bf3f7ce2"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
