@@ -352,6 +352,19 @@
       "headline": "Multi-horizon governance / evidence arbitration",
       "key_result": "Evidence claims require an explicit horizon; conflicting lifetime/recent/adaptive states remain visible and underspecified requests are refused.",
       "info": "v0.1.0 failed 22/23 preregistered checks; v0.1.1 corrected one Panel D adaptive expectation only"
+    },
+    {
+      "id": "AH29",
+      "package": "NBG-AH29_Horizon_Authorization_Least_Privilege_v0.1.0.zip",
+      "sha256": "2a956faf23276108ee34f3b6bc06381577c0ad95ea426b6985bd353f48fe8f04",
+      "bytes": 29455,
+      "checks": "23/23",
+      "tests": "15/15",
+      "verdict": "PASS_AH29_QUALIFIED",
+      "replay": "exact",
+      "headline": "Horizon authorization / evidence least privilege",
+      "key_result": "Role-scoped horizon releases preserve residual uncertainty for unauthorized targets, but a role denied Q_MULTI can reconstruct it exactly when authorized for all three component horizons.",
+      "info": "H(M|AUDITOR)=0.39355535745192405 bits; H(M|TRI)=0; interface denial != informational non-derivability"
     }
   ]
 }
