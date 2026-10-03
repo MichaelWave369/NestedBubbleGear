@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-AH13",
+  "files": {
+    "SPEC.md": "3bbb9619b8021a79c502290cff8103606f07096f5603f52446d59c45f00bc56d",
+    "src/ah13.py": "f746ca9fb9a938036179dead91533eaa3ac4b49c9840231d0f7b053cdacf76f3",
+    "tests/test_ah13.py": "7011686b6a8fc3b5c11bd48c88a22ee145c42ad0c10ec7749952b6bb66fb71ac"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
