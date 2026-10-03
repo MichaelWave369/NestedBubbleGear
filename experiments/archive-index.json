@@ -105,6 +105,19 @@
       "headline": "Basepoint transport / local-to-global composition",
       "key_result": "Direct outer composition equals transported local composition in 12/12 frozen connectors; naive composition succeeds only in the 4 commuting controls.",
       "info": "G_boundary=(T B T^-1) A; naive BA is valid iff TB=BT"
+    },
+    {
+      "id": "AH10",
+      "package": "NBG-AH10_Three_Plaquette_Transport_v0.1.0.zip",
+      "sha256": "596a4295a05381b0cb24224b98157787859e70925e40623a67d4ab16879f5df0",
+      "bytes": 20160,
+      "checks": "158/158",
+      "tests": "11/11",
+      "verdict": "PASS_AH10",
+      "replay": "exact",
+      "headline": "Three-plaquette transport / composition order",
+      "key_result": "Transported reconstruction and both parenthesizations match the direct outer boundary in 16/16 connector pairs; connector-free CBA succeeds only 1/16.",
+      "info": "G_boundary=(T1 T2) C (T1 T2)^-1 (T1 B T1^-1) A"
     }
   ]
 }

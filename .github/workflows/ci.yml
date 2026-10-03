@@ -17,6 +17,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+
       - name: Verify AH9 frozen hashes
         run: |
           printf '%s  %s\n' \
@@ -28,6 +29,18 @@ jobs:
         run: python experiments/AH9/src/ah9.py
       - name: Run AH9 unit tests
         run: python -m unittest discover -s experiments/AH9/tests -v
+
+      - name: Verify AH10 frozen hashes
+        run: |
+          printf '%s  %s\n' \
+            abb90f3316d21845b4a55a94d3b9d48843bfb232d3802035bf17a9f92a76cd08 experiments/AH10/SPEC.md \
+            34ecff77a6afbc6650c6fc121e912d301b3c789a3f3a008fb4ab6220005f6849 experiments/AH10/src/ah10.py \
+            418fcb3569331542c7ae1dda8de520f9fcbaf0cb7dd1edd31b4c9cd316510bfb experiments/AH10/tests/test_ah10.py \
+            | sha256sum -c -
+      - name: Run AH10 frozen harness
+        run: python experiments/AH10/src/ah10.py
+      - name: Run AH10 unit tests
+        run: python -m unittest discover -s experiments/AH10/tests -v
 
       - uses: actions/setup-node@v4
         with:

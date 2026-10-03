@@ -9,11 +9,13 @@
 - [x] AH6 — closed-loop residue
 - [x] AH7 — orientation + inverse cancellation
 - [x] AH8 — neighboring plaquettes / local-to-global cancellation
+- [x] AH9 — basepoint-aware local-to-global composition
+- [x] AH10 — three-plaquette transported composition / associativity
 
 ## Near-term
 
-- [ ] Import frozen AH2–AH8 packages into `experiments/`
-- [ ] AH9 — unequal plaquette residues and nontrivial outer loop
+- [ ] AH11 — path compression and minimal connector memory
+- [ ] Import exact binary ZIP archives when the write path supports byte-preserving upload
 - [ ] ALTM-F1 — hidden circulation at coarse steady state
 - [ ] Formal Keyhole observability ladder
 - [ ] Conveyor packet schema and path operator API
@@ -31,7 +33,7 @@ Planned integration:
 
 ## Longer horizon
 
-- local-to-global transport composition;
+- path compression / minimal sufficient connector memory;
 - graph/Hodge decomposition of Gear currents;
 - adaptive/self-sculpting interfaces;
 - symbolic conveyor virtual machine;

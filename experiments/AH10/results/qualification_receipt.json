@@ -1,0 +1,13 @@
+{
+  "checks_passed": 158,
+  "checks_total": 158,
+  "experiment": "NBG-AH10",
+  "frozen_hashes_unchanged": true,
+  "python": "3.13.5",
+  "replay_exact": true,
+  "result_sha256": "c5f7555bb22d3224620b9e24b856385ebb672c64786260eb6888090e206816e8",
+  "unit_test_count": 11,
+  "unit_tests_passed": true,
+  "verdict": "PASS_AH10",
+  "version": "0.1.0"
+}
