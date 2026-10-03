@@ -31,6 +31,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH26 | Sequential failure auditing / evidence persistence | QUALIFIED · 24/24 checks · 15/15 tests |
 | AH27 | Windowed evidence / horizon-indexed memory | QUALIFIED · 25/25 checks · 15/15 tests |
 | AH28 | Multi-horizon governance / evidence arbitration | QUALIFIED v0.1.1 · 23/23 checks · 15/15 tests · v0.1.0 failed 22/23 |
+| AH29 | Horizon authorization / evidence least privilege | QUALIFIED · 23/23 checks · 15/15 tests |
 
 ## Research progression
 
@@ -61,6 +62,7 @@ hidden residue
   -> sequential failure auditing / evidence persistence
   -> windowed evidence / horizon-indexed memory
   -> multi-horizon governance / evidence arbitration
+  -> horizon authorization / derivability-aware least privilege
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
