@@ -1,0 +1,12 @@
+{
+  "checks_passed": 43,
+  "checks_total": 43,
+  "experiment": "NBG-AH16",
+  "frozen_hashes_unchanged": true,
+  "replay_exact": true,
+  "result_sha256": "7c0fc2988076de39c2a35edc3330f05bd30e3f8255ca4dec2821b46c55fbdf39",
+  "unit_test_count": 15,
+  "unit_tests_passed": true,
+  "version": "0.1.0",
+  "verdict": "PASS_AH16"
+}

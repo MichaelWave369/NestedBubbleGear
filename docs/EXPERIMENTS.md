@@ -18,6 +18,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH13 | Authorized query memory / retention minimization | PASS · 41/41 checks · 15/15 tests |
 | AH14 | Revocation / memory downgrade / receipt leakage | PASS · 43/43 checks · 15/15 tests |
 | AH15 | Revocation chains / path independence / reauthorization barrier | PASS · 21/21 checks · 15/15 tests |
+| AH16 | External authority reauthorization / selective handoff | PASS · 43/43 checks · 15/15 tests |
 
 ## Research progression
 

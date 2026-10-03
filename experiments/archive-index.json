@@ -183,6 +183,19 @@
       "headline": "Revocation chains / path independence / reauthorization barriers",
       "key_result": "Monotone FULL→P2→H3 downgrade equals direct FULL→H3, but GLOBAL↔ROUTE lateral transitions are not locally reconstructible after forgetting; an intermediate P2 commitment restores route distinctions in the tiny enumerable domain.",
       "info": "H(P2|RΓ)=0.25; H(G|P2)=0.25; H(P2|H3)=0.5471804688852168; H(P2|H3,R_mid)=0"
+    },
+    {
+      "id": "AH16",
+      "package": "NBG-AH16_External_Authority_Reauthorization_v0.1.0.zip",
+      "sha256": "3314bc18b7c21dee9acee4134b008fab4136de06ec32eb5387d1a7331fdb8c70",
+      "bytes": 24914,
+      "checks": "43/43",
+      "tests": "15/15",
+      "verdict": "PASS_AH16",
+      "replay": "exact",
+      "headline": "External authority reauthorization / selective handoff",
+      "key_result": "Full authority-store memory resolves four frozen local reauthorization barriers, while the released target-role descriptor answers the new query exactly with zero excess leakage.",
+      "info": "GLOBAL→ROUTE 0.25; ROUTE→GLOBAL 0.25; INTERFACE→GLOBAL 2.375; DOWNSTREAM→ROUTE 0.5471804688852168 bits"
     }
   ]
 }
