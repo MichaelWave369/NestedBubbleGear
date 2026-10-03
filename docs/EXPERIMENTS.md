@@ -20,6 +20,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH15 | Revocation chains / path independence / reauthorization barrier | PASS · 21/21 checks · 15/15 tests |
 | AH16 | External authority reauthorization / selective handoff | PASS · 43/43 checks · 15/15 tests |
 | AH17 | Split authority / Keyhole parallax reauthorization | QUALIFIED · 28/28 checks · 13/13 tests |
+| AH18 | Quorum topology / coalition-dependent authority | QUALIFIED · 51/51 checks · 14/14 tests |
 
 ## Research progression
 
