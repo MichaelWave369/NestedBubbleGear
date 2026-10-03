@@ -365,6 +365,19 @@
       "headline": "Horizon authorization / evidence least privilege",
       "key_result": "Role-scoped horizon releases preserve residual uncertainty for unauthorized targets, but a role denied Q_MULTI can reconstruct it exactly when authorized for all three component horizons.",
       "info": "H(M|AUDITOR)=0.39355535745192405 bits; H(M|TRI)=0; interface denial != informational non-derivability"
+    },
+    {
+      "id": "AH30",
+      "package": "NBG-AH30_Derivation_Closure_Authority_Hardening_v0.1.0.zip",
+      "sha256": "bf5afaf15f8c14cb819f327135191ab9c3e3f0fd20db0543dc4b1ccd6a34b664",
+      "bytes": 27278,
+      "checks": "31/31",
+      "tests": "15/15",
+      "verdict": "PASS_AH30_QUALIFIED",
+      "replay": "exact",
+      "headline": "Derivation closure / authority-safe release synthesis",
+      "key_result": "TRI direct authority excludes Q_MULTI but its derivation closure includes it; preserving lifetime+recent makes withholding Q_ADAPTIVE the unique minimum repair that turns the deny derivation-safe.",
+      "info": "Cl({L,R,A})={L,R,A,M}; harden to {L,R}; H(M|L,R)=0.39355535745192405 bits"
     }
   ]
 }
