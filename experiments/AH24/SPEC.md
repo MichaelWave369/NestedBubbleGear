@@ -154,7 +154,7 @@ Construct two regimes with identical one-Keyhole failure marginals:
 
 ### EDGE_MATCHED_INDEP
 
-Independent failures.
+Indepent failures.
 
 Expected:
 
@@ -326,6 +326,7 @@ and:
 \text{same component marginals}
 \not\Rightarrow
 \text{same redundancy value}
+}
 \]
 
 when failures are correlated.
