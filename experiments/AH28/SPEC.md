@@ -255,7 +255,7 @@ Arbitration:
 
 ### Panel D — LIFETIME_RISK
 
-Use a large common-moe archive:
+Use a large common-mode archive:
 
 \[
 A_C=(72200,3800,3800,20200)
@@ -403,7 +403,7 @@ Unknown contract:
 
 ```text
 -> REFUSE_UNKNOWN_QUERY_CONTRACT
-d``
+```
 
 ## 10. Receipts
 
