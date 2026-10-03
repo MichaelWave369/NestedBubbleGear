@@ -45,6 +45,8 @@ NBG
 | AH6 | Closed commutator loop | PASS · 41/41 |
 | AH7 | Oriented holonomy cancellation | PASS · 65/65 |
 | AH8 | Plaquette transport / curvature proxy | PASS · 63/63 |
+| AH9 | Basepoint transport / local-to-global composition | PASS · 106/106 |
+| AH10 | Three-plaquette transport / composition order | PASS · 158/158 |
 
 See [docs/EXPERIMENTS.md](docs/EXPERIMENTS.md).
 
@@ -81,9 +83,12 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── BUBBLE_ATLAS.md   Bubble-family taxonomy
 │   ├── BUBBLE_ZOO.md     Canonical toy behaviors
 │   ├── CONCEPTS.md       Working vocabulary
-│   ├── EXPERIMENTS.md    AH2-AH8 ladder
+│   ├── EXPERIMENTS.md    AH2-AH10 ladder
 │   └── ROADMAP.md        Next research rungs
-├── experiments/          Frozen packages will be imported here
+├── experiments/
+│   ├── AH9/              Frozen runnable rung
+│   ├── AH10/             Frozen runnable rung
+│   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff
 ├── LICENSE
