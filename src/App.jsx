@@ -20,6 +20,32 @@ const experiments = [
   ['AH8', 'Plaquette transport', '63/63', '10/10'],
 ]
 
+
+const bubbleFamilies = [
+  { id: 'nested', mark: '◎', name: 'Nested', subtitle: 'Domains inside domains', equation: 'B₀ ⊃ B₁ ⊃ B₂', text: 'Tracks ancestry, coarse/fine state, and which distinctions survive projection across nesting levels.', evidence: 'Core NBG architecture' },
+  { id: 'boundary', mark: 'Σ', name: 'Boundary', subtitle: 'Interface as state', equation: 'B = (X, Σ)', text: 'Treats the boundary itself as an active encoder, eraser, polarity carrier, or adaptive transport surface.', evidence: 'AH3 · boundary transfer' },
+  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH8' },
+  { id: 'keyhole', mark: '◉', name: 'Keyhole', subtitle: 'Observer-limited domain', equation: 'O = P(X)', text: 'Makes observability explicit: the full system may contain distinctions collapsed by the current projection.', evidence: 'Observer hierarchy' },
+  { id: 'altermath', mark: 'A', name: 'Altermath', subtitle: 'Causal structure behind cancellation', equation: 'P(X)=P(X′),  X ≉ X′', text: 'Captures systems that look equivalent now but respond differently to an admissible future interaction.', evidence: 'AH2–AH8' },
+  { id: 'flux', mark: 'J', name: 'Dynamic / Flux', subtitle: 'Stable through motion', equation: 'Ẋ = 0,  J ≠ 0', text: 'Separates dead equilibrium from nonequilibrium steady state maintained by persistent throughput.', evidence: 'ALTM-F branch · planned' },
+  { id: 'symbolic', mark: '→', name: 'Symbolic / Conveyor', subtitle: 'State between states', equation: 'Xᵢ → Zᵢⱼ → Xⱼ', text: 'Gives the transport packet its own symbol, frame, polarity, residue, timing, flux, and provenance.', evidence: 'Conveyor calculus · under development' },
+  { id: 'experimental', mark: 'E', name: 'Experimental', subtitle: 'One cage, one trick', equation: 'model → control → receipt', text: 'Minimal finite constructions designed to isolate one claim with controls and frozen expected outcomes.', evidence: 'AH experiment ladder' },
+  { id: 'speculative', mark: '?', name: 'Speculative Physical', subtitle: 'Possible downstream mapping', equation: 'formalism ≠ evidence', text: 'Horizon, cosmology, and black/white polarity applications live here until separately modeled and empirically justified.', evidence: 'Claim firewall applies' },
+]
+
+const zoo = [
+  ['Zoo-01', 'Hidden Twin', 'Same observation now; later probe separates the states.', 'AH2'],
+  ['Zoo-02', 'Boundary Courier', 'Parent information crosses an explicit interface as latent residue.', 'AH3'],
+  ['Zoo-03', 'Order Matters', 'Same interfaces, different order, different full result.', 'AH5'],
+  ['Zoo-04', 'Closed But Changed', 'The observable closes around a loop while the full state does not.', 'AH6'],
+  ['Zoo-05', 'CW / CCW', 'Opposite loop orientations hide different residues and cancel exactly.', 'AH7'],
+  ['Zoo-06', 'Two Plaquettes', 'Local loops stay nontrivial while the outer boundary cancels.', 'AH8'],
+  ['Zoo-07', 'Active Zero', 'Same steady snapshot; one system carries hidden cycle current.', 'ALTM-F'],
+  ['Zoo-08', 'False Dashboard', 'Visible output stabilizes while hidden dynamics violate the task regime.', 'Φ-System'],
+  ['Zoo-09', 'Conveyor Memory', 'The present token matches while ordered path history differs.', 'Conveyor'],
+  ['Zoo-10', 'Self-Sculpting Interface', 'Flux reshapes the interface that controls future flux.', 'Proposed'],
+]
+
 const keyholes = [
   {
     label: 'O₀ · Snapshot',
@@ -64,7 +90,9 @@ function Formula({ children }) {
 
 function App() {
   const [depth, setDepth] = useState(0)
+  const [bubbleIndex, setBubbleIndex] = useState(0)
   const active = keyholes[depth]
+  const activeBubble = bubbleFamilies[bubbleIndex]
 
   const totalChecks = useMemo(
     () => experiments.reduce((sum, row) => sum + Number(row[2].split('/')[0]), 0),
@@ -77,6 +105,7 @@ function App() {
         <a className="brand" href="#top"><span>Φ</span> NBG Research Lab</a>
         <nav>
           <a href="#stack">Stack</a>
+          <a href="#atlas">Bubble Atlas</a>
           <a href="#keyholes">Keyholes</a>
           <a href="#experiments">Experiments</a>
           <a href="#claims">Claims</a>
@@ -138,6 +167,59 @@ function App() {
               <h3>{item.name}</h3>
               <h4>{item.title}</h4>
               <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+
+      <section id="atlas" className="section atlas-section">
+        <div className="section-label">BUBBLE ATLAS</div>
+        <div className="two-col atlas-heading">
+          <div>
+            <h2>Not every bubble is a sphere.<br />Every bubble has a job.</h2>
+            <p className="muted">
+              “Bubble” is the domain abstraction. Pick a family to see what structure it isolates and where it currently sits in the research stack.
+            </p>
+          </div>
+          <div className="atlas-active">
+            <div className="atlas-glyph">{activeBubble.mark}</div>
+            <span className="pill">{activeBubble.subtitle}</span>
+            <h3>{activeBubble.name} Bubble</h3>
+            <code>{activeBubble.equation}</code>
+            <p>{activeBubble.text}</p>
+            <small>{activeBubble.evidence}</small>
+          </div>
+        </div>
+
+        <div className="atlas-grid">
+          {bubbleFamilies.map((bubble, i) => (
+            <button
+              key={bubble.id}
+              className={i === bubbleIndex ? 'atlas-card active' : 'atlas-card'}
+              onClick={() => setBubbleIndex(i)}
+            >
+              <span className="atlas-card-mark">{bubble.mark}</span>
+              <strong>{bubble.name}</strong>
+              <small>{bubble.subtitle}</small>
+            </button>
+          ))}
+        </div>
+
+        <div className="zoo-head">
+          <div>
+            <span className="section-label">BUBBLE ZOO</span>
+            <h3>One cage. One trick.</h3>
+          </div>
+          <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/docs/BUBBLE_ZOO.md">Full zoo notes ↗</a>
+        </div>
+
+        <div className="zoo-grid">
+          {zoo.map(([id, name, behavior, rung]) => (
+            <article className="zoo-card" key={id}>
+              <div className="zoo-card-top"><span>{id}</span><em>{rung}</em></div>
+              <h4>{name}</h4>
+              <p>{behavior}</p>
             </article>
           ))}
         </div>
