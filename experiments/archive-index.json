@@ -222,6 +222,19 @@
       "headline": "Quorum topology / coalition-dependent authority",
       "key_result": "Equal-sized coalitions need not have equal reconstruction power; E1+E2 and E2+E3 are sufficient while E1+E3 remains insufficient.",
       "info": "minimal capable coalitions {E1,E2},{E2,E3}; H(H2|E1,E3)=0.6887218755408672 bits"
+    },
+    {
+      "id": "AH19",
+      "package": "NBG-AH19_Authority_Access_Structures_v0.1.0.zip",
+      "sha256": "8c54b738c032f9439ee70b27cbc40ab2ad2e988c71f36bbbd3964a53e289fd60",
+      "bytes": 23815,
+      "checks": "65/65",
+      "tests": "15/15",
+      "verdict": "PASS_AH19_QUALIFIED",
+      "replay": "exact",
+      "headline": "Authority access structures / minimal coalition lattices",
+      "key_result": "All eight coalitions are enumerated per task; full reconstruction tasks have minimal coalitions {E1,E2} and {E2,E3} with mandatory core E2, while the coarse C-class alarm has minimal singleton coalitions E1 or E3 and no mandatory core.",
+      "info": "A_Q={C:H(Q|Dlocal,C)=0}; policy is an upward-closed strict subfamily of capability"
     }
   ]
 }
