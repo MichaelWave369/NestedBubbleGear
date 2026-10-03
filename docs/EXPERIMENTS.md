@@ -15,6 +15,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH10 | Three-plaquette transport / composition order | PASS · 158/158 checks · 11/11 tests |
 | AH11 | Path compression / minimal connector memory | PASS · 34/34 checks · 12/12 tests |
 | AH12 | Task-dependent memory / query-indexed residue | PASS · 35/35 checks · 13/13 tests |
+| AH13 | Authorized query memory / retention minimization | PASS · 41/41 checks · 15/15 tests |
 
 ## Research progression
 
