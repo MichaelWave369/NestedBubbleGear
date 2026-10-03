@@ -313,6 +313,19 @@
       "headline": "Failure-domain discovery / redundancy auditing",
       "key_result": "Matched marginal failure dashboards conceal radically different joint failure domains; joint traces recover AH24's 0.84816 independent versus 0.71820 common-cause redundancy split.",
       "info": "p1=p3=0.24 for three large controls; statuses independence-compatible, common-mode evidence, other-direction dependence; small sample refuses"
+    },
+    {
+      "id": "AH26",
+      "package": "NBG-AH26_Sequential_Failure_Auditing_v0.1.0.zip",
+      "sha256": "e50134c237b39c915f7b6de9d1e2b33810654bd3a6d3bb7bd59e6db7455bd6e9",
+      "bytes": 22006,
+      "checks": "24/24",
+      "tests": "15/15",
+      "verdict": "PASS_AH26_QUALIFIED",
+      "replay": "exact",
+      "headline": "Sequential failure auditing / evidence persistence",
+      "key_result": "Raw statistical evidence changes immediately, while a two-hit persistence rule delays governance escalation and clearing by one confirming batch.",
+      "info": "raw: insufficient→compatible→common→common→compatible→compatible; governed: no alert→pending→active→pending clear→cleared"
     }
   ]
 }

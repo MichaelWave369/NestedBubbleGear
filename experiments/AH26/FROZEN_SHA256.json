@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-AH26",
+  "files": {
+    "SPEC.md": "63ec993acd92c5a5cde604cd1071b0948b304572989cc6fb53cd207c9f75da68",
+    "src/ah26.py": "78e7a424c8825f9230484bf5d344d569886c5cf7cc04ff901616ec367288cd28",
+    "tests/test_ah26.py": "85e58d39a08dd979e6f425216bce5a296cc3844c689518b88e6314b1272f29f1"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
