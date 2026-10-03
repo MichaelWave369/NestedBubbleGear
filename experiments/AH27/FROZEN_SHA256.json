@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-AH27",
+  "files": {
+    "SPEC.md": "a369e36b882b1f60cfc05ef6c13aa5fe8f85aced2705ec12ea834409c54eede3",
+    "src/ah27.py": "934694530072050e59068782b5e13bf4378dd0973bfa09c6d2d04ab6a6414ef4",
+    "tests/test_ah27.py": "0a7fd9c51bd88d97585324c220cc23b0738931c20a2ed815a8b96618c0987ac6"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
