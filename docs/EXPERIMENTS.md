@@ -13,6 +13,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH8 | Plaquette transport / curvature proxy | PASS · 63/63 checks · 10/10 tests |
 | AH9 | Basepoint transport / local-to-global composition | PASS · 106/106 checks · 10/10 tests |
 | AH10 | Three-plaquette transport / composition order | PASS · 158/158 checks · 11/11 tests |
+| AH11 | Path compression / minimal connector memory | PASS · 34/34 checks · 12/12 tests |
 
 ## Research progression
 
