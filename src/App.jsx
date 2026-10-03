@@ -30,15 +30,16 @@ const experiments = [
   { id:'AH18', title:'Quorum topology', checks:'51/51', tests:'14/14', verdict:'PASS_AH18_QUALIFIED', hash:'93a22673cc736da2374212f29dfde2ea70163cfe6faeb9dac92e1e023cfa2f68', result:'Equal-sized authority coalitions can have different reconstruction power; quorum depends on coalition information topology, not just member count.', info:'capable pairs {E₁,E₂},{E₂,E₃} · {E₁,E₃} insufficient · coalition CAPABILITY ≠ AUTHORITY' },
   { id:'AH19', title:'Authority access structures', checks:'65/65', tests:'15/15', verdict:'PASS_AH19_QUALIFIED', hash:'8c54b738c032f9439ee70b27cbc40ab2ad2e988c71f36bbbd3964a53e289fd60', result:'The complete coalition lattice is enumerated task-by-task, recovering upward-closed capability families, exact minimal coalitions, mandatory cores, and stricter policy subfamilies.', info:'A_Q={C:H(Q|Dlocal,C)=0} · full tasks core={E₂} · coarse alarm core=∅' },
   { id:'AH20', title:'Keyhole criticality + resilience', checks:'68/68', tests:'15/15', verdict:'PASS_AH20_QUALIFIED', hash:'0ef62e3bda4ed70b4034536261742e7799b897715b2f56bc0144a59685202060', result:'Minimal failure cuts expose the difference between mathematical redundancy and the narrower resilience of policy-authorized coalition families.', info:'full capability cuts {E₂},{E₁,E₃} · policy can add singleton cuts · Rcap(p)≠Rpolicy(p)' },
+  { id:'AH21', title:'Policy hardening synthesis', checks:'64/64', tests:'16/16', verdict:'PASS_AH21_QUALIFIED', hash:'21c2384c3859c3e7b2025bad565464d465a7cba175537f31b5a88a588e29de29', result:'Policy fragility is repaired by exhaustive constrained synthesis of the smallest legal coalition expansion that removes policy-created singleton cuts.', info:'one coalition added per task · alarm 0.900→0.981→0.990 while singleton E₁ remains denied' },
 ]
 
 
 const bubbleFamilies = [
   { id: 'nested', mark: '◎', name: 'Nested', subtitle: 'Domains inside domains', equation: 'B₀ ⊃ B₁ ⊃ B₂', text: 'Tracks ancestry, coarse/fine state, and which distinctions survive projection across nesting levels.', evidence: 'Core NBG architecture' },
   { id: 'boundary', mark: 'Σ', name: 'Boundary', subtitle: 'Interface as state', equation: 'B = (X, Σ)', text: 'Treats the boundary itself as an active encoder, eraser, polarity carrier, or adaptive transport surface.', evidence: 'AH3 · boundary transfer' },
-  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH20' },
+  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH21' },
   { id: 'keyhole', mark: '◉', name: 'Keyhole', subtitle: 'Observer-limited domain', equation: 'O = P(X)', text: 'Makes observability explicit: the full system may contain distinctions collapsed by the current projection.', evidence: 'Observer hierarchy' },
-  { id: 'altermath', mark: 'A', name: 'Altermath', subtitle: 'Causal structure behind cancellation', equation: 'P(X)=P(X′),  X ≉ X′', text: 'Captures systems that look equivalent now but respond differently to an admissible future interaction.', evidence: 'AH2–AH20' },
+  { id: 'altermath', mark: 'A', name: 'Altermath', subtitle: 'Causal structure behind cancellation', equation: 'P(X)=P(X′),  X ≉ X′', text: 'Captures systems that look equivalent now but respond differently to an admissible future interaction.', evidence: 'AH2–AH21' },
   { id: 'flux', mark: 'J', name: 'Dynamic / Flux', subtitle: 'Stable through motion', equation: 'Ẋ = 0,  J ≠ 0', text: 'Separates dead equilibrium from nonequilibrium steady state maintained by persistent throughput.', evidence: 'ALTM-F branch · planned' },
   { id: 'symbolic', mark: '→', name: 'Symbolic / Conveyor', subtitle: 'State between states', equation: 'Xᵢ → Zᵢⱼ → Xⱼ', text: 'Gives the transport packet its own symbol, frame, polarity, residue, timing, flux, and provenance.', evidence: 'Conveyor calculus · under development' },
   { id: 'experimental', mark: 'E', name: 'Experimental', subtitle: 'One cage, one trick', equation: 'model → control → receipt', text: 'Minimal finite constructions designed to isolate one claim with controls and frozen expected outcomes.', evidence: 'AH experiment ladder' },
@@ -147,7 +148,7 @@ function App() {
           <a className="button ghost" href="#keyholes">Open the keyhole</a>
         </div>
         <div className="stats">
-          <div><strong>AH2→AH20</strong><span>frozen experiment ladder</span></div>
+          <div><strong>AH2→AH21</strong><span>frozen experiment ladder</span></div>
           <div><strong>{totalChecks}</strong><span>frozen acceptance checks passed</span></div>
           <div><strong>7</strong><span>layers in the current stack</span></div>
         </div>
@@ -317,7 +318,7 @@ function App() {
               <small>FROZEN PACKAGE SHA-256</small>
               <strong>{activeExperiment.hash}</strong>
             </div>
-            <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/AH2-AH20_DOSSIERS.md">
+            <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/AH2-AH21_DOSSIERS.md">
               Open frozen result dossiers ↗
             </a>
           </aside>
