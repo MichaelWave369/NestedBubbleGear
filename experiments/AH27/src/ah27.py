@@ -191,11 +191,13 @@ def main():
         {"name":"primary:lifetime_reliability_exact","pass":all(abs(a-b)<1e-12 for a,b in zip(life_rel,EXPECTED_LIFETIME_RELIABILITY))},
     ]
 
+    # Marginals remain identical across every view and step.
     checks.extend([
         {"name":"primary:all_p1_0p24","pass":all(abs(r["views"][v]["stats"]["p1"]-0.24)<1e-12 for r in primary for v in ("lifetime","recent2","discounted"))},
         {"name":"primary:all_p3_0p24","pass":all(abs(r["views"][v]["stats"]["p3"]-0.24)<1e-12 for r in primary for v in ("lifetime","recent2","discounted"))},
     ])
 
+    # Horizon disagreements.
     checks.extend([
         {"name":"horizon:R2_lifetime_vs_recent","pass":
             primary[1]["views"]["lifetime"]["status"]=="INSUFFICIENT_EVIDENCE" and
@@ -216,6 +218,7 @@ def main():
         },
     ])
 
+    # Frozen numeric spot checks.
     checks.extend([
         {"name":"numeric:R2_lifetime_delta","pass":abs(primary[1]["views"]["lifetime"]["stats"]["delta"]-0.00343809523809524)<1e-12},
         {"name":"numeric:R2_recent_delta","pass":abs(primary[1]["views"]["recent2"]["stats"]["delta"]-0.0722)<1e-12},
@@ -224,6 +227,7 @@ def main():
         {"name":"numeric:R5_discounted_delta","pass":abs(primary[4]["views"]["discounted"]["stats"]["delta"]-0.0014290598290598241)<1e-12},
     ])
 
+    # Same-lifetime / different-recent order witness.
     history_A=(C_BATCH,C_BATCH,I_BATCH,I_BATCH)
     history_B=(I_BATCH,I_BATCH,C_BATCH,C_BATCH)
     A=final_views(history_A)
@@ -245,6 +249,7 @@ def main():
         {"name":"witness:lifetime_table_exact","pass":A["lifetime"]["table"]==[64258.0,19342.0,19342.0,7058.0]},
     ])
 
+    # Replay exactness.
     replay=run_primary()
     checks.extend([
         {"name":"replay:primary_exact","pass":canonical(primary)==canonical(replay)},
