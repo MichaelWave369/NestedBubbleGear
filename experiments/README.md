@@ -30,3 +30,16 @@ The verified frozen package identities and result summaries are now tracked in:
 The original ZIP files have been independently re-hashed against the values above. They are **not yet committed as binary blobs** because the current connector write path does not accept local binary file paths directly.
 
 This distinction is intentional: an indexed archive hash is not represented as a committed archive byte stream until those exact bytes are uploaded and verified.
+
+
+## AH14 exact archive
+
+AH14 is the first rung whose exact frozen ZIP archive is committed byte-for-byte alongside the runnable text artifacts:
+
+`AH14/archive/NBG-AH14_Revocation_Memory_Downgrade_v0.1.0.zip`
+
+Expected SHA-256:
+
+`921d4e091984fb8d3122d35d2e25f05d436eff2dd9659dd90ea3e968bdb0aa0e`
+
+Older AH2–AH13 ZIPs remain indexed by their independently verified archive hashes unless explicitly backfilled later.
