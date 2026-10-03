@@ -22,6 +22,8 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH17 | Split authority / Keyhole parallax reauthorization | QUALIFIED · 28/28 checks · 13/13 tests |
 | AH18 | Quorum topology / coalition-dependent authority | QUALIFIED · 51/51 checks · 14/14 tests |
 | AH19 | Authority access structures / minimal coalition lattices | QUALIFIED · 65/65 checks · 15/15 tests |
+| AH20 | Keyhole criticality / failure sets / policy resilience | QUALIFIED · 68/68 checks · 15/15 tests |
+| AH21 | Policy hardening / redundancy synthesis | QUALIFIED · 64/64 checks · 16/16 tests |
 
 ## Research progression
 
@@ -43,6 +45,8 @@ hidden residue
   -> split-authority Keyhole parallax
   -> quorum topology / coalition-dependent authority
   -> task-relative authority access structures
+  -> failure topology / capability-vs-policy resilience
+  -> constrained policy hardening synthesis
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
