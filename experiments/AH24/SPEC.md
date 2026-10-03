@@ -154,7 +154,7 @@ Construct two regimes with identical one-Keyhole failure marginals:
 
 ### EDGE_MATCHED_INDEP
 
-Indepent failures.
+Independent failures.
 
 Expected:
 
