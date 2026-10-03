@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-AH15",
+  "files": {
+    "SPEC.md": "b73aa08df56b11b489fb713a7b9763b831d4c3d4fd0d41aed191bcc3f7a7232e",
+    "src/ah15.py": "c75e2ba0232f4bf586695a3a3b58cfdebf6f0aea8688a2efb561822c7c7d9bb0",
+    "tests/test_ah15.py": "155678daa4ef02a084f6402f62e35c9655c837c10cd6c5564ab6d9a20a30e31d"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
