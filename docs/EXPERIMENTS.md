@@ -24,6 +24,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH19 | Authority access structures / minimal coalition lattices | QUALIFIED · 65/65 checks · 15/15 tests |
 | AH20 | Keyhole criticality / failure sets / policy resilience | QUALIFIED · 68/68 checks · 15/15 tests |
 | AH21 | Policy hardening / redundancy synthesis | QUALIFIED · 64/64 checks · 16/16 tests |
+| AH22 | Costed policy synthesis / Pareto frontiers | QUALIFIED · 44/44 checks · 15/15 tests |
 
 ## Research progression
 
@@ -47,6 +48,7 @@ hidden residue
   -> task-relative authority access structures
   -> failure topology / capability-vs-policy resilience
   -> constrained policy hardening synthesis
+  -> costed policy synthesis / Pareto frontiers
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
