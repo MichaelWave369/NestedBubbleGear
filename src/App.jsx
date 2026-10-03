@@ -388,10 +388,11 @@ function App() {
 
       <footer>
         <div><span className="footer-phi">Φ</span><strong>Nested Bubble/Gear</strong></div>
-        <p>Experimental mathematics · reproducible toy models · claim firewall intact.</p>
+        <p>Experimental mathematics · reproducible toy models · claim firewall intact.<br />Code: MIT · Research content: CC BY 4.0</p>
         <div className="footer-links">
           <a href="https://github.com/MichaelWave369/NestedBubbleGear">Repository</a>
           <a href="https://zenodo.org/communities/enter-the-field-phi369/records">Zenodo Community</a>
+          <a href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/LICENSE_POLICY.md">Licensing</a>
         </div>
       </footer>
     </main>
