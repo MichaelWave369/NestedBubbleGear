@@ -378,6 +378,19 @@
       "headline": "Derivation closure / authority-safe release synthesis",
       "key_result": "TRI direct authority excludes Q_MULTI but its derivation closure includes it; preserving lifetime+recent makes withholding Q_ADAPTIVE the unique minimum repair that turns the deny derivation-safe.",
       "info": "Cl({L,R,A})={L,R,A,M}; harden to {L,R}; H(M|L,R)=0.39355535745192405 bits"
+    },
+    {
+      "id": "AH31",
+      "package": "NBG-AH31_Collusion_Closure_Coalition_Authority_v0.1.0.zip",
+      "sha256": "ee575cf98954b50814013b8d37d9b905d74781c52b2d71d44b4979578dee6562",
+      "bytes": 29205,
+      "checks": "26/26",
+      "tests": "15/15",
+      "verdict": "PASS_AH31_QUALIFIED",
+      "replay": "exact",
+      "headline": "Collusion closure / coalition effective authority",
+      "key_result": "All singleton roles are derivation-safe, but pooled releases create two minimal Q_MULTI-deriving coalitions; exhaustive release removal finds 0 coverage-preserving configurations safe against unrestricted grand-coalition pooling.",
+      "info": "16 actor coalitions; 5 dangerous; minimal={Adaptive,Auditor} and {Historian,Operator,Adaptive}; mandatory core=Adaptive; 9 coverage-preserving grant configurations, 0 grand-coalition safe"
     }
   ]
 }

@@ -33,6 +33,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH28 | Multi-horizon governance / evidence arbitration | QUALIFIED v0.1.1 · 23/23 checks · 15/15 tests · v0.1.0 failed 22/23 |
 | AH29 | Horizon authorization / evidence least privilege | QUALIFIED · 23/23 checks · 15/15 tests |
 | AH30 | Derivation closure / authority-safe release synthesis | QUALIFIED · 31/31 checks · 15/15 tests |
+| AH31 | Collusion closure / coalition effective authority | QUALIFIED · 26/26 checks · 15/15 tests |
 
 ## Research progression
 
@@ -65,6 +66,7 @@ hidden residue
   -> multi-horizon governance / evidence arbitration
   -> horizon authorization / derivability-aware least privilege
   -> derivation closure / authority-safe release synthesis
+  -> collusion closure / coalition effective authority
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
