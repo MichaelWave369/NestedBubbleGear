@@ -172,6 +172,104 @@ main { overflow: hidden; }
 .stack-card h4 { margin: 0 0 16px; color: var(--green); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; }
 .stack-card p { color: var(--muted); line-height: 1.6; font-size: 14px; }
 
+
+.atlas-section {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(115,255,197,.07), transparent 24%),
+    #050908;
+}
+.atlas-heading { align-items: stretch; }
+.atlas-active {
+  min-height: 330px;
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, rgba(16,40,32,.78), rgba(5,9,8,.35));
+  position: relative;
+  overflow: hidden;
+}
+.atlas-active::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  aspect-ratio: 1;
+  right: -90px;
+  top: -90px;
+  border-radius: 50%;
+  border: 1px solid rgba(115,255,197,.12);
+  box-shadow: inset 0 0 50px rgba(115,255,197,.05);
+}
+.atlas-glyph {
+  width: 72px; height: 72px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(115,255,197,.36);
+  color: var(--green);
+  font-family: Georgia, serif;
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+.atlas-active h3 { font-size: 32px; margin: 18px 0 8px; }
+.atlas-active code { color: var(--green); font-size: 14px; }
+.atlas-active p { color: #b7cbc4; line-height: 1.7; max-width: 600px; }
+.atlas-active small { color: #647b73; text-transform: uppercase; letter-spacing: .08em; }
+.atlas-grid {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.atlas-card {
+  min-height: 145px;
+  border: 0;
+  color: var(--ink);
+  background: #07100d;
+  padding: 16px 12px;
+  cursor: pointer;
+  text-align: left;
+}
+.atlas-card:hover, .atlas-card.active { background: #10251e; }
+.atlas-card.active { box-shadow: inset 0 -2px var(--green); }
+.atlas-card-mark {
+  display: grid;
+  place-items: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(115,255,197,.25);
+  color: var(--green);
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+.atlas-card strong { display: block; font-size: 13px; }
+.atlas-card small { display: block; margin-top: 6px; color: #637970; line-height: 1.35; }
+.zoo-head {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+}
+.zoo-head h3 { margin: 8px 0 0; font-size: 34px; }
+.text-link { color: var(--green); font-size: 12px; }
+.zoo-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+.zoo-card {
+  min-height: 210px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: rgba(7,16,13,.75);
+}
+.zoo-card-top { display: flex; justify-content: space-between; gap: 8px; }
+.zoo-card-top span { color: var(--green); font-family: monospace; font-size: 11px; }
+.zoo-card-top em { color: #61776f; font-size: 9px; font-style: normal; text-transform: uppercase; letter-spacing: .08em; }
+.zoo-card h4 { margin: 46px 0 8px; font-size: 18px; }
+.zoo-card p { margin: 0; color: var(--muted); line-height: 1.55; font-size: 13px; }
+
 .keyhole-section { background: radial-gradient(circle at 80% 50%, rgba(51,188,133,.08), transparent 35%); }
 .depth-buttons { display: flex; gap: 8px; margin-top: 30px; }
 .depth-buttons button {
@@ -271,6 +369,8 @@ footer {
 
 @media (max-width: 1050px) {
   .stack-grid { grid-template-columns: repeat(2, 1fr); }
+  .atlas-grid { grid-template-columns: repeat(3, 1fr); }
+  .zoo-grid { grid-template-columns: repeat(2, 1fr); }
   .equation-grid, .claim-grid { grid-template-columns: 1fr; }
   .two-col, .manifesto { grid-template-columns: 1fr; }
   .nav nav a:not(:last-child) { display: none; }
@@ -284,6 +384,8 @@ footer {
   .stats { grid-template-columns: 1fr; width: 100%; }
   .section { padding-top: 80px; padding-bottom: 80px; }
   .stack-grid { grid-template-columns: 1fr; }
+  .atlas-grid, .zoo-grid { grid-template-columns: 1fr; }
+  .zoo-head { align-items: start; flex-direction: column; }
   .section-heading-row { align-items: start; flex-direction: column; }
   .status { margin-top: -20px; }
   .experiment { grid-template-columns: 44px 1fr 88px; }
