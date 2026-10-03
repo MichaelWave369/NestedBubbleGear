@@ -274,6 +274,19 @@
       "headline": "Costed policy synthesis / Pareto frontiers",
       "key_result": "Legal governance policies form explicit nondominated cost-fragility-reliability frontiers; hard denies remove points from the feasible set rather than merely raising their cost.",
       "info": "alarm soft frontier=(0,1,0.900),(1,0,0.981),(5,0,0.990); hard deny removes the 0.990 point"
+    },
+    {
+      "id": "AH23",
+      "package": "NBG-AH23_Robust_Pareto_Uncertain_Failure_v0.1.0.zip",
+      "sha256": "e08c6fe8b99005266b27b050d2cff40abe40441086106d0e904ecf60147116d4",
+      "bytes": 29956,
+      "checks": "41/41",
+      "tests": "15/15",
+      "verdict": "PASS_AH23_QUALIFIED",
+      "replay": "exact",
+      "headline": "Robust Pareto frontiers / failure-rate uncertainty",
+      "key_result": "AH22 frontier membership remains unchanged across six frozen common-failure scenarios when policies are compared by worst-case reliability and maximum regret.",
+      "info": "common p in {0.05,0.10,0.15,0.20,0.25,0.30}; alarm soft frontier worst-case values 0.700,0.847,0.910; no membership reversal"
     }
   ]
 }
