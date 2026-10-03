@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-10-02",
+  "note": "Exact SHA-256 identities of the original frozen ZIP packages retained outside the repository write path. This index does not claim the ZIP bytes were uploaded by the connector.",
+  "experiments": [
+    {
+      "id": "AH2",
+      "package": "NBG-AH2_Latent_Causal_Residue_v0.1.0.zip",
+      "sha256": "55e243b9e78a5884284a54bf431537af6d1d1793da3601cddb5b2e31bc10d7f3",
+      "bytes": 31449,
+      "checks": "29/29",
+      "tests": "6/6",
+      "verdict": "PASS_AH2",
+      "replay": "exact",
+      "headline": "Latent causal residue",
+      "key_result": "Present observational equivalence does not determine whether a hidden difference is inert, erased, or latent.",
+      "info": "I(X0;T|Y0)=log2(6)=2.584962500721155 bits"
+    },
+    {
+      "id": "AH3",
+      "package": "NBG-AH3_Boundary_Transferred_Latent_Residue_v0.1.0.zip",
+      "sha256": "13143744580f1f44cf482b59a457effacc6b043a2eabeb12c83f37f079ccc86f",
+      "bytes": 43231,
+      "checks": "89/89",
+      "tests": "7/7",
+      "verdict": "PASS_AH3",
+      "replay": "exact",
+      "headline": "Boundary-transferred latent residue",
+      "key_result": "The interface relation r=p*s carries a joint-only predictive bit and supports exact ancestry recovery with retained polarity.",
+      "info": "I(p;T|parent)=1 bit; H(T)=log2(6)"
+    },
+    {
+      "id": "AH4",
+      "package": "NBG-AH4_Two_Interface_Altermath_Holonomy_v0.1.0.zip",
+      "sha256": "e5b9ebea0b9e30b52dae3fc9167ccb1da021df872f1aa3dafb676d77ec1a69bf",
+      "bytes": 24001,
+      "checks": "44/44",
+      "tests": "8/8",
+      "verdict": "PASS_AH4",
+      "replay": "exact",
+      "headline": "Observable return without full-state return",
+      "key_result": "Two return paths share the same endpoint observation and path product while retaining different hidden phase.",
+      "info": "I(endpoint;T)=0; I(path_product;T)=0; I(phase;T)=1 bit"
+    },
+    {
+      "id": "AH5",
+      "package": "NBG-AH5_Noncommuting_Interface_Order_v0.1.0.zip",
+      "sha256": "88df41892f5d16068cb323657275ad8ec6dcb0c7951ed9f0c278ab0f991d4141",
+      "bytes": 20178,
+      "checks": "36/36",
+      "tests": "8/8",
+      "verdict": "PASS_AH5",
+      "replay": "exact",
+      "headline": "Noncommuting interface order",
+      "key_result": "Same interfaces plus same coarse endpoint can retain different hidden causal residue when order changes.",
+      "info": "I(order;T|Y)=1 bit; unordered inventory contributes 0 bits"
+    },
+    {
+      "id": "AH6",
+      "package": "NBG-AH6_Closed_Commutator_Loop_v0.1.0.zip",
+      "sha256": "912a0c2df491480fe632dc03ae5f00bff7a133da2cc9d687b5f7b8c05e3aa5fb",
+      "bytes": 21059,
+      "checks": "41/41",
+      "tests": "9/9",
+      "verdict": "PASS_AH6",
+      "replay": "exact",
+      "headline": "Closed commutator loop",
+      "key_result": "The declared observable returns after a closed loop while the full state retains nonzero loop residue.",
+      "info": "π(Lx)=π(x) while Lx≠x; H(T|Y)=1 bit"
+    },
+    {
+      "id": "AH7",
+      "package": "NBG-AH7_Oriented_Holonomy_Cancellation_v0.1.0.zip",
+      "sha256": "7b2afc2b9e5d8c1a4c6762e352e22fb4ddaa04d7ee98a7c4b79ab24c3976666c",
+      "bytes": 23777,
+      "checks": "65/65",
+      "tests": "9/9",
+      "verdict": "PASS_AH7",
+      "replay": "exact",
+      "headline": "Oriented holonomy cancellation",
+      "key_result": "CW and CCW loops are coarse-identical, leave different residues, and exactly cancel under inverse composition.",
+      "info": "T=S*R; I((S,R);T|Y)=1 bit"
+    },
+    {
+      "id": "AH8",
+      "package": "NBG-AH8_Plaquette_Transport_Curvature_Proxy_v0.1.0.zip",
+      "sha256": "bccba3c5dbeb43ef6f55cedcac20d622d3e75e157a6ff9a206f00abc7ef1e603",
+      "bytes": 25465,
+      "checks": "63/63",
+      "tests": "10/10",
+      "verdict": "PASS_AH8",
+      "replay": "exact",
+      "headline": "Plaquette transport / curvature proxy",
+      "key_result": "Neighboring local loops are nontrivial while the complete outer boundary is exactly trivial.",
+      "info": "K_L≠0, K_R≠0, K_outer=0; H(T)=log2(3)"
+    }
+  ]
+}

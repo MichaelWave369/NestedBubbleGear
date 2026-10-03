@@ -11,13 +11,13 @@ const stack = [
 ]
 
 const experiments = [
-  ['AH2', 'Latent causal residue', '29/29', '6/6'],
-  ['AH3', 'Boundary transfer', '89/89', '7/7'],
-  ['AH4', 'Two-interface holonomy', '44/44', '8/8'],
-  ['AH5', 'Noncommuting order', '36/36', '8/8'],
-  ['AH6', 'Closed commutator loop', '41/41', '9/9'],
-  ['AH7', 'Oriented cancellation', '65/65', '9/9'],
-  ['AH8', 'Plaquette transport', '63/63', '10/10'],
+  { id:'AH2', title:'Latent causal residue', checks:'29/29', tests:'6/6', verdict:'PASS_AH2', hash:'55e243b9e78a5884284a54bf431537af6d1d1793da3601cddb5b2e31bc10d7f3', result:'Present observational equivalence does not determine whether a hidden difference is inert, erased, or latent.', info:'I(X₀;T|Y₀) = log₂(6) = 2.584962500721155 bits' },
+  { id:'AH3', title:'Boundary-transferred residue', checks:'89/89', tests:'7/7', verdict:'PASS_AH3', hash:'13143744580f1f44cf482b59a457effacc6b043a2eabeb12c83f37f079ccc86f', result:'An explicit boundary relation r = p·s carries the missing predictive bit and supports exact ancestry recovery.', info:'I(p;T|parent) = 1 bit' },
+  { id:'AH4', title:'Two-interface holonomy', checks:'44/44', tests:'8/8', verdict:'PASS_AH4', hash:'e5b9ebea0b9e30b52dae3fc9167ccb1da021df872f1aa3dafb676d77ec1a69bf', result:'Two return paths share the same visible endpoint and path product while retaining different hidden phase.', info:'I(endpoint;T)=0 · I(path product;T)=0 · I(phase;T)=1 bit' },
+  { id:'AH5', title:'Noncommuting order', checks:'36/36', tests:'8/8', verdict:'PASS_AH5', hash:'88df41892f5d16068cb323657275ad8ec6dcb0c7951ed9f0c278ab0f991d4141', result:'Same interfaces and same coarse endpoint retain different causal residue when the interface order changes.', info:'I(order;T|Y) = 1 bit · unordered inventory = 0 bits' },
+  { id:'AH6', title:'Closed commutator loop', checks:'41/41', tests:'9/9', verdict:'PASS_AH6', hash:'912a0c2df491480fe632dc03ae5f00bff7a133da2cc9d687b5f7b8c05e3aa5fb', result:'A closed loop returns the declared observable while leaving nonzero full-state loop residue.', info:'π(Lx)=π(x) while Lx≠x' },
+  { id:'AH7', title:'Oriented cancellation', checks:'65/65', tests:'9/9', verdict:'PASS_AH7', hash:'7b2afc2b9e5d8c1a4c6762e352e22fb4ddaa04d7ee98a7c4b79ab24c3976666c', result:'CW and CCW loops are coarse-identical, retain different residues, and exactly cancel under inverse composition.', info:'T = S·R · exact inverse cancellation' },
+  { id:'AH8', title:'Plaquette transport', checks:'63/63', tests:'10/10', verdict:'PASS_AH8', hash:'bccba3c5dbeb43ef6f55cedcac20d622d3e75e157a6ff9a206f00abc7ef1e603', result:'Two local plaquettes are individually nontrivial while the complete outer boundary is exactly trivial.', info:'K_L≠0 · K_R≠0 · K_outer=0' },
 ]
 
 
@@ -91,11 +91,13 @@ function Formula({ children }) {
 function App() {
   const [depth, setDepth] = useState(0)
   const [bubbleIndex, setBubbleIndex] = useState(0)
+  const [experimentIndex, setExperimentIndex] = useState(0)
   const active = keyholes[depth]
   const activeBubble = bubbleFamilies[bubbleIndex]
+  const activeExperiment = experiments[experimentIndex]
 
   const totalChecks = useMemo(
-    () => experiments.reduce((sum, row) => sum + Number(row[2].split('/')[0]), 0),
+    () => experiments.reduce((sum, row) => sum + Number(row.checks.split('/')[0]), 0),
     [],
   )
 
@@ -272,18 +274,41 @@ function App() {
           <span className="status">REPLAYABLE · CONTROLLED · HASHED</span>
         </div>
 
-        <div className="experiment-list">
-          {experiments.map(([id, title, checks, tests], i) => (
-            <article className="experiment" key={id}>
-              <div className="experiment-index">{String(i + 2).padStart(2, '0')}</div>
-              <div>
-                <h3>{id}</h3>
-                <p>{title}</p>
-              </div>
-              <div className="pass-cell"><span>PASS</span><strong>{checks}</strong><small>checks</small></div>
-              <div className="pass-cell"><strong>{tests}</strong><small>unit tests</small></div>
-            </article>
-          ))}
+        <div className="experiment-layout">
+          <div className="experiment-list">
+            {experiments.map((exp, i) => (
+              <button
+                className={i === experimentIndex ? 'experiment active' : 'experiment'}
+                key={exp.id}
+                onClick={() => setExperimentIndex(i)}
+              >
+                <div className="experiment-index">{String(i + 2).padStart(2, '0')}</div>
+                <div>
+                  <h3>{exp.id}</h3>
+                  <p>{exp.title}</p>
+                </div>
+                <div className="pass-cell"><span>PASS</span><strong>{exp.checks}</strong><small>checks</small></div>
+                <div className="pass-cell"><strong>{exp.tests}</strong><small>unit tests</small></div>
+              </button>
+            ))}
+          </div>
+
+          <aside className="experiment-dossier">
+            <div className="dossier-top">
+              <span className="pill">{activeExperiment.verdict}</span>
+              <span>REPLAY EXACT</span>
+            </div>
+            <h3>{activeExperiment.id} · {activeExperiment.title}</h3>
+            <p>{activeExperiment.result}</p>
+            <code>{activeExperiment.info}</code>
+            <div className="hash-block">
+              <small>FROZEN PACKAGE SHA-256</small>
+              <strong>{activeExperiment.hash}</strong>
+            </div>
+            <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/AH2-AH8_DOSSIERS.md">
+              Open frozen result dossiers ↗
+            </a>
+          </aside>
         </div>
 
         <div className="progression">

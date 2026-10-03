@@ -394,3 +394,77 @@ footer {
   .progression i { display: none; }
   footer { grid-template-columns: 1fr; }
 }
+
+.experiment-layout {
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  gap: 26px;
+  align-items: start;
+}
+.experiment-list { border-top: 1px solid var(--line); }
+.experiment {
+  width: 100%;
+  color: var(--ink);
+  background: transparent;
+  text-align: left;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+.experiment:hover, .experiment.active {
+  background: rgba(115,255,197,.045);
+  box-shadow: inset 2px 0 var(--green);
+}
+.experiment-dossier {
+  position: sticky;
+  top: 94px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, rgba(13,31,25,.78), rgba(5,9,8,.72));
+}
+.dossier-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  color: #677d75;
+  font-size: 9px;
+  letter-spacing: .1em;
+}
+.experiment-dossier h3 {
+  font-size: 28px;
+  margin: 28px 0 12px;
+}
+.experiment-dossier p {
+  color: #b8ccc5;
+  line-height: 1.65;
+}
+.experiment-dossier code {
+  display: block;
+  margin: 22px 0;
+  color: var(--green);
+  line-height: 1.55;
+}
+.hash-block {
+  margin: 28px 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.hash-block small {
+  display: block;
+  color: #647a72;
+  letter-spacing: .1em;
+  margin-bottom: 8px;
+}
+.hash-block strong {
+  display: block;
+  overflow-wrap: anywhere;
+  font-family: monospace;
+  font-size: 11px;
+  color: #b9cdc6;
+  font-weight: 500;
+}
+@media (max-width: 1050px) {
+  .experiment-layout { grid-template-columns: 1fr; }
+  .experiment-dossier { position: static; }
+}
