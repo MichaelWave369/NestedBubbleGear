@@ -2,7 +2,8 @@
 
 [![CI](https://github.com/MichaelWave369/NestedBubbleGear/actions/workflows/ci.yml/badge.svg)](https://github.com/MichaelWave369/NestedBubbleGear/actions/workflows/ci.yml)
 [![Pages](https://github.com/MichaelWave369/NestedBubbleGear/actions/workflows/pages.yml/badge.svg)](https://github.com/MichaelWave369/NestedBubbleGear/actions/workflows/pages.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-73ffc5.svg)](LICENSE)
+[![Code License: MIT](https://img.shields.io/badge/code-MIT-73ffc5.svg)](LICENSE)
+[![Research Content: CC BY 4.0](https://img.shields.io/badge/research%20content-CC%20BY%204.0-8bc9ff.svg)](LICENSE_POLICY.md)
 
 **Nested Bubble/Gear (NBG)** is an experimental mathematical and computational framework for studying systems in which coarse observables can hide causally relevant internal structure.
 
@@ -91,7 +92,8 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff
-├── LICENSE
+├── LICENSE              MIT software license
+├── LICENSE_POLICY.md     MIT / CC BY 4.0 scope map
 └── .github/workflows/    CI + Pages deployment
 ```
 
@@ -115,6 +117,12 @@ Frozen research releases and related work are archived through the **Enter the F
 
 https://zenodo.org/communities/enter-the-field-phi369/records
 
-## License
+## Licensing
 
-MIT. See [LICENSE](LICENSE).
+NBG uses a deliberate split:
+
+- **software/code:** MIT;
+- **original research prose, figures, documentation, and research-content artifacts:** CC BY 4.0 unless a file/archive says otherwise;
+- **third-party material:** retains its own terms.
+
+See [LICENSE_POLICY.md](LICENSE_POLICY.md) for the exact scope and attribution guidance.
