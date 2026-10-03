@@ -81,7 +81,7 @@ class AH25Tests(unittest.TestCase):
         s=m.stats(m.DATASETS["MATCHED_ANTI_DEPENDENCE"])
         self.assertNotEqual(m.classify(s),"COMMON_MODE_EVIDENCE")
 
-    def test_indepence_compatible_is_not_named_proven(self):
+    def test_independence_compatible_is_not_named_proven(self):
         _,status=self.report("MATCHED_INDEPENDENT")
         self.assertEqual(status,"INDEPENDENCE_COMPATIBLE")
         self.assertNotIn("PROVEN",status)
