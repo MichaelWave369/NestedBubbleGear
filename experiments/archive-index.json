@@ -144,6 +144,19 @@
       "headline": "Task-dependent memory",
       "key_result": "The coarsest sufficient preregistered memory descriptor changes with the future query family; expanding from the global-only query to the broad query family refines memory from 13 to 15 classes.",
       "info": "H(G|RΓ)=0; H(H2|RΓ)=0.25 bits; H(P2|RΓ)=0.25 bits; H(G|P2)=0.25 bits"
+    },
+    {
+      "id": "AH13",
+      "package": "NBG-AH13_Authorized_Query_Memory_v0.1.0.zip",
+      "sha256": "8c204d74ae76c1ae783759060b377fa4044145c7405dc680b88d790fb9cd4e76",
+      "bytes": 23003,
+      "checks": "41/41",
+      "tests": "15/15",
+      "verdict": "PASS_AH13",
+      "replay": "exact",
+      "headline": "Authorized query memory",
+      "key_result": "Restricted roles retain coarser sufficient memory than full capability memory; selected role descriptors have zero excess unauthorized leakage above the correlation floor in the frozen ensemble.",
+      "info": "GLOBAL 0.25-bit reduction; INTERFACE 2.375; DOWNSTREAM 0.7971804688852169; ROUTE 0.25"
     }
   ]
 }
