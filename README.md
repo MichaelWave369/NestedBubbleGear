@@ -12,7 +12,7 @@
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
 
-The React site presents the research stack, interactive Keyhole depth, frozen AH experiment ladder, core equations, and claim firewall.
+The React site presents the research stack, interactive **Bubble Atlas**, canonical **Bubble Zoo**, Keyhole depth explorer, frozen AH experiment ladder, core equations, and claim firewall.
 
 ## Current stack
 
@@ -78,6 +78,8 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 .
 ├── src/                  React research site
 ├── docs/
+│   ├── BUBBLE_ATLAS.md   Bubble-family taxonomy
+│   ├── BUBBLE_ZOO.md     Canonical toy behaviors
 │   ├── CONCEPTS.md       Working vocabulary
 │   ├── EXPERIMENTS.md    AH2-AH8 ladder
 │   └── ROADMAP.md        Next research rungs
