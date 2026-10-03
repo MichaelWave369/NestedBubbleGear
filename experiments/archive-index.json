@@ -118,6 +118,19 @@
       "headline": "Three-plaquette transport / composition order",
       "key_result": "Transported reconstruction and both parenthesizations match the direct outer boundary in 16/16 connector pairs; connector-free CBA succeeds only 1/16.",
       "info": "G_boundary=(T1 T2) C (T1 T2)^-1 (T1 B T1^-1) A"
+    },
+    {
+      "id": "AH11",
+      "package": "NBG-AH11_Path_Compression_Minimal_Connector_Memory_v0.1.0.zip",
+      "sha256": "8838f3ac961079f17b1e39cd6d9ab8b288119584388448da56721bfd867f37cc",
+      "bytes": 25008,
+      "checks": "34/34",
+      "tests": "12/12",
+      "verdict": "PASS_AH11",
+      "replay": "exact",
+      "headline": "Path compression / minimal connector memory",
+      "key_result": "A task-specific residue with 13 classes is sufficient, while a cumulative descriptor with the same class count and entropy leaves 0.25 bits of uncertainty.",
+      "info": "H(G|RΓ)=0; H(G|P2)=0.25 bits; H(RΓ)=H(P2)=H(G)=3.625 bits"
     }
   ]
 }
