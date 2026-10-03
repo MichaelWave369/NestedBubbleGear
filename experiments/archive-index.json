@@ -175,7 +175,7 @@
       "id": "AH15",
       "package": "NBG-AH15_Revocation_Chains_v0.1.0.zip",
       "sha256": "69aee683f5ce416169dab5c7aa51d8b157cda6fab08002c16f568ff4e5bb47dd",
-      "bytes": 22272,
+      "bytes": 22218,
       "checks": "21/21",
       "tests": "15/15",
       "verdict": "PASS_AH15",
