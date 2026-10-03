@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-AH18",
+  "files": {
+    "SPEC.md": "94e8a1be806cacd0b85dbcd9dbbf415594934f7157de54a13acf96f284993a65",
+    "src/ah18.py": "acfe03963aec64e929b30a063111883a1e4a908fa8bf91f3d21bd7285ce50abb",
+    "tests/test_ah18.py": "ec34011969d0a728650d9783e68a2a2b9e6cd33a35dca190c73ce66aa9201e9b"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
