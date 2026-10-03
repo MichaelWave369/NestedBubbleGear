@@ -339,6 +339,19 @@
       "headline": "Windowed evidence / horizon-indexed memory",
       "key_result": "The same lifetime aggregate can hide different recent-hazard states; recent-window and discounted evidence preserve order/regime distinctions erased by lifetime accumulation.",
       "info": "H_A=[C,C,I,I], H_B=[I,I,C,C] -> same lifetime table, different recent and discounted classifications"
+    },
+    {
+      "id": "AH28",
+      "package": "NBG-AH28_Multi_Horizon_Governance_v0.1.1.zip",
+      "sha256": "796f37bb9f6d1254f466f600b2bc715c1b4260e689fcd63c4da6cec3aba3f531",
+      "bytes": 25298,
+      "checks": "23/23",
+      "tests": "15/15",
+      "verdict": "PASS_AH28_QUALIFIED",
+      "replay": "exact",
+      "headline": "Multi-horizon governance / evidence arbitration",
+      "key_result": "Evidence claims require an explicit horizon; conflicting lifetime/recent/adaptive states remain visible and underspecified requests are refused.",
+      "info": "v0.1.0 failed 22/23 preregistered checks; v0.1.1 corrected one Panel D adaptive expectation only"
     }
   ]
 }

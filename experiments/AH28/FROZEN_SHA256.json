@@ -1,0 +1,12 @@
+{
+  "change": "Correct Panel D adaptive expected state from INDEPENDENCE_COMPATIBLE to observed COMMON_MODE_EVIDENCE; no model or arbitration change.",
+  "experiment": "NBG-AH28",
+  "files": {
+    "SPEC.md": "4745bb52f7bd8a3aac4ad64920d878f6ca50f0f4d0a2f2b6d383b04e2fb3638f",
+    "src/ah28.py": "11d3389ab7b48e547ee9809f4d0eb3dca01115f0931eeb45af943f06de9b630d",
+    "tests/test_ah28.py": "c74fa96524b78467518e62f2ed70ed85ba57d95d6c971d8f0169100b6a5554ec"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "supersedes_failed_candidate": "v0.1.0",
+  "version": "0.1.1"
+}
