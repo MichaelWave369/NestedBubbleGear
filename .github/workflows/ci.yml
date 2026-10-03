@@ -306,6 +306,18 @@ jobs:
       - name: Run AH32 unit tests
         run: python -m unittest discover -s experiments/AH32/tests -v
 
+      - name: Verify AH33 frozen hashes
+        run: |
+          printf '%s  %s\n' \
+            fb5a5e9519f84fbf63941c74f009cfb1afde7f03d74610ea97abe2f785b3becb experiments/AH33/SPEC.md \
+            3fe8ba95795a7bce2917428fc500c4f95f46b8bfd7cd0ff94e132be0a6e0ad1a experiments/AH33/src/ah33.py \
+            291ec42266e362ed679011de5cce6e375cb15306ee7c60a128430d034661a3e6 experiments/AH33/tests/test_ah33.py \
+            | sha256sum -c -
+      - name: Run AH33 frozen harness
+        run: python experiments/AH33/src/ah33.py
+      - name: Run AH33 unit tests
+        run: python -m unittest discover -s experiments/AH33/tests -v
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
