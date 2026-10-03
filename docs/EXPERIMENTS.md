@@ -12,6 +12,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH7 | Oriented holonomy cancellation | PASS · 65/65 checks · 9/9 tests |
 | AH8 | Plaquette transport / curvature proxy | PASS · 63/63 checks · 10/10 tests |
 | AH9 | Basepoint transport / local-to-global composition | PASS · 106/106 checks · 10/10 tests |
+| AH10 | Three-plaquette transport / composition order | PASS · 158/158 checks · 11/11 tests |
 
 ## Research progression
 
@@ -24,6 +25,7 @@ hidden residue
   -> orientation + inverse cancellation
   -> neighboring plaquettes / local-to-global cancellation
   -> basepoint-aware local-to-global composition
+  -> three-plaquette transported associativity
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
