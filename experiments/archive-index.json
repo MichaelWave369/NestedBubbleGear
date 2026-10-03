@@ -131,6 +131,19 @@
       "headline": "Path compression / minimal connector memory",
       "key_result": "A task-specific residue with 13 classes is sufficient, while a cumulative descriptor with the same class count and entropy leaves 0.25 bits of uncertainty.",
       "info": "H(G|RΓ)=0; H(G|P2)=0.25 bits; H(RΓ)=H(P2)=H(G)=3.625 bits"
+    },
+    {
+      "id": "AH12",
+      "package": "NBG-AH12_Task_Dependent_Memory_v0.1.0.zip",
+      "sha256": "6bb16f7c3d61202a50c885e3e70c399f7a871f59929143ebb9ceba839669ae4c",
+      "bytes": 21723,
+      "checks": "35/35",
+      "tests": "13/13",
+      "verdict": "PASS_AH12",
+      "replay": "exact",
+      "headline": "Task-dependent memory",
+      "key_result": "The coarsest sufficient preregistered memory descriptor changes with the future query family; expanding from the global-only query to the broad query family refines memory from 13 to 15 classes.",
+      "info": "H(G|RΓ)=0; H(H2|RΓ)=0.25 bits; H(P2|RΓ)=0.25 bits; H(G|P2)=0.25 bits"
     }
   ]
 }
