@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-AH16",
+  "files": {
+    "SPEC.md": "cfdfaf87557478210e2859018b744449982acca89e86375c19dedc578b602a68",
+    "src/ah16.py": "bf37cba6f30c4916dba7584dffea4e465254c0872be54621a17616d28a0110c4",
+    "tests/test_ah16.py": "6a16bff82e695cdc0131d10b9f482769862c265d02024e76fb39bb5165db9ff2"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
