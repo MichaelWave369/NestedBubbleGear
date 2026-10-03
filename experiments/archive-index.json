@@ -157,6 +157,19 @@
       "headline": "Authorized query memory",
       "key_result": "Restricted roles retain coarser sufficient memory than full capability memory; selected role descriptors have zero excess unauthorized leakage above the correlation floor in the frozen ensemble.",
       "info": "GLOBAL 0.25-bit reduction; INTERFACE 2.375; DOWNSTREAM 0.7971804688852169; ROUTE 0.25"
+    },
+    {
+      "id": "AH14",
+      "package": "NBG-AH14_Revocation_Memory_Downgrade_v0.1.0.zip",
+      "sha256": "921d4e091984fb8d3122d35d2e25f05d436eff2dd9659dd90ea3e968bdb0aa0e",
+      "bytes": 23681,
+      "checks": "43/43",
+      "tests": "15/15",
+      "verdict": "PASS_AH14",
+      "replay": "exact",
+      "headline": "Revocation and memory downgrade",
+      "key_result": "Full-capability memory deterministically downgrades to role-specific memory while preserving authorized answers; a commitment to discarded old state can restore revoked distinctions in the tiny enumerable domain.",
+      "info": "permission revoked != memory downgraded != secure erasure; new-state receipt adds no extra information; old-state receipt collapses revoked uncertainty to zero"
     }
   ]
 }
