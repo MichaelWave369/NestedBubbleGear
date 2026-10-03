@@ -11,6 +11,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH6 | Closed commutator loop | PASS · 41/41 checks · 9/9 tests |
 | AH7 | Oriented holonomy cancellation | PASS · 65/65 checks · 9/9 tests |
 | AH8 | Plaquette transport / curvature proxy | PASS · 63/63 checks · 10/10 tests |
+| AH9 | Basepoint transport / local-to-global composition | PASS · 106/106 checks · 10/10 tests |
 
 ## Research progression
 
@@ -22,6 +23,7 @@ hidden residue
   -> closed-loop residue
   -> orientation + inverse cancellation
   -> neighboring plaquettes / local-to-global cancellation
+  -> basepoint-aware local-to-global composition
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
