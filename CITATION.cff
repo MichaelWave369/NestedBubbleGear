@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use Nested Bubble/Gear software or experiment packages, please cite the relevant archived release and experiment DOI when available."
+title: "Nested Bubble/Gear (NBG)"
+type: software
+authors:
+  - family-names: "Hughes"
+    given-names: "Michael"
+repository-code: "https://github.com/MichaelWave369/NestedBubbleGear"
+url: "https://michaelwave369.github.io/NestedBubbleGear/"
+license: MIT
+version: 0.1.0
+date-released: 2026-10-02
