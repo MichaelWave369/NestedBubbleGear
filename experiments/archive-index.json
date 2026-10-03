@@ -248,6 +248,19 @@
       "headline": "Keyhole criticality / failure sets / policy resilience",
       "key_result": "Full-task capability has minimal cuts {E2} and {E1,E3}; stricter policies introduce additional singleton failure points and lower toy reliability.",
       "info": "Rcap_full=1-p-p^2+p^3; Rpolicy_full=1-2p+p^2; alarm capability has no singleton cut but policy introduces E3"
+    },
+    {
+      "id": "AH21",
+      "package": "NBG-AH21_Policy_Hardening_Synthesis_v0.1.0.zip",
+      "sha256": "21c2384c3859c3e7b2025bad565464d465a7cba175537f31b5a88a588e29de29",
+      "bytes": 28316,
+      "checks": "64/64",
+      "tests": "16/16",
+      "verdict": "PASS_AH21_QUALIFIED",
+      "replay": "exact",
+      "headline": "Policy hardening / redundancy synthesis",
+      "key_result": "Every frozen policy removes policy-induced singleton cuts by authorizing exactly one additional coalition; the alarm hardens from 0.900 to 0.981 reliability at p=0.1 while keeping singleton E1 explicitly denied.",
+      "info": "full tasks recover capability resilience; alarm adds {E1,E2}, remains a strict capability subset, and has no singleton cut"
     }
   ]
 }
