@@ -170,6 +170,19 @@
       "headline": "Revocation and memory downgrade",
       "key_result": "Full-capability memory deterministically downgrades to role-specific memory while preserving authorized answers; a commitment to discarded old state can restore revoked distinctions in the tiny enumerable domain.",
       "info": "permission revoked != memory downgraded != secure erasure; new-state receipt adds no extra information; old-state receipt collapses revoked uncertainty to zero"
+    },
+    {
+      "id": "AH15",
+      "package": "NBG-AH15_Revocation_Chains_v0.1.0.zip",
+      "sha256": "69aee683f5ce416169dab5c7aa51d8b157cda6fab08002c16f568ff4e5bb47dd",
+      "bytes": 22272,
+      "checks": "21/21",
+      "tests": "15/15",
+      "verdict": "PASS_AH15",
+      "replay": "exact",
+      "headline": "Revocation chains / path independence / reauthorization barriers",
+      "key_result": "Monotone FULL→P2→H3 downgrade equals direct FULL→H3, but GLOBAL↔ROUTE lateral transitions are not locally reconstructible after forgetting; an intermediate P2 commitment restores route distinctions in the tiny enumerable domain.",
+      "info": "H(P2|RΓ)=0.25; H(G|P2)=0.25; H(P2|H3)=0.5471804688852168; H(P2|H3,R_mid)=0"
     }
   ]
 }
