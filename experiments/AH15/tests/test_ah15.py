@@ -78,7 +78,7 @@ class AH15Tests(unittest.TestCase):
     def test_H3_does_not_determine_P2(self):
         cs=self.cases()
         self.assertAlmostEqual(
-            m.conditional_entropy([c["P2"] for c in c],[c["H3"] for c in c])),
+            m.conditional_entropy([c["P2"] for c in cs],[c["H3"] for c in cs]),
             0.5471804688852168,
             places=12
         )
@@ -110,8 +110,8 @@ class AH15Tests(unittest.TestCase):
     def test_entropy_is_nonincreasing_along_monotone_chain(self):
         cs=self.cases()
         h_full=m.entropy([c["action"] for c in cs])
-        h_mid=m.entropy([c["P2"] for c in c])
-        h_final=m.entropy([c["H3"] for c in c])
+        h_mid=m.entropy([c["P2"] for c in cs])
+        h_final=m.entropy([c["H3"] for c in cs])
         self.assertGreater(h_full,h_mid)
         self.assertGreater(h_mid,h_final)
 
