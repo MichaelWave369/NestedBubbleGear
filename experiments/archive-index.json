@@ -326,6 +326,19 @@
       "headline": "Sequential failure auditing / evidence persistence",
       "key_result": "Raw statistical evidence changes immediately, while a two-hit persistence rule delays governance escalation and clearing by one confirming batch.",
       "info": "raw: insufficient→compatible→common→common→compatible→compatible; governed: no alert→pending→active→pending clear→cleared"
+    },
+    {
+      "id": "AH27",
+      "package": "NBG-AH27_Windowed_Evidence_Regime_Change_v0.1.0.zip",
+      "sha256": "04887caffce20956cb152c8c1b1a0f025173d22dfef5416f91a8741d506f5480",
+      "bytes": 23541,
+      "checks": "25/25",
+      "tests": "15/15",
+      "verdict": "PASS_AH27_QUALIFIED",
+      "replay": "exact",
+      "headline": "Windowed evidence / horizon-indexed memory",
+      "key_result": "The same lifetime aggregate can hide different recent-hazard states; recent-window and discounted evidence preserve order/regime distinctions erased by lifetime accumulation.",
+      "info": "H_A=[C,C,I,I], H_B=[I,I,C,C] -> same lifetime table, different recent and discounted classifications"
     }
   ]
 }
