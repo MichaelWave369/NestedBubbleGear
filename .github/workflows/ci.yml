@@ -78,6 +78,18 @@ jobs:
       - name: Run AH13 unit tests
         run: python -m unittest discover -s experiments/AH13/tests -v
 
+      - name: Verify AH14 frozen hashes
+        run: |
+          printf '%s  %s\n' \
+            e72579d5ca95813dbbd125c8d87582e05749c51d8537a3aebab1083c045d5cf0 experiments/AH14/SPEC.md \
+            fa655b6031ab1ebcb1f5aeb02ad8c58366541e7442599bdd0ddfe4b8dc91a405 experiments/AH14/src/ah14.py \
+            3b023d0b1cc516f4fb63afc77095d3f5adde497c2186ddfca89db3aded5c6158 experiments/AH14/tests/test_ah14.py \
+            | sha256sum -c -
+      - name: Run AH14 frozen harness
+        run: python experiments/AH14/src/ah14.py
+      - name: Run AH14 unit tests
+        run: python -m unittest discover -s experiments/AH14/tests -v
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
