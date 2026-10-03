@@ -1,0 +1,3 @@
+9c1280b6d63bb0164d305a4e7e4c99a3601512c5c57f064be07200933782bb29  NBG-AH9_Basepoint_Transport_Local_to_Global_v0.1.0.zip
+
+The exact frozen ZIP was produced locally after qualification. The current connector write path does not upload local binary ZIP bytes directly; this file records the independently verified archive identity.
