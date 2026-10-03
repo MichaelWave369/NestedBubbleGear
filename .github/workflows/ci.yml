@@ -186,6 +186,18 @@ jobs:
       - name: Run AH22 unit tests
         run: python -m unittest discover -s experiments/AH22/tests -v
 
+      - name: Verify AH23 frozen hashes
+        run: |
+          printf '%s  %s\n' \
+            87b7abe1f26c2023c0be2f7252d27da51b0e5179a0687f5bc093762cf7062d3e experiments/AH23/SPEC.md \
+            a8a65da705ddaec28016af64091cb799036b84911686a68f1d2479f38e8a4238 experiments/AH23/src/ah23.py \
+            bbd195aea02af0f3d1a506e7def0a2ac3e9d98881840c536ca7cadf7bf3f7ce2 experiments/AH23/tests/test_ah23.py \
+            | sha256sum -c -
+      - name: Run AH23 frozen harness
+        run: python experiments/AH23/src/ah23.py
+      - name: Run AH23 unit tests
+        run: python -m unittest discover -s experiments/AH23/tests -v
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
