@@ -235,6 +235,19 @@
       "headline": "Authority access structures / minimal coalition lattices",
       "key_result": "All eight coalitions are enumerated per task; full reconstruction tasks have minimal coalitions {E1,E2} and {E2,E3} with mandatory core E2, while the coarse C-class alarm has minimal singleton coalitions E1 or E3 and no mandatory core.",
       "info": "A_Q={C:H(Q|Dlocal,C)=0}; policy is an upward-closed strict subfamily of capability"
+    },
+    {
+      "id": "AH20",
+      "package": "NBG-AH20_Keyhole_Criticality_Resilience_v0.1.0.zip",
+      "sha256": "0ef62e3bda4ed70b4034536261742e7799b897715b2f56bc0144a59685202060",
+      "bytes": 26424,
+      "checks": "68/68",
+      "tests": "15/15",
+      "verdict": "PASS_AH20_QUALIFIED",
+      "replay": "exact",
+      "headline": "Keyhole criticality / failure sets / policy resilience",
+      "key_result": "Full-task capability has minimal cuts {E2} and {E1,E3}; stricter policies introduce additional singleton failure points and lower toy reliability.",
+      "info": "Rcap_full=1-p-p^2+p^3; Rpolicy_full=1-2p+p^2; alarm capability has no singleton cut but policy introduces E3"
     }
   ]
 }
