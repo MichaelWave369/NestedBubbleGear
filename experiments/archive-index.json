@@ -300,6 +300,19 @@
       "headline": "Heterogeneous and correlated failure regimes",
       "key_result": "P12/P23 frontier membership reverses when the fragile outer Keyhole moves; matched one-Keyhole marginals hide a 0.12996 common-cause penalty to dual-path redundancy gain.",
       "info": "E1-fragile: P23>P12; E3-fragile: P12>P23; matched marginals [0.24,0.10,0.24], P_BOTH 0.84816 independent vs 0.7182 correlated"
+    },
+    {
+      "id": "AH25",
+      "package": "NBG-AH25_Failure_Domain_Discovery_v0.1.0.zip",
+      "sha256": "b69abe7de90d36e51761ae84b000c42fbe30ce076256f8514fd60f3ada92b826",
+      "bytes": 20269,
+      "checks": "30/30",
+      "tests": "15/15",
+      "verdict": "PASS_AH25_QUALIFIED",
+      "replay": "exact",
+      "headline": "Failure-domain discovery / redundancy auditing",
+      "key_result": "Matched marginal failure dashboards conceal radically different joint failure domains; joint traces recover AH24's 0.84816 independent versus 0.71820 common-cause redundancy split.",
+      "info": "p1=p3=0.24 for three large controls; statuses independence-compatible, common-mode evidence, other-direction dependence; small sample refuses"
     }
   ]
 }
