@@ -1,17 +1,113 @@
 # Nested Bubble/Gear (NBG)
 
+[![CI](https://github.com/MichaelWave369/NestedBubbleGear/actions/workflows/ci.yml/badge.svg)](https://github.com/MichaelWave369/NestedBubbleGear/actions/workflows/ci.yml)
+[![Pages](https://github.com/MichaelWave369/NestedBubbleGear/actions/workflows/pages.yml/badge.svg)](https://github.com/MichaelWave369/NestedBubbleGear/actions/workflows/pages.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-73ffc5.svg)](LICENSE)
+
 **Nested Bubble/Gear (NBG)** is an experimental mathematical and computational framework for studying systems in which coarse observables can hide causally relevant internal structure.
 
-This repository emphasizes frozen protocols, explicit controls, deterministic replay, hash-ledger provenance, and a strict separation between demonstrated toy-model results and speculative interpretation.
+> **Core question:** When two states look identical through the current Keyhole, can an admissible future interaction reveal that they were never behaviorally equivalent?
 
-> **Core question:** When two states look identical through the current keyhole, can an admissible future interaction reveal that they were never behaviorally equivalent?
+## Live research site
 
-The full research site and executable experiment archive are being assembled in reviewable pull requests.
+**GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
+
+The React site presents the research stack, interactive Keyhole depth, frozen AH experiment ladder, core equations, and claim firewall.
+
+## Current stack
+
+```text
+NBG
+  -> Conveyor
+  -> Gear
+  -> Altermath
+  -> Keyholes
+  -> Φ-System integration
+  -> Ledger
+```
+
+- **NBG** — domains and interfaces.
+- **Conveyor** — between-step/interface transport state.
+- **Gear** — ordered recurrence and cycle-space current.
+- **Altermath** — causally relevant structure hidden by coarse cancellation.
+- **Keyholes** — observer projections and observability depth.
+- **Φ-System** — task-typed convergence/control layer, maintained as a conceptually separate line.
+- **Ledger** — replayable provenance.
+
+## Frozen AH ladder
+
+| Rung | Focus | Outcome |
+|---|---|---|
+| AH2 | Latent causal residue | PASS · 29/29 |
+| AH3 | Boundary-transferred residue | PASS · 89/89 |
+| AH4 | Two-interface Altermath holonomy | PASS · 44/44 |
+| AH5 | Noncommuting interface order | PASS · 36/36 |
+| AH6 | Closed commutator loop | PASS · 41/41 |
+| AH7 | Oriented holonomy cancellation | PASS · 65/65 |
+| AH8 | Plaquette transport / curvature proxy | PASS · 63/63 |
+
+See [docs/EXPERIMENTS.md](docs/EXPERIMENTS.md).
+
+## Mathematical heart
+
+A working Altermath witness is:
+
+```text
+P(X) = P(X')
+but
+there exists an admissible future word w
+such that
+P(rho(w) X) != P(rho(w) X')
+```
+
+The states are observationally equivalent **now**, but not behaviorally equivalent under the allowed dynamics.
+
+## Claim firewall
+
+NBG maintains an explicit distinction between:
+
+1. **demonstrated finite toy-model results**;
+2. **formal machinery under development**;
+3. **speculative physical interpretation**.
+
+Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidence about horizons, cosmology, or fundamental spacetime. Humanity has enough problems without a GitHub README inventing another one.
+
+## Repository map
+
+```text
+.
+├── src/                  React research site
+├── docs/
+│   ├── CONCEPTS.md       Working vocabulary
+│   ├── EXPERIMENTS.md    AH2-AH8 ladder
+│   └── ROADMAP.md        Next research rungs
+├── experiments/          Frozen packages will be imported here
+├── CLAIMS.md             Claim-status firewall
+├── CITATION.cff
+├── LICENSE
+└── .github/workflows/    CI + Pages deployment
+```
+
+## Development
+
+```bash
+npm install
+npm run dev
+npm run build
+```
+
+The Vite base path is configured for GitHub Pages at `/NestedBubbleGear/`.
 
 ## Research stance
 
-NBG is an active research program, not an established physical theory. Toy-model results are labeled as such. Physical and cosmological interpretations remain speculative unless independently justified.
+NBG is an active research program, **not an established physical theory**. Frozen toy models are used to make precise questions executable and falsifiable before any broader interpretation is entertained.
+
+## Archive
+
+Frozen research releases and related work are archived through the **Enter the Field | Φ369 Research Lab** Zenodo community:
+
+https://zenodo.org/communities/enter-the-field-phi369/records
 
 ## License
 
-MIT.
+MIT. See [LICENSE](LICENSE).
