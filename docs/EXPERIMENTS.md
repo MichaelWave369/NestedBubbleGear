@@ -26,6 +26,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH21 | Policy hardening / redundancy synthesis | QUALIFIED · 64/64 checks · 16/16 tests |
 | AH22 | Costed policy synthesis / Pareto frontiers | QUALIFIED · 44/44 checks · 15/15 tests |
 | AH23 | Robust Pareto frontiers / failure-rate uncertainty | QUALIFIED · 41/41 checks · 15/15 tests |
+| AH24 | Heterogeneous / correlated failure regimes | QUALIFIED · 36/36 checks · 15/15 tests |
 
 ## Research progression
 
@@ -51,6 +52,7 @@ hidden residue
   -> constrained policy hardening synthesis
   -> costed policy synthesis / Pareto frontiers
   -> robust Pareto frontiers / failure-rate uncertainty
+  -> heterogeneous / correlated failure regimes
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.

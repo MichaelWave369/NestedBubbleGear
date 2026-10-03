@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-AH24",
+  "files": {
+    "SPEC.md": "9b4527d394544e60d9b2cfba6452e17dd25d29ce236e1be8cdf3ff82a620bb37",
+    "src/ah24.py": "1e35999ff6a5a8fb4efe194e52e631fb932fc26a379d4d5f9ccfd97a393a07a2",
+    "tests/test_ah24.py": "3988bf3ff1a2bcd11b5e88e06f4b57b9eb3eb5e3e1175e651bf5c79f7c792558"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}

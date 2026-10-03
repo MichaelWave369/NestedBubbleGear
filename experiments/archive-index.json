@@ -287,6 +287,19 @@
       "headline": "Robust Pareto frontiers / failure-rate uncertainty",
       "key_result": "AH22 frontier membership remains unchanged across six frozen common-failure scenarios when policies are compared by worst-case reliability and maximum regret.",
       "info": "common p in {0.05,0.10,0.15,0.20,0.25,0.30}; alarm soft frontier worst-case values 0.700,0.847,0.910; no membership reversal"
+    },
+    {
+      "id": "AH24",
+      "package": "NBG-AH24_Heterogeneous_Correlated_Failure_v0.1.0.zip",
+      "sha256": "3332f110ed88725aa85cc78c7adcf1894ed2fa0c202dc2bc4c4d6ec2150294e9",
+      "bytes": 23445,
+      "checks": "36/36",
+      "tests": "15/15",
+      "verdict": "PASS_AH24_QUALIFIED",
+      "replay": "exact",
+      "headline": "Heterogeneous and correlated failure regimes",
+      "key_result": "P12/P23 frontier membership reverses when the fragile outer Keyhole moves; matched one-Keyhole marginals hide a 0.12996 common-cause penalty to dual-path redundancy gain.",
+      "info": "E1-fragile: P23>P12; E3-fragile: P12>P23; matched marginals [0.24,0.10,0.24], P_BOTH 0.84816 independent vs 0.7182 correlated"
     }
   ]
 }
