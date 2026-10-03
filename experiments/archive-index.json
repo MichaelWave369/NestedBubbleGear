@@ -391,6 +391,19 @@
       "headline": "Collusion closure / coalition effective authority",
       "key_result": "All singleton roles are derivation-safe, but pooled releases create two minimal Q_MULTI-deriving coalitions; exhaustive release removal finds 0 coverage-preserving configurations safe against unrestricted grand-coalition pooling.",
       "info": "16 actor coalitions; 5 dangerous; minimal={Adaptive,Auditor} and {Historian,Operator,Adaptive}; mandatory core=Adaptive; 9 coverage-preserving grant configurations, 0 grand-coalition safe"
+    },
+    {
+      "id": "AH32",
+      "package": "NBG-AH32_Coalition_Safe_Release_Design_v0.1.0.zip",
+      "sha256": "0e160f2b5cd75d9859f03bca97e28e813174ad0ebf610693c403dd2d28518a5a",
+      "bytes": 29992,
+      "checks": "30/30",
+      "tests": "15/15",
+      "verdict": "PASS_AH32_QUALIFIED",
+      "replay": "exact",
+      "headline": "Coalition-safe release design / task-sufficient coarsening",
+      "key_result": "Exactly 8/32 task-exact RAW/RISK designs block exact grand-coalition Q_MULTI reconstruction; the unique minimum coarsens both lifetime carriers.",
+      "info": "minimum transforms=2; H(M|Zgrand)=0.2857142857142857 bits; C/F share hardened release but differ in target"
     }
   ]
 }
