@@ -263,7 +263,7 @@ Expected:
 H(M\mid V_0,Z_1)=0.4.
 \]
 
-Because \(V_0\) identical across all frozen panels, it contributes no target distinction.
+Because \(V_0\) is identical across all frozen panels, it contributes no target distinction.
 
 ## 8. Verification authority versus disclosure authority
 
@@ -334,7 +334,7 @@ Expected:
 | Public-salt SHA-256 + E1 | 0 |
 | 8-key HMAC tag + E1 | 0 |
 | 8-salt secret-salt digest + E1 | 0 |
-| Mediated VERIFIED receipt + E1 | 0.4 |
+| Mediated VERIFIED Receipt + E1 | 0.4 |
 | Key-authorized verifier | 0 |
 
 ## 11. Interpretation
