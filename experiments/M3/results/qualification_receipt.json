@@ -1,0 +1,19 @@
+{
+  "checks_passed": 9,
+  "checks_total": 9,
+  "experiment": "NBG-M3",
+  "frozen_hashes_unchanged": true,
+  "harness_verdict": "PASS_M3",
+  "kill_receipts_sha256": "f099dbbba8d0811847a946f2b564e6b1497bbbc9c8ed6c8e2239b0656782d810",
+  "mutants_killed": 12,
+  "mutants_survived": 0,
+  "mutants_total": 12,
+  "mutation_score": 1.0,
+  "qualification_verdict": "PASS_M3_QUALIFIED",
+  "replay_exact": true,
+  "result_sha256": "b9403493d41a5f37f73ae8d98565c18a0ef5279abda500f225bf548c782c12e9",
+  "survivors_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "unit_test_count": 10,
+  "unit_tests_passed": true,
+  "version": "0.1.0"
+}
