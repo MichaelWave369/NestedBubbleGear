@@ -521,6 +521,19 @@
       "headline": "Verifier compromise / role fusion / quorum resilience",
       "key_result": "Logical quorum thresholds overstate independent physical control when verifier seats are fused: verification falls from two principals to one, strict declassification from three to two, and a weak 2-of-3 declassification control falls to one.",
       "info": "p=0.1 reliability: verify 0.972→0.900; strict declassify 0.729→0.810; mediated VERIFY_ONLY privacy=0.4 bits; declassification=0"
+    },
+    {
+      "id": "AH42",
+      "package": "NBG-AH42_Independence_Certification_Hidden_Control_v0.1.0.zip",
+      "sha256": "9b30f815b1d4885e79e39c5aa4fb7a0ccf01862a6845074d935c7ac4093e4725",
+      "bytes": 26945,
+      "checks": "44/44",
+      "tests": "16/16",
+      "verdict": "PASS_AH42_QUALIFIED",
+      "replay": "exact",
+      "headline": "Independence certification / hidden common control",
+      "key_result": "Only complete distinct root-control evidence certifies three independent domains; observed A/B sharing lowers actual VERIFY/DECLASSIFY root thresholds from 2→1 and 3→2, while incomplete evidence refuses the independence claim.",
+      "info": "4 scenarios; CERTIFIED_INDEPENDENT / SHARED_CONTROL_OBSERVED / INDEPENDENCE_UNVERIFIED; p=0.1 reliability independent .972/.729 vs shared .900/.810; hidden shared control is never falsely certified"
     }
   ]
-}\n
+}
