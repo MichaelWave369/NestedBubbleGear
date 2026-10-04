@@ -41,7 +41,10 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH36 | Dynamic upgrade grants / revocation / privacy restoration | QUALIFIED · 31/31 checks · 15/15 tests |
 | AH37 | Epoch-scoped disclosure / forward privacy boundaries | QUALIFIED · 18/18 checks · 15/15 tests |
 | AH38 | Hiding commitments / key scope / disclosure-safe epoch receipts | QUALIFIED · 24/24 checks · 15/15 tests |
-| AH39 | Delayed key disclosure / authenticator history | QUALIFIED · 26/26 checks · 15/15 tests |\n| AH40 | Split verification authority / threshold declassification | QUALIFIED · 27/27 checks · 15/15 tests |\n| AH41 | Verifier compromise / role fusion / quorum resilience | QUALIFIED · 29/29 checks · 15/15 tests |
+| AH39 | Delayed key disclosure / authenticator history | QUALIFIED · 26/26 checks · 15/15 tests |
+| AH40 | Split verification authority / threshold declassification | QUALIFIED · 27/27 checks · 15/15 tests |
+| AH41 | Verifier compromise / role fusion / quorum resilience | QUALIFIED · 29/29 checks · 15/15 tests |
+| AH42 | Independence certification / hidden common control | QUALIFIED · 44/44 checks · 16/16 tests |
 
 ## Research progression
 
@@ -83,6 +86,9 @@ hidden residue
   -> epoch-scoped disclosure / forward privacy boundaries
   -> hiding commitments / key scope / mediated verification
   -> delayed key disclosure / authenticator history
+  -> split verification authority / threshold declassification
+  -> verifier compromise / role fusion / quorum resilience
+  -> independence certification / hidden common control
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
@@ -324,3 +330,50 @@ Package SHA-256:
 `99625d4003a6d7c98ac1a57aee4a3f5857e4fb348d819967bba08128ed1d3133`
 
 Claim boundary: AH41 is a finite seat-ownership, coalition, failure-cut, reliability, and mediated-output model. It does not establish threshold cryptography, BFT, MPC, production custody, secure hardware independence, or real-world correlated failure rates.
+
+
+## AH42 — Independence certification / hidden common control
+
+AH42 separates logical verifier seats and named principals from the root control domains that actually determine independence.
+
+Frozen scenarios:
+
+```text
+S1 complete distinct evidence  -> CERTIFIED_INDEPENDENT  -> actual VERIFY/DECLASSIFY thresholds 2/3
+S2 observed A+B sharing       -> SHARED_CONTROL_OBSERVED -> actual thresholds 1/2
+S3 independent but incomplete -> INDEPENDENCE_UNVERIFIED -> no independent threshold advertised
+S4 hidden A+B sharing         -> INDEPENDENCE_UNVERIFIED -> no false independence claim; actual thresholds 1/2
+```
+
+All four scenarios retain three logical seats and three named principals. Only complete, distinct root-control evidence permits the system to advertise an independent quorum. Complete evidence of shared control overrides declarations, while incomplete evidence produces refusal rather than optimistic certification.
+
+At frozen root-domain failure probability `p=0.1`:
+
+```text
+independent roots: VERIFY 0.972 · strict declassify 0.729
+shared A+B root:  VERIFY 0.900 · strict declassify 0.810
+```
+
+The shared-control evidence progression is:
+
+```text
+INDEPENDENCE_UNVERIFIED
+  -> INDEPENDENCE_UNVERIFIED
+  -> SHARED_CONTROL_OBSERVED
+```
+
+and never passes through a fabricated independent state.
+
+Supported operational statements:
+
+```text
+logical seat count != named-principal count != verified independent control-domain count
+different account names != independent authority domains
+missing independence evidence should produce refusal, not optimistic certification
+```
+
+Package SHA-256:
+
+`9b30f815b1d4885e79e39c5aa4fb7a0ccf01862a6845074d935c7ac4093e4725`
+
+Claim boundary: AH42 is a finite graph/evidence/certification model. It does not establish real organizational independence, hardware/HSM independence, trustworthy identity proofing, credential-compromise probabilities, or Byzantine independence.

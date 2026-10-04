@@ -1,0 +1,29 @@
+name: AH42 Frozen Qualification
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  ah42:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify AH42 frozen hashes
+        run: |
+          printf '%s  %s\n' \
+            2329a4035544addd43a4dbfc0b609abdd0745ba3a1ab3d71f654da2b92f6aa09 experiments/AH42/SPEC.md \
+            7286d5041e30577cd09047f1ca4faf0f6d686684376ff51c959b81ae64d523fc experiments/AH42/src/ah42.py \
+            d78010e75691d0d93d1eb64a55efc8feced5ca5fc00f4039b6cb0e909a597f3b experiments/AH42/tests/test_ah42.py \
+            | sha256sum -c -
+      - name: Run AH42 frozen harness
+        run: python experiments/AH42/src/ah42.py
+      - name: Run AH42 unit tests
+        run: python -m unittest discover -s experiments/AH42/tests -v

@@ -51,6 +51,7 @@ const experiments = [
   { id:'AH39', title:'Delayed key disclosure + authenticator history', checks:'26/26', tests:'15/15', verdict:'PASS_AH39_QUALIFIED', hash:'201995fa332e80b7c4f9aa9a17721ed24a1b028217809185ac20905ea40d4340', result:'Key authority changes compose with authenticator history: later key disclosure does not recreate a withheld tag, while releasing that panel-dependent tag into key-bearing history collapses the frozen target.', info:'fresh 0.4 · public tag pre/post key 0 · key + mediated VERIFIED with tag withheld 0.4 · late tag release 0 · key-revoke history persists' },
   { id:'AH40', title:'Split verification authority + threshold declassification', checks:'27/27', tests:'15/15', verdict:'PASS_AH40_QUALIFIED', hash:'64d327e566d4f9dcf5df7a3d4c81da6cd944b99a40a20eedd533cc721cb5d16b', result:'A 2-of-3 verifier quorum can establish old-epoch validity without publishing the old evidence; only the separate 3-of-3 declassification action releases Epoch 0 and collapses the public observer privacy boundary.', info:'VERIFY_ONLY 4/8 coalitions @ 0.4 bits · DECLASSIFY 1/8 @ 0 bits · full coalition verify-only still 0.4 · debug tag control 0' },
   { id:'AH41', title:'Verifier compromise + role fusion', checks:'29/29', tests:'15/15', verdict:'PASS_AH41_QUALIFIED', hash:'99625d4003a6d7c98ac1a57aee4a3f5857e4fb348d819967bba08128ed1d3133', result:'Logical quorum counts can overstate independent physical control: fusing seats A+B drops verification from two principals to one and strict declassification from three principals to two.', info:'thresholds verify 2→1 · strict declass 3→2 · weak control 2→1 · p=.1 verify R .972→.900 · strict declass R .729→.810' },
+  { id:'AH42', title:'Independence certification + hidden common control', checks:'44/44', tests:'16/16', verdict:'PASS_AH42_QUALIFIED', hash:'9b30f815b1d4885e79e39c5aa4fb7a0ccf01862a6845074d935c7ac4093e4725', result:'Independence is treated as an evidence-bearing claim: complete distinct root-control evidence certifies three domains, observed A+B sharing exposes hidden common control, and incomplete evidence refuses optimistic quorum claims.', info:'3 seats + 3 names in every scenario · certified roots -> thresholds 2/3 · shared A+B -> 1/2 · incomplete evidence -> INDEPENDENCE_UNVERIFIED' },
 ]
 
 
@@ -168,7 +169,7 @@ function App() {
           <a className="button ghost" href="#keyholes">Open the keyhole</a>
         </div>
         <div className="stats">
-          <div><strong>AH2→AH40</strong><span>frozen experiment ladder</span></div>
+          <div><strong>AH2→AH42</strong><span>frozen experiment ladder</span></div>
           <div><strong>{totalChecks}</strong><span>frozen acceptance checks passed</span></div>
           <div><strong>7</strong><span>layers in the current stack</span></div>
         </div>
@@ -338,7 +339,7 @@ function App() {
               <small>FROZEN PACKAGE SHA-256</small>
               <strong>{activeExperiment.hash}</strong>
             </div>
-            <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/AH2-AH41_DOSSIERS.md">
+            <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/AH2-AH42_DOSSIERS.md">
               Open frozen result dossiers ↗
             </a>
           </aside>
