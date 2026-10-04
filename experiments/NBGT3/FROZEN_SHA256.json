@@ -1,0 +1,16 @@
+{
+  "experiment": "NBG-T3",
+  "files": {
+    "SPEC.md": "21ddea7959399dd67d908c4aaf55a03e0e7747d8794109cdfae63c4e0434fdca",
+    "src/nbgt3.py": "02c456a8d9001ee94e9f165d4cf17f1da49b6ce4c1d7dee79a3c744eae8bf6dd",
+    "tests/test_nbgt3.py": "3bbcdc21e20ff7b38a98b0a911fe8b8d37a1c87a5aa6381c717a285f6bf59d0b"
+  },
+  "generated_artifacts": {
+    "result.json": "ba09237322f7734cca13bd76f7f60d6918abc5b1f6ecd7882baad0c96c4e70a8",
+    "sources.json": "8a963a00d0ae7af8b184b9de7c9d5985da6a7c6a525fbd1e2a1fbd66516c70ba",
+    "evidence.json": "2349511850115848e90f2695ca3adc93af169ce5e954b6a9112bec20f4f4136b",
+    "decisions.json": "5dff54b74b7d903586e7c99899b20588f9c4afd2f5c3428dc6d3c3343cdbf94b"
+  },
+  "status": "FROZEN_AFTER_CANDIDATE_HASH_CAPTURE",
+  "version": "0.1.0"
+}

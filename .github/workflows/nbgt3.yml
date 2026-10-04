@@ -20,14 +20,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Print candidate hashes
+      - name: Verify NBG-T3 frozen hashes
         shell: bash
         run: |
           set -euo pipefail
-          sha256sum \
-            experiments/NBGT3/SPEC.md \
-            experiments/NBGT3/src/nbgt3.py \
-            experiments/NBGT3/tests/test_nbgt3.py
+          cd experiments/NBGT3
+          printf '%s  %s\n' \
+            '21ddea7959399dd67d908c4aaf55a03e0e7747d8794109cdfae63c4e0434fdca' 'SPEC.md' \
+            '02c456a8d9001ee94e9f165d4cf17f1da49b6ce4c1d7dee79a3c744eae8bf6dd' 'src/nbgt3.py' \
+            '3bbcdc21e20ff7b38a98b0a911fe8b8d37a1c87a5aa6381c717a285f6bf59d0b' 'tests/test_nbgt3.py' \
+            | sha256sum -c -
 
       - name: Run NBG-T3 reconciliation harness
         run: python experiments/NBGT3/src/nbgt3.py
@@ -35,7 +37,7 @@ jobs:
       - name: Run NBG-T3 unit tests
         run: python -m unittest discover -s experiments/NBGT3/tests -v
 
-      - name: Verify candidate result
+      - name: Verify qualified NBG-T3 result
         shell: bash
         run: |
           set -euo pipefail
@@ -53,9 +55,14 @@ jobs:
           assert result["witness"]["refute_without_decision"]=="DISPUTED"
           assert result["witness"]["refute_with_decision"]=="REFUTED"
           assert result["witness"]["counterfactual_without_S2"]=="CORROBORATED"
-          print("result.json", hashlib.sha256((root/"result.json").read_bytes()).hexdigest())
-          print("sources.json", hashlib.sha256((root/"sources.json").read_bytes()).hexdigest())
-          print("evidence.json", hashlib.sha256((root/"evidence.json").read_bytes()).hexdigest())
-          print("decisions.json", hashlib.sha256((root/"decisions.json").read_bytes()).hexdigest())
-          print("PASS_NBGT3_CANDIDATE")
+          expected={
+              "result.json":"ba09237322f7734cca13bd76f7f60d6918abc5b1f6ecd7882baad0c96c4e70a8",
+              "sources.json":"8a963a00d0ae7af8b184b9de7c9d5985da6a7c6a525fbd1e2a1fbd66516c70ba",
+              "evidence.json":"2349511850115848e90f2695ca3adc93af169ce5e954b6a9112bec20f4f4136b",
+              "decisions.json":"5dff54b74b7d903586e7c99899b20588f9c4afd2f5c3428dc6d3c3343cdbf94b",
+          }
+          for name,want in expected.items():
+              got=hashlib.sha256((root/name).read_bytes()).hexdigest()
+              assert got==want,(name,got,want)
+          print("PASS_NBGT3_QUALIFIED")
           PY
