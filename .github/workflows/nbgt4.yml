@@ -20,14 +20,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Print candidate hashes
+      - name: Verify NBG-T4 frozen hashes
         shell: bash
         run: |
           set -euo pipefail
-          sha256sum \
-            experiments/NBGT4/SPEC.md \
-            experiments/NBGT4/src/nbgt4.py \
-            experiments/NBGT4/tests/test_nbgt4.py
+          cd experiments/NBGT4
+          printf '%s  %s\n' \
+            '2e3234c021a48cd02c47db2bc7f553b44783b1afd6f01d968439c982d31807d5' 'SPEC.md' \
+            'b7563efb0442ef50e7849b0ddf8a8e6c6f6fc1ca355aedeb049ce2bf9ea5a601' 'src/nbgt4.py' \
+            '9ab2302203aaac62fcfd547c3c7d0fea3b3f987f0d72e7b0baa63ab391b57640' 'tests/test_nbgt4.py' \
+            | sha256sum -c -
 
       - name: Run NBG-T4 hostile ingest harness
         run: python experiments/NBGT4/src/nbgt4.py
@@ -35,7 +37,7 @@ jobs:
       - name: Run NBG-T4 unit tests
         run: python -m unittest discover -s experiments/NBGT4/tests -v
 
-      - name: Verify candidate result
+      - name: Verify qualified NBG-T4 result
         shell: bash
         run: |
           set -euo pipefail
@@ -53,7 +55,13 @@ jobs:
           assert result["witness"]["ambiguous_record_ids"]==["R05"]
           assert result["witness"]["rejected_record_ids"]==["R06","R09"]
           assert result["witness"]["hypothesis_record_ids"]==["H01"]
-          for name in ("result.json","fixture.json","audit.json"):
-              print(name, hashlib.sha256((root/name).read_bytes()).hexdigest())
-          print("PASS_NBGT4_CANDIDATE")
+          expected={
+              "result.json":"2125572b6ff22578ad6fac2e47787b6f3a6d389c60c7664754233ec9ad64f151",
+              "fixture.json":"b8f5e7ee6512c1c51600ebae64816418d8fd2b4d5b6710cb063aff1f41e88b80",
+              "audit.json":"e5971adb4d9693ac561321d5ecf6389ff9d771a3731e8c24fd77640b6830eff5",
+          }
+          for name,want in expected.items():
+              got=hashlib.sha256((root/name).read_bytes()).hexdigest()
+              assert got==want,(name,got,want)
+          print("PASS_NBGT4_QUALIFIED")
           PY
