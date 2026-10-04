@@ -1,0 +1,29 @@
+name: AH43 Frozen Qualification
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  ah43:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify AH43 frozen hashes
+        run: |
+          printf '%s  %s\n' \
+            cd58f8d1a048c4c33929c08b6c7a197000139fe9f0ee09966d6ab837cb951f42 experiments/AH43/SPEC.md \
+            b6ef889885e88666499acc9e92089f5c195128358bc99240e800a271674a86cd experiments/AH43/src/ah43.py \
+            c6f158e4e30e4bc262a8e248f24f30a73c09838c64422e3aa422b2ba8b308bd0 experiments/AH43/tests/test_ah43.py \
+            | sha256sum -c -
+      - name: Run AH43 frozen harness
+        run: python experiments/AH43/src/ah43.py
+      - name: Run AH43 unit tests
+        run: python -m unittest discover -s experiments/AH43/tests -v
