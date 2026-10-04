@@ -1,0 +1,58 @@
+name: M3 Frozen Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/M3/**"
+      - ".github/workflows/m3.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/M3/**"
+      - ".github/workflows/m3.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-m3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify M3 frozen hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd experiments/M3
+          printf '%s  %s\n' \
+            'f7ce4ded0b351049b524a95bbb6c0c724de323b10c2b106e1dda4efa71b08f1b' 'SPEC.md' \
+            '1438412a6e67813c82f8f85eebdc8273a748c428af92791fec287cfdbeedbe12' 'src/m3_mutate.py' \
+            '94b6ed6bf026fe8811a3921bb90373dc012b4891eb91376893cd6a6b59106027' 'tests/test_m3.py' \
+            | sha256sum -c -
+
+      - name: Run M3 mutation harness
+        run: python experiments/M3/src/m3_mutate.py
+
+      - name: Run M3 unit tests
+        run: python -m unittest discover -s experiments/M3/tests -v
+
+      - name: Verify qualified M3 result
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/M3/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_M3"
+          assert result["checks_passed"]==9
+          assert result["checks_total"]==9
+          assert result["mutants_total"]==12
+          assert result["mutants_killed"]==12
+          assert result["mutants_survived"]==0
+          assert result["mutation_score"]==1.0
+          assert hashlib.sha256((root/"result.json").read_bytes()).hexdigest()=="b9403493d41a5f37f73ae8d98565c18a0ef5279abda500f225bf548c782c12e9"
+          assert hashlib.sha256((root/"kill_receipts.json").read_bytes()).hexdigest()=="f099dbbba8d0811847a946f2b564e6b1497bbbc9c8ed6c8e2239b0656782d810"
+          assert hashlib.sha256((root/"survivors.json").read_bytes()).hexdigest()=="37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+          print("PASS_M3_QUALIFIED")
+          PY

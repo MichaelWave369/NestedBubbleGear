@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-M3",
+  "files": {
+    "SPEC.md": "f7ce4ded0b351049b524a95bbb6c0c724de323b10c2b106e1dda4efa71b08f1b",
+    "src/m3_mutate.py": "1438412a6e67813c82f8f85eebdc8273a748c428af92791fec287cfdbeedbe12",
+    "tests/test_m3.py": "94b6ed6bf026fe8811a3921bb90373dc012b4891eb91376893cd6a6b59106027"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
