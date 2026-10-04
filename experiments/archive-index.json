@@ -495,6 +495,19 @@
       "headline": "Delayed key disclosure / authenticator history",
       "key_result": "Key disclosure alone does not recreate an authenticator that never crossed the boundary; releasing the withheld panel-dependent tag into key-bearing history collapses the frozen target, while public toy tags were already declassified before key release.",
       "info": "fresh=0.4; public tag pre-key=0; public tag post-key=0; key+mediated VERIFIED with tag withheld=0.4; late tag release=0; large-key information-theoretic claim refused"
+    },
+    {
+      "id": "AH40",
+      "package": "NBG-AH40_Split_Verification_Authority_v0.1.0.zip",
+      "sha256": "64d327e566d4f9dcf5df7a3d4c81da6cd944b99a40a20eedd533cc721cb5d16b",
+      "bytes": 27394,
+      "checks": "27/27",
+      "tests": "15/15",
+      "verdict": "PASS_AH40_QUALIFIED",
+      "replay": "exact",
+      "headline": "Split verification authority / threshold declassification",
+      "key_result": "A 2-of-3 coalition may verify Epoch 0 while only 3-of-3 may publicly declassify it; mediated VERIFY_ONLY output preserves 0.4 bits even for the full coalition, whereas explicit declassification or a public old authenticator collapses privacy to zero.",
+      "info": "4/8 verify; 1/8 declassify; VERIFY_ONLY=0.4 bits; DECLASSIFY=0; debug public-tag control=0"
     }
   ]
 }

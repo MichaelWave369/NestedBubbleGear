@@ -391,6 +391,18 @@ jobs:
       - name: Run AH39 unit tests
         run: python -m unittest discover -s experiments/AH39/tests -v
 
+      - name: Verify AH40 frozen hashes
+        run: |
+          printf '%s  %s\n' \
+            c351c4ff9d9975ef21b30364722cd16caeda09a18d3490104180642191611653 experiments/AH40/SPEC.md \
+            300969b69988fd30c4de667bd7dadf221019087f1c3a7d80fe6d4505f3c49c70 experiments/AH40/src/ah40.py \
+            de943247cfc28c5efc1a527523c464793020b071187429ab9471e5656783d13a experiments/AH40/tests/test_ah40.py \
+            | sha256sum -c -
+      - name: Run AH40 frozen harness
+        run: python experiments/AH40/src/ah40.py
+      - name: Run AH40 unit tests
+        run: python -m unittest discover -s experiments/AH40/tests -v
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22

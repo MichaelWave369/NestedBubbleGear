@@ -257,3 +257,35 @@ Package SHA-256:
 `201995fa332e80b7c4f9aa9a17721ed24a1b028217809185ac20905ea40d4340`
 
 Claim boundary: AH39 is a finite observer-history and eight-key toy-model result. It does not establish cryptographic forward secrecy, secure key deletion, high-entropy HMAC hiding or leakage, deployed key-rotation correctness, or side-channel resistance.
+
+## AH40 — Split verification authority / threshold declassification
+
+AH40 separates a **2-of-3 verification quorum** from a **3-of-3 public evidence-release quorum** across three toy verifier principals.
+
+Frozen coalition/action outcomes:
+
+```text
+VERIFY_ONLY             = 4/8 coalitions ALLOW
+DECLASSIFY_EPOCH0       = 1/8 coalitions ALLOW
+authorized VERIFY_ONLY  = 0.4 bits residual privacy
+3-of-3 VERIFY_ONLY      = 0.4 bits
+3-of-3 DECLASSIFY       = 0 bits
+debug public-tag output = 0 bits
+```
+
+Minimal verification coalitions are `{A,B}`, `{A,C}`, and `{B,C}`; only `{A,B,C}` may declassify Epoch 0. The full coalition can possess declassification capability while still preserving the forward boundary when it exercises `VERIFY_ONLY` and emits only the panel-independent mediated receipt.
+
+Supported operational statements:
+
+```text
+verification quorum != public evidence-release quorum
+coalition capability != action exercised != output disclosed
+mediated verification preserves the boundary only while the public output schema stays coarsened
+```
+
+Package SHA-256:
+
+`64d327e566d4f9dcf5df7a3d4c81da6cd944b99a40a20eedd533cc721cb5d16b`
+
+Claim boundary: AH40 is a finite authorization/output-schema experiment. It does not implement threshold cryptography, secret sharing, MPC, cryptographic quorum signatures, malicious-verifier resistance, deployed key custody, or secure hardware behavior.
+

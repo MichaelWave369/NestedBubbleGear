@@ -49,13 +49,14 @@ const experiments = [
   { id:'AH37', title:'Epoch-scoped forward privacy', checks:'18/18', tests:'15/15', verdict:'PASS_AH37_QUALIFIED', hash:'4d86623914433a211f0c58de0d619207ba302c260c961b3944efde6baf0487a7', result:'Epoch rotation creates a forward privacy boundary for fresh observers only when old panel-dependent disclosure stays behind the boundary; a deterministic public digest can reopen the old distinctions in the tiny enumerable domain.', info:'fresh E1 0.4 bits · legacy 0 · public SHA256(E0)+E1 0 · metadata-only seal+E1 0.4 · 9 digest classes' },
   { id:'AH38', title:'Hiding commitments + key scope', checks:'24/24', tests:'15/15', verdict:'PASS_AH38_QUALIFIED', hash:'642f6314feeabb88e5de561fa079dbf3b53de4fc979b321bc7e158f496e3858c', result:'Public verifier artifacts can reopen old distinctions when their candidate domains are enumerable; mediated verification preserves the fresh observer boundary by releasing only a panel-independent result.', info:'fresh/mediated 0.4 bits · public digest/salt 0 · 8-key HMAC 0 · 8-salt digest 0 · large-key entropy claim REFUSED' },
   { id:'AH39', title:'Delayed key disclosure + authenticator history', checks:'26/26', tests:'15/15', verdict:'PASS_AH39_QUALIFIED', hash:'201995fa332e80b7c4f9aa9a17721ed24a1b028217809185ac20905ea40d4340', result:'Key authority changes compose with authenticator history: later key disclosure does not recreate a withheld tag, while releasing that panel-dependent tag into key-bearing history collapses the frozen target.', info:'fresh 0.4 · public tag pre/post key 0 · key + mediated VERIFIED with tag withheld 0.4 · late tag release 0 · key-revoke history persists' },
+  { id:'AH40', title:'Split verification authority + threshold declassification', checks:'27/27', tests:'15/15', verdict:'PASS_AH40_QUALIFIED', hash:'64d327e566d4f9dcf5df7a3d4c81da6cd944b99a40a20eedd533cc721cb5d16b', result:'A 2-of-3 verifier quorum can establish old-epoch validity without publishing the old evidence; only the separate 3-of-3 declassification action releases Epoch 0 and collapses the public observer privacy boundary.', info:'VERIFY_ONLY 4/8 coalitions @ 0.4 bits · DECLASSIFY 1/8 @ 0 bits · full coalition verify-only still 0.4 · debug tag control 0' },
 ]
 
 
 const bubbleFamilies = [
   { id: 'nested', mark: '◎', name: 'Nested', subtitle: 'Domains inside domains', equation: 'B₀ ⊃ B₁ ⊃ B₂', text: 'Tracks ancestry, coarse/fine state, and which distinctions survive projection across nesting levels.', evidence: 'Core NBG architecture' },
   { id: 'boundary', mark: 'Σ', name: 'Boundary', subtitle: 'Interface as state', equation: 'B = (X, Σ)', text: 'Treats the boundary itself as an active encoder, eraser, polarity carrier, or adaptive transport surface.', evidence: 'AH3 · boundary transfer' },
-  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH39' },
+  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH40' },
   { id: 'keyhole', mark: '◉', name: 'Keyhole', subtitle: 'Observer-limited domain', equation: 'O = P(X)', text: 'Makes observability explicit: the full system may contain distinctions collapsed by the current projection.', evidence: 'Observer hierarchy' },
   { id: 'altermath', mark: 'A', name: 'Altermath', subtitle: 'Causal structure behind cancellation', equation: 'P(X)=P(X′),  X ≉ X′', text: 'Captures systems that look equivalent now but respond differently to an admissible future interaction.', evidence: 'AH2–AH21' },
   { id: 'flux', mark: 'J', name: 'Dynamic / Flux', subtitle: 'Stable through motion', equation: 'Ẋ = 0,  J ≠ 0', text: 'Separates dead equilibrium from nonequilibrium steady state maintained by persistent throughput.', evidence: 'ALTM-F branch · planned' },
@@ -166,7 +167,7 @@ function App() {
           <a className="button ghost" href="#keyholes">Open the keyhole</a>
         </div>
         <div className="stats">
-          <div><strong>AH2→AH39</strong><span>frozen experiment ladder</span></div>
+          <div><strong>AH2→AH40</strong><span>frozen experiment ladder</span></div>
           <div><strong>{totalChecks}</strong><span>frozen acceptance checks passed</span></div>
           <div><strong>7</strong><span>layers in the current stack</span></div>
         </div>
@@ -336,7 +337,7 @@ function App() {
               <small>FROZEN PACKAGE SHA-256</small>
               <strong>{activeExperiment.hash}</strong>
             </div>
-            <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/AH2-AH39_DOSSIERS.md">
+            <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/AH2-AH40_DOSSIERS.md">
               Open frozen result dossiers ↗
             </a>
           </aside>
