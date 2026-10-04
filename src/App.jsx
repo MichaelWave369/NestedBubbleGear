@@ -47,13 +47,14 @@ const experiments = [
   { id:'AH35', title:'Upgrade access structures', checks:'29/29', tests:'15/15', verdict:'PASS_AH35_QUALIFIED', hash:'f1747ecd8ec7d2ebecc4a1645b00ba77d13313474c9ec6473e681c32448e653f', result:'Privacy-critical task refinements form an upward-closed access structure with exact minimal collapse paths and cut sets; structure-aware denies preserve richer safe task allocations than a scalar richness cap.', info:'v0.1.0 failed ordering-only 28/29 · 10 minimal collapse sets · 12 cuts · min cut {H_L:T,U_L:T} · max safe richness 6 under 2-atom cut' },
   { id:'AH36', title:'Dynamic revocation + privacy restoration', checks:'31/31', tests:'15/15', verdict:'PASS_AH36_QUALIFIED', hash:'6beec0a30dbcf30599f0b40acfa5069de60cbef9d2674b55ff6892698a1c2efd', result:'Revocation changes prospective authority before it changes already-materialized disclosure; explicit downgrade restores current-view privacy while the append-only historical ledger remains fully informative.', info:'authority/current/ledger privacy diverge at revocation · fresh observer 0.4 bits · historical observer 0 bits' },
   { id:'AH37', title:'Epoch-scoped forward privacy', checks:'18/18', tests:'15/15', verdict:'PASS_AH37_QUALIFIED', hash:'4d86623914433a211f0c58de0d619207ba302c260c961b3944efde6baf0487a7', result:'Epoch rotation creates a forward privacy boundary for fresh observers only when old panel-dependent disclosure stays behind the boundary; a deterministic public digest can reopen the old distinctions in the tiny enumerable domain.', info:'fresh E1 0.4 bits · legacy 0 · public SHA256(E0)+E1 0 · metadata-only seal+E1 0.4 · 9 digest classes' },
+  { id:'AH38', title:'Hiding commitments + key scope', checks:'24/24', tests:'15/15', verdict:'PASS_AH38_QUALIFIED', hash:'642f6314feeabb88e5de561fa079dbf3b53de4fc979b321bc7e158f496e3858c', result:'Public verifier artifacts can reopen old distinctions when their candidate domains are enumerable; mediated verification preserves the fresh observer boundary by releasing only a panel-independent result.', info:'fresh/mediated 0.4 bits · public digest/salt 0 · 8-key HMAC 0 · 8-salt digest 0 · large-key entropy claim REFUSED' },
 ]
 
 
 const bubbleFamilies = [
   { id: 'nested', mark: '◎', name: 'Nested', subtitle: 'Domains inside domains', equation: 'B₀ ⊃ B₁ ⊃ B₂', text: 'Tracks ancestry, coarse/fine state, and which distinctions survive projection across nesting levels.', evidence: 'Core NBG architecture' },
   { id: 'boundary', mark: 'Σ', name: 'Boundary', subtitle: 'Interface as state', equation: 'B = (X, Σ)', text: 'Treats the boundary itself as an active encoder, eraser, polarity carrier, or adaptive transport surface.', evidence: 'AH3 · boundary transfer' },
-  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH37' },
+  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH38' },
   { id: 'keyhole', mark: '◉', name: 'Keyhole', subtitle: 'Observer-limited domain', equation: 'O = P(X)', text: 'Makes observability explicit: the full system may contain distinctions collapsed by the current projection.', evidence: 'Observer hierarchy' },
   { id: 'altermath', mark: 'A', name: 'Altermath', subtitle: 'Causal structure behind cancellation', equation: 'P(X)=P(X′),  X ≉ X′', text: 'Captures systems that look equivalent now but respond differently to an admissible future interaction.', evidence: 'AH2–AH21' },
   { id: 'flux', mark: 'J', name: 'Dynamic / Flux', subtitle: 'Stable through motion', equation: 'Ẋ = 0,  J ≠ 0', text: 'Separates dead equilibrium from nonequilibrium steady state maintained by persistent throughput.', evidence: 'ALTM-F branch · planned' },
@@ -164,7 +165,7 @@ function App() {
           <a className="button ghost" href="#keyholes">Open the keyhole</a>
         </div>
         <div className="stats">
-          <div><strong>AH2→AH37</strong><span>frozen experiment ladder</span></div>
+          <div><strong>AH2→AH38</strong><span>frozen experiment ladder</span></div>
           <div><strong>{totalChecks}</strong><span>frozen acceptance checks passed</span></div>
           <div><strong>7</strong><span>layers in the current stack</span></div>
         </div>
@@ -334,7 +335,7 @@ function App() {
               <small>FROZEN PACKAGE SHA-256</small>
               <strong>{activeExperiment.hash}</strong>
             </div>
-            <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/AH2-AH37_DOSSIERS.md">
+            <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/AH2-AH38_DOSSIERS.md">
               Open frozen result dossiers ↗
             </a>
           </aside>
