@@ -469,6 +469,19 @@
       "headline": "Epoch-scoped disclosure / forward privacy boundaries",
       "key_result": "Fresh Epoch-1 observers recover 0.4 bits of residual privacy when old panel-dependent disclosure stays behind the boundary, while legacy observers and observers given an enumerable deterministic public digest remain at zero.",
       "info": "fresh=0.4; legacy=0; public SHA256(E0)+E1=0; metadata-only seal+E1=0.4; 9/9 digest classes uniquely identify target class"
+    },
+    {
+      "id": "AH38",
+      "package": "NBG-AH38_Hiding_Commitments_Key_Scope_v0.1.0.zip",
+      "sha256": "642f6314feeabb88e5de561fa079dbf3b53de4fc979b321bc7e158f496e3858c",
+      "bytes": 25941,
+      "checks": "24/24",
+      "tests": "15/15",
+      "verdict": "PASS_AH38_QUALIFIED",
+      "replay": "exact",
+      "headline": "Hiding commitments / key scope / disclosure-safe epoch receipts",
+      "key_result": "Public digest, public salt, and tiny enumerable HMAC/salt secret spaces all expose the frozen old target; a mediated panel-independent VERIFIED receipt preserves the fresh Epoch-1 observer's 0.4-bit residual privacy.",
+      "info": "fresh=0.4; public digest=0; public salt=0; 8-key HMAC=0; 8-salt digest=0; mediated VERIFIED=0.4; large-key information-theoretic claim refused"
     }
   ]
 }
