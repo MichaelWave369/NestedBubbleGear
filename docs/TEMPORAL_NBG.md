@@ -109,3 +109,25 @@ That conversion is the research task. The original visual map is not the ground 
 - a future probe that exposes the hidden difference;
 - explicit evidence labels;
 - explicit counterfactual receipts.
+
+## Second executable rung
+
+[NBG-T2](../experiments/NBGT2/) freezes typed temporal graph semantics:
+
+- explicit relation classes for chronology, membership, funding, operation, documented interaction, inferred influence, allegation, contradiction, and supersession;
+- evidence state that may strengthen without silently rewriting the relation type;
+- contradiction preservation rather than last-write-wins collapse;
+- explicit Keyhole projection;
+- observed/counterfactual separation;
+- canonical replay under irrelevant input/source ordering;
+- narrow typed composition, with unsupported relation pairs refused.
+
+The frozen safety idea is intentionally boring and therefore useful:
+
+```text
+chronology != influence
+allegation != documentation
+adjacency != causation
+```
+
+NBG-T3 is reserved for contradictory-source reconciliation and source-independence semantics.

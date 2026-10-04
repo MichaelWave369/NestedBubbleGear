@@ -46,7 +46,9 @@ A temporal model keeps versioned state, lineage, and two clocks:
 
 The first executable rung, **NBG-T1**, freezes a synthetic witness in which two histories are identical through the coarse present Keyhole but retain different hidden lineage. The same later admissible probe reveals that difference. NBG-T1 also freezes no-hindsight replay and explicit counterfactual separation.
 
-See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md) and [experiments/NBGT1](experiments/NBGT1/).
+**NBG-T2** adds typed temporal relations so chronology, allegation, documentation, inference, contradiction, and supersession cannot silently collapse into the same generic arrow. It also freezes explicit Keyhole projection and narrow typed composition rules.
+
+See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/).
 
 ## Frozen AH ladder
 
@@ -104,6 +106,7 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── AH9/              Frozen runnable rung
 │   ├── AH10/             Frozen runnable rung
 │   ├── NBGT1/            Frozen temporal-lineage rung
+│   ├── NBGT2/            Frozen typed temporal-graph rung
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff
