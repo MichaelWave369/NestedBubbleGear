@@ -1,0 +1,61 @@
+name: NBG-T3 Frozen Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT3/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt3.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT3/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt3.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Print candidate hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum \
+            experiments/NBGT3/SPEC.md \
+            experiments/NBGT3/src/nbgt3.py \
+            experiments/NBGT3/tests/test_nbgt3.py
+
+      - name: Run NBG-T3 reconciliation harness
+        run: python experiments/NBGT3/src/nbgt3.py
+
+      - name: Run NBG-T3 unit tests
+        run: python -m unittest discover -s experiments/NBGT3/tests -v
+
+      - name: Verify candidate result
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT3/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT3"
+          assert result["checks_passed"]==14
+          assert result["checks_total"]==14
+          assert result["witness"]["k1_status"]=="OBSERVED"
+          assert result["witness"]["k2_status"]=="DISPUTED"
+          assert result["witness"]["k4_status"]=="DISPUTED"
+          assert result["witness"]["refute_without_decision"]=="DISPUTED"
+          assert result["witness"]["refute_with_decision"]=="REFUTED"
+          assert result["witness"]["counterfactual_without_S2"]=="CORROBORATED"
+          print("result.json", hashlib.sha256((root/"result.json").read_bytes()).hexdigest())
+          print("sources.json", hashlib.sha256((root/"sources.json").read_bytes()).hexdigest())
+          print("evidence.json", hashlib.sha256((root/"evidence.json").read_bytes()).hexdigest())
+          print("decisions.json", hashlib.sha256((root/"decisions.json").read_bytes()).hexdigest())
+          print("PASS_NBGT3_CANDIDATE")
+          PY
