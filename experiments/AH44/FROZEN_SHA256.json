@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-AH44",
+  "files": {
+    "SPEC.md": "d6ee7cbecb9ce409fc3a001a3dd2ccf5d41b68390d0fab8c60289f858182f01a",
+    "src/ah44.py": "a8d4922192f954b2b65752f0d536bbd9acdf01a718f29506d9cde582904becf6",
+    "tests/test_ah44.py": "236f2a2bc2333800f9546a098a2a498040aefdb4a8b028be462773e7ad6c1797"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
