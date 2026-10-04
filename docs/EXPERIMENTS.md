@@ -40,6 +40,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH35 | Upgrade access structures / privacy-critical distinctions | QUALIFIED v0.1.1 · 29/29 checks · 15/15 tests · v0.1.0 failed 28/29 |
 | AH36 | Dynamic upgrade grants / revocation / privacy restoration | QUALIFIED · 31/31 checks · 15/15 tests |
 | AH37 | Epoch-scoped disclosure / forward privacy boundaries | QUALIFIED · 18/18 checks · 15/15 tests |
+| AH38 | Hiding commitments / key scope / disclosure-safe epoch receipts | QUALIFIED · 24/24 checks · 15/15 tests |
 
 ## Research progression
 
@@ -79,6 +80,7 @@ hidden residue
   -> upgrade access structures / privacy-critical distinctions
   -> dynamic upgrade revocation / privacy restoration
   -> epoch-scoped disclosure / forward privacy boundaries
+  -> hiding commitments / key scope / mediated verification
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
@@ -179,3 +181,44 @@ Package SHA-256:
 `4d86623914433a211f0c58de0d619207ba302c260c961b3944efde6baf0487a7`
 
 Claim boundary: AH37 does not claim SHA-256 is reversible, does not establish cryptographic forward secrecy or hiding commitments, and does not generalize the tiny-domain enumeration result to large unknown domains.
+
+
+## AH38 — Hiding commitments / key scope / disclosure-safe epoch receipts
+
+AH38 compares public and mediated Epoch-0 verification artifacts against the AH37 forward privacy boundary.
+
+Frozen observer outcomes:
+
+```text
+fresh E1 only                         = 0.4 bits
+public SHA256(E0) + E1               = 0 bits
+public-salt SHA256(E0) + E1          = 0 bits
+8-key HMAC public tag + E1           = 0 bits
+8-salt hidden-salt digest + E1       = 0 bits
+mediated VERIFIED receipt + E1       = 0.4 bits
+key-authorized verifier              = 0 bits
+```
+
+Finite attacker controls exhaustively enumerate 8 candidate keys × 9 distinct old disclosures and 8 candidate salts × 9 distinct old disclosures. Both produce 72 distinct candidate verifier artifacts, and every observed artifact identifies exactly one frozen target class.
+
+AH38 deliberately emits:
+
+```text
+NO_INFORMATION_THEORETIC_CLAIM_FOR_LARGE_SECRET_KEYSPACE
+```
+
+rather than converting a computational hiding assumption about a high-entropy secret HMAC key into a fabricated information-theoretic entropy result.
+
+Supported operational statements:
+
+```text
+verification authority != evidence disclosure authority
+public verifier artifact design is part of the privacy boundary
+tiny enumerable secret spaces are not hiding mechanisms
+```
+
+Package SHA-256:
+
+`642f6314feeabb88e5de561fa079dbf3b53de4fc979b321bc7e158f496e3858c`
+
+Claim boundary: AH38 is a finite observer/key-scope experiment. It does not establish hiding commitments, cryptographic forward secrecy, high-entropy HMAC leakage or hiding, deployed key-management security, or side-channel resistance.
