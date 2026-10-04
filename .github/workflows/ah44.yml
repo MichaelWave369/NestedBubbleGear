@@ -1,0 +1,29 @@
+name: AH44 Frozen Qualification
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  ah44:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify AH44 frozen hashes
+        run: |
+          printf '%s  %s\n' \
+            d6ee7cbecb9ce409fc3a001a3dd2ccf5d41b68390d0fab8c60289f858182f01a experiments/AH44/SPEC.md \
+            a8d4922192f954b2b65752f0d536bbd9acdf01a718f29506d9cde582904becf6 experiments/AH44/src/ah44.py \
+            236f2a2bc2333800f9546a098a2a498040aefdb4a8b028be462773e7ad6c1797 experiments/AH44/tests/test_ah44.py \
+            | sha256sum -c -
+      - name: Run AH44 frozen harness
+        run: python experiments/AH44/src/ah44.py
+      - name: Run AH44 unit tests
+        run: python -m unittest discover -s experiments/AH44/tests -v
