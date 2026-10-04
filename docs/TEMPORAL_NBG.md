@@ -200,3 +200,14 @@ The browser UI supports:
 All controls are projection-only. They do not edit the source records or review ledger.
 
 NBG-T7 is reserved for optional external evidence adapters with provenance-safe capture and reviewer acceptance.
+
+
+## Seventh executable rung
+
+[NBG-T7](../experiments/NBGT7/) freezes governed evidence-capture behavior for Temporal NBG.
+
+It records adapter identity, source locator, capture time, content digest, explicit source grouping, review decisions, source-version changes, contradiction-preserving outcomes, and offline replay.
+
+A captured item does not alter the original source-map claim. A separate review decision is required before it affects the derived review view.
+
+NBG-T8 is reserved for optional integration of the qualified capture contract into the review interface.
