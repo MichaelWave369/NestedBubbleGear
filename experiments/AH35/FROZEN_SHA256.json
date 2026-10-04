@@ -1,0 +1,12 @@
+{
+  "change": "Correct deterministic expected ordering of the same 12 minimal cut sets; no model, result membership, algorithm, or test change.",
+  "experiment": "NBG-AH35",
+  "files": {
+    "SPEC.md": "9d060da05100d4e0cbce82f35837838459bc92a538ae3afa1bf637e338401d26",
+    "src/ah35.py": "71ae44444822332df5299bed6587736800184d367ae5660968801ca92cf24abb",
+    "tests/test_ah35.py": "f6e3ebcf9f0bc068d98c59890c15750375d295850875636034b63188bd3c1af7"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "supersedes_failed_candidate": "v0.1.0",
+  "version": "0.1.1"
+}
