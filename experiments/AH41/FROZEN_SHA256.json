@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-AH41",
+  "files": {
+    "SPEC.md": "8d50373df6d79a1b0c0f925c857b902200e1f19c94cce02916a8d2116e77815e",
+    "src/ah41.py": "d0170543582b0d4fd983f8d2f5d3b5bc087551959b087da653d8e02cda7e90f2",
+    "tests/test_ah41.py": "e0d2d1f00e5990175d049ce2ce69c007cfdc799628c1521946fc86391b7a11da"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
