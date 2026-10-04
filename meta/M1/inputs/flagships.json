@@ -1,0 +1,262 @@
+{
+  "AH20": {
+    "elements": [
+      "E1",
+      "E2",
+      "E3"
+    ],
+    "p": 0.1,
+    "tasks": {
+      "C_CLASS_ALARM": {
+        "capability_minimal": [
+          [
+            "E1"
+          ],
+          [
+            "E3"
+          ]
+        ],
+        "policy_minimal": [
+          [
+            "E3"
+          ]
+        ]
+      },
+      "GLOBAL_REAUTH": {
+        "capability_minimal": [
+          [
+            "E1",
+            "E2"
+          ],
+          [
+            "E2",
+            "E3"
+          ]
+        ],
+        "policy_minimal": [
+          [
+            "E1",
+            "E2"
+          ]
+        ]
+      },
+      "H2_FULL": {
+        "capability_minimal": [
+          [
+            "E1",
+            "E2"
+          ],
+          [
+            "E2",
+            "E3"
+          ]
+        ],
+        "policy_minimal": [
+          [
+            "E1",
+            "E2"
+          ]
+        ]
+      },
+      "ROUTE_REAUTH": {
+        "capability_minimal": [
+          [
+            "E1",
+            "E2"
+          ],
+          [
+            "E2",
+            "E3"
+          ]
+        ],
+        "policy_minimal": [
+          [
+            "E2",
+            "E3"
+          ]
+        ]
+      }
+    }
+  },
+  "AH35": {
+    "atoms": [
+      "H_L:T",
+      "H_L:F",
+      "O_R:T",
+      "O_R:F",
+      "A_A:T",
+      "A_A:F",
+      "U_L:T",
+      "U_L:F",
+      "U_R:T",
+      "U_R:F"
+    ],
+    "grants": [
+      "H_L",
+      "O_R",
+      "A_A",
+      "U_L",
+      "U_R"
+    ],
+    "minimal_dangerous": [
+      [
+        "U_L:T",
+        "U_L:F",
+        "U_R:T",
+        "U_R:F"
+      ],
+      [
+        "A_A:T",
+        "U_L:T",
+        "U_R:T",
+        "U_R:F"
+      ],
+      [
+        "A_A:T",
+        "A_A:F",
+        "U_L:T"
+      ],
+      [
+        "O_R:T",
+        "O_R:F",
+        "U_L:T",
+        "U_L:F"
+      ],
+      [
+        "O_R:T",
+        "O_R:F",
+        "A_A:T",
+        "U_L:T"
+      ],
+      [
+        "H_L:T",
+        "A_A:T",
+        "U_R:T",
+        "U_R:F"
+      ],
+      [
+        "H_L:T",
+        "A_A:T",
+        "A_A:F"
+      ],
+      [
+        "H_L:T",
+        "O_R:T",
+        "O_R:F",
+        "A_A:T"
+      ],
+      [
+        "H_L:T",
+        "H_L:F",
+        "U_R:T",
+        "U_R:F"
+      ],
+      [
+        "H_L:T",
+        "H_L:F",
+        "O_R:T",
+        "O_R:F"
+      ]
+    ]
+  },
+  "AH42": {
+    "p": 0.1,
+    "principals": [
+      "PRINCIPAL_A",
+      "PRINCIPAL_B",
+      "PRINCIPAL_C"
+    ],
+    "scenarios": {
+      "S1_CERTIFIED_INDEPENDENT": {
+        "actual": {
+          "PRINCIPAL_A": "ROOT_A",
+          "PRINCIPAL_B": "ROOT_B",
+          "PRINCIPAL_C": "ROOT_C"
+        },
+        "observed": {
+          "PRINCIPAL_A": "ROOT_A",
+          "PRINCIPAL_B": "ROOT_B",
+          "PRINCIPAL_C": "ROOT_C"
+        }
+      },
+      "S2_SHARED_AB_OBSERVED": {
+        "actual": {
+          "PRINCIPAL_A": "ROOT_AB",
+          "PRINCIPAL_B": "ROOT_AB",
+          "PRINCIPAL_C": "ROOT_C"
+        },
+        "observed": {
+          "PRINCIPAL_A": "ROOT_AB",
+          "PRINCIPAL_B": "ROOT_AB",
+          "PRINCIPAL_C": "ROOT_C"
+        }
+      },
+      "S3_INDEPENDENT_BUT_UNVERIFIED": {
+        "actual": {
+          "PRINCIPAL_A": "ROOT_A",
+          "PRINCIPAL_B": "ROOT_B",
+          "PRINCIPAL_C": "ROOT_C"
+        },
+        "observed": {
+          "PRINCIPAL_A": "ROOT_A",
+          "PRINCIPAL_B": null,
+          "PRINCIPAL_C": null
+        }
+      },
+      "S4_HIDDEN_SHARED_UNVERIFIED": {
+        "actual": {
+          "PRINCIPAL_A": "ROOT_AB",
+          "PRINCIPAL_B": "ROOT_AB",
+          "PRINCIPAL_C": "ROOT_C"
+        },
+        "observed": {
+          "PRINCIPAL_A": null,
+          "PRINCIPAL_B": null,
+          "PRINCIPAL_C": "ROOT_C"
+        }
+      }
+    },
+    "seats": {
+      "PRINCIPAL_A": "A",
+      "PRINCIPAL_B": "B",
+      "PRINCIPAL_C": "C"
+    }
+  },
+  "AH44": {
+    "change_epoch": 2,
+    "controls": {
+      "FALSE_POSITIVE_TRUSTED": {
+        "actual_changes": false,
+        "event_epoch": 2,
+        "provenance": "TRUSTED"
+      },
+      "MISSING_EVENT": {
+        "actual_changes": true,
+        "event_epoch": null,
+        "provenance": null
+      },
+      "TRUSTED_DELAYED_1": {
+        "actual_changes": true,
+        "event_epoch": 3,
+        "provenance": "TRUSTED"
+      },
+      "TRUSTED_IMMEDIATE": {
+        "actual_changes": true,
+        "event_epoch": 2,
+        "provenance": "TRUSTED"
+      },
+      "TTL_ONLY": {
+        "actual_changes": true,
+        "event_epoch": null,
+        "provenance": null
+      },
+      "UNTRUSTED_IMMEDIATE": {
+        "actual_changes": true,
+        "event_epoch": 2,
+        "provenance": "UNTRUSTED"
+      }
+    },
+    "revalidate_epoch": 4,
+    "ttl": 2
+  }
+}
