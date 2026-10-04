@@ -131,7 +131,21 @@ adjacency != causation
 ```
 
 NBG-T3 is reserved for contradictory-source reconciliation and source-independence semantics.
-\n## Third executable rung\n\n[NBG-T3](../experiments/NBGT3/) freezes contradictory-source reconciliation semantics:\n\n- source independence is explicit, never inferred from URLs or filenames;\n- mirrors/reprints remain visible but do not create independent corroboration;\n- support and opposition can coexist without forced collapse;\n- derived summaries never replace the evidence ledger;\n- later-known evidence changes only later knowledge snapshots;\n- REFUTED requires an explicit frozen decision rule rather than record majority;\n- counterfactual source removal remains separate from observed history.\n\nThe next temporal rung is NBG-T4, a hostile dense-ingest stress test.\n
+
+## Third executable rung
+
+[NBG-T3](../experiments/NBGT3/) freezes contradictory-source reconciliation semantics:
+
+- source independence is explicit, never inferred from URLs or filenames;
+- mirrors/reprints remain visible but do not create independent corroboration;
+- support and opposition can coexist without forced collapse;
+- derived summaries never replace the evidence ledger;
+- later-known evidence changes only later knowledge snapshots;
+- REFUTED requires an explicit frozen decision rule rather than record majority;
+- counterfactual source removal remains separate from observed history.
+
+The next temporal rung is NBG-T4, a hostile dense-ingest stress test.
+
 ## Fourth executable rung
 
 [NBG-T4](../experiments/NBGT4/) freezes hostile dense-ingest semantics using a small synthetic derivative of the motivating Q-web map's structural failure modes.
@@ -149,3 +163,20 @@ NBG-T3 is reserved for contradictory-source reconciliation and source-independen
 - every record lands in a machine-readable audit bucket.
 
 NBG-T5 is reserved for evidence-linked review and temporal Keyhole exploration.
+
+
+## Fifth executable rung
+
+[NBG-T5](../experiments/NBGT5/) freezes evidence-linked review and Temporal Keyhole semantics:
+
+- source records remain immutable while reviewer actions append new ledger events;
+- ambiguity resolution is visible only after its review event becomes known;
+- later evidence never rewrites an earlier knowledge-cutoff snapshot;
+- source-map status and later review status remain distinct layers;
+- status and relation filters are pure projections;
+- analyst hypotheses can be toggled as a separate overlay;
+- each record can export a provenance bundle;
+- the review ledger is hash-chained;
+- governed exports preserve base digest, ledger head, derived view, and export hash.
+
+The next temporal rung is NBG-T6, the GitHub Pages Temporal Keyhole Explorer UI.

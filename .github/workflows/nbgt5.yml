@@ -1,0 +1,58 @@
+name: NBG-T5 Frozen Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT5/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt5.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT5/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt5.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt5:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Print candidate hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum \
+            experiments/NBGT5/SPEC.md \
+            experiments/NBGT5/src/nbgt5.py \
+            experiments/NBGT5/tests/test_nbgt5.py
+
+      - name: Run NBG-T5 review harness
+        run: python experiments/NBGT5/src/nbgt5.py
+
+      - name: Run NBG-T5 unit tests
+        run: python -m unittest discover -s experiments/NBGT5/tests -v
+
+      - name: Verify candidate result
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT5/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT5"
+          assert result["checks_passed"]==18
+          assert result["checks_total"]==18
+          assert result["witness"]["k1_ambiguous_subject"]=="UNKNOWN"
+          assert result["witness"]["k3_resolved_subject"]=="NODE_X"
+          assert result["witness"]["c1_k1_status"]=="ALLEGED"
+          assert result["witness"]["c1_k4_source_status"]=="ALLEGED"
+          assert result["witness"]["c1_k4_review_status"]=="CORROBORATED"
+          for name in ("result.json","base_records.json","review_ledger.json","export_k4.json"):
+              print(name, hashlib.sha256((root/name).read_bytes()).hexdigest())
+          print("PASS_NBGT5_CANDIDATE")
+          PY

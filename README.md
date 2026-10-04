@@ -46,9 +46,15 @@ A temporal model keeps versioned state, lineage, and two clocks:
 
 The first executable rung, **NBG-T1**, freezes a synthetic witness in which two histories are identical through the coarse present Keyhole but retain different hidden lineage. The same later admissible probe reveals that difference. NBG-T1 also freezes no-hindsight replay and explicit counterfactual separation.
 
-**NBG-T2** adds typed temporal relations so chronology, allegation, documentation, inference, contradiction, and supersession cannot silently collapse into the same generic arrow. It also freezes explicit Keyhole projection and narrow typed composition rules.\n\n**NBG-T3** adds contradictory-source reconciliation: explicit source independence, duplicate-lineage detection, support/opposition ledgers, conservative dispute preservation, and an explicit refutation gate.\n\n**NBG-T4** adds hostile dense-ingest semantics: generic source arrows become `ALLEGED_LINK`, chronological placement remains non-causal, adjacency creates no edge, unreadable labels become `UNKNOWN`, unsupported relations are refused, and analyst hypotheses stay on a separate layer.
+**NBG-T2** adds typed temporal relations so chronology, allegation, documentation, inference, contradiction, and supersession cannot silently collapse into the same generic arrow. It also freezes explicit Keyhole projection and narrow typed composition rules.
 
-See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/) and [experiments/NBGT4](experiments/NBGT4/).
+**NBG-T3** adds contradictory-source reconciliation: explicit source independence, duplicate-lineage detection, support/opposition ledgers, conservative dispute preservation, and an explicit refutation gate.
+
+**NBG-T4** adds hostile dense-ingest semantics: generic source arrows become `ALLEGED_LINK`, chronological placement remains non-causal, adjacency creates no edge, unreadable labels become `UNKNOWN`, unsupported relations are refused, and analyst hypotheses stay on a separate layer.
+
+**NBG-T5** adds evidence-linked review and Temporal Keyholes: reviewer actions append to a hash-chained ledger, earlier snapshots remain replayable, source status stays distinct from later review status, filters are pure projections, and analyst hypotheses remain a separate overlay.
+
+See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), and [experiments/NBGT5](experiments/NBGT5/).
 
 ## Frozen AH ladder
 
@@ -107,6 +113,9 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── AH10/             Frozen runnable rung
 │   ├── NBGT1/            Frozen temporal-lineage rung
 │   ├── NBGT2/            Frozen typed temporal-graph rung
+│   ├── NBGT3/            Frozen source-reconciliation rung
+│   ├── NBGT4/            Frozen hostile-ingest rung
+│   ├── NBGT5/            Frozen evidence-review / Temporal Keyhole rung
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff
