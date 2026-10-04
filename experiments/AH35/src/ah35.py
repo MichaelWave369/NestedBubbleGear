@@ -290,6 +290,7 @@ def main():
         {"name":"suite:106_safe","pass":len(valid)-len(dangerous)==106},
     ])
 
+    # Upward closure on valid prerequisite-closed sets.
     checks.append({
         "name":"access:dangerous_upward_closed",
         "pass":all(
@@ -345,6 +346,7 @@ def main():
         {"name":"cuts:unique_size2","pass":[c for c in cuts if len(c)==2]==[("H_L:T","U_L:T")]},
     ])
 
+    # Every cut safe; every proper subset fails to hit all minimal paths.
     checks.append({
         "name":"cuts:all_operationally_safe",
         "pass":all(cut_stats(panels,c)["all_safe"] for c in cuts)
@@ -370,6 +372,7 @@ def main():
         {"name":"mincut:min_privacy0p4","pass":abs(minstats["min_residual_privacy_bits"]-0.4)<1e-12},
     ])
 
+    # Scalar guarantee: all <=2 safe, score 3 contains danger.
     profile_rows=[evaluate(panels,p) for p in all_profiles()]
     checks.extend([
         {"name":"scalar:all_score_le2_safe","pass":all(r["residual_privacy_bits"]>1e-12 for r in profile_rows if r["richness"]<=2)},
@@ -380,6 +383,7 @@ def main():
         {"name":"structural:triple_scalar_cap","pass":minstats["max_richness"]==3*2},
     ])
 
+    # Utility-maximal inclusion-minimal cut.
     cutrows=[cut_stats(panels,c) for c in cuts]
     maxrich=max(r["max_richness"] for r in cutrows)
     maxcuts=[r for r in cutrows if r["max_richness"]==maxrich]
@@ -389,6 +393,7 @@ def main():
         {"name":"cuts:maxrich_worst_privacy0p2","pass":abs(maxcuts[0]["min_residual_privacy_bits"]-0.2)<1e-12},
     ])
 
+    # Policy frontier across all hitting sets.
     hitrows=[cut_stats(panels,c) for c in all_hitting_sets(mins)]
     frontier=policy_pareto(hitrows)
     coords=tuple((r["cost"],r["max_richness"],r["min_residual_privacy_bits"]) for r in frontier)
@@ -407,6 +412,7 @@ def main():
         )},
     ])
 
+    # Replay.
     replay_mins=minimal_dangerous_sets(panels)
     replay_cuts=inclusion_minimal_hitting_sets(replay_mins)
     checks.append({
