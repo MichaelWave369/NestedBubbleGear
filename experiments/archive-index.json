@@ -534,6 +534,19 @@
       "headline": "Independence certification / hidden common control",
       "key_result": "Only complete distinct root-control evidence certifies three independent domains; observed A/B sharing lowers actual VERIFY/DECLASSIFY root thresholds from 2→1 and 3→2, while incomplete evidence refuses the independence claim.",
       "info": "4 scenarios; CERTIFIED_INDEPENDENT / SHARED_CONTROL_OBSERVED / INDEPENDENCE_UNVERIFIED; p=0.1 reliability independent .972/.729 vs shared .900/.810; hidden shared control is never falsely certified"
+    },
+    {
+      "id": "AH43",
+      "package": "NBG-AH43_Independence_Evidence_Decay_v0.1.0.zip",
+      "sha256": "0cb2df772e4e5e0b49a423134f998fd82226e7840360039a309ed12d5f0ecb41",
+      "bytes": 26934,
+      "checks": "30/30",
+      "tests": "15/15",
+      "verdict": "PASS_AH43_QUALIFIED",
+      "replay": "exact",
+      "headline": "Independence evidence decay / revalidation / certificate expiry",
+      "key_result": "TTL=2 expires stale independence claims; hidden A/B control can still change inside the fresh window, producing exactly one policy-fresh false-advertisement epoch before expiry; revalidation then discovers shared control.",
+      "info": "Stable timeline CERTIFIED_FRESH→STALE→revalidated fresh; hidden-fusion timeline fresh-but-ground-truth-changed at t2, stale t3, SHARED_CONTROL_OBSERVED t4; TTL sensitivity 0/0/1/2 false-advert epochs for TTL 0/1/2/3"
     }
   ]
 }
