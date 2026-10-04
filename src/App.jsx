@@ -1,4 +1,14 @@
 import { useMemo, useState } from 'react'
+import {
+  RELATION_OPTIONS,
+  STATUS_OPTIONS,
+  TEMPORAL_BASE_DIGEST,
+  ambiguityQueue,
+  buildTemporalExport,
+  compareTemporalViews,
+  deriveTemporalView,
+  provenanceBundle,
+} from './temporalKeyhole.js'
 
 const stack = [
   { mark: 'B', name: 'NBG', title: 'Domains + interfaces', text: 'Defines where state lives, how domains nest, and where constrained interfaces exist.' },
@@ -124,10 +134,60 @@ function Formula({ children }) {
   return <div className="formula">{children}</div>
 }
 
+function toggleValue(list, value) {
+  return list.includes(value)
+    ? list.filter((item) => item !== value)
+    : [...list, value]
+}
+
+function shortHash(value) {
+  if (!value || value === 'GENESIS') return value || '—'
+  return `${value.slice(0, 10)}…${value.slice(-8)}`
+}
+
+function TemporalClaimCard({ item, selected, onSelect }) {
+  return (
+    <button
+      className={selected ? 'temporal-card selected' : 'temporal-card'}
+      onClick={() => onSelect(item.recordId)}
+    >
+      <div className="temporal-card-top">
+        <span>{item.recordId}</span>
+        <em>{item.originKind.replaceAll('_', ' ')}</em>
+      </div>
+      <div className="temporal-edge">
+        <strong>{item.subject}</strong>
+        <span>{item.relation}</span>
+        <strong>{item.object}</strong>
+      </div>
+      <div className="temporal-status-row">
+        <div>
+          <small>SOURCE STATUS</small>
+          <b>{item.sourceStatus}</b>
+        </div>
+        <div>
+          <small>REVIEW STATUS</small>
+          <b>{item.reviewStatus}</b>
+        </div>
+      </div>
+      <div className="temporal-card-foot">
+        <span>{item.ambiguity ? 'AMBIGUOUS' : 'RESOLVED VIEW'}</span>
+        <span>{item.appliedEventIds.length ? item.appliedEventIds.join(' · ') : 'NO REVIEW EVENTS'}</span>
+      </div>
+    </button>
+  )
+}
+
 function App() {
   const [depth, setDepth] = useState(0)
   const [bubbleIndex, setBubbleIndex] = useState(0)
   const [experimentIndex, setExperimentIndex] = useState(0)
+  const [temporalCutoffA, setTemporalCutoffA] = useState(1)
+  const [temporalCutoffB, setTemporalCutoffB] = useState(4)
+  const [temporalStatuses, setTemporalStatuses] = useState([])
+  const [temporalRelations, setTemporalRelations] = useState([])
+  const [showAnalyst, setShowAnalyst] = useState(false)
+  const [selectedTemporalRecord, setSelectedTemporalRecord] = useState('C1')
   const active = keyholes[depth]
   const activeBubble = bubbleFamilies[bubbleIndex]
   const activeExperiment = experiments[experimentIndex]
@@ -137,6 +197,62 @@ function App() {
     [],
   )
 
+  const temporalLeft = useMemo(
+    () =>
+      deriveTemporalView(temporalCutoffA, {
+        statuses: temporalStatuses,
+        relations: temporalRelations,
+        includeAnalystHypotheses: showAnalyst,
+      }),
+    [temporalCutoffA, temporalStatuses, temporalRelations, showAnalyst],
+  )
+
+  const temporalRight = useMemo(
+    () =>
+      deriveTemporalView(temporalCutoffB, {
+        statuses: temporalStatuses,
+        relations: temporalRelations,
+        includeAnalystHypotheses: showAnalyst,
+      }),
+    [temporalCutoffB, temporalStatuses, temporalRelations, showAnalyst],
+  )
+
+  const temporalComparison = useMemo(
+    () => compareTemporalViews(temporalLeft, temporalRight),
+    [temporalLeft, temporalRight],
+  )
+
+  const selectedBundle = useMemo(
+    () =>
+      provenanceBundle(
+        selectedTemporalRecord,
+        Math.max(temporalCutoffA, temporalCutoffB),
+      ),
+    [selectedTemporalRecord, temporalCutoffA, temporalCutoffB],
+  )
+
+  const temporalAmbiguities = useMemo(
+    () => ambiguityQueue(temporalCutoffB),
+    [temporalCutoffB],
+  )
+
+  const changedTemporalIds = temporalComparison
+    .filter((row) => row.changed)
+    .map((row) => row.recordId)
+
+  function exportTemporalComparison() {
+    const payload = buildTemporalExport(temporalLeft, temporalRight)
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {
+      type: 'application/json',
+    })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = `nbg-temporal-keyholes-k${temporalCutoffA}-k${temporalCutoffB}.json`
+    anchor.click()
+    URL.revokeObjectURL(url)
+  }
+
   return (
     <main>
       <header className="nav">
@@ -145,6 +261,7 @@ function App() {
           <a href="#stack">Stack</a>
           <a href="#atlas">Bubble Atlas</a>
           <a href="#keyholes">Keyholes</a>
+          <a href="#temporal">Temporal</a>
           <a href="#experiments">Experiments</a>
           <a href="#claims">Claims</a>
           <a href="https://github.com/MichaelWave369/NestedBubbleGear">GitHub ↗</a>
@@ -171,7 +288,7 @@ function App() {
           <a className="button ghost" href="#keyholes">Open the keyhole</a>
         </div>
         <div className="stats">
-          <div><strong>AH2→AH42</strong><span>frozen experiment ladder</span></div>
+          <div><strong>AH2→AH44</strong><span>frozen experiment ladder</span></div>
           <div><strong>{totalChecks}</strong><span>frozen acceptance checks passed</span></div>
           <div><strong>7</strong><span>layers in the current stack</span></div>
         </div>
@@ -300,6 +417,247 @@ function App() {
               <p>{active.insight}</p>
             </div>
           </div>
+        </div>
+      </section>
+
+
+      <section id="temporal" className="section temporal-section">
+        <div className="section-label">NBG-T6 · TEMPORAL KEYHOLE EXPLORER</div>
+        <div className="section-heading-row temporal-heading">
+          <div>
+            <h2>Move the knowledge cutoff.<br />Watch history change without rewriting it.</h2>
+            <p className="muted temporal-intro">
+              This explorer renders the frozen NBG-T5 synthetic witness. Source records stay immutable;
+              review events enter only when their known-time becomes visible.
+            </p>
+          </div>
+          <span className="status">VIEW ≠ LEDGER · FILTER ≠ EDIT</span>
+        </div>
+
+        <div className="temporal-controls">
+          <div className="cutoff-control">
+            <div className="control-head">
+              <span>LEFT KEYHOLE</span>
+              <strong>k{temporalCutoffA}</strong>
+            </div>
+            <input
+              aria-label="Left knowledge cutoff"
+              type="range"
+              min="1"
+              max="4"
+              step="1"
+              value={temporalCutoffA}
+              onChange={(event) => setTemporalCutoffA(Number(event.target.value))}
+            />
+            <small>Ledger head · {shortHash(temporalLeft.ledgerHead)}</small>
+          </div>
+
+          <div className="cutoff-control">
+            <div className="control-head">
+              <span>RIGHT KEYHOLE</span>
+              <strong>k{temporalCutoffB}</strong>
+            </div>
+            <input
+              aria-label="Right knowledge cutoff"
+              type="range"
+              min="1"
+              max="4"
+              step="1"
+              value={temporalCutoffB}
+              onChange={(event) => setTemporalCutoffB(Number(event.target.value))}
+            />
+            <small>Ledger head · {shortHash(temporalRight.ledgerHead)}</small>
+          </div>
+
+          <button
+            className={showAnalyst ? 'overlay-toggle active' : 'overlay-toggle'}
+            onClick={() => setShowAnalyst((value) => !value)}
+          >
+            <span>ANALYST HYPOTHESIS</span>
+            <strong>{showAnalyst ? 'VISIBLE' : 'HIDDEN'}</strong>
+          </button>
+        </div>
+
+        <div className="temporal-filters">
+          <div>
+            <span className="filter-label">EVIDENCE STATUS</span>
+            <div className="filter-buttons">
+              <button
+                className={temporalStatuses.length === 0 ? 'active' : ''}
+                onClick={() => setTemporalStatuses([])}
+              >
+                ALL
+              </button>
+              {STATUS_OPTIONS.map((statusName) => (
+                <button
+                  key={statusName}
+                  className={temporalStatuses.includes(statusName) ? 'active' : ''}
+                  onClick={() =>
+                    setTemporalStatuses((current) => toggleValue(current, statusName))
+                  }
+                >
+                  {statusName}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <span className="filter-label">RELATION TYPE</span>
+            <div className="filter-buttons">
+              <button
+                className={temporalRelations.length === 0 ? 'active' : ''}
+                onClick={() => setTemporalRelations([])}
+              >
+                ALL
+              </button>
+              {RELATION_OPTIONS.map((relationName) => (
+                <button
+                  key={relationName}
+                  className={temporalRelations.includes(relationName) ? 'active' : ''}
+                  onClick={() =>
+                    setTemporalRelations((current) => toggleValue(current, relationName))
+                  }
+                >
+                  {relationName}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="temporal-keyhole-grid">
+          <div className="temporal-keyhole-column">
+            <div className="temporal-column-head">
+              <div>
+                <span className="pill">KEYHOLE k{temporalCutoffA}</span>
+                <strong>{temporalLeft.items.length} visible records</strong>
+              </div>
+              <code>{temporalLeft.viewFingerprint}</code>
+            </div>
+            <div className="temporal-card-list">
+              {temporalLeft.items.length ? (
+                temporalLeft.items.map((item) => (
+                  <TemporalClaimCard
+                    key={item.recordId}
+                    item={item}
+                    selected={item.recordId === selectedTemporalRecord}
+                    onSelect={setSelectedTemporalRecord}
+                  />
+                ))
+              ) : (
+                <div className="temporal-empty">No records pass the current Keyhole filters.</div>
+              )}
+            </div>
+          </div>
+
+          <div className="temporal-keyhole-column">
+            <div className="temporal-column-head">
+              <div>
+                <span className="pill">KEYHOLE k{temporalCutoffB}</span>
+                <strong>{temporalRight.items.length} visible records</strong>
+              </div>
+              <code>{temporalRight.viewFingerprint}</code>
+            </div>
+            <div className="temporal-card-list">
+              {temporalRight.items.length ? (
+                temporalRight.items.map((item) => (
+                  <TemporalClaimCard
+                    key={item.recordId}
+                    item={item}
+                    selected={item.recordId === selectedTemporalRecord}
+                    onSelect={setSelectedTemporalRecord}
+                  />
+                ))
+              ) : (
+                <div className="temporal-empty">No records pass the current Keyhole filters.</div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="temporal-delta">
+          <span>DERIVED CHANGE SET</span>
+          <strong>{changedTemporalIds.length ? changedTemporalIds.join(' · ') : 'NO DERIVED DIFFERENCE'}</strong>
+          <small>
+            Comparison marks view differences only. It does not create evidence, reviewer actions, or causal edges.
+          </small>
+        </div>
+
+        <div className="temporal-review-grid">
+          <article className="provenance-panel">
+            <div className="panel-head">
+              <span>PROVENANCE BUNDLE</span>
+              <strong>{selectedTemporalRecord}</strong>
+            </div>
+            {selectedBundle ? (
+              <>
+                <dl>
+                  <div><dt>Layer</dt><dd>{selectedBundle.baseRecord.provenance.layer}</dd></div>
+                  <div><dt>Locator</dt><dd>{selectedBundle.baseRecord.provenance.sourceLocator}</dd></div>
+                  <div><dt>Lineage</dt><dd>{selectedBundle.baseRecord.provenance.sourceLineage}</dd></div>
+                  <div><dt>Base status</dt><dd>{selectedBundle.baseRecord.sourceStatus}</dd></div>
+                  <div><dt>Base digest</dt><dd>{shortHash(TEMPORAL_BASE_DIGEST)}</dd></div>
+                </dl>
+                <div className="review-events">
+                  <small>VISIBLE REVIEW EVENTS</small>
+                  {selectedBundle.reviewEvents.length ? selectedBundle.reviewEvents.map((event) => (
+                    <div className="review-event" key={event.eventId}>
+                      <strong>{event.eventId} · {event.eventType}</strong>
+                      <span>known @ k{event.knownTime}</span>
+                      <p>{event.reason}</p>
+                      <code>{shortHash(event.eventHash)}</code>
+                    </div>
+                  )) : <p className="muted">No review event targets this record at the selected maximum cutoff.</p>}
+                </div>
+                <code className="bundle-fingerprint">{selectedBundle.bundleFingerprint}</code>
+              </>
+            ) : (
+              <p className="muted">Select a claim card to inspect its immutable source record and review trail.</p>
+            )}
+          </article>
+
+          <article className="ambiguity-panel">
+            <div className="panel-head">
+              <span>AMBIGUITY QUEUE @ k{temporalCutoffB}</span>
+              <strong>{temporalAmbiguities.length}</strong>
+            </div>
+            {temporalAmbiguities.length ? (
+              temporalAmbiguities.map((item) => (
+                <button key={item.recordId} onClick={() => setSelectedTemporalRecord(item.recordId)}>
+                  <strong>{item.recordId}</strong>
+                  <span>{item.subject} → {item.object}</span>
+                  <small>Requires explicit reviewer event</small>
+                </button>
+              ))
+            ) : (
+              <div className="ambiguity-clear">
+                <span>✓</span>
+                <strong>No unresolved synthetic labels at this cutoff.</strong>
+                <small>The immutable base record may still preserve the original UNKNOWN value.</small>
+              </div>
+            )}
+          </article>
+
+          <article className="export-panel">
+            <div className="panel-head">
+              <span>GOVERNED EXPORT</span>
+              <strong>NBG-T6</strong>
+            </div>
+            <p>
+              Export both current Keyholes with the frozen base records, review ledger,
+              base SHA-256 digest, ledger heads, and deterministic view fingerprints.
+            </p>
+            <dl>
+              <div><dt>Base SHA-256</dt><dd>{shortHash(TEMPORAL_BASE_DIGEST)}</dd></div>
+              <div><dt>Left head</dt><dd>{shortHash(temporalLeft.ledgerHead)}</dd></div>
+              <div><dt>Right head</dt><dd>{shortHash(temporalRight.ledgerHead)}</dd></div>
+            </dl>
+            <button className="button primary temporal-export" onClick={exportTemporalComparison}>
+              Export current comparison
+            </button>
+            <small>Browser fingerprints are display checks, not replacements for the frozen SHA-256 receipts.</small>
+          </article>
         </div>
       </section>
 

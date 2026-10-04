@@ -1,0 +1,61 @@
+name: NBG-T6 Temporal Explorer Qualification
+
+on:
+  pull_request:
+    paths:
+      - "src/**"
+      - "scripts/test_temporal_keyhole.mjs"
+      - "experiments/NBGT6/**"
+      - "package.json"
+      - ".github/workflows/nbgt6.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "src/**"
+      - "scripts/test_temporal_keyhole.mjs"
+      - "experiments/NBGT6/**"
+      - "package.json"
+      - ".github/workflows/nbgt6.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt6:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install
+        run: npm install
+
+      - name: Verify NBG-T6 frozen hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s  %s\n' \
+            '4a7f81e22345ede5a997f47509d3eecc2580aa7678ef88c3dd10053f2cadf6d3' 'src/temporalKeyhole.js' \
+            '787136c5367e95eac46dea77a383a565a500f278b41bca09c74409c3fa37cada' 'src/App.jsx' \
+            '6a3264831312273021f65992779e5dc0e36baa6510144f3d10a16a084083d468' 'src/styles.css' \
+            '6fb1b480760c1e16637d3a964f779d1e24cb84cf136408dc9b8037f640e58995' 'scripts/test_temporal_keyhole.mjs' \
+            '9d2a131f757c54b00f9cca5f2e0bad720be25e1f106a3f84fc418902bac6f857' 'experiments/NBGT6/SPEC.md' \
+            | sha256sum -c -
+
+      - name: Run Temporal Keyhole model acceptance
+        run: npm run test:temporal
+
+      - name: Build research site
+        run: npm run build
+
+      - name: Verify explorer witness wiring
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q 'TEMPORAL KEYHOLE EXPLORER' src/App.jsx
+          grep -q 'SOURCE STATUS' src/App.jsx
+          grep -q 'REVIEW STATUS' src/App.jsx
+          grep -q 'ALLEGED_LINK' src/temporalKeyhole.js
+          grep -q 'CORROBORATED' src/temporalKeyhole.js
+          echo PASS_NBGT6_QUALIFIED
