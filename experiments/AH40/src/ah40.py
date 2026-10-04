@@ -365,7 +365,8 @@ def main():
         },
     ])
 
-    # Refused receipts must contain no panel-dependent evidence fields.\n    forbidden={"epoch0_snapshot","tag","key","digest","public_output"}
+    # Refused receipts must contain no panel-dependent evidence fields.
+    forbidden={"epoch0_snapshot","tag","key","digest","public_output"}
     checks.extend([
         {"name":"refusal:no_verify_evidence_fields","pass":all(
             not (forbidden & set(r["verify"].keys()))
