@@ -46,6 +46,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH41 | Verifier compromise / role fusion / quorum resilience | QUALIFIED · 29/29 checks · 15/15 tests |
 | AH42 | Independence certification / hidden common control | QUALIFIED · 44/44 checks · 16/16 tests |
 | AH43 | Independence evidence decay / revalidation / certificate expiry | QUALIFIED · 30/30 checks · 15/15 tests |
+| AH44 | Event-driven independence revocation / change detection | QUALIFIED · 35/35 checks · 15/15 tests |
 
 ## Research progression
 
@@ -91,6 +92,7 @@ hidden residue
   -> verifier compromise / role fusion / quorum resilience
   -> independence certification / hidden common control
   -> independence evidence decay / revalidation / certificate expiry
+  -> event-driven independence revocation / change detection
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
@@ -429,3 +431,55 @@ Package SHA-256:
 `0cb2df772e4e5e0b49a423134f998fd82226e7840360039a309ed12d5f0ecb41`
 
 Claim boundary: AH43 is a finite temporal-certification, expiry, hidden-change, and revalidation model. It does not establish optimal real-world TTLs, continuous attestation, PKI correctness, real-time compromise detection, or secure hardware monitoring.
+
+
+## AH44 — Event-driven independence revocation / change detection
+
+AH44 closes the temporal-certification arc by comparing certificate-TTL polling with trusted, delayed, missing, false-positive, and untrusted change events.
+
+Frozen controls:
+
+```text
+TTL_ONLY
+TRUSTED_IMMEDIATE
+TRUSTED_DELAYED_1
+MISSING_EVENT
+FALSE_POSITIVE_TRUSTED
+UNTRUSTED_IMMEDIATE
+```
+
+False-advertisement windows after hidden A+B fusion at t2:
+
+```text
+TTL_ONLY             1 epoch
+TRUSTED_IMMEDIATE    0
+TRUSTED_DELAYED_1    1
+MISSING_EVENT        1
+UNTRUSTED_IMMEDIATE  1
+```
+
+A trusted immediate event does not certify the new topology. It moves the system to:
+
+```text
+INDEPENDENCE_REVOKED_PENDING_REVALIDATION
+```
+
+and removes the old independence advertisement until fresh evidence arrives. At t4, revalidation discovers shared A+B control.
+
+The false-positive trusted-event control has zero false independence advertisements but incurs two epochs of conservative unnecessary refusal before revalidation restores independence.
+
+Supported operational statements:
+
+```text
+certificate freshness != continuous change detection
+trusted event-driven revocation can reduce the hidden-change window without pretending to know the new topology
+event provenance is part of revocation authority
+```
+
+Package SHA-256:
+
+`2ca9bd2c0446c7e845b8fe98b589fbaa008872fafb8c6d0d7c3a2d0b79640c6e`
+
+Claim boundary: AH44 is a finite event/TTL/revalidation/refusal toy model. It does not establish secure event transport, truthful monitoring, real-time detection guarantees, optimal TTL/event latency, or production identity/HSM monitoring.
+
+**Arc closure:** AH44 is the final planned temporal-certification rung. The next phase is meta-qualification and independent reproduction, not AH45.
