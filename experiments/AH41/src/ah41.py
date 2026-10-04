@@ -421,8 +421,7 @@ def main():
     }
 
     out=Path(__file__).resolve().parents[1]/"results"
-    data=(json.dumps(payload,indent=2,sort_keys=True)+"
-").encode()
+    data=(json.dumps(payload,indent=2,sort_keys=True)+"\n").encode()
     (out/"result.json").write_bytes(data)
 
     print(json.dumps({
