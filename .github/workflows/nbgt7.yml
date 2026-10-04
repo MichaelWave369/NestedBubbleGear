@@ -20,14 +20,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Print candidate hashes
+      - name: Verify NBG-T7 frozen hashes
         shell: bash
         run: |
           set -euo pipefail
-          sha256sum \
-            experiments/NBGT7/SPEC.md \
-            experiments/NBGT7/src/nbgt7.py \
-            experiments/NBGT7/tests/test_nbgt7.py
+          cd experiments/NBGT7
+          printf '%s  %s\n' \
+            '01efbd01b971e0c092ca5d8bfa778159908c9c2e5fd78ec732d306b26885056a' 'SPEC.md' \
+            'e9b32539b476a7cc36ea5f22a346379e777fea4fb013918a584bc8e2a719a719' 'src/nbgt7.py' \
+            '0de3acec3f31c724516371383958eb493bba5d6ad00306a9b8535b3b4e67b8f5' 'tests/test_nbgt7.py' \
+            | sha256sum -c -
 
       - name: Run NBG-T7 adapter harness
         run: python experiments/NBGT7/src/nbgt7.py
@@ -35,7 +37,7 @@ jobs:
       - name: Run NBG-T7 unit tests
         run: python -m unittest discover -s experiments/NBGT7/tests -v
 
-      - name: Verify candidate result
+      - name: Verify qualified artifacts
         shell: bash
         run: |
           set -euo pipefail
@@ -51,7 +53,15 @@ jobs:
           assert result["witness"]["k6_status"]=="CORROBORATED"
           assert result["witness"]["k9_status"]=="DISPUTED"
           assert result["witness"]["drift_count"]==1
-          for name in ("result.json","base_claim.json","capture_receipts.json","review_decisions.json","drift_report.json"):
-              print(name, hashlib.sha256((root/name).read_bytes()).hexdigest())
-          print("PASS_NBGT7_CANDIDATE")
+          expected={
+              "result.json":"ebc8eed0a831b0b014983e2b81859175778cce122ccb20deef41c0c88a437d0b",
+              "base_claim.json":"1c74c68656129dcf63fa4dacd11a4ddaf88adc5d6824c43995d62e5ea187dab6",
+              "capture_receipts.json":"7c8215a42c7a1d48e0dd2d23962414d650e339006dc0764db6362ad034587fe5",
+              "review_decisions.json":"a8d1802a9c0cc53ae605f5385922623db2ea39dcf7d4a2ff40c2523d6b4e939e",
+              "drift_report.json":"cc7e87d601176e6d24090846c7834b0d7eb9860198da657815cb3b111013610c",
+          }
+          for name,want in expected.items():
+              got=hashlib.sha256((root/name).read_bytes()).hexdigest()
+              assert got==want,(name,got,want)
+          print("PASS_NBGT7_QUALIFIED")
           PY
