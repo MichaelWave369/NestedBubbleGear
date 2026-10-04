@@ -29,7 +29,8 @@
 - [x] NBG-T3 — contradictory-source reconciliation without forced collapse
 - [x] NBG-T4 — dense hostile-ingest stress test using a provenance-safe synthetic derivative fixture
 - [x] NBG-T5 — evidence-linked review and temporal Keyholes
-- [ ] NBG-T6 — Temporal Keyhole Explorer in the research site
+- [x] NBG-T6 — Temporal Keyhole Explorer in the research site
+- [ ] NBG-T7 — external evidence adapters with provenance-safe capture and reviewer acceptance
 
 ## Control-layer integration
 

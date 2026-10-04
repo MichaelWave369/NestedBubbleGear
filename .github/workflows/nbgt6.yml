@@ -1,0 +1,61 @@
+name: NBG-T6 Temporal Explorer Qualification
+
+on:
+  pull_request:
+    paths:
+      - "src/**"
+      - "scripts/test_temporal_keyhole.mjs"
+      - "experiments/NBGT6/**"
+      - "package.json"
+      - ".github/workflows/nbgt6.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "src/**"
+      - "scripts/test_temporal_keyhole.mjs"
+      - "experiments/NBGT6/**"
+      - "package.json"
+      - ".github/workflows/nbgt6.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt6:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Print candidate hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum \
+            src/temporalKeyhole.js \
+            src/App.jsx \
+            src/styles.css \
+            scripts/test_temporal_keyhole.mjs \
+            experiments/NBGT6/SPEC.md
+
+      - name: Run Temporal Keyhole model acceptance
+        run: npm run test:temporal
+
+      - name: Build research site
+        run: npm run build
+
+      - name: Check frozen witness strings in built source
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q 'Temporal Keyhole Explorer' src/App.jsx
+          grep -q 'SOURCE STATUS' src/App.jsx
+          grep -q 'REVIEW STATUS' src/App.jsx
+          grep -q 'ALLEGED_LINK' src/temporalKeyhole.js
+          grep -q 'CORROBORATED' src/temporalKeyhole.js
+          echo PASS_NBGT6_CANDIDATE

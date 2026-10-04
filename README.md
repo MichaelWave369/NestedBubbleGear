@@ -54,7 +54,9 @@ The first executable rung, **NBG-T1**, freezes a synthetic witness in which two 
 
 **NBG-T5** adds evidence-linked review and Temporal Keyholes: reviewer actions append to a hash-chained ledger, earlier snapshots remain replayable, source status stays distinct from later review status, filters are pure projections, and analyst hypotheses remain a separate overlay.
 
-See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), and [experiments/NBGT5](experiments/NBGT5/).
+**NBG-T6** exposes those semantics in the live GitHub Pages Temporal Keyhole Explorer with side-by-side cutoffs, evidence/relation filters, provenance inspection, ambiguity review, analyst overlays, ledger heads, and governed JSON export.
+
+See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), and [experiments/NBGT6](experiments/NBGT6/).
 
 ## Frozen AH ladder
 
@@ -116,6 +118,7 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── NBGT3/            Frozen source-reconciliation rung
 │   ├── NBGT4/            Frozen hostile-ingest rung
 │   ├── NBGT5/            Frozen evidence-review / Temporal Keyhole rung
+│   ├── NBGT6/            Frozen Temporal Keyhole Explorer UI rung
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff

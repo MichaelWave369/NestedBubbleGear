@@ -180,3 +180,23 @@ NBG-T5 is reserved for evidence-linked review and temporal Keyhole exploration.
 - governed exports preserve base digest, ledger head, derived view, and export hash.
 
 The next temporal rung is NBG-T6, the GitHub Pages Temporal Keyhole Explorer UI.
+
+
+## Sixth executable rung
+
+[NBG-T6](../experiments/NBGT6/) exposes the frozen NBG-T5 semantics through the GitHub Pages Temporal Keyhole Explorer.
+
+The browser UI supports:
+
+- two independent knowledge cutoffs for side-by-side comparison;
+- evidence-status and relation-type filters;
+- source-status versus review-status display;
+- analyst-hypothesis overlay on/off;
+- provenance bundles;
+- ambiguity queue;
+- ledger-head and view-fingerprint display;
+- governed JSON export.
+
+All controls are projection-only. They do not edit the source records or review ledger.
+
+NBG-T7 is reserved for optional external evidence adapters with provenance-safe capture and reviewer acceptance.
