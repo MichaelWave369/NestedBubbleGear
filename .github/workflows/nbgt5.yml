@@ -1,0 +1,67 @@
+name: NBG-T5 Frozen Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT5/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt5.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT5/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt5.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt5:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify NBG-T5 frozen hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd experiments/NBGT5
+          printf '%s  %s\n' \
+            'f13c32a689fc06bca3ddb98a883a5c505705e5436c5cf5965033a6f94eee9604' 'SPEC.md' \
+            '4eb354d089fa81f590141d26287e91e34c6d214c0d986525d7cd42a9521ae7bb' 'src/nbgt5.py' \
+            '7172d551121104163716138a079b16d8bf5a8932eca2d0a6926fafa65f138f2a' 'tests/test_nbgt5.py' \
+            | sha256sum -c -
+
+      - name: Run NBG-T5 review harness
+        run: python experiments/NBGT5/src/nbgt5.py
+
+      - name: Run NBG-T5 unit tests
+        run: python -m unittest discover -s experiments/NBGT5/tests -v
+
+      - name: Verify qualified NBG-T5 result
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT5/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT5"
+          assert result["checks_passed"]==18
+          assert result["checks_total"]==18
+          assert result["witness"]["k1_ambiguous_subject"]=="UNKNOWN"
+          assert result["witness"]["k3_resolved_subject"]=="NODE_X"
+          assert result["witness"]["c1_k1_status"]=="ALLEGED"
+          assert result["witness"]["c1_k4_source_status"]=="ALLEGED"
+          assert result["witness"]["c1_k4_review_status"]=="CORROBORATED"
+          expected={
+              "result.json":"29d86fc096e0bc60a58a2f5b0ffe737549437ea24e07de8aa04268a3817b450c",
+              "base_records.json":"b4e1725ca21cf99fce0fe438a51b59528781d0624ec43b925583242ebce6261a",
+              "review_ledger.json":"7f475e1bff6c3f26cdf213e2b278b05919547653bff9833b4825669794873fe2",
+              "export_k4.json":"578258fe05bacb5e1373ea9adac3141267e11a594e873c2986d4f22680d2f6e6",
+          }
+          for name,want in expected.items():
+              got=hashlib.sha256((root/name).read_bytes()).hexdigest()
+              assert got==want,(name,got,want)
+          print("PASS_NBGT5_QUALIFIED")
+          PY

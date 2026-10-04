@@ -28,7 +28,8 @@
 - [x] NBG-T2 — typed temporal graph composition and evidence-grade edge semantics
 - [x] NBG-T3 — contradictory-source reconciliation without forced collapse
 - [x] NBG-T4 — dense hostile-ingest stress test using a provenance-safe synthetic derivative fixture
-- [ ] NBG-T5 — evidence-linked review and temporal Keyholes\n- [ ] Temporal Keyhole explorer in the research site
+- [x] NBG-T5 — evidence-linked review and temporal Keyholes
+- [ ] NBG-T6 — Temporal Keyhole Explorer in the research site
 
 ## Control-layer integration
 
