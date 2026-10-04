@@ -1,0 +1,15 @@
+{
+  "case_receipts_sha256": "01b13e1eb7573d6948224426357b543881a07300114830eb79a0cb94acfa6481",
+  "checks_passed": 11,
+  "checks_total": 11,
+  "counterexamples_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "experiment": "NBG-M2",
+  "frozen_hashes_unchanged": true,
+  "harness_verdict": "PASS_M2",
+  "qualification_verdict": "PASS_M2_QUALIFIED",
+  "replay_exact": true,
+  "result_sha256": "dd343cdc6d027687cfb2bb750dc06923e21702517dfe0c48bbae177b1f36d888",
+  "unit_test_count": 10,
+  "unit_tests_passed": true,
+  "version": "0.1.0"
+}
