@@ -53,13 +53,14 @@ const experiments = [
   { id:'AH41', title:'Verifier compromise + role fusion', checks:'29/29', tests:'15/15', verdict:'PASS_AH41_QUALIFIED', hash:'99625d4003a6d7c98ac1a57aee4a3f5857e4fb348d819967bba08128ed1d3133', result:'Logical quorum counts can overstate independent physical control: fusing seats A+B drops verification from two principals to one and strict declassification from three principals to two.', info:'thresholds verify 2→1 · strict declass 3→2 · weak control 2→1 · p=.1 verify R .972→.900 · strict declass R .729→.810' },
   { id:'AH42', title:'Independence certification + hidden common control', checks:'44/44', tests:'16/16', verdict:'PASS_AH42_QUALIFIED', hash:'9b30f815b1d4885e79e39c5aa4fb7a0ccf01862a6845074d935c7ac4093e4725', result:'Independence is treated as an evidence-bearing claim: complete distinct root-control evidence certifies three domains, observed A+B sharing exposes hidden common control, and incomplete evidence refuses optimistic quorum claims.', info:'3 seats + 3 names in every scenario · certified roots -> thresholds 2/3 · shared A+B -> 1/2 · incomplete evidence -> INDEPENDENCE_UNVERIFIED' },
   { id:'AH43', title:'Independence evidence decay + certificate expiry', checks:'30/30', tests:'15/15', verdict:'PASS_AH43_QUALIFIED', hash:'0cb2df772e4e5e0b49a423134f998fd82226e7840360039a309ed12d5f0ecb41', result:'Independence evidence now has a freshness horizon: stale certificates stop advertising old quorum claims, while the hidden-fusion control proves that a policy-fresh certificate can briefly outlive a changed control topology.', info:'TTL=2 · hidden fusion at t2 while cert still fresh · actual thresholds 2/3→1/2 · t3 STALE refusal · t4 SHARED_CONTROL_OBSERVED · TTL sensitivity 0/0/1/2' },
+  { id:'AH44', title:'Event-driven independence revocation + change detection', checks:'35/35', tests:'15/15', verdict:'PASS_AH44_QUALIFIED', hash:'2ca9bd2c0446c7e845b8fe98b589fbaa008872fafb8c6d0d7c3a2d0b79640c6e', result:'Trusted immediate change events revoke a stale independence claim at the same epoch as hidden A+B fusion, eliminating the frozen false-advertisement window without pretending to know the replacement topology.', info:'TTL-only 1 false epoch · trusted immediate 0 · delayed/missing/untrusted 1 · false positive 2 conservative refusal epochs · next phase meta-qualification' },
 ]
 
 
 const bubbleFamilies = [
   { id: 'nested', mark: '◎', name: 'Nested', subtitle: 'Domains inside domains', equation: 'B₀ ⊃ B₁ ⊃ B₂', text: 'Tracks ancestry, coarse/fine state, and which distinctions survive projection across nesting levels.', evidence: 'Core NBG architecture' },
   { id: 'boundary', mark: 'Σ', name: 'Boundary', subtitle: 'Interface as state', equation: 'B = (X, Σ)', text: 'Treats the boundary itself as an active encoder, eraser, polarity carrier, or adaptive transport surface.', evidence: 'AH3 · boundary transfer' },
-  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH43' },
+  { id: 'gear', mark: 'G', name: 'Gear', subtitle: 'Recurrence + circulation', equation: 'BJ = 0,  J ≠ 0', text: 'Represents persistent cycle-space current and ordered recurrent transformation.', evidence: 'AH5–AH44' },
   { id: 'keyhole', mark: '◉', name: 'Keyhole', subtitle: 'Observer-limited domain', equation: 'O = P(X)', text: 'Makes observability explicit: the full system may contain distinctions collapsed by the current projection.', evidence: 'Observer hierarchy' },
   { id: 'altermath', mark: 'A', name: 'Altermath', subtitle: 'Causal structure behind cancellation', equation: 'P(X)=P(X′),  X ≉ X′', text: 'Captures systems that look equivalent now but respond differently to an admissible future interaction.', evidence: 'AH2–AH21' },
   { id: 'flux', mark: 'J', name: 'Dynamic / Flux', subtitle: 'Stable through motion', equation: 'Ẋ = 0,  J ≠ 0', text: 'Separates dead equilibrium from nonequilibrium steady state maintained by persistent throughput.', evidence: 'ALTM-F branch · planned' },
@@ -340,7 +341,7 @@ function App() {
               <small>FROZEN PACKAGE SHA-256</small>
               <strong>{activeExperiment.hash}</strong>
             </div>
-            <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/AH2-AH43_DOSSIERS.md">
+            <a className="text-link" href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/AH2-AH44_DOSSIERS.md">
               Open frozen result dossiers ↗
             </a>
           </aside>
