@@ -1,0 +1,290 @@
+{
+  "checks": [
+    {
+      "name": "schema:all_events_valid",
+      "pass": true
+    },
+    {
+      "name": "keyhole:coarse_equivalent_at_t2",
+      "pass": true
+    },
+    {
+      "name": "lineage:full_state_non_equivalent",
+      "pass": true
+    },
+    {
+      "name": "lineage:digest_non_equivalent",
+      "pass": true
+    },
+    {
+      "name": "probe:future_divergence",
+      "pass": true
+    },
+    {
+      "name": "bitemporal:late_claim_hidden_before_known_time",
+      "pass": true
+    },
+    {
+      "name": "bitemporal:late_claim_visible_after_known_time",
+      "pass": true
+    },
+    {
+      "name": "bitemporal:no_hindsight_mutation",
+      "pass": true
+    },
+    {
+      "name": "counterfactual:separated_and_deterministic",
+      "pass": true
+    },
+    {
+      "name": "replay:observed_exact",
+      "pass": true
+    }
+  ],
+  "checks_passed": 10,
+  "checks_total": 10,
+  "experiment": "NBG-T1",
+  "receipts": {
+    "a_t2_k2": {
+      "applied_event_ids": [
+        "A1_ROUTE",
+        "A2_READY"
+      ],
+      "excluded_event_ids": [],
+      "experiment": "NBG-T1",
+      "knowledge_cutoff": 2,
+      "lineage_digest": "9c5258470c6c07610650dedb7daf91a694f58b7e48b2b6cf54bcc9c35fe517a0",
+      "lineage_event_ids": [
+        "A1_ROUTE",
+        "A2_READY"
+      ],
+      "mode": "OBSERVED",
+      "receipt_hash": "d28b71a173db5fc2a07d9ea208b030486505234f87c4ba89f72ee0308dc36924",
+      "state": {
+        "claims": {},
+        "latent": {
+          "route": "NORTH"
+        },
+        "macro": {
+          "status": "READY"
+        },
+        "observations": []
+      },
+      "version": "0.1.0",
+      "world_cutoff": 2
+    },
+    "a_t2_k4": {
+      "applied_event_ids": [
+        "A1_ROUTE",
+        "A2_READY",
+        "A3_LATE_CLAIM"
+      ],
+      "excluded_event_ids": [],
+      "experiment": "NBG-T1",
+      "knowledge_cutoff": 4,
+      "lineage_digest": "9c5258470c6c07610650dedb7daf91a694f58b7e48b2b6cf54bcc9c35fe517a0",
+      "lineage_event_ids": [
+        "A1_ROUTE",
+        "A2_READY"
+      ],
+      "mode": "OBSERVED",
+      "receipt_hash": "e297b07f4e3aec149eee5885effa18813143ef27a36152de2dab975ec4f4b5e2",
+      "state": {
+        "claims": {
+          "CLAIM_ROUTE_NORTH": {
+            "evidence_status": "CORROBORATED",
+            "known_time": 4,
+            "object": "NORTH",
+            "predicate": "used_route",
+            "provenance": "LATE_SYNTHETIC_RECORD",
+            "sources": [
+              "synthetic://source-1",
+              "synthetic://source-2"
+            ],
+            "subject": "history_a",
+            "valid_time": 2
+          }
+        },
+        "latent": {
+          "route": "NORTH"
+        },
+        "macro": {
+          "status": "READY"
+        },
+        "observations": []
+      },
+      "version": "0.1.0",
+      "world_cutoff": 2
+    },
+    "a_t3_k3": {
+      "applied_event_ids": [
+        "A1_ROUTE",
+        "A2_READY",
+        "A4_PROBE"
+      ],
+      "excluded_event_ids": [],
+      "experiment": "NBG-T1",
+      "knowledge_cutoff": 3,
+      "lineage_digest": "1fceabaf8744821a586e53376bc10d0e8c3ffb266d04d942b854c3deaf92c4c7",
+      "lineage_event_ids": [
+        "A1_ROUTE",
+        "A2_READY",
+        "A4_PROBE"
+      ],
+      "mode": "OBSERVED",
+      "receipt_hash": "62166a22565bb40453d3aed79f9aa842b73ca82c81a10b858f5e37992cae9a55",
+      "state": {
+        "claims": {},
+        "latent": {
+          "route": "NORTH"
+        },
+        "macro": {
+          "status": "READY"
+        },
+        "observations": [
+          {
+            "event_id": "A4_PROBE",
+            "probe": "route",
+            "value": "NORTH"
+          }
+        ]
+      },
+      "version": "0.1.0",
+      "world_cutoff": 3
+    },
+    "b_t2_k2": {
+      "applied_event_ids": [
+        "B1_ROUTE",
+        "B2_READY"
+      ],
+      "excluded_event_ids": [],
+      "experiment": "NBG-T1",
+      "knowledge_cutoff": 2,
+      "lineage_digest": "121085427eb8942616d2b1c68c6a8ca662eaa38b09bfc231f9e683093e310930",
+      "lineage_event_ids": [
+        "B1_ROUTE",
+        "B2_READY"
+      ],
+      "mode": "OBSERVED",
+      "receipt_hash": "6f2d9c60bf6cee92b98c7fc6f0f3257ea01de9bd9f6ddb7e4246340daf292d71",
+      "state": {
+        "claims": {},
+        "latent": {
+          "route": "SOUTH"
+        },
+        "macro": {
+          "status": "READY"
+        },
+        "observations": []
+      },
+      "version": "0.1.0",
+      "world_cutoff": 2
+    },
+    "b_t3_k3": {
+      "applied_event_ids": [
+        "B1_ROUTE",
+        "B2_READY",
+        "B4_PROBE"
+      ],
+      "excluded_event_ids": [],
+      "experiment": "NBG-T1",
+      "knowledge_cutoff": 3,
+      "lineage_digest": "982094e76f1164d9eae70491d7a8f7089bdf2590135d4435fff03d28197e47dd",
+      "lineage_event_ids": [
+        "B1_ROUTE",
+        "B2_READY",
+        "B4_PROBE"
+      ],
+      "mode": "OBSERVED",
+      "receipt_hash": "47027bf9498d0d34d1a9e9f1c952504efc7aaa3da14ddf3596b6d7b4c0ede9b4",
+      "state": {
+        "claims": {},
+        "latent": {
+          "route": "SOUTH"
+        },
+        "macro": {
+          "status": "READY"
+        },
+        "observations": [
+          {
+            "event_id": "B4_PROBE",
+            "probe": "route",
+            "value": "SOUTH"
+          }
+        ]
+      },
+      "version": "0.1.0",
+      "world_cutoff": 3
+    },
+    "counterfactual_without_A1": {
+      "applied_event_ids": [
+        "A2_READY",
+        "A4_PROBE"
+      ],
+      "excluded_event_ids": [
+        "A1_ROUTE"
+      ],
+      "experiment": "NBG-T1",
+      "knowledge_cutoff": 3,
+      "lineage_digest": "910690cd0a1150345d1a93feecb0123471bfb2bf1fdbb9e9194b4dd9245f5c91",
+      "lineage_event_ids": [
+        "A2_READY",
+        "A4_PROBE"
+      ],
+      "mode": "COUNTERFACTUAL",
+      "receipt_hash": "e8c848f9b051bbd527cf1dcf85f328608389de54aa6b5fb837af9dc4258107df",
+      "state": {
+        "claims": {},
+        "latent": {},
+        "macro": {
+          "status": "READY"
+        },
+        "observations": [
+          {
+            "event_id": "A4_PROBE",
+            "probe": "route",
+            "value": "UNKNOWN"
+          }
+        ]
+      },
+      "version": "0.1.0",
+      "world_cutoff": 3
+    }
+  },
+  "result_hash": "31e4ee2c5367f5454d6837e6ae8d6c5f1d0942fcd3d1177aab15044a20a3083f",
+  "verdict": "PASS_NBGT1",
+  "version": "0.1.0",
+  "witness": {
+    "coarse_a_t2": {
+      "macro": {
+        "status": "READY"
+      }
+    },
+    "coarse_b_t2": {
+      "macro": {
+        "status": "READY"
+      }
+    },
+    "counterfactual_probe_without_A1": "UNKNOWN",
+    "full_a_t2": {
+      "latent": {
+        "route": "NORTH"
+      },
+      "macro": {
+        "status": "READY"
+      }
+    },
+    "full_b_t2": {
+      "latent": {
+        "route": "SOUTH"
+      },
+      "macro": {
+        "status": "READY"
+      }
+    },
+    "late_claim_visible_k2": false,
+    "late_claim_visible_k4": true,
+    "probe_a_t3": "NORTH",
+    "probe_b_t3": "SOUTH"
+  }
+}

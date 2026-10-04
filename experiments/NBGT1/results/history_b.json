@@ -1,0 +1,34 @@
+[
+  {
+    "event_id": "B1_ROUTE",
+    "kind": "SET_LATENT",
+    "known_time": 1,
+    "payload": {
+      "key": "route",
+      "value": "SOUTH"
+    },
+    "provenance": "SYNTHETIC_WITNESS",
+    "valid_time": 1
+  },
+  {
+    "event_id": "B2_READY",
+    "kind": "SET_MACRO",
+    "known_time": 2,
+    "payload": {
+      "key": "status",
+      "value": "READY"
+    },
+    "provenance": "SYNTHETIC_WITNESS",
+    "valid_time": 2
+  },
+  {
+    "event_id": "B4_PROBE",
+    "kind": "PROBE_LATENT",
+    "known_time": 3,
+    "payload": {
+      "key": "route"
+    },
+    "provenance": "ADMISSIBLE_PROBE",
+    "valid_time": 3
+  }
+]

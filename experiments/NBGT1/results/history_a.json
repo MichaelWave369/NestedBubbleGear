@@ -1,0 +1,52 @@
+[
+  {
+    "event_id": "A1_ROUTE",
+    "kind": "SET_LATENT",
+    "known_time": 1,
+    "payload": {
+      "key": "route",
+      "value": "NORTH"
+    },
+    "provenance": "SYNTHETIC_WITNESS",
+    "valid_time": 1
+  },
+  {
+    "event_id": "A2_READY",
+    "kind": "SET_MACRO",
+    "known_time": 2,
+    "payload": {
+      "key": "status",
+      "value": "READY"
+    },
+    "provenance": "SYNTHETIC_WITNESS",
+    "valid_time": 2
+  },
+  {
+    "event_id": "A3_LATE_CLAIM",
+    "evidence_status": "CORROBORATED",
+    "kind": "ASSERT_CLAIM",
+    "known_time": 4,
+    "payload": {
+      "claim_id": "CLAIM_ROUTE_NORTH",
+      "object": "NORTH",
+      "predicate": "used_route",
+      "subject": "history_a"
+    },
+    "provenance": "LATE_SYNTHETIC_RECORD",
+    "sources": [
+      "synthetic://source-1",
+      "synthetic://source-2"
+    ],
+    "valid_time": 2
+  },
+  {
+    "event_id": "A4_PROBE",
+    "kind": "PROBE_LATENT",
+    "known_time": 3,
+    "payload": {
+      "key": "route"
+    },
+    "provenance": "ADMISSIBLE_PROBE",
+    "valid_time": 3
+  }
+]
