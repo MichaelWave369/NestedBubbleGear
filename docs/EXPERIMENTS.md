@@ -41,7 +41,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH36 | Dynamic upgrade grants / revocation / privacy restoration | QUALIFIED · 31/31 checks · 15/15 tests |
 | AH37 | Epoch-scoped disclosure / forward privacy boundaries | QUALIFIED · 18/18 checks · 15/15 tests |
 | AH38 | Hiding commitments / key scope / disclosure-safe epoch receipts | QUALIFIED · 24/24 checks · 15/15 tests |
-| AH39 | Delayed key disclosure / authenticator history | QUALIFIED · 26/26 checks · 15/15 tests |
+| AH39 | Delayed key disclosure / authenticator history | QUALIFIED · 26/26 checks · 15/15 tests |\n| AH40 | Split verification authority / threshold declassification | QUALIFIED · 27/27 checks · 15/15 tests |\n| AH41 | Verifier compromise / role fusion / quorum resilience | QUALIFIED · 29/29 checks · 15/15 tests |
 
 ## Research progression
 
@@ -289,3 +289,38 @@ Package SHA-256:
 
 Claim boundary: AH40 is a finite authorization/output-schema experiment. It does not implement threshold cryptography, secret sharing, MPC, cryptographic quorum signatures, malicious-verifier resistance, deployed key custody, or secure hardware behavior.
 
+
+## AH41 — Verifier compromise / role fusion / quorum resilience
+
+AH41 maps AH40 logical verifier seats onto physical principals and compares independent ownership with a fused A+B ownership negative control.
+
+Frozen physical thresholds:
+
+```text
+verification:           independent 2 -> fused 1
+strict declassification independent 3 -> fused 2
+weak 2-of-3 control:    independent 2 -> fused 1
+```
+
+At independent physical failure rate `p=0.1`:
+
+```text
+verification reliability:        0.972 -> 0.900
+strict declassification reliability: 0.729 -> 0.810
+```
+
+Fusion therefore creates a verification single point of failure while making strict declassification more available and easier to compromise physically. Under strict independent ownership, a two-principal malicious declassification request is refused and the ordinary observer remains at **0.4 bits** residual privacy.
+
+Supported operational statements:
+
+```text
+logical quorum size != independent principal threshold
+role fusion can change compromise threshold and availability in opposite directions
+availability quorum != declassification compromise threshold
+```
+
+Package SHA-256:
+
+`99625d4003a6d7c98ac1a57aee4a3f5857e4fb348d819967bba08128ed1d3133`
+
+Claim boundary: AH41 is a finite seat-ownership, coalition, failure-cut, reliability, and mediated-output model. It does not establish threshold cryptography, BFT, MPC, production custody, secure hardware independence, or real-world correlated failure rates.
