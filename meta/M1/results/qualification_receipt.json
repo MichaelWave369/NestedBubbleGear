@@ -1,0 +1,13 @@
+{
+  "checks_passed": 59,
+  "checks_total": 59,
+  "experiment": "NBG-M1",
+  "frozen_hashes_unchanged": true,
+  "harness_verdict": "PASS_M1",
+  "qualification_verdict": "PASS_M1_QUALIFIED",
+  "replay_exact": true,
+  "result_sha256": "930e160085940ec50d9d634f311a44bb56f7a19d19f103bbcc84f45c456862c2",
+  "unit_test_count": 10,
+  "unit_tests_passed": true,
+  "version": "0.1.0"
+}
