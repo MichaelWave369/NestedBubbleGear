@@ -13,7 +13,7 @@ class AH40Tests(unittest.TestCase):
         return m.run_experiment()
 
     def test_eight_coalitions(self):
-        self.assertEqual(len(m.coalitions()),8)
+        self.assertEqual(self.result()["coalition_count"],8)
 
     def test_four_verification_coalitions(self):
         rows=self.result()["coalitions"]
