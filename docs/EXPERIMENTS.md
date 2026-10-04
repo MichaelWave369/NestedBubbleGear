@@ -39,6 +39,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH34 | Mixed task profiles / authority-aware privacy budgets | QUALIFIED · 49/49 checks · 15/15 tests |
 | AH35 | Upgrade access structures / privacy-critical distinctions | QUALIFIED v0.1.1 · 29/29 checks · 15/15 tests · v0.1.0 failed 28/29 |
 | AH36 | Dynamic upgrade grants / revocation / privacy restoration | QUALIFIED · 31/31 checks · 15/15 tests |
+| AH37 | Epoch-scoped disclosure / forward privacy boundaries | QUALIFIED · 18/18 checks · 15/15 tests |
 
 ## Research progression
 
@@ -77,6 +78,7 @@ hidden residue
   -> mixed task profiles / authority-aware privacy budgets
   -> upgrade access structures / privacy-critical distinctions
   -> dynamic upgrade revocation / privacy restoration
+  -> epoch-scoped disclosure / forward privacy boundaries
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
@@ -148,3 +150,32 @@ Package SHA-256:
 `6beec0a30dbcf30599f0b40acfa5069de60cbef9d2674b55ff6892698a1c2efd`
 
 Claim boundary: AH36 is a finite disclosure-history model. It does not establish secure deletion, cryptographic forward secrecy, cache invalidation, deletion of third-party copies, or retroactive secrecy.
+
+
+## AH37 — Epoch-scoped disclosure / forward privacy boundaries
+
+AH37 rotates from a rich Epoch-0 release to a downgraded Epoch-1 release and compares observer histories.
+
+Frozen result:
+
+```text
+fresh E1 observer                 = 0.4 bits
+legacy E0+E1 observer             = 0 bits
+public SHA256(E0)+E1 observer     = 0 bits
+metadata-only seal + E1 observer  = 0.4 bits
+```
+
+The deterministic public SHA-256 digest exposes the old target in this frozen ten-panel domain because all candidate old-epoch releases are known and enumerable: 9 distinct rich snapshots produce 9 distinct digests, and every digest maps to exactly one frozen target class.
+
+Supported operational statements:
+
+```text
+forward privacy boundary != historical erasure
+public deterministic commitment != non-disclosure in a tiny enumerable domain
+```
+
+Package SHA-256:
+
+`4d86623914433a211f0c58de0d619207ba302c260c961b3944efde6baf0487a7`
+
+Claim boundary: AH37 does not claim SHA-256 is reversible, does not establish cryptographic forward secrecy or hiding commitments, and does not generalize the tiny-domain enumeration result to large unknown domains.

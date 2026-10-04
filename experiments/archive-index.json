@@ -456,6 +456,19 @@
       "headline": "Dynamic upgrade revocation / privacy restoration",
       "key_result": "Revocation restores the prospective authority view before it changes already-materialized disclosure; explicit downgrade restores current-view privacy to 0.4 bits while an append-only historical ledger remains exactly reconstructive.",
       "info": "permission revoked != current disclosure coarsened != historical disclosure erased; fresh observer 0.4 bits vs historical observer 0 bits"
+    },
+    {
+      "id": "AH37",
+      "package": "NBG-AH37_Epoch_Scoped_Forward_Privacy_v0.1.0.zip",
+      "sha256": "4d86623914433a211f0c58de0d619207ba302c260c961b3944efde6baf0487a7",
+      "bytes": 23654,
+      "checks": "18/18",
+      "tests": "15/15",
+      "verdict": "PASS_AH37_QUALIFIED",
+      "replay": "exact",
+      "headline": "Epoch-scoped disclosure / forward privacy boundaries",
+      "key_result": "Fresh Epoch-1 observers recover 0.4 bits of residual privacy when old panel-dependent disclosure stays behind the boundary, while legacy observers and observers given an enumerable deterministic public digest remain at zero.",
+      "info": "fresh=0.4; legacy=0; public SHA256(E0)+E1=0; metadata-only seal+E1=0.4; 9/9 digest classes uniquely identify target class"
     }
   ]
 }

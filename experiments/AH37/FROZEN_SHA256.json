@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-AH37",
+  "files": {
+    "SPEC.md": "fd6759532e6a30dd7bf19251a85b98bf8da081425d59369cf950a496e74aebd8",
+    "src/ah37.py": "e229ef541e09b69709b5f1bcc37be866e33f1e01c3cc327b03050cf9bc861d79",
+    "tests/test_ah37.py": "1ac05be68b48f44d17a5568227efc413e7f49aee85aec6bbe30c4aed72079fe8"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
