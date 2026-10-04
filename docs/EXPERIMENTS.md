@@ -45,6 +45,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH40 | Split verification authority / threshold declassification | QUALIFIED · 27/27 checks · 15/15 tests |
 | AH41 | Verifier compromise / role fusion / quorum resilience | QUALIFIED · 29/29 checks · 15/15 tests |
 | AH42 | Independence certification / hidden common control | QUALIFIED · 44/44 checks · 16/16 tests |
+| AH43 | Independence evidence decay / revalidation / certificate expiry | QUALIFIED · 30/30 checks · 15/15 tests |
 
 ## Research progression
 
@@ -89,6 +90,7 @@ hidden residue
   -> split verification authority / threshold declassification
   -> verifier compromise / role fusion / quorum resilience
   -> independence certification / hidden common control
+  -> independence evidence decay / revalidation / certificate expiry
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
@@ -377,3 +379,53 @@ Package SHA-256:
 `9b30f815b1d4885e79e39c5aa4fb7a0ccf01862a6845074d935c7ac4093e4725`
 
 Claim boundary: AH42 is a finite graph/evidence/certification model. It does not establish real organizational independence, hardware/HSM independence, trustworthy identity proofing, credential-compromise probabilities, or Byzantine independence.
+
+
+## AH43 — Independence evidence decay / revalidation / certificate expiry
+
+AH43 makes AH42's independence certificate temporal. The frozen policy uses a 2-epoch TTL and compares stable independence with a hidden A/B control fusion that occurs before the old certificate expires.
+
+Stable timeline:
+
+```text
+t0 CERTIFIED_FRESH
+t1 CERTIFIED_FRESH
+t2 CERTIFIED_FRESH
+t3 CERTIFICATE_STALE
+t4 REVALIDATED_INDEPENDENT -> CERTIFIED_FRESH
+```
+
+Hidden-fusion timeline:
+
+```text
+t0 CERTIFIED_FRESH, actual thresholds 2/3
+t1 CERTIFIED_FRESH, actual thresholds 2/3
+t2 CERTIFIED_FRESH, but hidden A+B fusion changes actual thresholds to 1/2
+t3 CERTIFICATE_STALE, old independence advertisement removed
+t4 revalidation -> SHARED_CONTROL_OBSERVED, effective verified thresholds 1/2
+```
+
+The t2 event is the frozen negative control: certificate age is still within policy, but ground truth has changed. AH43 therefore does not treat freshness as continuous change detection.
+
+TTL sensitivity for a hidden change at t2 with no revalidation before t4:
+
+```text
+TTL 0 -> 0 false-advertisement epochs
+TTL 1 -> 0
+TTL 2 -> 1
+TTL 3 -> 2
+```
+
+Supported operational statements:
+
+```text
+independence certified once != independence certified forever
+stale evidence should remove an independence advertisement until revalidated
+fresh certificate != proof that control topology has not changed since observation
+```
+
+Package SHA-256:
+
+`0cb2df772e4e5e0b49a423134f998fd82226e7840360039a309ed12d5f0ecb41`
+
+Claim boundary: AH43 is a finite temporal-certification, expiry, hidden-change, and revalidation model. It does not establish optimal real-world TTLs, continuous attestation, PKI correctness, real-time compromise detection, or secure hardware monitoring.
