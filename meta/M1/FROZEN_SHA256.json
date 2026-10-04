@@ -1,0 +1,11 @@
+{
+  "experiment": "NBG-M1",
+  "files": {
+    "SPEC.md": "f566d03fbbd925a22d54b3a58bd5332422f2efbea00fe2dff7d865ae9d4b3294",
+    "inputs/flagships.json": "03d7266874889d8d697f35a109bbc6569fa85d6cb35beac9174d919ce1a70ae3",
+    "src/m1_reproduce.py": "2744c1fee5386fe4713cb95e4961bc3697e542eec7fdb17abf78f2448256c875",
+    "tests/test_m1.py": "bbe2eb551d8c25d657c5d6856b436f153d99061d88dc6b11a92ffcc9e0128fe4"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
