@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-AH42",
+  "files": {
+    "SPEC.md": "2329a4035544addd43a4dbfc0b609abdd0745ba3a1ab3d71f654da2b92f6aa09",
+    "src/ah42.py": "7286d5041e30577cd09047f1ca4faf0f6d686684376ff51c959b81ae64d523fc",
+    "tests/test_ah42.py": "d78010e75691d0d93d1eb64a55efc8feced5ca5fc00f4039b6cb0e909a597f3b"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
