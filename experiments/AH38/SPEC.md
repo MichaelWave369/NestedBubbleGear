@@ -334,7 +334,7 @@ Expected:
 | Public-salt SHA-256 + E1 | 0 |
 | 8-key HMAC tag + E1 | 0 |
 | 8-salt secret-salt digest + E1 | 0 |
-| Mediated VERIFIED Receipt + E1 | 0.4 |
+| Mediated VERIFIED receipt + E1 | 0.4 |
 | Key-authorized verifier | 0 |
 
 ## 11. Interpretation
