@@ -35,6 +35,19 @@ NBG
 - **Φ-System** — task-typed convergence/control layer, maintained as a conceptually separate line.
 - **Ledger** — replayable provenance.
 
+## Temporal NBG (NBG-T)
+
+NBG-T extends the same hidden-structure question across **history** rather than only a single present state.
+
+A temporal model keeps versioned state, lineage, and two clocks:
+
+- **valid time** — when an event belongs in the modeled world;
+- **known time** — when evidence for that event entered the ledger.
+
+The first executable rung, **NBG-T1**, freezes a synthetic witness in which two histories are identical through the coarse present Keyhole but retain different hidden lineage. The same later admissible probe reveals that difference. NBG-T1 also freezes no-hindsight replay and explicit counterfactual separation.
+
+See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md) and [experiments/NBGT1](experiments/NBGT1/).
+
 ## Frozen AH ladder
 
 | Rung | Focus | Outcome |
@@ -84,11 +97,13 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── BUBBLE_ATLAS.md   Bubble-family taxonomy
 │   ├── BUBBLE_ZOO.md     Canonical toy behaviors
 │   ├── CONCEPTS.md       Working vocabulary
-│   ├── EXPERIMENTS.md    AH2-AH10 ladder
+│   ├── EXPERIMENTS.md    Frozen AH experiment ladder
+│   ├── TEMPORAL_NBG.md   Temporal lineage / bitemporal model
 │   └── ROADMAP.md        Next research rungs
 ├── experiments/
 │   ├── AH9/              Frozen runnable rung
 │   ├── AH10/             Frozen runnable rung
+│   ├── NBGT1/            Frozen temporal-lineage rung
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff

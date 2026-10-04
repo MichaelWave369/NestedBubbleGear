@@ -22,6 +22,14 @@
 - [ ] Reproducible command-line runner
 - [ ] GitHub/Zenodo release map
 
+## Temporal line — NBG-T
+
+- [x] NBG-T1 — temporal lineage, valid-time / known-time provenance, no-hindsight replay, explicit counterfactual receipts
+- [ ] NBG-T2 — typed temporal graph composition and evidence-grade edge semantics
+- [ ] NBG-T3 — contradictory-source reconciliation without forced collapse
+- [ ] NBG-T4 — dense hostile-ingest stress test for real-world timeline maps
+- [ ] Temporal Keyhole explorer in the research site
+
 ## Control-layer integration
 
 Φ-System 2.0 remains a separate control/governance line. Integration points should be explicit rather than collapsing both projects into one theory.

@@ -1,0 +1,64 @@
+name: NBG-T1 Frozen Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT1/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt1.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT1/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt1.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify NBG-T1 frozen hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd experiments/NBGT1
+          printf '%s  %s\n' \
+            '05e52bd4ef2a2a104c364be766146001ea328b52c5fc8a0ff7117385f40e0203' 'SPEC.md' \
+            '06608fa2ebbe8245536b97abdc8fa086ee7a2a98ac3a23d25cf8f18941526842' 'src/nbgt1.py' \
+            '85e7caf61921305f6de04c9c9c0650e428cb787cec7ac99e0de88815bdfc4839' 'tests/test_nbgt1.py' \
+            | sha256sum -c -
+
+      - name: Run NBG-T1 temporal harness
+        run: python experiments/NBGT1/src/nbgt1.py
+
+      - name: Run NBG-T1 unit tests
+        run: python -m unittest discover -s experiments/NBGT1/tests -v
+
+      - name: Verify qualified NBG-T1 result
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          root = Path("experiments/NBGT1/results")
+          result = json.loads((root / "result.json").read_text())
+
+          assert result["verdict"] == "PASS_NBGT1"
+          assert result["checks_passed"] == 10
+          assert result["checks_total"] == 10
+          assert result["witness"]["probe_a_t3"] == "NORTH"
+          assert result["witness"]["probe_b_t3"] == "SOUTH"
+          assert result["witness"]["late_claim_visible_k2"] is False
+          assert result["witness"]["late_claim_visible_k4"] is True
+          assert result["witness"]["counterfactual_probe_without_A1"] == "UNKNOWN"
+
+          assert hashlib.sha256((root / "result.json").read_bytes()).hexdigest() == "0129cd7743b438b73559d469580a9fe241f5840ee6d37223b8ed44a3aea39d80"
+          assert hashlib.sha256((root / "history_a.json").read_bytes()).hexdigest() == "0c942955cc0232d8fa08c02aa52cdaa5610e16fdb4fb13530a31728a093fb54d"
+          assert hashlib.sha256((root / "history_b.json").read_bytes()).hexdigest() == "1f5c01d7d670d86eba6153970d9b6ed566dac6fcb5c7c406bae30bf676492a3c"
+          print("PASS_NBGT1_QUALIFIED")
+          PY
