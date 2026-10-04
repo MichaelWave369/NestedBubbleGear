@@ -41,6 +41,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH36 | Dynamic upgrade grants / revocation / privacy restoration | QUALIFIED · 31/31 checks · 15/15 tests |
 | AH37 | Epoch-scoped disclosure / forward privacy boundaries | QUALIFIED · 18/18 checks · 15/15 tests |
 | AH38 | Hiding commitments / key scope / disclosure-safe epoch receipts | QUALIFIED · 24/24 checks · 15/15 tests |
+| AH39 | Delayed key disclosure / authenticator history | QUALIFIED · 26/26 checks · 15/15 tests |
 
 ## Research progression
 
@@ -81,6 +82,7 @@ hidden residue
   -> dynamic upgrade revocation / privacy restoration
   -> epoch-scoped disclosure / forward privacy boundaries
   -> hiding commitments / key scope / mediated verification
+  -> delayed key disclosure / authenticator history
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
@@ -222,3 +224,36 @@ Package SHA-256:
 `642f6314feeabb88e5de561fa079dbf3b53de4fc979b321bc7e158f496e3858c`
 
 Claim boundary: AH38 is a finite observer/key-scope experiment. It does not establish hiding commitments, cryptographic forward secrecy, high-entropy HMAC leakage or hiding, deployed key-management security, or side-channel resistance.
+
+
+## AH39 — Delayed key disclosure / authenticator history
+
+AH39 makes verification-key authority temporal and tracks which panel-dependent authenticator artifacts actually crossed the epoch boundary.
+
+Frozen observer outcomes:
+
+```text
+fresh E1 only                              = 0.4 bits
+public toy-HMAC tag before key             = 0 bits
+public tag + later key                     = 0 bits
+mediated VERIFIED, tag withheld            = 0.4 bits
+later key, tag still withheld              = 0.4 bits
+tag released after key                     = 0 bits
+key revoked after historical disclosure    = 0 bits
+```
+
+The public-tag branch is already declassified before key release in the frozen eight-key attacker model, so AH39 does not falsely attribute that disclosure to the later key event.
+
+Supported operational statements:
+
+```text
+key disclosure does not recreate an authenticator that never crossed the boundary
+already-public authenticators remain part of disclosure history across later key-policy changes
+effective disclosure must account for artifact history + key-authority history
+```
+
+Package SHA-256:
+
+`201995fa332e80b7c4f9aa9a17721ed24a1b028217809185ac20905ea40d4340`
+
+Claim boundary: AH39 is a finite observer-history and eight-key toy-model result. It does not establish cryptographic forward secrecy, secure key deletion, high-entropy HMAC hiding or leakage, deployed key-rotation correctness, or side-channel resistance.

@@ -482,6 +482,19 @@
       "headline": "Hiding commitments / key scope / disclosure-safe epoch receipts",
       "key_result": "Public digest, public salt, and tiny enumerable HMAC/salt secret spaces all expose the frozen old target; a mediated panel-independent VERIFIED receipt preserves the fresh Epoch-1 observer's 0.4-bit residual privacy.",
       "info": "fresh=0.4; public digest=0; public salt=0; 8-key HMAC=0; 8-salt digest=0; mediated VERIFIED=0.4; large-key information-theoretic claim refused"
+    },
+    {
+      "id": "AH39",
+      "package": "NBG-AH39_Delayed_Key_Disclosure_v0.1.0.zip",
+      "sha256": "201995fa332e80b7c4f9aa9a17721ed24a1b028217809185ac20905ea40d4340",
+      "bytes": 24932,
+      "checks": "26/26",
+      "tests": "15/15",
+      "verdict": "PASS_AH39_QUALIFIED",
+      "replay": "exact",
+      "headline": "Delayed key disclosure / authenticator history",
+      "key_result": "Key disclosure alone does not recreate an authenticator that never crossed the boundary; releasing the withheld panel-dependent tag into key-bearing history collapses the frozen target, while public toy tags were already declassified before key release.",
+      "info": "fresh=0.4; public tag pre-key=0; public tag post-key=0; key+mediated VERIFIED with tag withheld=0.4; late tag release=0; large-key information-theoretic claim refused"
     }
   ]
 }
