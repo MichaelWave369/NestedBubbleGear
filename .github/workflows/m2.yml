@@ -1,0 +1,57 @@
+name: M2 Frozen Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/M2/**"
+      - ".github/workflows/m2.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/M2/**"
+      - ".github/workflows/m2.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-m2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify M2 frozen hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd experiments/M2
+          printf '%s  %s\n' \
+            '4012b6041a7a2b40a023db5a491f35cde713318b8472851142a25f6f7b846e04' 'SPEC.md' \
+            '5659d4fb746a9f07bd99a52a4bf926fe80bf5c64144725f25eaa368ec90479d3' 'src/m2_generate.py' \
+            'f50050e1a2d4ffc1ad7943f974d033f6d6699d197ee00921fd0104bb7c2eca6d' 'tests/test_m2.py' \
+            | sha256sum -c -
+
+      - name: Run M2 generated-property harness
+        run: python experiments/M2/src/m2_generate.py
+
+      - name: Run M2 unit tests
+        run: python -m unittest discover -s experiments/M2/tests -v
+
+      - name: Verify qualified M2 result
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/M2/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_M2"
+          assert result["checks_passed"]==11
+          assert result["checks_total"]==11
+          assert result["total_cases"]==1500
+          assert result["counterexample_count"]==0
+          assert all(v=={"passed":250,"total":250} for v in result["summaries"].values())
+          assert hashlib.sha256((root/"result.json").read_bytes()).hexdigest()=="dd343cdc6d027687cfb2bb750dc06923e21702517dfe0c48bbae177b1f36d888"
+          assert hashlib.sha256((root/"counterexamples.json").read_bytes()).hexdigest()=="37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+          assert hashlib.sha256((root/"case_receipts.json").read_bytes()).hexdigest()=="01b13e1eb7573d6948224426357b543881a07300114830eb79a0cb94acfa6481"
+          print("PASS_M2_QUALIFIED")
+          PY

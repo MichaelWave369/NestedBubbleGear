@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-M2",
+  "files": {
+    "SPEC.md": "4012b6041a7a2b40a023db5a491f35cde713318b8472851142a25f6f7b846e04",
+    "src/m2_generate.py": "5659d4fb746a9f07bd99a52a4bf926fe80bf5c64144725f25eaa368ec90479d3",
+    "tests/test_m2.py": "f50050e1a2d4ffc1ad7943f974d033f6d6699d197ee00921fd0104bb7c2eca6d"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
