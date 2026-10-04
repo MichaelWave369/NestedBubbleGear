@@ -547,6 +547,19 @@
       "headline": "Independence evidence decay / revalidation / certificate expiry",
       "key_result": "TTL=2 expires stale independence claims; hidden A/B control can still change inside the fresh window, producing exactly one policy-fresh false-advertisement epoch before expiry; revalidation then discovers shared control.",
       "info": "Stable timeline CERTIFIED_FRESH→STALE→revalidated fresh; hidden-fusion timeline fresh-but-ground-truth-changed at t2, stale t3, SHARED_CONTROL_OBSERVED t4; TTL sensitivity 0/0/1/2 false-advert epochs for TTL 0/1/2/3"
+    },
+    {
+      "id": "AH44",
+      "package": "NBG-AH44_Event_Driven_Independence_Revocation_v0.1.0.zip",
+      "sha256": "2ca9bd2c0446c7e845b8fe98b589fbaa008872fafb8c6d0d7c3a2d0b79640c6e",
+      "bytes": 27679,
+      "checks": "35/35",
+      "tests": "15/15",
+      "verdict": "PASS_AH44_QUALIFIED",
+      "replay": "exact",
+      "headline": "Event-driven independence revocation / change detection",
+      "key_result": "Trusted immediate change events reduce the frozen hidden-change false-advertisement window from 1 epoch to 0 by revoking independence pending revalidation; delayed, missing, and untrusted events retain the one-epoch window, while trusted false positives cost conservative availability.",
+      "info": "6 controls; immediate trusted latency 0; delayed/missing/untrusted latency 1; false positive 2 unnecessary-refusal epochs; event provenance gates revocation; temporal-certification arc closes into meta-qualification"
     }
   ]
 }
