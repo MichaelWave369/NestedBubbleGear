@@ -131,3 +131,4 @@ adjacency != causation
 ```
 
 NBG-T3 is reserved for contradictory-source reconciliation and source-independence semantics.
+\n## Third executable rung\n\n[NBG-T3](../experiments/NBGT3/) freezes contradictory-source reconciliation semantics:\n\n- source independence is explicit, never inferred from URLs or filenames;\n- mirrors/reprints remain visible but do not create independent corroboration;\n- support and opposition can coexist without forced collapse;\n- derived summaries never replace the evidence ledger;\n- later-known evidence changes only later knowledge snapshots;\n- REFUTED requires an explicit frozen decision rule rather than record majority;\n- counterfactual source removal remains separate from observed history.\n\nThe next temporal rung is NBG-T4, a hostile dense-ingest stress test.\n
