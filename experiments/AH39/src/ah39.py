@@ -197,7 +197,7 @@ def run_experiment():
     statuses={
         "P0_TAG_PUBLIC_BEFORE_KEY":"ALREADY_DECLASSIFIED_BEFORE_KEY_DISCLOSURE",
         "P1_KEY_DISCLOSED_AFTER_PUBLIC_TAG":"ALREADY_DECLASSIFIED_BEFORE_KEY_DISCLOSURE",
-        "W0_TAG_WITHHELD_BEFORE_KEY":"AUTHENTICATOR_WITHHHELD",
+        "W0_TAG_WITHHELD_BEFORE_KEY":"AUTHENTICATOR_WITHHELD",
         "W1_KEY_DISCLOSED_TAG_STILL_WITHHELD":"KEY_DISCLOSED_BUT_AUTHENTICATOR_WITHHELD",
         "W2_TAG_RELEASED_AFTER_KEY":"RETROACTIVE_AUTHENTICATOR_DECLASSIFICATION",
         "P2_KEY_REVOKED_HISTORY_PERSISTS":"KEY_REVOKED_BUT_DISCLOSURE_HISTORY_PERSISTS",
@@ -243,7 +243,7 @@ def main():
     for name,val in expected.items():
         checks.append({
             "name":f"privacy:{name}",
-            "pass":abs(n[]ame]["residual_privacy_bits"]-val)<1e-12
+            "pass":abs(o[name]["residual_privacy_bits"]-val)<1e-12
         })
 
     checks.extend([
