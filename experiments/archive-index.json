@@ -443,6 +443,19 @@
       "headline": "Upgrade access structures / privacy-critical distinctions",
       "key_result": "Across 243 prerequisite-closed distinction-upgrade sets, 137 exactly reconstruct Q_MULTI; the dangerous family has 10 minimal paths and 12 minimal cuts, with a unique two-atom cut blocking all collapse paths.",
       "info": "v0.1.0 failed 28/29 on tuple ordering only; v0.1.1 qualified; core=empty; min cut={H_L:T,U_L:T}; structural cut permits richness 6 vs scalar guaranteed-safe cap 2"
+    },
+    {
+      "id": "AH36",
+      "package": "NBG-AH36_Dynamic_Revocation_Privacy_Restoration_v0.1.0.zip",
+      "sha256": "6beec0a30dbcf30599f0b40acfa5069de60cbef9d2674b55ff6892698a1c2efd",
+      "bytes": 28778,
+      "checks": "31/31",
+      "tests": "15/15",
+      "verdict": "PASS_AH36_QUALIFIED",
+      "replay": "exact",
+      "headline": "Dynamic upgrade revocation / privacy restoration",
+      "key_result": "Revocation restores the prospective authority view before it changes already-materialized disclosure; explicit downgrade restores current-view privacy to 0.4 bits while an append-only historical ledger remains exactly reconstructive.",
+      "info": "permission revoked != current disclosure coarsened != historical disclosure erased; fresh observer 0.4 bits vs historical observer 0 bits"
     }
   ]
 }

@@ -38,6 +38,7 @@ The AH line is designed as a sequence of increasingly strict frozen toy-model te
 | AH33 | Task richness / coalition privacy frontier | QUALIFIED · 39/39 checks · 15/15 tests |
 | AH34 | Mixed task profiles / authority-aware privacy budgets | QUALIFIED · 49/49 checks · 15/15 tests |
 | AH35 | Upgrade access structures / privacy-critical distinctions | QUALIFIED v0.1.1 · 29/29 checks · 15/15 tests · v0.1.0 failed 28/29 |
+| AH36 | Dynamic upgrade grants / revocation / privacy restoration | QUALIFIED · 31/31 checks · 15/15 tests |
 
 ## Research progression
 
@@ -75,6 +76,75 @@ hidden residue
   -> task richness / coalition privacy frontier
   -> mixed task profiles / authority-aware privacy budgets
   -> upgrade access structures / privacy-critical distinctions
+  -> dynamic upgrade revocation / privacy restoration
 ```
 
 Every rung keeps an explicit claim firewall. "Holonomy" and "curvature proxy" are operational names for finite constructions, not claims of physical gravitational holonomy or curvature.
+
+
+## AH36 — Dynamic upgrade grants / revocation / privacy restoration
+
+AH36 makes one AH35 minimal distinction-collapse path temporal and separately tracks:
+
+```text
+authorized-next-release
+current materialized disclosure
+append-only historical ledger
+```
+
+Frozen privacy sequences:
+
+```text
+authority: 1.160964 -> 0.675489 -> 0.4 -> 0 -> 0.4 -> 0.4
+current:   1.160964 -> 0.675489 -> 0.4 -> 0 -> 0   -> 0.4
+ledger:    1.160964 -> 0.675489 -> 0.4 -> 0 -> 0   -> 0
+```
+
+The collapse path is:
+
+```text
+H_L:T
+A_A:T
+A_A:F
+```
+
+At E4, revoking `H_L:T` restores the prospective authority view to **0.4 bits**, but the already-materialized lifetime TRIAGE value remains present:
+
+```text
+REVOKED_BUT_STALE_DISCLOSURE_PRESENT
+```
+
+so current and historical views remain at **0 bits**.
+
+At E5, explicit rematerialization at `COMMON_ONLY` restores current-view residual privacy to:
+
+```text
+0.4 bits
+```
+
+while the historical append-only ledger remains exactly reconstructive:
+
+```text
+0 bits
+```
+
+Fresh observer versus historical observer:
+
+```text
+fresh E5 current view = 0.4 bits
+full historical view = 0 bits
+```
+
+Supported operational statements:
+
+```text
+permission revoked != current disclosure coarsened != historical disclosure erased
+current-view privacy can recover while historical-view privacy cannot
+privacy restoration is observer-history relative
+```
+
+Package SHA-256:
+
+`6beec0a30dbcf30599f0b40acfa5069de60cbef9d2674b55ff6892698a1c2efd`
+
+Claim boundary: AH36 is a finite disclosure-history model. It does not establish secure deletion, cryptographic forward secrecy, cache invalidation, deletion of third-party copies, or retroactive secrecy.
