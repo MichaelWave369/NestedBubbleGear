@@ -46,9 +46,9 @@ A temporal model keeps versioned state, lineage, and two clocks:
 
 The first executable rung, **NBG-T1**, freezes a synthetic witness in which two histories are identical through the coarse present Keyhole but retain different hidden lineage. The same later admissible probe reveals that difference. NBG-T1 also freezes no-hindsight replay and explicit counterfactual separation.
 
-**NBG-T2** adds typed temporal relations so chronology, allegation, documentation, inference, contradiction, and supersession cannot silently collapse into the same generic arrow. It also freezes explicit Keyhole projection and narrow typed composition rules.\n\n**NBG-T3** adds contradictory-source reconciliation: explicit source independence, duplicate-lineage detection, support/opposition ledgers, conservative dispute preservation, and an explicit refutation gate.
+**NBG-T2** adds typed temporal relations so chronology, allegation, documentation, inference, contradiction, and supersession cannot silently collapse into the same generic arrow. It also freezes explicit Keyhole projection and narrow typed composition rules.\n\n**NBG-T3** adds contradictory-source reconciliation: explicit source independence, duplicate-lineage detection, support/opposition ledgers, conservative dispute preservation, and an explicit refutation gate.\n\n**NBG-T4** adds hostile dense-ingest semantics: generic source arrows become `ALLEGED_LINK`, chronological placement remains non-causal, adjacency creates no edge, unreadable labels become `UNKNOWN`, unsupported relations are refused, and analyst hypotheses stay on a separate layer.
 
-See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/).
+See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/) and [experiments/NBGT4](experiments/NBGT4/).
 
 ## Frozen AH ladder
 

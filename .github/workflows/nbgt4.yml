@@ -1,0 +1,59 @@
+name: NBG-T4 Frozen Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT4/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt4.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT4/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt4.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt4:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Print candidate hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum \
+            experiments/NBGT4/SPEC.md \
+            experiments/NBGT4/src/nbgt4.py \
+            experiments/NBGT4/tests/test_nbgt4.py
+
+      - name: Run NBG-T4 hostile ingest harness
+        run: python experiments/NBGT4/src/nbgt4.py
+
+      - name: Run NBG-T4 unit tests
+        run: python -m unittest discover -s experiments/NBGT4/tests -v
+
+      - name: Verify candidate result
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT4/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT4"
+          assert result["checks_passed"]==15
+          assert result["checks_total"]==15
+          assert result["witness"]["generic_arrow_relation"]=="ALLEGED_LINK"
+          assert result["witness"]["timeline_relation"]=="OCCURRED_BEFORE"
+          assert result["witness"]["timeline_causal_inference"]=="NONE"
+          assert result["witness"]["ambiguous_record_ids"]==["R05"]
+          assert result["witness"]["rejected_record_ids"]==["R06","R09"]
+          assert result["witness"]["hypothesis_record_ids"]==["H01"]
+          for name in ("result.json","fixture.json","audit.json"):
+              print(name, hashlib.sha256((root/name).read_bytes()).hexdigest())
+          print("PASS_NBGT4_CANDIDATE")
+          PY
