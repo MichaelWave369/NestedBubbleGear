@@ -1,0 +1,55 @@
+name: M1 Spec-Driven Independent Reproduction
+
+on:
+  pull_request:
+    paths:
+      - 'meta/M1/**'
+      - '.github/workflows/m1.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'meta/M1/**'
+      - '.github/workflows/m1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify M1 frozen hashes
+        shell: python
+        run: |
+          import hashlib, json, pathlib, sys
+          root = pathlib.Path("meta/M1")
+          frozen = json.loads((root / "FROZEN_SHA256.json").read_text())["files"]
+          bad = []
+          for rel, expected in frozen.items():
+              got = hashlib.sha256((root / rel).read_bytes()).hexdigest()
+              print(rel, got)
+              if got != expected:
+                  bad.append((rel, expected, got))
+          if bad:
+              print("FROZEN HASH MISMATCH", bad)
+              sys.exit(1)
+
+      - name: Run M1 reproduction
+        run: python meta/M1/src/m1_reproduce.py
+
+      - name: Run M1 unit tests
+        run: python -m unittest discover -s meta/M1/tests -v
+
+      - name: Verify M1 qualified result
+        shell: python
+        run: |
+          import json, pathlib, sys
+          r = json.loads(pathlib.Path("meta/M1/results/result.json").read_text())
+          if r["verdict"] != "PASS_M1":
+              sys.exit("M1 verdict failed")
+          if (r["checks_passed"], r["checks_total"]) != (59, 59):
+              sys.exit("M1 check count drift")
+          print("PASS_M1_QUALIFIED")
