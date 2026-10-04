@@ -430,6 +430,19 @@
       "headline": "Mixed task profiles / authority-aware privacy budgets",
       "key_result": "Across 243 mixed task profiles, 106 retain positive privacy and 137 exactly reconstruct Q_MULTI; specific distinction combinations create abrupt privacy collapse while some task upgrades are free.",
       "info": "min collapse richness=3; max safe richness=7; epsilon 0.4 -> 71 feasible / 2 co-optima; epsilon 0.8 -> 8 feasible / unique optimum"
+    },
+    {
+      "id": "AH35",
+      "package": "NBG-AH35_Upgrade_Access_Structures_v0.1.1.zip",
+      "sha256": "f1747ecd8ec7d2ebecc4a1645b00ba77d13313474c9ec6473e681c32448e653f",
+      "bytes": 34665,
+      "checks": "29/29",
+      "tests": "15/15",
+      "verdict": "PASS_AH35_QUALIFIED",
+      "replay": "exact",
+      "headline": "Upgrade access structures / privacy-critical distinctions",
+      "key_result": "Across 243 prerequisite-closed distinction-upgrade sets, 137 exactly reconstruct Q_MULTI; the dangerous family has 10 minimal paths and 12 minimal cuts, with a unique two-atom cut blocking all collapse paths.",
+      "info": "v0.1.0 failed 28/29 on tuple ordering only; v0.1.1 qualified; core=empty; min cut={H_L:T,U_L:T}; structural cut permits richness 6 vs scalar guaranteed-safe cap 2"
     }
   ]
 }
