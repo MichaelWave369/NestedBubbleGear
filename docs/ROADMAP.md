@@ -25,7 +25,7 @@
 ## Temporal line — NBG-T
 
 - [x] NBG-T1 — temporal lineage, valid-time / known-time provenance, no-hindsight replay, explicit counterfactual receipts
-- [ ] NBG-T2 — typed temporal graph composition and evidence-grade edge semantics
+- [x] NBG-T2 — typed temporal graph composition and evidence-grade edge semantics
 - [ ] NBG-T3 — contradictory-source reconciliation without forced collapse
 - [ ] NBG-T4 — dense hostile-ingest stress test for real-world timeline maps
 - [ ] Temporal Keyhole explorer in the research site

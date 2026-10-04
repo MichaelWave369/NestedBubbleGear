@@ -1,0 +1,63 @@
+name: NBG-T2 Frozen Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT2/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt2.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT2/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt2.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify NBG-T2 frozen hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd experiments/NBGT2
+          printf '%s  %s\n' \
+            '2e7d020821af937c3f426f308e099dda7441908c874ea1a8785de06fa07e6332' 'SPEC.md' \
+            '514b9e6cab8f96e1efaa476fb8b3222df724a05a72d96ff1a57a1485449a6808' 'src/nbgt2.py' \
+            '459c4aa2c40b1a84047b6c87e12a5750a05356d1b37a34e32d0a3ca65d89dd4c' 'tests/test_nbgt2.py' \
+            | sha256sum -c -
+
+      - name: Run NBG-T2 typed temporal harness
+        run: python experiments/NBGT2/src/nbgt2.py
+
+      - name: Run NBG-T2 unit tests
+        run: python -m unittest discover -s experiments/NBGT2/tests -v
+
+      - name: Verify qualified NBG-T2 result
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          root = Path("experiments/NBGT2/results")
+          result = json.loads((root / "result.json").read_text())
+
+          assert result["verdict"] == "PASS_NBGT2"
+          assert result["checks_passed"] == 12
+          assert result["checks_total"] == 12
+          assert result["witness"]["late_corroboration_relation"] == "ALLEGED_LINK"
+          assert result["witness"]["late_corroboration_status"] == "CORROBORATED"
+          assert result["witness"]["temporal_composition"]["derived"]["relation"] == "OCCURRED_BEFORE"
+          assert result["witness"]["forbidden_composition"]["status"] == "REFUSE_UNTYPED_COMPOSITION"
+          assert result["witness"]["counterfactual_excluded"] == ["T03_ALLEGED_LINK"]
+
+          assert hashlib.sha256((root / "result.json").read_bytes()).hexdigest() == "3ad39e959f68169b580addf4db1ec145eecf4a3ab76e20f8688a99c25bcf2ef0"
+          assert hashlib.sha256((root / "assertions.json").read_bytes()).hexdigest() == "3e5dbdf8e26f3f92d1e94286a419b269db30f8b5bdc70ee6214b3a37cc55bd95"
+          print("PASS_NBGT2_QUALIFIED")
+          PY

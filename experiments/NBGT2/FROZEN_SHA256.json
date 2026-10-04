@@ -1,0 +1,10 @@
+{
+  "experiment": "NBG-T2",
+  "files": {
+    "SPEC.md": "2e7d020821af937c3f426f308e099dda7441908c874ea1a8785de06fa07e6332",
+    "src/nbgt2.py": "514b9e6cab8f96e1efaa476fb8b3222df724a05a72d96ff1a57a1485449a6808",
+    "tests/test_nbgt2.py": "459c4aa2c40b1a84047b6c87e12a5750a05356d1b37a34e32d0a3ca65d89dd4c"
+  },
+  "status": "FROZEN_BEFORE_FIRST_EXECUTION",
+  "version": "0.1.0"
+}
