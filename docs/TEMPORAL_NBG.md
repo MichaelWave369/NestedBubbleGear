@@ -132,3 +132,20 @@ adjacency != causation
 
 NBG-T3 is reserved for contradictory-source reconciliation and source-independence semantics.
 \n## Third executable rung\n\n[NBG-T3](../experiments/NBGT3/) freezes contradictory-source reconciliation semantics:\n\n- source independence is explicit, never inferred from URLs or filenames;\n- mirrors/reprints remain visible but do not create independent corroboration;\n- support and opposition can coexist without forced collapse;\n- derived summaries never replace the evidence ledger;\n- later-known evidence changes only later knowledge snapshots;\n- REFUTED requires an explicit frozen decision rule rather than record majority;\n- counterfactual source removal remains separate from observed history.\n\nThe next temporal rung is NBG-T4, a hostile dense-ingest stress test.\n
+## Fourth executable rung
+
+[NBG-T4](../experiments/NBGT4/) freezes hostile dense-ingest semantics using a small synthetic derivative of the motivating Q-web map's structural failure modes.
+
+- generic connection-of-interest arrows become `ALLEGED_LINK`, never causal edges;
+- chronological centerline order becomes `OCCURRED_BEFORE` with `causal_inference = NONE`;
+- adjacency without an arrow produces no edge;
+- unreadable labels become `UNKNOWN` rather than guessed text;
+- unsupported relation types are rejected;
+- every accepted source-map claim retains exact provenance;
+- duplicate source lineage does not create independent corroboration;
+- disputed records remain inspectable;
+- analyst-added hypotheses remain separate;
+- graph density and input ordering do not change focal semantics;
+- every record lands in a machine-readable audit bucket.
+
+NBG-T5 is reserved for evidence-linked review and temporal Keyhole exploration.

@@ -1,0 +1,15 @@
+{
+  "experiment": "NBG-T4",
+  "files": {
+    "SPEC.md": "2e3234c021a48cd02c47db2bc7f553b44783b1afd6f01d968439c982d31807d5",
+    "src/nbgt4.py": "b7563efb0442ef50e7849b0ddf8a8e6c6f6fc1ca355aedeb049ce2bf9ea5a601",
+    "tests/test_nbgt4.py": "9ab2302203aaac62fcfd547c3c7d0fea3b3f987f0d72e7b0baa63ab391b57640"
+  },
+  "generated_artifacts": {
+    "result.json": "2125572b6ff22578ad6fac2e47787b6f3a6d389c60c7664754233ec9ad64f151",
+    "fixture.json": "b8f5e7ee6512c1c51600ebae64816418d8fd2b4d5b6710cb063aff1f41e88b80",
+    "audit.json": "e5971adb4d9693ac561321d5ecf6389ff9d771a3731e8c24fd77640b6830eff5"
+  },
+  "status": "FROZEN_AFTER_CANDIDATE_HASH_CAPTURE",
+  "version": "0.1.0"
+}
