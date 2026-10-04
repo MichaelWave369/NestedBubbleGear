@@ -508,6 +508,19 @@
       "headline": "Split verification authority / threshold declassification",
       "key_result": "A 2-of-3 coalition may verify Epoch 0 while only 3-of-3 may publicly declassify it; mediated VERIFY_ONLY output preserves 0.4 bits even for the full coalition, whereas explicit declassification or a public old authenticator collapses privacy to zero.",
       "info": "4/8 verify; 1/8 declassify; VERIFY_ONLY=0.4 bits; DECLASSIFY=0; debug public-tag control=0"
+    },
+    {
+      "id": "AH41",
+      "package": "NBG-AH41_Verifier_Compromise_Role_Fusion_v0.1.0.zip",
+      "sha256": "99625d4003a6d7c98ac1a57aee4a3f5857e4fb348d819967bba08128ed1d3133",
+      "bytes": 27905,
+      "checks": "29/29",
+      "tests": "15/15",
+      "verdict": "PASS_AH41_QUALIFIED",
+      "replay": "exact",
+      "headline": "Verifier compromise / role fusion / quorum resilience",
+      "key_result": "Logical quorum thresholds overstate independent physical control when verifier seats are fused: verification falls from two principals to one, strict declassification from three to two, and a weak 2-of-3 declassification control falls to one.",
+      "info": "p=0.1 reliability: verify 0.972→0.900; strict declassify 0.729→0.810; mediated VERIFY_ONLY privacy=0.4 bits; declassification=0"
     }
   ]
-}
+}\n
