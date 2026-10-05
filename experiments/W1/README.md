@@ -35,3 +35,9 @@ See [SPEC.md](SPEC.md) for the complete frozen run contract.
 W1 has not been trained or evaluated. This directory contains no authorized result sentence.
 
 A later pass would establish only a finite learned-memory result on the frozen ensembles. It would not establish parameter unlearning, secure deletion, biological memory, consciousness, or a physical law of nature.
+
+## Execution freeze
+
+The implementation-level semantics are frozen separately in [EXECUTION.md](EXECUTION.md) before the first optimizer step. It fixes canonical inputs, quantization, gate threshold, pair sets, losses, baseline objectives, direct committed-memory metrics, revocation read gating, seed aggregation, and the rule that pull-request CI must not train W1.
+
+The execution freeze does not authorize a result sentence.
