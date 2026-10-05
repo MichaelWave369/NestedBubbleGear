@@ -12,7 +12,8 @@
     "test:governance-keyholes": "node scripts/test_governance_keyholes.mjs",
     "test:counterfactual-governance": "node scripts/test_counterfactual_governance.mjs",
     "test:governance-sensitivity": "node scripts/test_governance_sensitivity.mjs",
-    "test:intervention-equivalence": "node scripts/test_intervention_equivalence.mjs"
+    "test:intervention-equivalence": "node scripts/test_intervention_equivalence.mjs",
+    "test:adaptive-keyhole-synthesis": "node scripts/test_adaptive_keyhole_synthesis.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.4",
