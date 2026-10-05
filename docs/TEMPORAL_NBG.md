@@ -282,3 +282,21 @@ NBG-T11 is reserved for temporal policy ledgers and Governance Keyholes.
 - the live research site exposes side-by-side Governance Keyholes and governed JSON export.
 
 NBG-T12 is reserved for explicit counterfactual governance branches over an immutable observed policy ledger.
+
+
+## Twelfth executable rung
+
+[NBG-T12](../experiments/NBGT12/) freezes explicit counterfactual governance branches over the immutable observed NBG-T11 policy ledger.
+
+- every branch begins with a hashed fork receipt tied to the observed ledger head and exact target-event hash;
+- the frozen mutation grammar supports one-event REMOVE, DELAY, or ALTER interventions;
+- branch construction verifies that the observed ledger remains byte-identical;
+- the same evidence, reviewer registry, and policy records are replayed on observed and counterfactual histories;
+- branch-specific resolution receipts pin both observed and counterfactual ledger heads;
+- divergence summaries identify the altered policy event and the first Governance Keyhole whose outcome changes;
+- portable counterfactual bundles preserve the observed ledger, fork receipt, branch ledger, branch receipts, and divergence summary;
+- deterministic export/import and replay reconstruct the same branch exactly;
+- the live site exposes an observed-versus-counterfactual Governance Keyhole explorer and governed branch export;
+- every branch carries the explicit boundary `COUNTERFACTUAL_BRANCH_NOT_OBSERVED_HISTORY`.
+
+NBG-T13 is reserved for a Governance Sensitivity Atlas and minimal outcome-changing intervention sets.
