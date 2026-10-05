@@ -28,6 +28,11 @@ import {
   counterfactualComparison,
   firstOutcomeDivergence,
 } from './counterfactualGovernance.js'
+import {
+  buildSensitivityAtlas,
+  buildSensitivityExport,
+  minimalRejectedSingletons,
+} from './governanceSensitivity.js'
 
 const stack = [
   { mark: 'B', name: 'NBG', title: 'Domains + interfaces', text: 'Defines where state lives, how domains nest, and where constrained interfaces exist.' },
@@ -215,6 +220,8 @@ function App() {
   const [counterfactualOption, setCounterfactualOption] = useState('REMOVE_DEACTIVATE')
   const [counterfactualKnown, setCounterfactualKnown] = useState(10)
   const [counterfactualValid, setCounterfactualValid] = useState(10)
+  const [sensitivityKnown, setSensitivityKnown] = useState(10)
+  const [sensitivityValid, setSensitivityValid] = useState(10)
   const active = keyholes[depth]
   const activeBubble = bubbleFamilies[bubbleIndex]
   const activeExperiment = experiments[experimentIndex]
@@ -309,6 +316,26 @@ function App() {
     [counterfactualOption],
   )
 
+  const sensitivityAtlas = useMemo(
+    () => buildSensitivityAtlas(sensitivityKnown, sensitivityValid),
+    [sensitivityKnown, sensitivityValid],
+  )
+
+  const sensitivityMinimal = useMemo(
+    () => minimalRejectedSingletons(sensitivityKnown, sensitivityValid),
+    [sensitivityKnown, sensitivityValid],
+  )
+
+  const sensitivityCounts = useMemo(
+    () => ({
+      outcome: sensitivityAtlas.rows.filter((row) => row.targetClass === 'OUTCOME_CHANGING').length,
+      policy: sensitivityAtlas.rows.filter((row) => row.targetClass === 'POLICY_CHANGING').length,
+      targetInert: sensitivityAtlas.rows.filter((row) => row.targetClass === 'TARGET_INERT').length,
+      ledgerOnly: sensitivityAtlas.rows.filter((row) => row.temporalClass === 'LEDGER_ONLY_INERT').length,
+    }),
+    [sensitivityAtlas],
+  )
+
   function reviewEvidenceCapture(captureId, decision) {
     setEvidenceQueueDecisions((current) =>
       applyQueueDecision(current, captureId, decision),
@@ -324,6 +351,19 @@ function App() {
     const anchor = document.createElement('a')
     anchor.href = url
     anchor.download = 'nbg-t8-evidence-review-queue.json'
+    anchor.click()
+    URL.revokeObjectURL(url)
+  }
+
+  function exportSensitivityAtlas() {
+    const payload = buildSensitivityExport(sensitivityKnown, sensitivityValid)
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {
+      type: 'application/json',
+    })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = `nbg-t13-governance-sensitivity-k${sensitivityKnown}-t${sensitivityValid}.json`
     anchor.click()
     URL.revokeObjectURL(url)
   }
@@ -1135,6 +1175,127 @@ function App() {
             </div>
             <button className="button primary" onClick={exportCounterfactualGovernance}>
               Export counterfactual branch
+            </button>
+          </div>
+        </div>
+
+        <div className="sensitivity-shell">
+          <div className="section-label">NBG-T13 · GOVERNANCE SENSITIVITY ATLAS</div>
+          <div className="section-heading-row sensitivity-heading">
+            <div>
+              <h2>Not every changed ledger event matters.</h2>
+              <p className="muted">
+                T13 enumerates the frozen intervention grammar and separates target outcome leverage,
+                policy-only leverage, temporal leverage, and changes that are merely different bytes.
+              </p>
+            </div>
+            <span className="status">SENSITIVITY ≠ CAUSAL ATTRIBUTION</span>
+          </div>
+
+          <div className="sensitivity-controls">
+            <label>
+              <span>TARGET KNOWN TIME · k{sensitivityKnown}</span>
+              <input
+                aria-label="Sensitivity target known time"
+                type="range"
+                min="1"
+                max="12"
+                step="1"
+                value={sensitivityKnown}
+                onChange={(event) => setSensitivityKnown(Number(event.target.value))}
+              />
+            </label>
+            <label>
+              <span>TARGET VALID TIME · t{sensitivityValid}</span>
+              <input
+                aria-label="Sensitivity target valid time"
+                type="range"
+                min="1"
+                max="12"
+                step="1"
+                value={sensitivityValid}
+                onChange={(event) => setSensitivityValid(Number(event.target.value))}
+              />
+            </label>
+          </div>
+
+          <div className="sensitivity-summary">
+            <div><small>OUTCOME-CHANGING</small><strong>{sensitivityCounts.outcome}</strong></div>
+            <div><small>POLICY-ONLY @ TARGET</small><strong>{sensitivityCounts.policy}</strong></div>
+            <div><small>TARGET-INERT</small><strong>{sensitivityCounts.targetInert}</strong></div>
+            <div><small>LEDGER-ONLY INERT</small><strong>{sensitivityCounts.ledgerOnly}</strong></div>
+          </div>
+
+          <div className="sensitivity-table-wrap">
+            <table className="sensitivity-table">
+              <thead>
+                <tr>
+                  <th>INTERVENTION</th>
+                  <th>TARGET EVENT</th>
+                  <th>TARGET CLASS</th>
+                  <th>TEMPORAL CLASS</th>
+                  <th>POLICY</th>
+                  <th>OUTCOME</th>
+                  <th>FIRST OUTCOME DIVERGENCE</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sensitivityAtlas.rows.map((row) => (
+                  <tr key={row.interventionId}>
+                    <td>
+                      <strong>{row.label}</strong>
+                      <small>{row.interventionId}</small>
+                    </td>
+                    <td><code>{row.targetEventId}</code></td>
+                    <td><span className={row.targetClass.toLowerCase()}>{row.targetClass}</span></td>
+                    <td><span>{row.temporalClass}</span></td>
+                    <td>
+                      <small>{row.observedPolicy || 'NONE'}</small>
+                      <b>→</b>
+                      <small>{row.counterfactualPolicy || 'NONE'}</small>
+                    </td>
+                    <td>
+                      <small>{row.observedOutcome}</small>
+                      <b>→</b>
+                      <small>{row.counterfactualOutcome}</small>
+                    </td>
+                    <td>
+                      {row.firstOutcomeDivergence
+                        ? <strong>k{row.firstOutcomeDivergence.knownCutoff} / t{row.firstOutcomeDivergence.validTime}</strong>
+                        : <span>NONE</span>}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="sensitivity-minimal">
+            <div>
+              <span>MINIMAL SETS FOR TARGET OUTCOME = REJECTED</span>
+              <strong>
+                {sensitivityMinimal.minimalCardinality
+                  ? \`cardinality \${sensitivityMinimal.minimalCardinality}\`
+                  : 'UNREACHABLE IN FROZEN GRAMMAR'}
+              </strong>
+            </div>
+            <div className="minimal-set-list">
+              {sensitivityMinimal.interventionIds.map((id) => <code key={id}>{id}</code>)}
+            </div>
+          </div>
+
+          <div className="sensitivity-negative-control">
+            <div>
+              <strong>Negative controls matter too.</strong>
+              <p>
+                A payload-only edit changes the branch ledger fingerprint but changes no selected policy
+                and no governance outcome anywhere in the frozen replay window. A different ledger is not
+                automatically a causally relevant difference.
+              </p>
+              <small>SENSITIVITY_ATLAS_NOT_CAUSAL_ATTRIBUTION</small>
+            </div>
+            <button className="button primary" onClick={exportSensitivityAtlas}>
+              Export sensitivity atlas
             </button>
           </div>
         </div>
