@@ -40,7 +40,7 @@ I_REMOVE_DEACTIVATE
 I_DELAY_DEACTIVATE_11
 I_ALTER_DEACTIVATE_VALID10
 I_REMOVE_SUPERSEDE_NORMAL1
-I_REMOVE_ACTIVATE_EMERGENCY
+I_DELAY_ACTIVATE_EMERGENCY_8
 I_REMOVE_REGISTER_NORMAL2
 I_DELAY_REGISTER_NORMAL2_11
 I_REMOVE_REGISTER_EMERGENCY
@@ -118,7 +118,7 @@ This demonstrates that target-query inertness does not imply temporal inertness.
 
 ## 7. Policy-only leverage control
 
-\`I_REMOVE_ACTIVATE_EMERGENCY\` changes selected policy at earlier Governance Keyholes but does not change any governance outcome in the frozen replay window.
+\`I_DELAY_ACTIVATE_EMERGENCY_8\` delays emergency activation to k8/t8, changing selected policy at earlier Governance Keyholes while preserving the same governance outcome across the frozen replay window.
 
 It is therefore classified:
 
