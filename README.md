@@ -60,7 +60,9 @@ The first executable rung, **NBG-T1**, freezes a synthetic witness in which two 
 
 **NBG-T8** connects that contract to an operator-triggered read-only HTTP capture path and a governed review queue in the Temporal Explorer. Captures are persisted before review, host access is allow-listed, drift is visible, and browser ACCEPT/REJECT controls remain session projections until exported.
 
-See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), [experiments/NBGT6](experiments/NBGT6/), [experiments/NBGT7](experiments/NBGT7/), and [experiments/NBGT8](experiments/NBGT8/).
+**NBG-T9** adds portable evidence bundles and a stable source registry: content-addressed objects are deduplicated, mirror captures do not manufacture independence, source drift survives export/import, reviewer identities remain attributed, and conflicting review decisions merge as `REVIEW_CONFLICT` rather than last-write-wins.
+
+See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), [experiments/NBGT6](experiments/NBGT6/), [experiments/NBGT7](experiments/NBGT7/), [experiments/NBGT8](experiments/NBGT8/), and [experiments/NBGT9](experiments/NBGT9/).
 
 ## Frozen AH ladder
 
@@ -125,6 +127,7 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── NBGT6/            Frozen Temporal Keyhole Explorer UI rung
 │   ├── NBGT7/            Frozen evidence-capture adapter rung
 │   ├── NBGT8/            Frozen live-adapter / review-queue rung
+│   ├── NBGT9/            Frozen portable evidence-bundle rung
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff
