@@ -104,6 +104,16 @@ def signature_for_row(row,channel):
 def observe_intervention(*,context,intervention_id,keyhole,channel):
     if intervention_id not in context["branches"]:
         raise ValueError(f"unknown intervention: {intervention_id}")
+    validate_channel(channel)
+    cache=context.setdefault("_observation_cache",{})
+    cache_key=(
+        intervention_id,
+        int(keyhole["known_cutoff"]),
+        int(keyhole["valid_time"]),
+        channel,
+    )
+    if cache_key in cache:
+        return deepcopy(cache[cache_key])
     row=t14.keyhole_signature(
         bundle=context["bundle"],
         reviewer_registry=context["reviewer_registry"],
@@ -112,7 +122,9 @@ def observe_intervention(*,context,intervention_id,keyhole,channel):
         known_cutoff=keyhole["known_cutoff"],
         valid_time=keyhole["valid_time"],
     )
-    return signature_for_row(row,channel)
+    signature=signature_for_row(row,channel)
+    cache[cache_key]=deepcopy(signature)
+    return signature
 
 
 def canonical_family(family_ids,context):
