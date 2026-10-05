@@ -1117,7 +1117,7 @@ function App() {
               <small>FIRST OUTCOME DIVERGENCE</small>
               <strong>
                 {counterfactualDivergence
-                  ? \`k\${counterfactualDivergence.knownCutoff} / t\${counterfactualDivergence.validTime}\`
+                  ? `k${counterfactualDivergence.knownCutoff} / t${counterfactualDivergence.validTime}`
                   : 'NONE IN WINDOW'}
               </strong>
             </div>
