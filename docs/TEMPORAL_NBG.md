@@ -319,3 +319,23 @@ NBG-T13 is reserved for a Governance Sensitivity Atlas and minimal outcome-chang
 - the live site exposes the sensitivity table, leverage classes, first divergence, minimal sets, negative controls, and governed JSON export.
 
 NBG-T14 is reserved for intervention equivalence classes and Governance Residue: interventions that look equal through one Keyhole but differ elsewhere in their retained history.
+
+
+## Fourteenth executable rung
+
+[NBG-T14](../experiments/NBGT14/) freezes intervention-equivalence classes and Governance Residue over the qualified NBG-T13 intervention family.
+
+- the focal observer is the Governance Keyhole at known k10 / valid t10;
+- each intervention receives a focal policy/outcome signature and a full 144-Keyhole temporal signature;
+- all 36 unordered intervention pairs receive deterministic equivalence receipts;
+- target-equivalent pairs may split when the observer family widens;
+- Governance Residue is the ordered set of Keyholes where a target-equivalent pair differs;
+- the first divergent Keyhole is a minimal separating family of cardinality 1;
+- the remove-vs-delay deactivation pair is a primary hidden-residue witness;
+- the remove-vs-delay NORMAL@2.0 registration pair is an independent hidden-residue witness;
+- the payload-only and remove-supersession negative controls have different branch ledgers but remain equivalent across the full declared Governance Keyhole family;
+- target equivalence and full temporal equivalence are exported as separate partitions;
+- every pair receipt refuses causal-identity claims from observational equivalence;
+- the live research site exposes focal equivalence, full temporal equivalence, first separating Keyhole, Governance Residue, and governed pair export.
+
+NBG-T15 is reserved for Adaptive Keyhole Synthesis: finding the smallest admissible observer family that separates a declared set of intervention histories.
