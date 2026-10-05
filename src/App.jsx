@@ -1275,7 +1275,7 @@ function App() {
               <span>MINIMAL SETS FOR TARGET OUTCOME = REJECTED</span>
               <strong>
                 {sensitivityMinimal.minimalCardinality
-                  ? \`cardinality \${sensitivityMinimal.minimalCardinality}\`
+                  ? `cardinality ${sensitivityMinimal.minimalCardinality}`
                   : 'UNREACHABLE IN FROZEN GRAMMAR'}
               </strong>
             </div>
