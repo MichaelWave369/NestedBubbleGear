@@ -65,7 +65,7 @@ export function synthesisKeyholes(){
   for(let known=1;known<=12;known+=1){
     for(let valid=1;valid<=12;valid+=1){
       rows.push({
-        keyholeId:\`k\${known}_t\${valid}\`,
+        keyholeId:`k${known}_t${valid}`,
         knownCutoff:known,
         validTime:valid,
         observerCost:known+valid,
