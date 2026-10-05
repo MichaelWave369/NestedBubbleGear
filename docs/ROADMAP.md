@@ -41,6 +41,18 @@
 - [x] NBG-T15 — Adaptive Keyhole Synthesis
 - [ ] NBG-T16 — Keyhole Robustness + Observer Failure
 
+## Physical application line — NBG-CW
+
+- [x] NBG-CW1 — freeze cosmic-web Keyhole closure protocol, observer ladder, provenance/source ledger and receipt schemas
+- [ ] NBG-CW2 — synthetic filament positive/negative controls
+- [ ] NBG-CW3 — hidden-microstructure closure harness
+- [ ] NBG-CW4 — interface-aware refinement test
+- [ ] NBG-CW5 — temporal lineage harness on simulation descendants
+- [ ] NBG-CW6 — graph/topology/capacity-matched baseline comparison
+- [ ] NBG-CW7 — governed adapter for public observational/simulation products
+
+Promotion on this line requires predictive/closure advantage over simpler baselines. Morphological resemblance is never an acceptance criterion.
+
 ## Control-layer integration
 
 Φ-System 2.0 remains a separate control/governance line. Integration points should be explicit rather than collapsing both projects into one theory.

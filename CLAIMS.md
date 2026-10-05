@@ -22,6 +22,7 @@ These are exact properties of the published/executable constructions. They are n
 - Gear as cycle-space current plus ordered transformation.
 - Local-to-global transport composition across unequal plaquettes.
 - Task-typed convergence and conveyor-aware control.
+- NBG-CW1 cosmic-web Keyhole/closure protocol, including observer refinement and baseline comparison. Protocol status is not an empirical NBG result.
 
 ## Speculative
 
