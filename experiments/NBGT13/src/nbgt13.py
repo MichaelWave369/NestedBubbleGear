@@ -61,11 +61,11 @@ def frozen_intervention_specs():
             "reason": "Remove explicit supersession of NORMAL@1.0.",
         },
         {
-            "intervention_id": "I_REMOVE_ACTIVATE_EMERGENCY",
-            "operation": "REMOVE_EVENT",
+            "intervention_id": "I_DELAY_ACTIVATE_EMERGENCY_8",
+            "operation": "DELAY_EVENT",
             "target_event_id": "EV_ACTIVATE_EMERGENCY",
-            "patch": {},
-            "reason": "Remove emergency activation.",
+            "patch": {"known_time": 8, "valid_time": 8},
+            "reason": "Delay emergency activation to k8/t8.",
         },
         {
             "intervention_id": "I_REMOVE_REGISTER_NORMAL2",
@@ -592,7 +592,7 @@ def run_suite():
 
     payload_control = atlas_by_id["I_ALTER_DEACTIVATE_PAYLOAD_ONLY"]
     supersede_control = atlas_by_id["I_REMOVE_SUPERSEDE_NORMAL1"]
-    activate = atlas_by_id["I_REMOVE_ACTIVATE_EMERGENCY"]
+    activate = atlas_by_id["I_DELAY_ACTIVATE_EMERGENCY_8"]
     alter_t10 = atlas_by_id["I_ALTER_DEACTIVATE_VALID10"]
 
     expected_minimal = {
@@ -619,9 +619,9 @@ def run_suite():
         {"name":"alter_valid10:target_inert","pass":alter_t10["target_class"]=="TARGET_INERT"},
         {"name":"alter_valid10:temporal_outcome_leverage","pass":alter_t10["temporal_class"]=="TEMPORAL_OUTCOME_LEVERAGE"},
         {"name":"alter_valid10:first_outcome_k9_t9","pass":alter_t10["first_outcome_divergence"]["known_cutoff"]==9 and alter_t10["first_outcome_divergence"]["valid_time"]==9},
-        {"name":"remove_activate:target_inert","pass":activate["target_class"]=="TARGET_INERT"},
-        {"name":"remove_activate:temporal_policy_leverage","pass":activate["temporal_class"]=="TEMPORAL_POLICY_LEVERAGE"},
-        {"name":"remove_activate:no_outcome_divergence","pass":activate["first_outcome_divergence"] is None},
+        {"name":"delay_activate:target_inert","pass":activate["target_class"]=="TARGET_INERT"},
+        {"name":"delay_activate:temporal_policy_leverage","pass":activate["temporal_class"]=="TEMPORAL_POLICY_LEVERAGE"},
+        {"name":"delay_activate:no_outcome_divergence","pass":activate["first_outcome_divergence"] is None},
         {"name":"payload_control:target_inert","pass":payload_control["target_class"]=="TARGET_INERT"},
         {"name":"payload_control:ledger_only","pass":payload_control["temporal_class"]=="LEDGER_ONLY_INERT"},
         {"name":"payload_control:branch_head_differs","pass":payload_control["branch_ledger_head"]!=t11.validate_policy_ledger(observed_ledger)},
