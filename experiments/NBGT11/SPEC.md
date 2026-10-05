@@ -123,7 +123,23 @@ known k10 / valid t7  -> EMERGENCY@1.0 -> REJECTED
 
 The final row demonstrates that later knowledge of emergency deactivation at t9 does not erase the emergency policy from historical valid time t7.
 
-## 9. Resolution receipts
+## 9. Governance clock vs evidence clock
+
+NBG-T11 varies the governance knowledge cutoff while holding the frozen T9/T10 evidence-review input at a declared evidence cutoff.
+
+For the frozen witness:
+
+```text
+evidence_known_cutoff = 10
+```
+
+This isolates the effect of changing policy history from the separate effect of changing which reviewer decisions are visible.
+
+The governance cutoff therefore answers "which policy history was knowable?", while the evidence cutoff answers "which preserved review decisions are supplied to that policy?"
+
+Both cutoffs are pinned in the temporal resolution receipt.
+
+## 10. Resolution receipts
 
 Every T11 temporal resolution receipt pins:
 
@@ -131,6 +147,7 @@ Every T11 temporal resolution receipt pins:
 capture_id
 known_cutoff
 valid_time
+evidence_known_cutoff
 policy_version_id
 policy_record_hash
 policy_ledger_head
@@ -142,13 +159,13 @@ receipt_hash
 
 The embedded T10 receipt remains pinned to the exact underlying policy version and input evidence.
 
-## 10. Historical resolution firewall
+## 11. Historical resolution firewall
 
 Later ledger events never mutate earlier T11 resolution receipts.
 
 A receipt produced at k5 remains byte-identical after policy registration, supersession, emergency activation, and emergency deactivation events become known later.
 
-## 11. Governance bundle
+## 12. Governance bundle
 
 Portable T11 governance bundle freezes:
 
@@ -162,7 +179,7 @@ Portable T11 governance bundle freezes:
 
 Bundle validation checks both manifest and payload integrity.
 
-## 12. Browser Governance Keyholes
+## 13. Browser Governance Keyholes
 
 The research site exposes two side-by-side Governance Keyholes with independent:
 
@@ -175,7 +192,7 @@ The browser shows selected policy, policy mode, governance outcome, policy statu
 
 The browser model is a projection of the frozen witness and does not mutate the research ledger.
 
-## 13. Qualification
+## 14. Qualification
 
 Requires:
 
@@ -195,7 +212,7 @@ Requires:
 - receipt replay exact;
 - deterministic Keyhole replay.
 
-## 14. Claim firewall
+## 15. Claim firewall
 
 NBG-T11 models the history of synthetic governance rules.
 
