@@ -1,0 +1,98 @@
+name: NBG-T12 Counterfactual Governance Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT12/**"
+      - "src/counterfactualGovernance.js"
+      - "scripts/test_counterfactual_governance.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt12.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT12/**"
+      - "src/counterfactualGovernance.js"
+      - "scripts/test_counterfactual_governance.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt12.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt12:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install site dependencies
+        run: npm install
+
+      - name: Print candidate hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum \
+            experiments/NBGT12/SPEC.md \
+            experiments/NBGT12/src/nbgt12.py \
+            experiments/NBGT12/tests/test_nbgt12.py \
+            src/counterfactualGovernance.js \
+            scripts/test_counterfactual_governance.mjs
+
+      - name: Run NBG-T12 branch harness
+        run: python experiments/NBGT12/src/nbgt12.py
+
+      - name: Run NBG-T12 Python tests
+        run: python -m unittest discover -s experiments/NBGT12/tests -v
+
+      - name: Run browser counterfactual acceptance
+        run: npm run test:counterfactual-governance
+
+      - name: Build research site
+        run: npm run build
+
+      - name: Verify candidate witness
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT12/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT12"
+          assert result["checks_passed"]==32
+          assert result["checks_total"]==32
+          assert result["witness"]["observed_k10_policy"]=="NORMAL@2.0"
+          assert result["witness"]["observed_k10_outcome"]=="ABSTAIN_CONFLICT"
+          assert result["witness"]["remove_k10_policy"]=="EMERGENCY@1.0"
+          assert result["witness"]["remove_k10_outcome"]=="REJECTED"
+          assert result["witness"]["delay_k10_outcome"]=="REJECTED"
+          assert result["witness"]["alter_k9_outcome"]=="REJECTED"
+          assert result["witness"]["first_divergence_known"]==9
+          assert result["witness"]["first_divergence_valid"]==9
+          assert result["witness"]["altered_event_id"]=="EV_DEACTIVATE_EMERGENCY"
+          for name in (
+              "result.json",
+              "observed_policy_ledger.json",
+              "remove_fork_receipt.json",
+              "remove_branch.json",
+              "remove_divergence.json",
+              "counterfactual_bundle.json",
+              "observed_k10_receipt.json",
+              "remove_k10_receipt.json",
+          ):
+              print(name, hashlib.sha256((root/name).read_bytes()).hexdigest())
+          print("PASS_NBGT12_CANDIDATE")
+          PY
+          grep -q 'NBG-T12 · COUNTERFACTUAL GOVERNANCE' src/App.jsx
+          grep -q 'OBSERVED ≠ COUNTERFACTUAL' src/App.jsx
