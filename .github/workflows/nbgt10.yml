@@ -1,0 +1,68 @@
+name: NBG-T10 Trust Policy Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT10/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt10.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT10/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt10.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt10:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Print candidate hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum \
+            experiments/NBGT10/SPEC.md \
+            experiments/NBGT10/src/nbgt10.py \
+            experiments/NBGT10/tests/test_nbgt10.py
+
+      - name: Run NBG-T10 trust-policy harness
+        run: python experiments/NBGT10/src/nbgt10.py
+
+      - name: Run NBG-T10 unit tests
+        run: python -m unittest discover -s experiments/NBGT10/tests -v
+
+      - name: Verify candidate witness
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT10/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT10"
+          assert result["checks_passed"]==24
+          assert result["checks_total"]==24
+          assert result["witness"]["input_review_state"]=="REVIEW_CONFLICT"
+          assert result["witness"]["weighted_outcome"]=="REJECTED"
+          assert result["witness"]["unanimous_outcome"]=="ABSTAIN_CONFLICT"
+          assert result["witness"]["researcher_quorum_outcome"]=="INSUFFICIENT_AUTHORITY"
+          assert result["witness"]["support_outcome"]=="ACCEPTED"
+          assert result["witness"]["stale_policy_blocked"] is True
+          assert result["witness"]["manifest_mismatch_blocked"] is True
+          assert result["witness"]["registry_mismatch_blocked"] is True
+          for name in (
+              "result.json",
+              "reviewer_registry.json",
+              "policies.json",
+              "policy_comparison.json",
+              "weighted_resolution_receipt.json",
+              "input_bundle_manifest.json",
+          ):
+              print(name, hashlib.sha256((root/name).read_bytes()).hexdigest())
+          print("PASS_NBGT10_CANDIDATE")
+          PY
