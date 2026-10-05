@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://michaelwave369.github.io/NestedBubbleGear/schemas/cw1-observation.schema.json",
+  "title": "NBG-CW1 Observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "state_id",
+    "observer_id",
+    "observer_version",
+    "feature_hash",
+    "values"
+  ],
+  "properties": {
+    "state_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observer_id": {
+      "enum": [
+        "O0",
+        "O1",
+        "O2",
+        "O_IF",
+        "O_K",
+        "RSTAR"
+      ]
+    },
+    "observer_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "feature_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "normalization_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "values": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "number",
+          "string",
+          "boolean",
+          "array",
+          "object",
+          "null"
+        ]
+      }
+    },
+    "derived_without_future_information": {
+      "const": true
+    },
+    "provenance_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}
