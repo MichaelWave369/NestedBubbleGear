@@ -1,0 +1,38 @@
+{
+  "experiment": "NBG-W1",
+  "version": "0.1.0",
+  "review_status": "REVIEWED",
+  "verdict": "PASS_W1",
+  "workflow_run_id": 37383861670,
+  "workflow_run_number": 1,
+  "workflow_conclusion": "success",
+  "branch": "main",
+  "implementation_commit": "4dadd60e7fecc61e1c7513c6526dbbcd61b858bd",
+  "artifact_name": "nbg-w1-unreviewed-execution-37383861670",
+  "artifact_zip_sha256": "51bdad490c9d256329ca8d076fa6e96834ce7dd82a6a486fa2204c38ca9a3319",
+  "result_json_sha256": "f764f5c48aedbaf564feb54e657edb794014e60312ca9e0deba4ad3416250b5e",
+  "spec_sha256": "35dd8bb5fe30db5192210c6db581c4d70883ca9dd7f37cfc97042fb7ddc1ddf6",
+  "execution_sha256": "71b8dcdb67f56a51970d82574238b6ee4f65c26b585d6baff4a23b338ce6d7e3",
+  "implementation_sha256": "697072752d93892d2b0f563ffc1402be32c2c11d28570aa8f0eae0654b28a395",
+  "aggregate": {
+    "median_D": 0.06666666666666671,
+    "median_performance_seed": 3,
+    "median_seed_S_sep": 1,
+    "median_seed_A_route_test": 1,
+    "all_seeds_L_revoke_zero": true,
+    "all_seeds_reserved_pair_separated": true,
+    "all_seeds_revocation_structure_passed": true
+  },
+  "seed_D": {
+    "0": 0.07333333333333336,
+    "1": 0.08000000000000002,
+    "2": -0.024444444444444435,
+    "3": 0.06666666666666671,
+    "4": 0.033333333333333326
+  },
+  "residue_gate_opened": false,
+  "B_used_bytes": 32,
+  "compression_claim": false,
+  "minimal_sufficient_representation_claim": false,
+  "claim_scope": "finite frozen toy ensembles only"
+}
