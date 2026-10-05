@@ -10,7 +10,7 @@ export const SENSITIVITY_INTERVENTIONS = [
   { id:'I_DELAY_DEACTIVATE_11', operation:'DELAY_EVENT', target:'EV_DEACTIVATE_EMERGENCY', patch:{ knownTime:11, validTime:11 }, label:'Delay deactivation' },
   { id:'I_ALTER_DEACTIVATE_VALID10', operation:'ALTER_EVENT', target:'EV_DEACTIVATE_EMERGENCY', patch:{ validTime:10 }, label:'Deactivation valid t10' },
   { id:'I_REMOVE_SUPERSEDE_NORMAL1', operation:'REMOVE_EVENT', target:'EV_SUPERSEDE_NORMAL_1', patch:{}, label:'Remove supersession' },
-  { id:'I_REMOVE_ACTIVATE_EMERGENCY', operation:'REMOVE_EVENT', target:'EV_ACTIVATE_EMERGENCY', patch:{}, label:'Remove emergency activation' },
+  { id:'I_DELAY_ACTIVATE_EMERGENCY_8', operation:'DELAY_EVENT', target:'EV_ACTIVATE_EMERGENCY', patch:{ knownTime:8, validTime:8 }, label:'Delay emergency activation' },
   { id:'I_REMOVE_REGISTER_NORMAL2', operation:'REMOVE_EVENT', target:'EV_REGISTER_NORMAL_2', patch:{}, label:'Remove NORMAL@2.0 registration' },
   { id:'I_DELAY_REGISTER_NORMAL2_11', operation:'DELAY_EVENT', target:'EV_REGISTER_NORMAL_2', patch:{ knownTime:11, validTime:11 }, label:'Delay NORMAL@2.0 registration' },
   { id:'I_REMOVE_REGISTER_EMERGENCY', operation:'REMOVE_EVENT', target:'EV_REGISTER_EMERGENCY_1', patch:{}, label:'Remove emergency registration' },
