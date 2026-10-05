@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://michaelwave369.github.io/NestedBubbleGear/schemas/cw1-closure-receipt.schema.json",
+  "title": "NBG-CW1 Closure Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "pair_id",
+    "observer_id",
+    "state_a",
+    "state_b",
+    "present_distance",
+    "epsilon",
+    "future_distance",
+    "tau",
+    "outcome",
+    "lineage_provenance",
+    "code_commit"
+  ],
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pair_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observer_id": {
+      "enum": [
+        "O0",
+        "O1",
+        "O2",
+        "O_IF",
+        "O_K",
+        "RSTAR"
+      ]
+    },
+    "state_a": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state_b": {
+      "type": "string",
+      "minLength": 1
+    },
+    "present_distance": {
+      "type": "number",
+      "minimum": 0
+    },
+    "epsilon": {
+      "type": "number",
+      "minimum": 0
+    },
+    "future_distance": {
+      "type": "number",
+      "minimum": 0
+    },
+    "tau": {
+      "type": "number",
+      "minimum": 0
+    },
+    "delta_t": {
+      "type": [
+        "number",
+        "string"
+      ]
+    },
+    "outcome": {
+      "enum": [
+        "PRESENT_NOT_EQUIVALENT",
+        "CLOSED_AT_OBSERVER",
+        "CLOSURE_FAILURE"
+      ]
+    },
+    "lineage_provenance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "feature_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "split_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "baseline_results": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "seed": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "code_commit": {
+      "type": "string",
+      "minLength": 7
+    },
+    "claim_scope": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
