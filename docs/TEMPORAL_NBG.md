@@ -247,3 +247,20 @@ NBG-T9 is reserved for portable evidence-bundle import/export and a stable sourc
 - portable export/import preserves manifests, payloads, bytes, and deterministic offline replay.
 
 NBG-T10 is reserved for explicit trust policies and conflict-resolution receipts over preserved T9 evidence.
+
+
+## Tenth executable rung
+
+[NBG-T10](../experiments/NBGT10/) freezes explicit trust-policy and conflict-resolution receipt semantics.
+
+- reviewer roles and authority values live in a hashed registry;
+- policies are explicit hashed data with named versions, eligible roles, quorum, weights, and validity windows;
+- the same preserved reviewer disagreement may yield different governance outcomes under different policies;
+- policy outcomes include `ACCEPTED`, `REJECTED`, `ABSTAIN`, `ABSTAIN_CONFLICT`, and `INSUFFICIENT_AUTHORITY`;
+- historical reviewer decisions remain byte-identical after resolution;
+- every resolution emits a hashed receipt pinning the bundle manifest, reviewer registry, policy version, input decision hashes, scores, outcome, and reason;
+- stale policies, tampered policies, bundle mismatches, and reviewer-registry mismatches are refused;
+- receipt replay is deterministic and exact;
+- policy outcomes explicitly state that they are governance results, not objective truth.
+
+NBG-T11 is reserved for temporal policy ledgers and Governance Keyholes.
