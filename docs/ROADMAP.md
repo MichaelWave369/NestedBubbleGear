@@ -53,6 +53,16 @@
 
 Promotion on this line requires predictive/closure advantage over simpler baselines. Morphological resemblance is never an acceptance criterion.
 
+## Learned memory line — NBG-W
+
+- [x] NBG-W1 — freeze bounded learned causal-memory run protocol; no training/result yet
+- [ ] NBG-W1 execution — run frozen seeds, baselines, lineage, revocation, and stale-injection panels
+- [ ] NBG-W2 — learned minimum-cost probe policy over a frozen admissible probe set
+- [ ] NBG-W3 — governed weight updates with Φ acceptance/rejection and hashed update receipts
+- [ ] NBG-W4 — parameter-memory audit / machine-unlearning line, if separately specified
+
+W1 promotion requires beating the AH11 wrong-distinction control and both capacity-matched learned baselines under the frozen budget while maintaining (L_{\text{revoke}}=0) for every seed.
+
 ## Control-layer integration
 
 Φ-System 2.0 remains a separate control/governance line. Integration points should be explicit rather than collapsing both projects into one theory.
