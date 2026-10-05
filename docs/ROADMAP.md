@@ -33,7 +33,8 @@
 - [x] NBG-T7 — external evidence adapters with provenance-safe capture and reviewer acceptance
 - [x] NBG-T8 — optional live adapter integration + governed review queue
 - [x] NBG-T9 — portable evidence-bundle import/export + stable source registry
-- [ ] NBG-T10 — explicit trust policies + conflict-resolution receipts
+- [x] NBG-T10 — explicit trust policies + conflict-resolution receipts
+- [ ] NBG-T11 — temporal policy ledger + Governance Keyholes
 
 ## Control-layer integration
 
