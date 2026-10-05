@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://michaelwave369.github.io/NestedBubbleGear/schemas/cw1-latent-state.schema.json",
+  "title": "NBG-CW1 Latent State",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "state_id",
+    "dataset",
+    "snapshot_id",
+    "lineage_id",
+    "fields"
+  ],
+  "properties": {
+    "state_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dataset": {
+      "type": "string",
+      "minLength": 1
+    },
+    "snapshot_id": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "lineage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "redshift": {
+      "type": "number",
+      "minimum": 0
+    },
+    "time_coordinate": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "fields": {
+      "type": "object",
+      "description": "Simulation-resolved latent variables. Units and transforms must be declared in provenance.",
+      "additionalProperties": {
+        "type": [
+          "number",
+          "string",
+          "boolean",
+          "array",
+          "object",
+          "null"
+        ]
+      }
+    },
+    "provenance_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}
