@@ -698,6 +698,7 @@ def main():
         "ledger_only_inert":payload["witness"]["ledger_only_inert_count"],
         "minimal_cardinality":payload["witness"]["minimal_cardinality"],
         "minimal_sets":payload["witness"]["minimal_set_count"],
+        "failed_checks":[row["name"] for row in payload["checks"] if not row["pass"]],
         "result_sha256":hashlib.sha256(data).hexdigest(),
     },indent=2))
     if payload["verdict"]!="PASS_NBGT13":
