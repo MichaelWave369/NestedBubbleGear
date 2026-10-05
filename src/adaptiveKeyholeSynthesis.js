@@ -43,6 +43,8 @@ export const SYNTHESIS_FAMILIES=[
   },
 ]
 
+const observationCache=new Map()
+
 function assertChannel(channel){
   if(!OBSERVER_CHANNELS.includes(channel)) throw new Error('Unsupported observer channel')
 }
@@ -88,9 +90,14 @@ function signatureForView(view,channel){
 }
 
 export function observeIntervention(interventionId,keyhole,channel){
+  assertChannel(channel)
+  const cacheKey=`${interventionId}|${keyhole.knownCutoff}|${keyhole.validTime}|${channel}`
+  if(observationCache.has(cacheKey)) return observationCache.get(cacheKey)
   const timeline=mutateTimeline(interventionId)
   const view=governanceView(timeline,keyhole.knownCutoff,keyhole.validTime)
-  return signatureForView(view,channel)
+  const signature=signatureForView(view,channel)
+  observationCache.set(cacheKey,signature)
+  return signature
 }
 
 function pairUniverse(ids){
