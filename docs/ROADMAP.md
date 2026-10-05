@@ -38,7 +38,8 @@
 - [x] NBG-T12 — observed/counterfactual governance branches + divergence receipts
 - [x] NBG-T13 — Governance Sensitivity Atlas + minimal intervention sets
 - [x] NBG-T14 — intervention equivalence + Governance Residue
-- [ ] NBG-T15 — Adaptive Keyhole Synthesis
+- [x] NBG-T15 — Adaptive Keyhole Synthesis
+- [ ] NBG-T16 — Keyhole Robustness + Observer Failure
 
 ## Physical application line — NBG-CW
 
