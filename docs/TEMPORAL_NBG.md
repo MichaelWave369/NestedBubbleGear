@@ -211,3 +211,20 @@ It records adapter identity, source locator, capture time, content digest, expli
 A captured item does not alter the original source-map claim. A separate review decision is required before it affects the derived review view.
 
 NBG-T8 is reserved for optional integration of the qualified capture contract into the review interface.
+
+
+## Eighth executable rung
+
+[NBG-T8](../experiments/NBGT8/) connects the frozen capture contract to an operator-triggered read-only adapter path and a governed review queue.
+
+- retrieval requires explicit operator invocation;
+- HTTP(S) hosts must be allow-listed;
+- captured bytes and receipt metadata are persisted before review;
+- failed and ambiguous retrievals remain blocked;
+- reviewer ACCEPT / REJECT decisions remain separate from capture;
+- source status stays immutable;
+- source-version drift is surfaced as a separate queue item;
+- the Temporal Explorer exposes a session review queue and export;
+- cached evidence bundles replay with networking disabled.
+
+NBG-T9 is reserved for portable evidence-bundle import/export and a stable source registry.

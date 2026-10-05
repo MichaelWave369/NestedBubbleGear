@@ -1,0 +1,87 @@
+name: NBG-T8 Live Adapter + Review Queue Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT8/**"
+      - "scripts/nbgt8_capture.py"
+      - "scripts/test_evidence_review_queue.mjs"
+      - "src/evidenceReviewQueue.js"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt8.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT8/**"
+      - "scripts/nbgt8_capture.py"
+      - "scripts/test_evidence_review_queue.mjs"
+      - "src/evidenceReviewQueue.js"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt8.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt8:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install site dependencies
+        run: npm install
+
+      - name: Print candidate hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum \
+            experiments/NBGT8/SPEC.md \
+            experiments/NBGT8/src/nbgt8.py \
+            experiments/NBGT8/tests/test_nbgt8.py \
+            scripts/nbgt8_capture.py \
+            src/evidenceReviewQueue.js \
+            scripts/test_evidence_review_queue.mjs \
+            src/App.jsx \
+            src/styles.css
+
+      - name: Run NBG-T8 adapter harness
+        run: python experiments/NBGT8/src/nbgt8.py
+
+      - name: Run NBG-T8 Python tests
+        run: python -m unittest discover -s experiments/NBGT8/tests -v
+
+      - name: Run browser review-queue acceptance
+        run: npm run test:evidence-queue
+
+      - name: Build research site
+        run: npm run build
+
+      - name: Verify candidate witness
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT8/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT8"
+          assert result["checks_passed"]==18
+          assert result["checks_total"]==18
+          assert result["witness"]["k5_status"]=="ALLEGED"
+          assert result["witness"]["k6_status"]=="CORROBORATED"
+          assert result["witness"]["k9_status"]=="DISPUTED"
+          assert result["witness"]["drift_count"]==1
+          for name in ("result.json","base_claim.json","capture_receipts.json","review_decisions.json","drift_report.json","review_queue_k8.json"):
+              print(name, hashlib.sha256((root/name).read_bytes()).hexdigest())
+          print("PASS_NBGT8_CANDIDATE")
+          PY

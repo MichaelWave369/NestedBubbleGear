@@ -31,7 +31,8 @@
 - [x] NBG-T5 — evidence-linked review and temporal Keyholes
 - [x] NBG-T6 — Temporal Keyhole Explorer in the research site
 - [x] NBG-T7 — external evidence adapters with provenance-safe capture and reviewer acceptance
-- [ ] NBG-T8 — optional live adapter integration + governed review queue
+- [x] NBG-T8 — optional live adapter integration + governed review queue
+- [ ] NBG-T9 — portable evidence-bundle import/export + stable source registry
 
 ## Control-layer integration
 
