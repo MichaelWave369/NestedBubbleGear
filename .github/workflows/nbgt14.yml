@@ -1,0 +1,94 @@
+name: NBG-T14 Intervention Equivalence Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT14/**"
+      - "src/interventionEquivalence.js"
+      - "scripts/test_intervention_equivalence.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt14.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT14/**"
+      - "src/interventionEquivalence.js"
+      - "scripts/test_intervention_equivalence.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt14.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt14:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install site dependencies
+        run: npm install
+
+      - name: Print candidate hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum \
+            experiments/NBGT14/SPEC.md \
+            experiments/NBGT14/src/nbgt14.py \
+            experiments/NBGT14/tests/test_nbgt14.py \
+            src/interventionEquivalence.js \
+            scripts/test_intervention_equivalence.mjs
+
+      - name: Run NBG-T14 equivalence harness
+        run: python experiments/NBGT14/src/nbgt14.py
+
+      - name: Run NBG-T14 Python tests
+        run: python -m unittest discover -s experiments/NBGT14/tests -v
+
+      - name: Run browser equivalence acceptance
+        run: npm run test:intervention-equivalence
+
+      - name: Build research site
+        run: npm run build
+
+      - name: Verify candidate witness
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT14/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT14"
+          assert result["checks_passed"]==34
+          assert result["checks_total"]==34
+          assert result["witness"]["interventions"]==9
+          assert result["witness"]["pairs"]==36
+          assert result["witness"]["deactivation_pair"]["classification"]=="KEYHOLE_EQUIVALENT_TEMPORALLY_DISTINCT"
+          assert result["witness"]["normal2_pair"]["classification"]=="KEYHOLE_EQUIVALENT_TEMPORALLY_DISTINCT"
+          assert result["witness"]["ledger_control_pair"]["classification"]=="TEMPORALLY_EQUIVALENT_IN_QUERY_FAMILY"
+          assert result["witness"]["ledger_control_pair"]["residue_count"]==0
+          assert result["witness"]["ledger_control_pair"]["ledger_heads_different"] is True
+          for name in (
+              "result.json",
+              "equivalence_atlas.json",
+              "deactivation_pair.json",
+              "normal2_pair.json",
+              "ledger_control_pair.json",
+              "signature_table.json",
+          ):
+              print(name, hashlib.sha256((root/name).read_bytes()).hexdigest())
+          print("PASS_NBGT14_CANDIDATE")
+          PY
+          grep -q 'NBG-T14 · INTERVENTION EQUIVALENCE' src/App.jsx
+          grep -q 'KEYHOLE EQUIVALENCE ≠ CAUSAL IDENTITY' src/App.jsx
