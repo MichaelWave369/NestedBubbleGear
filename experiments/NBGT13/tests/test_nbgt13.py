@@ -108,14 +108,14 @@ class NBGT13Tests(unittest.TestCase):
         row=next(r for r in atlas["rows"] if r["intervention_id"]=="I_ALTER_DEACTIVATE_VALID10")
         self.assertEqual((row["first_outcome_divergence"]["known_cutoff"],row["first_outcome_divergence"]["valid_time"]),(9,9))
 
-    def test_remove_activate_target_inert(self):
+    def test_delay_activate_target_inert(self):
         *_,atlas=self.atlas()
-        row=next(r for r in atlas["rows"] if r["intervention_id"]=="I_REMOVE_ACTIVATE_EMERGENCY")
+        row=next(r for r in atlas["rows"] if r["intervention_id"]=="I_DELAY_ACTIVATE_EMERGENCY_8")
         self.assertEqual(row["target_class"],"TARGET_INERT")
 
-    def test_remove_activate_policy_leverage_only(self):
+    def test_delay_activate_policy_leverage_only(self):
         *_,atlas=self.atlas()
-        row=next(r for r in atlas["rows"] if r["intervention_id"]=="I_REMOVE_ACTIVATE_EMERGENCY")
+        row=next(r for r in atlas["rows"] if r["intervention_id"]=="I_DELAY_ACTIVATE_EMERGENCY_8")
         self.assertEqual(row["temporal_class"],"TEMPORAL_POLICY_LEVERAGE")
         self.assertIsNone(row["first_outcome_divergence"])
 
@@ -134,9 +134,9 @@ class NBGT13Tests(unittest.TestCase):
         row=next(r for r in atlas["rows"] if r["intervention_id"]=="I_REMOVE_SUPERSEDE_NORMAL1")
         self.assertEqual((row["target_class"],row["temporal_class"]),("TARGET_INERT","LEDGER_ONLY_INERT"))
 
-    def test_first_policy_divergence_exists_for_remove_activate(self):
+    def test_first_policy_divergence_exists_for_delay_activate(self):
         *_,atlas=self.atlas()
-        row=next(r for r in atlas["rows"] if r["intervention_id"]=="I_REMOVE_ACTIVATE_EMERGENCY")
+        row=next(r for r in atlas["rows"] if r["intervention_id"]=="I_DELAY_ACTIVATE_EMERGENCY_8")
         self.assertIsNotNone(row["first_policy_divergence"])
 
     def test_rows_have_no_causal_attribution_marker(self):
@@ -166,7 +166,7 @@ class NBGT13Tests(unittest.TestCase):
     def test_multi_intervention_branch_validates(self):
         *_,ledger,receipts=self.fixture()
         combo=[
-            next(r for r in receipts if r["intervention_id"]=="I_REMOVE_ACTIVATE_EMERGENCY"),
+            next(r for r in receipts if r["intervention_id"]=="I_DELAY_ACTIVATE_EMERGENCY_8"),
             next(r for r in receipts if r["intervention_id"]=="I_REMOVE_SUPERSEDE_NORMAL1"),
         ]
         branch=m.apply_intervention_set(ledger,combo)
@@ -175,7 +175,7 @@ class NBGT13Tests(unittest.TestCase):
     def test_multi_intervention_branch_tamper_fails(self):
         *_,ledger,receipts=self.fixture()
         combo=[
-            next(r for r in receipts if r["intervention_id"]=="I_REMOVE_ACTIVATE_EMERGENCY"),
+            next(r for r in receipts if r["intervention_id"]=="I_DELAY_ACTIVATE_EMERGENCY_8"),
             next(r for r in receipts if r["intervention_id"]=="I_REMOVE_SUPERSEDE_NORMAL1"),
         ]
         branch=m.apply_intervention_set(ledger,combo); branch["branch_kind"]="BAD"
