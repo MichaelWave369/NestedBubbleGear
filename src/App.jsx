@@ -16,6 +16,12 @@ import {
   deriveQueueStatus,
   queueRows,
 } from './evidenceReviewQueue.js'
+import {
+  buildGovernanceExport,
+  compareGovernanceKeyholes,
+  governanceKeyhole,
+  governanceTimeline,
+} from './governanceKeyholes.js'
 
 const stack = [
   { mark: 'B', name: 'NBG', title: 'Domains + interfaces', text: 'Defines where state lives, how domains nest, and where constrained interfaces exist.' },
@@ -196,6 +202,10 @@ function App() {
   const [showAnalyst, setShowAnalyst] = useState(false)
   const [selectedTemporalRecord, setSelectedTemporalRecord] = useState('C1')
   const [evidenceQueueDecisions, setEvidenceQueueDecisions] = useState(T8_FROZEN_DECISIONS)
+  const [governanceKnownA, setGovernanceKnownA] = useState(5)
+  const [governanceValidA, setGovernanceValidA] = useState(5)
+  const [governanceKnownB, setGovernanceKnownB] = useState(10)
+  const [governanceValidB, setGovernanceValidB] = useState(10)
   const active = keyholes[depth]
   const activeBubble = bubbleFamilies[bubbleIndex]
   const activeExperiment = experiments[experimentIndex]
@@ -258,6 +268,23 @@ function App() {
     [evidenceQueueDecisions],
   )
 
+  const governanceLeft = useMemo(
+    () => governanceKeyhole(governanceKnownA, governanceValidA),
+    [governanceKnownA, governanceValidA],
+  )
+
+  const governanceRight = useMemo(
+    () => governanceKeyhole(governanceKnownB, governanceValidB),
+    [governanceKnownB, governanceValidB],
+  )
+
+  const governanceComparison = useMemo(
+    () => compareGovernanceKeyholes(governanceLeft, governanceRight),
+    [governanceLeft, governanceRight],
+  )
+
+  const governanceEvents = useMemo(() => governanceTimeline(), [])
+
   function reviewEvidenceCapture(captureId, decision) {
     setEvidenceQueueDecisions((current) =>
       applyQueueDecision(current, captureId, decision),
@@ -273,6 +300,19 @@ function App() {
     const anchor = document.createElement('a')
     anchor.href = url
     anchor.download = 'nbg-t8-evidence-review-queue.json'
+    anchor.click()
+    URL.revokeObjectURL(url)
+  }
+
+  function exportGovernanceComparison() {
+    const payload = buildGovernanceExport(governanceLeft, governanceRight)
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {
+      type: 'application/json',
+    })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = `nbg-t11-governance-keyholes-k${governanceKnownA}-k${governanceKnownB}.json`
     anchor.click()
     URL.revokeObjectURL(url)
   }
@@ -781,6 +821,161 @@ function App() {
               Export review queue
             </button>
           </div>
+
+        <div className="governance-shell">
+          <div className="section-label">NBG-T11 · GOVERNANCE KEYHOLES</div>
+          <div className="section-heading-row governance-heading">
+            <div>
+              <h2>Policies have history too.</h2>
+              <p className="muted">
+                Compare what governance rule was valid in the modeled world with what policy history
+                was actually knowable at the selected cutoff. Later amendments do not leak backward.
+              </p>
+            </div>
+            <span className="status">POLICY ≠ TRUTH · LATER ≠ EARLIER</span>
+          </div>
+
+          <div className="governance-controls-grid">
+            <article className="governance-control-card">
+              <div className="panel-head">
+                <span>LEFT GOVERNANCE KEYHOLE</span>
+                <strong>known k{governanceKnownA} · valid t{governanceValidA}</strong>
+              </div>
+              <label>
+                <span>KNOWN-TIME CUTOFF</span>
+                <input
+                  aria-label="Left governance known-time cutoff"
+                  type="range"
+                  min="1"
+                  max="10"
+                  step="1"
+                  value={governanceKnownA}
+                  onChange={(event) => setGovernanceKnownA(Number(event.target.value))}
+                />
+              </label>
+              <label>
+                <span>VALID TIME</span>
+                <input
+                  aria-label="Left governance valid time"
+                  type="range"
+                  min="1"
+                  max="10"
+                  step="1"
+                  value={governanceValidA}
+                  onChange={(event) => setGovernanceValidA(Number(event.target.value))}
+                />
+              </label>
+            </article>
+
+            <article className="governance-control-card">
+              <div className="panel-head">
+                <span>RIGHT GOVERNANCE KEYHOLE</span>
+                <strong>known k{governanceKnownB} · valid t{governanceValidB}</strong>
+              </div>
+              <label>
+                <span>KNOWN-TIME CUTOFF</span>
+                <input
+                  aria-label="Right governance known-time cutoff"
+                  type="range"
+                  min="1"
+                  max="10"
+                  step="1"
+                  value={governanceKnownB}
+                  onChange={(event) => setGovernanceKnownB(Number(event.target.value))}
+                />
+              </label>
+              <label>
+                <span>VALID TIME</span>
+                <input
+                  aria-label="Right governance valid time"
+                  type="range"
+                  min="1"
+                  max="10"
+                  step="1"
+                  value={governanceValidB}
+                  onChange={(event) => setGovernanceValidB(Number(event.target.value))}
+                />
+              </label>
+            </article>
+          </div>
+
+          <div className="governance-keyhole-grid">
+            {[['LEFT', governanceLeft], ['RIGHT', governanceRight]].map(([side, view]) => (
+              <article className="governance-keyhole-card" key={side}>
+                <div className="governance-keyhole-top">
+                  <div>
+                    <span>{side} KEYHOLE</span>
+                    <strong>{view.selectedPolicyVersionId || 'NO ACTIVE POLICY'}</strong>
+                  </div>
+                  <code>{view.keyholeFingerprint}</code>
+                </div>
+                <div className="governance-outcome">
+                  <small>GOVERNANCE OUTCOME</small>
+                  <strong>{view.governanceOutcome}</strong>
+                </div>
+                <dl>
+                  <div><dt>Mode</dt><dd>{view.selectedPolicyMode || '—'}</dd></div>
+                  <div><dt>Ledger head</dt><dd>{view.ledgerHead}</dd></div>
+                  <div><dt>Visible policies</dt><dd>{view.visiblePolicyVersionIds.join(' · ') || 'NONE'}</dd></div>
+                </dl>
+                <div className="governance-status-list">
+                  {Object.entries(view.policyStatuses).map(([policyId, statusName]) => (
+                    <div key={policyId}>
+                      <span>{policyId}</span>
+                      <strong className={statusName.toLowerCase()}>{statusName}</strong>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="governance-delta">
+            <div>
+              <small>SELECTED POLICY CHANGED</small>
+              <strong>{governanceComparison.selectedPolicyChanged ? 'YES' : 'NO'}</strong>
+            </div>
+            <div>
+              <small>OUTCOME CHANGED</small>
+              <strong>{governanceComparison.governanceOutcomeChanged ? 'YES' : 'NO'}</strong>
+            </div>
+            <div>
+              <small>LEDGER HEAD CHANGED</small>
+              <strong>{governanceComparison.ledgerHeadChanged ? 'YES' : 'NO'}</strong>
+            </div>
+          </div>
+
+          <div className="governance-ledger">
+            <div className="panel-head">
+              <span>APPEND-ONLY POLICY LEDGER</span>
+              <strong>{governanceEvents.length} frozen events</strong>
+            </div>
+            <div className="governance-event-list">
+              {governanceEvents.map((event) => (
+                <div className="governance-event" key={event.eventId}>
+                  <strong>{event.eventId}</strong>
+                  <span>{event.type}</span>
+                  <small>known k{event.knownTime} · valid t{event.validTime} · {event.target}</small>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="governance-footer">
+            <div>
+              <strong>Anti-hindsight governance</strong>
+              <p>
+                A policy may be valid for an earlier modeled time yet remain invisible to an observer
+                whose knowledge cutoff predates its registration. Emergency activation and deactivation
+                are also replayed against valid time rather than retroactively flattening history.
+              </p>
+              <small>No Governance Keyhole output is an objective truth claim. It is a replayable policy result.</small>
+            </div>
+            <button className="button primary" onClick={exportGovernanceComparison}>
+              Export Governance Keyholes
+            </button>
+          </div>
+        </div>
         </div>
       </section>
 
