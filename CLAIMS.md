@@ -23,6 +23,7 @@ These are exact properties of the published/executable constructions. They are n
 - Local-to-global transport composition across unequal plaquettes.
 - Task-typed convergence and conveyor-aware control.
 - NBG-CW1 cosmic-web Keyhole/closure protocol, including observer refinement and baseline comparison. Protocol status is not an empirical NBG result.
+- NBG-W1 bounded learned causal-memory run protocol. Architecture, budgets, baselines, splits, optimizer, seeds, and revocation rules are frozen; no training result is claimed.
 
 ## Speculative
 

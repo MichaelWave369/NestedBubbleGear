@@ -1,0 +1,7 @@
+{
+  "protocol": "NBG-W1-v0.1.0",
+  "status": "FROZEN_PROTOCOL_NO_RESULT",
+  "source_sha256": "35dd8bb5fe30db5192210c6db581c4d70883ca9dd7f37cfc97042fb7ddc1ddf6",
+  "source_file": "SPEC.md",
+  "note": "SHA-256 supplied from the operator-approved freeze text before repository insertion. No training/result artifact is frozen by this manifest."
+}

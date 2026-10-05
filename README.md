@@ -84,6 +84,14 @@ The purpose is not to argue that the cosmic web visually resembles NBG. CW1 asks
 
 See [experiments/CW1](experiments/CW1/).
 
+## Learned memory line (NBG-W)
+
+**NBG-W1** freezes a run protocol for bounded learned causal memory without claiming a result. It separates exact append-only history (L), learned compression maps (Theta), and bounded replaceable active memory (M_t).
+
+W1 fixes byte budgets, revocation semantics, same-capacity controls, held-out lineage evaluation, network size, optimizer, seeds, and a zero-tolerance unauthorized-read criterion before any training occurs.
+
+See [experiments/W1](experiments/W1/).
+
 ## Frozen AH ladder
 
 | Rung | Focus | Outcome |
@@ -155,6 +163,7 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── NBGT14/           Frozen intervention equivalence / Governance Residue rung
 │   ├── NBGT15/           Frozen Adaptive Keyhole Synthesis rung
 │   ├── CW1/              Cosmic-web Keyhole closure protocol candidate
+│   ├── W1/               Frozen bounded learned causal-memory run protocol
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff
