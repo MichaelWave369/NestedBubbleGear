@@ -1,0 +1,93 @@
+name: NBG-T11 Governance Keyhole Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT11/**"
+      - "src/governanceKeyholes.js"
+      - "scripts/test_governance_keyholes.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt11.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT11/**"
+      - "src/governanceKeyholes.js"
+      - "scripts/test_governance_keyholes.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt11.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt11:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install site dependencies
+        run: npm install
+
+      - name: Print candidate hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum \
+            experiments/NBGT11/SPEC.md \
+            experiments/NBGT11/src/nbgt11.py \
+            experiments/NBGT11/tests/test_nbgt11.py \
+            src/governanceKeyholes.js \
+            scripts/test_governance_keyholes.mjs
+
+      - name: Run NBG-T11 governance harness
+        run: python experiments/NBGT11/src/nbgt11.py
+
+      - name: Run NBG-T11 Python tests
+        run: python -m unittest discover -s experiments/NBGT11/tests -v
+
+      - name: Run browser Governance Keyhole acceptance
+        run: npm run test:governance-keyholes
+
+      - name: Build research site
+        run: npm run build
+
+      - name: Verify candidate witness
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT11/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT11"
+          assert result["checks_passed"]==28
+          assert result["checks_total"]==28
+          assert result["witness"]["k5_selected"]=="NORMAL@1.0"
+          assert result["witness"]["k7_selected"]=="EMERGENCY@1.0"
+          assert result["witness"]["k8_selected"]=="EMERGENCY@1.0"
+          assert result["witness"]["k10_selected"]=="NORMAL@2.0"
+          assert result["witness"]["historical_k7_late_selected"]=="EMERGENCY@1.0"
+          assert result["witness"]["k10_outcome"]=="ABSTAIN_CONFLICT"
+          for name in (
+              "result.json",
+              "policy_records.json",
+              "policy_ledger.json",
+              "governance_bundle.json",
+              "keyhole_comparison.json",
+              "k10_resolution_receipt.json",
+          ):
+              print(name, hashlib.sha256((root/name).read_bytes()).hexdigest())
+          print("PASS_NBGT11_CANDIDATE")
+          PY
+          grep -q 'NBG-T11 · GOVERNANCE KEYHOLES' src/App.jsx
+          grep -q 'POLICY ≠ TRUTH' src/App.jsx
