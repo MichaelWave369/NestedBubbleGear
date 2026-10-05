@@ -1,0 +1,97 @@
+name: NBG-T13 Governance Sensitivity Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT13/**"
+      - "src/governanceSensitivity.js"
+      - "scripts/test_governance_sensitivity.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt13.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT13/**"
+      - "src/governanceSensitivity.js"
+      - "scripts/test_governance_sensitivity.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt13.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt13:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install site dependencies
+        run: npm install
+
+      - name: Print candidate hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum \
+            experiments/NBGT13/SPEC.md \
+            experiments/NBGT13/src/nbgt13.py \
+            experiments/NBGT13/tests/test_nbgt13.py \
+            src/governanceSensitivity.js \
+            scripts/test_governance_sensitivity.mjs
+
+      - name: Run NBG-T13 sensitivity harness
+        run: python experiments/NBGT13/src/nbgt13.py
+
+      - name: Run NBG-T13 Python tests
+        run: python -m unittest discover -s experiments/NBGT13/tests -v
+
+      - name: Run browser sensitivity acceptance
+        run: npm run test:governance-sensitivity
+
+      - name: Build research site
+        run: npm run build
+
+      - name: Verify candidate witness
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT13/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT13"
+          assert result["checks_passed"]==36
+          assert result["checks_total"]==36
+          assert result["witness"]["atlas_rows"]==9
+          assert result["witness"]["target_known"]==10
+          assert result["witness"]["target_valid"]==10
+          assert result["witness"]["observed_outcome"]=="ABSTAIN_CONFLICT"
+          assert result["witness"]["outcome_changing_count"]==4
+          assert result["witness"]["minimal_cardinality"]==1
+          assert result["witness"]["minimal_set_count"]==4
+          assert result["witness"]["payload_control_class"]=="LEDGER_ONLY_INERT"
+          assert result["witness"]["alter_valid10_first_divergence"]["known_cutoff"]==9
+          assert result["witness"]["alter_valid10_first_divergence"]["valid_time"]==9
+          for name in (
+              "result.json",
+              "sensitivity_atlas.json",
+              "intervention_receipts.json",
+              "minimal_intervention_sets.json",
+              "payload_negative_control.json",
+              "alter_valid10_row.json",
+          ):
+              print(name, hashlib.sha256((root/name).read_bytes()).hexdigest())
+          print("PASS_NBGT13_CANDIDATE")
+          PY
+          grep -q 'NBG-T13 · GOVERNANCE SENSITIVITY ATLAS' src/App.jsx
+          grep -q 'SENSITIVITY ≠ CAUSAL ATTRIBUTION' src/App.jsx
