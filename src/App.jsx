@@ -33,6 +33,12 @@ import {
   buildSensitivityExport,
   minimalRejectedSingletons,
 } from './governanceSensitivity.js'
+import {
+  buildEquivalenceExport,
+  buildInterventionEquivalenceAtlas,
+  defaultEquivalencePairs,
+  interventionPairReceipt,
+} from './interventionEquivalence.js'
 
 const stack = [
   { mark: 'B', name: 'NBG', title: 'Domains + interfaces', text: 'Defines where state lives, how domains nest, and where constrained interfaces exist.' },
@@ -222,6 +228,7 @@ function App() {
   const [counterfactualValid, setCounterfactualValid] = useState(10)
   const [sensitivityKnown, setSensitivityKnown] = useState(10)
   const [sensitivityValid, setSensitivityValid] = useState(10)
+  const [equivalencePair, setEquivalencePair] = useState('PAIR_DEACTIVATION')
   const active = keyholes[depth]
   const activeBubble = bubbleFamilies[bubbleIndex]
   const activeExperiment = experiments[experimentIndex]
@@ -336,6 +343,28 @@ function App() {
     [sensitivityAtlas],
   )
 
+  const equivalencePairs = useMemo(() => defaultEquivalencePairs(), [])
+
+  const equivalencePairMeta = useMemo(
+    () => equivalencePairs.find((row) => row.id === equivalencePair),
+    [equivalencePairs, equivalencePair],
+  )
+
+  const equivalenceReceipt = useMemo(
+    () => interventionPairReceipt(
+      equivalencePairMeta.left,
+      equivalencePairMeta.right,
+      10,
+      10,
+    ),
+    [equivalencePairMeta],
+  )
+
+  const equivalenceAtlas = useMemo(
+    () => buildInterventionEquivalenceAtlas(10, 10),
+    [],
+  )
+
   function reviewEvidenceCapture(captureId, decision) {
     setEvidenceQueueDecisions((current) =>
       applyQueueDecision(current, captureId, decision),
@@ -351,6 +380,19 @@ function App() {
     const anchor = document.createElement('a')
     anchor.href = url
     anchor.download = 'nbg-t8-evidence-review-queue.json'
+    anchor.click()
+    URL.revokeObjectURL(url)
+  }
+
+  function exportEquivalenceAtlas() {
+    const payload = buildEquivalenceExport(equivalencePair, 10, 10)
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {
+      type: 'application/json',
+    })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = `nbg-t14-intervention-equivalence-${equivalencePair.toLowerCase()}.json`
     anchor.click()
     URL.revokeObjectURL(url)
   }
@@ -1296,6 +1338,135 @@ function App() {
             </div>
             <button className="button primary" onClick={exportSensitivityAtlas}>
               Export sensitivity atlas
+            </button>
+          </div>
+        </div>
+
+        <div className="equivalence-shell">
+          <div className="section-label">NBG-T14 · INTERVENTION EQUIVALENCE</div>
+          <div className="section-heading-row equivalence-heading">
+            <div>
+              <h2>Same through this Keyhole.<br />Different somewhere else.</h2>
+              <p className="muted">
+                T14 groups interventions by what k10/t10 can see, then scans the richer Governance
+                Keyhole family for retained behavioral residue that the focal projection erased.
+              </p>
+            </div>
+            <span className="status">KEYHOLE EQUIVALENCE ≠ CAUSAL IDENTITY</span>
+          </div>
+
+          <div className="equivalence-summary">
+            <div><small>INTERVENTIONS</small><strong>{equivalenceAtlas.counts.interventions}</strong></div>
+            <div><small>PAIR RECEIPTS</small><strong>{equivalenceAtlas.counts.pairs}</strong></div>
+            <div><small>TARGET-EQUIVALENT PAIRS</small><strong>{equivalenceAtlas.counts.targetEquivalentPairs}</strong></div>
+            <div><small>HIDDEN-RESIDUE PAIRS</small><strong>{equivalenceAtlas.counts.hiddenResiduePairs}</strong></div>
+            <div><small>FULL-TEMPORAL EQUIVALENCE</small><strong>{equivalenceAtlas.counts.temporallyEquivalentPairs}</strong></div>
+          </div>
+
+          <div className="equivalence-pair-tabs">
+            {equivalencePairs.map((pair) => (
+              <button
+                key={pair.id}
+                className={equivalencePair === pair.id ? 'active' : ''}
+                onClick={() => setEquivalencePair(pair.id)}
+              >
+                <strong>{pair.label}</strong>
+                <small>{pair.left}</small>
+                <small>{pair.right}</small>
+              </button>
+            ))}
+          </div>
+
+          <div className="equivalence-pair-grid">
+            <article>
+              <span>LEFT INTERVENTION</span>
+              <strong>{equivalenceReceipt.leftInterventionId}</strong>
+              <dl>
+                <div><dt>Policy @ k10/t10</dt><dd>{equivalenceReceipt.leftTargetSignature.policyVersionId || 'NONE'}</dd></div>
+                <div><dt>Outcome @ k10/t10</dt><dd>{equivalenceReceipt.leftTargetSignature.governanceOutcome}</dd></div>
+                <div><dt>Temporal signature</dt><dd>{equivalenceReceipt.leftTemporalSignatureFingerprint}</dd></div>
+              </dl>
+            </article>
+
+            <article>
+              <span>RIGHT INTERVENTION</span>
+              <strong>{equivalenceReceipt.rightInterventionId}</strong>
+              <dl>
+                <div><dt>Policy @ k10/t10</dt><dd>{equivalenceReceipt.rightTargetSignature.policyVersionId || 'NONE'}</dd></div>
+                <div><dt>Outcome @ k10/t10</dt><dd>{equivalenceReceipt.rightTargetSignature.governanceOutcome}</dd></div>
+                <div><dt>Temporal signature</dt><dd>{equivalenceReceipt.rightTemporalSignatureFingerprint}</dd></div>
+              </dl>
+            </article>
+          </div>
+
+          <div className="equivalence-verdict">
+            <div>
+              <small>FOCAL KEYHOLE</small>
+              <strong>{equivalenceReceipt.targetEquivalent ? 'EQUIVALENT' : 'DISTINCT'}</strong>
+            </div>
+            <div>
+              <small>FULL TEMPORAL QUERY FAMILY</small>
+              <strong>{equivalenceReceipt.temporalEquivalent ? 'EQUIVALENT' : 'DISTINCT'}</strong>
+            </div>
+            <div>
+              <small>CLASSIFICATION</small>
+              <strong>{equivalenceReceipt.classification}</strong>
+            </div>
+            <div>
+              <small>RESIDUE COUNT</small>
+              <strong>{equivalenceReceipt.residueCount}</strong>
+            </div>
+          </div>
+
+          <div className="equivalence-separator">
+            <div>
+              <span>MINIMAL SEPARATING KEYHOLE FAMILY</span>
+              {equivalenceReceipt.firstSeparatingKeyhole ? (
+                <>
+                  <strong>
+                    k{equivalenceReceipt.firstSeparatingKeyhole.knownCutoff}
+                    {' / '}
+                    t{equivalenceReceipt.firstSeparatingKeyhole.validTime}
+                  </strong>
+                  <p>
+                    Left: {equivalenceReceipt.firstSeparatingKeyhole.leftPolicy || 'NONE'}
+                    {' → '}
+                    {equivalenceReceipt.firstSeparatingKeyhole.leftOutcome}
+                    <br />
+                    Right: {equivalenceReceipt.firstSeparatingKeyhole.rightPolicy || 'NONE'}
+                    {' → '}
+                    {equivalenceReceipt.firstSeparatingKeyhole.rightOutcome}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <strong>NONE FOUND IN FROZEN FAMILY</strong>
+                  <p>The pair remains behaviorally equivalent across every k1…k12 / t1…t12 Governance Keyhole.</p>
+                </>
+              )}
+            </div>
+            <div>
+              <span>GOVERNANCE RESIDUE</span>
+              <code>{equivalenceReceipt.governanceResidueFingerprint}</code>
+              <small>
+                {equivalenceReceipt.residueCount
+                  ? 'The focal projection erased a distinction recoverable elsewhere.'
+                  : 'Different ledger histories remain equivalent under this declared query family.'}
+              </small>
+            </div>
+          </div>
+
+          <div className="equivalence-footer">
+            <div>
+              <strong>The original NBG question, now pointed at governance history.</strong>
+              <p>
+                Equality at one Keyhole does not license identity. T14 requires the richer admissible
+                query family before calling two intervention histories behaviorally equivalent.
+              </p>
+              <small>KEYHOLE_EQUIVALENCE_NOT_CAUSAL_IDENTITY</small>
+            </div>
+            <button className="button primary" onClick={exportEquivalenceAtlas}>
+              Export equivalence receipt
             </button>
           </div>
         </div>
