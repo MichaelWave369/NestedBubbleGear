@@ -66,7 +66,9 @@ The first executable rung, **NBG-T1**, freezes a synthetic witness in which two 
 
 **NBG-T11** makes policy history bitemporal: policy versions have valid time and known time, registration/supersession/emergency events form an append-only ledger, side-by-side Governance Keyholes replay policy state without hindsight, and later policy changes never rewrite earlier resolution receipts.
 
-See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), [experiments/NBGT6](experiments/NBGT6/), [experiments/NBGT7](experiments/NBGT7/), [experiments/NBGT8](experiments/NBGT8/), [experiments/NBGT9](experiments/NBGT9/), [experiments/NBGT10](experiments/NBGT10/), and [experiments/NBGT11](experiments/NBGT11/).
+**NBG-T12** adds explicit counterfactual governance branches: the observed policy ledger remains immutable, fork receipts pin the altered event and intervention, remove/delay/alter branches replay against the same evidence, divergence summaries identify the first outcome-changing Keyhole, and every branch is marked as counterfactual rather than observed history.
+
+See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), [experiments/NBGT6](experiments/NBGT6/), [experiments/NBGT7](experiments/NBGT7/), [experiments/NBGT8](experiments/NBGT8/), [experiments/NBGT9](experiments/NBGT9/), [experiments/NBGT10](experiments/NBGT10/), [experiments/NBGT11](experiments/NBGT11/), and [experiments/NBGT12](experiments/NBGT12/).
 
 ## Frozen AH ladder
 
@@ -134,6 +136,7 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── NBGT9/            Frozen portable evidence-bundle rung
 │   ├── NBGT10/           Frozen trust-policy / resolution-receipt rung
 │   ├── NBGT11/           Frozen temporal policy-ledger / Governance Keyhole rung
+│   ├── NBGT12/           Frozen counterfactual governance / divergence rung
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff
