@@ -1,0 +1,21 @@
+{
+  "experiment": "NBG-T14",
+  "files": {
+    "SPEC.md": "6127bf9f79223d7f655bf6bb72632c6d94c35e097ae69b3517234779628ccfff",
+    "src/nbgt14.py": "da0ca012cfd748dea8ca814cd1b0489b107bfcfab62420be8a3e89762e1f57a9",
+    "tests/test_nbgt14.py": "f8620056f735386ee6f75b9f064792b8cfe3df05bebfdcdcbf0838b038791ef7",
+    "../../src/interventionEquivalence.js": "b5c323e354fda7bfc83bf89aefa461cb40f5135c82c55cc62d3c8c17d71ad877",
+    "../../scripts/test_intervention_equivalence.mjs": "405350a8c4ed8074c021198645dda69ee57aeaab47e2a9ae3970a20561b7432a"
+  },
+  "generated_artifacts": {
+    "result.json": "c3623dfa3b7ecfaa20213fc62fd9f986f67430e9fb9427314cf7929e71392f98",
+    "equivalence_atlas.json": "b8e602882234863727bfeffae4d816764c12ba24d504a8bc8b511d7e7a202575",
+    "deactivation_pair.json": "2d666d5e625936f3f5f829fb06d84fe73659dd75abb988f25481d1e658abfb98",
+    "normal2_pair.json": "49229de6aee3d8b2f712a7eb6339e98012b1519432acbcedc24912d646338aaa",
+    "ledger_control_pair.json": "70d80b3639d9d4ab741b93a9f39c95683ea3199e23b31fe3a40af74298c5a7e4",
+    "signature_table.json": "fe158e2a7183b5515fe2c67c297d1f6901eab7f37e4957ba28e44ec68547489d"
+  },
+  "mutable_site_shell_note": "App.jsx and styles.css remain build/witness tested integration surfaces so later temporal rungs may extend the research site without invalidating T14 semantics.",
+  "status": "FROZEN_AFTER_CANDIDATE_HASH_CAPTURE",
+  "version": "0.1.0"
+}

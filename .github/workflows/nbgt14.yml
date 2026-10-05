@@ -1,0 +1,103 @@
+name: NBG-T14 Intervention Equivalence Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT14/**"
+      - "src/interventionEquivalence.js"
+      - "scripts/test_intervention_equivalence.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt14.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT14/**"
+      - "src/interventionEquivalence.js"
+      - "scripts/test_intervention_equivalence.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt14.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt14:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install site dependencies
+        run: npm install
+
+      - name: Verify NBG-T14 frozen semantic hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s  %s\n' \
+            '6127bf9f79223d7f655bf6bb72632c6d94c35e097ae69b3517234779628ccfff' 'experiments/NBGT14/SPEC.md' \
+            'da0ca012cfd748dea8ca814cd1b0489b107bfcfab62420be8a3e89762e1f57a9' 'experiments/NBGT14/src/nbgt14.py' \
+            'f8620056f735386ee6f75b9f064792b8cfe3df05bebfdcdcbf0838b038791ef7' 'experiments/NBGT14/tests/test_nbgt14.py' \
+            'b5c323e354fda7bfc83bf89aefa461cb40f5135c82c55cc62d3c8c17d71ad877' 'src/interventionEquivalence.js' \
+            '405350a8c4ed8074c021198645dda69ee57aeaab47e2a9ae3970a20561b7432a' 'scripts/test_intervention_equivalence.mjs' \
+            | sha256sum -c -
+
+      - name: Run NBG-T14 equivalence harness
+        run: python experiments/NBGT14/src/nbgt14.py
+
+      - name: Run NBG-T14 Python tests
+        run: python -m unittest discover -s experiments/NBGT14/tests -v
+
+      - name: Run browser equivalence acceptance
+        run: npm run test:intervention-equivalence
+
+      - name: Build current research site
+        run: npm run build
+
+      - name: Verify frozen artifacts and UI wiring
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT14/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT14"
+          assert result["checks_passed"]==34
+          assert result["checks_total"]==34
+          assert result["witness"]["interventions"]==9
+          assert result["witness"]["pairs"]==36
+          assert result["witness"]["target_equivalent_pairs"]==12
+          assert result["witness"]["hidden_residue_pairs"]==11
+          assert result["witness"]["temporally_equivalent_pairs"]==1
+          assert result["witness"]["deactivation_pair"]["classification"]=="KEYHOLE_EQUIVALENT_TEMPORALLY_DISTINCT"
+          assert result["witness"]["deactivation_pair"]["first_separator"]["known_cutoff"]==11
+          assert result["witness"]["deactivation_pair"]["first_separator"]["valid_time"]==11
+          assert result["witness"]["normal2_pair"]["classification"]=="KEYHOLE_EQUIVALENT_TEMPORALLY_DISTINCT"
+          assert result["witness"]["ledger_control_pair"]["classification"]=="TEMPORALLY_EQUIVALENT_IN_QUERY_FAMILY"
+          assert result["witness"]["ledger_control_pair"]["residue_count"]==0
+          assert result["witness"]["ledger_control_pair"]["ledger_heads_different"] is True
+          expected={
+              "result.json":"c3623dfa3b7ecfaa20213fc62fd9f986f67430e9fb9427314cf7929e71392f98",
+              "equivalence_atlas.json":"b8e602882234863727bfeffae4d816764c12ba24d504a8bc8b511d7e7a202575",
+              "deactivation_pair.json":"2d666d5e625936f3f5f829fb06d84fe73659dd75abb988f25481d1e658abfb98",
+              "normal2_pair.json":"49229de6aee3d8b2f712a7eb6339e98012b1519432acbcedc24912d646338aaa",
+              "ledger_control_pair.json":"70d80b3639d9d4ab741b93a9f39c95683ea3199e23b31fe3a40af74298c5a7e4",
+              "signature_table.json":"fe158e2a7183b5515fe2c67c297d1f6901eab7f37e4957ba28e44ec68547489d",
+          }
+          for name,want in expected.items():
+              got=hashlib.sha256((root/name).read_bytes()).hexdigest()
+              assert got==want,(name,got,want)
+          PY
+          grep -q 'NBG-T14 · INTERVENTION EQUIVALENCE' src/App.jsx
+          grep -q 'KEYHOLE EQUIVALENCE ≠ CAUSAL IDENTITY' src/App.jsx
+          grep -q 'PASS_NBGT14_INTERVENTION_EQUIVALENCE' scripts/test_intervention_equivalence.mjs
+          echo PASS_NBGT14_QUALIFIED
