@@ -41,3 +41,12 @@ A later pass would establish only a finite learned-memory result on the frozen e
 The implementation-level semantics are frozen separately in [EXECUTION.md](EXECUTION.md) before the first optimizer step. It fixes canonical inputs, quantization, gate threshold, pair sets, losses, baseline objectives, direct committed-memory metrics, revocation read gating, seed aggregation, and the rule that pull-request CI must not train W1.
 
 The execution freeze does not authorize a result sentence.
+
+
+## Implementation candidate
+
+The frozen W1 harness lives in `src/w1.py`.
+
+Pull-request CI is intentionally no-training. It checks syntax, parameter arithmetic, AH11 hard-pair construction, lineage splits, int8 commit rules, metadata size and authority gating.
+
+The first optimizer step is exposed only through the manual `W1 Execute Frozen Protocol` workflow. That workflow is guarded to `main`, pins NumPy, fixes BLAS thread counts, reruns static checks, executes all five W1/baseline seed runs, and uploads an **unreviewed** JSON artifact. The workflow does not commit a result sentence.
