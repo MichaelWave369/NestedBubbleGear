@@ -63,6 +63,10 @@ def canonical_json(obj: Any) -> bytes:
     return json.dumps(obj, sort_keys=True, separators=(",", ":")).encode("utf-8")
 
 
+def file_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
 def q8_scalar(x: float) -> int:
     # Python round() is nearest with ties-to-even for exact .5 cases.
     y = round(float(x))
@@ -858,6 +862,23 @@ def execute():
         and abs(median_test - 1.0) < 1e-12
     )
 
+    np = _np()
+    import platform
+
+    provenance = {
+        "spec_sha256": file_sha256(ROOT / "SPEC.md"),
+        "execution_sha256": file_sha256(ROOT / "EXECUTION.md"),
+        "implementation_sha256": file_sha256(Path(__file__).resolve()),
+        "implementation_commit": os.environ.get("GITHUB_SHA", "LOCAL_UNPINNED"),
+        "python_version": platform.python_version(),
+        "numpy_version": np.__version__,
+        "blas_threads": {
+            "OPENBLAS_NUM_THREADS": os.environ.get("OPENBLAS_NUM_THREADS"),
+            "OMP_NUM_THREADS": os.environ.get("OMP_NUM_THREADS"),
+            "MKL_NUM_THREADS": os.environ.get("MKL_NUM_THREADS"),
+        },
+    }
+
     return {
         "experiment": "NBG-W1",
         "version": VERSION,
@@ -865,6 +886,7 @@ def execute():
         "machine_candidate_verdict": "PASS_W1" if candidate_pass else "FAIL_W1",
         "result_language_authorized": False,
         "compression_claim_authorized": False,
+        "provenance": provenance,
         "B_X": {"panel_a": 8, "panel_b": 5},
         "B_capacity": 64,
         "CR": {"panel_a": 8.0, "panel_b": 12.8},
