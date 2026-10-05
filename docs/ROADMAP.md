@@ -56,6 +56,7 @@ Promotion on this line requires predictive/closure advantage over simpler baseli
 ## Learned memory line — NBG-W
 
 - [x] NBG-W1 — freeze bounded learned causal-memory run protocol; no training/result yet
+- [x] NBG-W1-E0 — freeze executable semantics before first optimizer step
 - [ ] NBG-W1 execution — run frozen seeds, baselines, lineage, revocation, and stale-injection panels
 - [ ] NBG-W2 — learned minimum-cost probe policy over a frozen admissible probe set
 - [ ] NBG-W3 — governed weight updates with Φ acceptance/rejection and hashed update receipts
