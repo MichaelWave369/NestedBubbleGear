@@ -74,6 +74,14 @@ The first executable rung, **NBG-T1**, freezes a synthetic witness in which two 
 
 See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), [experiments/NBGT6](experiments/NBGT6/), [experiments/NBGT7](experiments/NBGT7/), [experiments/NBGT8](experiments/NBGT8/), [experiments/NBGT9](experiments/NBGT9/), [experiments/NBGT10](experiments/NBGT10/), [experiments/NBGT11](experiments/NBGT11/), [experiments/NBGT12](experiments/NBGT12/), [experiments/NBGT13](experiments/NBGT13/), and [experiments/NBGT14](experiments/NBGT14/).
 
+## Cosmic-web application line (NBG-CW)
+
+**NBG-CW1** opens a controlled physical-application track for cosmic-web filaments. It freezes a Keyhole/observer ladder, temporal-lineage discipline, baseline comparisons, closure-failure criteria and machine-readable receipts **before** any NBG result is claimed.
+
+The purpose is not to argue that the cosmic web visually resembles NBG. CW1 asks whether interface-aware observables preserve future-relevant state that simpler coarse descriptions discard, and requires NBG to beat simpler capacity-matched baselines before promotion.
+
+See [experiments/CW1](experiments/CW1/).
+
 ## Frozen AH ladder
 
 | Rung | Focus | Outcome |
@@ -143,6 +151,7 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── NBGT12/           Frozen counterfactual governance / divergence rung
 │   ├── NBGT13/           Frozen governance sensitivity / minimal intervention rung
 │   ├── NBGT14/           Frozen intervention equivalence / Governance Residue rung
+│   ├── CW1/              Cosmic-web Keyhole closure protocol candidate
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff
