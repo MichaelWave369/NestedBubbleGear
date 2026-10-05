@@ -170,24 +170,31 @@ function candidateSet(interventionIds,channel){
     }
     const key=mask.toString()
     const prior=byMask.get(key)
-    const rank=[row.observerCost,row.knownCutoff,row.validTime]
-    const priorRank=prior ? [prior.observerCost,prior.knownCutoff,prior.validTime] : null
-    if(!prior || rank.join('|')<priorRank.join('|')) byMask.set(key,row)
+    const better=!prior
+      || row.observerCost<prior.observerCost
+      || (row.observerCost===prior.observerCost && row.knownCutoff<prior.knownCutoff)
+      || (
+        row.observerCost===prior.observerCost
+        && row.knownCutoff===prior.knownCutoff
+        && row.validTime<prior.validTime
+      )
+    if(better) byMask.set(key,row)
   })
 
   const raw=[...byMask.values()]
   const keep=raw.filter((candidate)=>!raw.some((other)=>{
     if(other===candidate) return false
     const contains=(candidate.mask|other.mask)===other.mask
-    const better=[
-      other.observerCost,
-      other.knownCutoff,
-      other.validTime,
-    ].join('|') <= [
-      candidate.observerCost,
-      candidate.knownCutoff,
-      candidate.validTime,
-    ].join('|')
+    const better=other.observerCost<candidate.observerCost
+      || (
+        other.observerCost===candidate.observerCost
+        && other.knownCutoff<candidate.knownCutoff
+      )
+      || (
+        other.observerCost===candidate.observerCost
+        && other.knownCutoff===candidate.knownCutoff
+        && other.validTime<=candidate.validTime
+      )
     return contains && better
   }))
 
@@ -303,8 +310,16 @@ export function synthesizeStaticObserver(interventionIds,channel){
       )
       const total=selected.reduce((sum,row)=>sum+row.observerCost,0)
       const lex=selected.map((row)=>[row.knownCutoff,row.validTime])
-      const rank=stableStringify([total,lex])
-      if(!best || rank<best.rank) best={rank,selected,total}
+      const lexBefore=(a,b)=>{
+        for(let i=0;i<Math.min(a.length,b.length);i+=1){
+          if(a[i][0]!==b[i][0]) return a[i][0]<b[i][0]
+          if(a[i][1]!==b[i][1]) return a[i][1]<b[i][1]
+        }
+        return a.length<b.length
+      }
+      if(!best || total<best.total || (total===best.total && lexBefore(lex,best.lex))){
+        best={lex,selected,total}
+      }
     })
     if(best) winning=best
   }
