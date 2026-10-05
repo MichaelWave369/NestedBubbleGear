@@ -1,0 +1,72 @@
+name: NBG-T10 Trust Policy Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT10/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt10.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT10/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt10.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt10:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify NBG-T10 frozen hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd experiments/NBGT10
+          printf '%s  %s\n' \
+            '794e414be6e7a7ddd9f133069fd80e734d2dcb12044686e3067c063f5d399091' 'SPEC.md' \
+            '4e903147072b77903f0ab0b414f0d5a017802dd6a3f8882f98cede4dc2262332' 'src/nbgt10.py' \
+            '0ef075d686b48ff10aff3c21306858563621ef2a194a6aefae3ae363ad2329c2' 'tests/test_nbgt10.py' \
+            | sha256sum -c -
+
+      - name: Run NBG-T10 trust-policy harness
+        run: python experiments/NBGT10/src/nbgt10.py
+
+      - name: Run NBG-T10 unit tests
+        run: python -m unittest discover -s experiments/NBGT10/tests -v
+
+      - name: Verify qualified artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT10/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT10"
+          assert result["checks_passed"]==24
+          assert result["checks_total"]==24
+          assert result["witness"]["input_review_state"]=="REVIEW_CONFLICT"
+          assert result["witness"]["weighted_outcome"]=="REJECTED"
+          assert result["witness"]["unanimous_outcome"]=="ABSTAIN_CONFLICT"
+          assert result["witness"]["researcher_quorum_outcome"]=="INSUFFICIENT_AUTHORITY"
+          assert result["witness"]["support_outcome"]=="ACCEPTED"
+          assert result["witness"]["stale_policy_blocked"] is True
+          assert result["witness"]["manifest_mismatch_blocked"] is True
+          assert result["witness"]["registry_mismatch_blocked"] is True
+          expected={
+              "result.json":"0f3aad18c0751afdafdde28a402d5dfc9727d832e34f7d250ff6a8acad5d4a0b",
+              "reviewer_registry.json":"ea95e0ffb759e8297c34a8297ee05156b89d1a4192c67bbad3b487a0891aaaee",
+              "policies.json":"d7783c5169b221598273c785250722173a224f93f856195103979b34ab8f30aa",
+              "policy_comparison.json":"b051a0655d6d04d7cba18c7985c7a65698b848f3a538e4661357dd154626b03e",
+              "weighted_resolution_receipt.json":"b51a2fd662a362775ac504e7abffa317cb4ab00ffd1ede6e12241bd4252fd2a7",
+              "input_bundle_manifest.json":"5eba206fa1bdd13e414553b30ab8d35c664ec5c281c230a24535272e8736fbe0",
+          }
+          for name,want in expected.items():
+              got=hashlib.sha256((root/name).read_bytes()).hexdigest()
+              assert got==want,(name,got,want)
+          print("PASS_NBGT10_QUALIFIED")
+          PY

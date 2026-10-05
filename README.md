@@ -62,7 +62,9 @@ The first executable rung, **NBG-T1**, freezes a synthetic witness in which two 
 
 **NBG-T9** adds portable evidence bundles and a stable source registry: content-addressed objects are deduplicated, mirror captures do not manufacture independence, source drift survives export/import, reviewer identities remain attributed, and conflicting review decisions merge as `REVIEW_CONFLICT` rather than last-write-wins.
 
-See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), [experiments/NBGT6](experiments/NBGT6/), [experiments/NBGT7](experiments/NBGT7/), [experiments/NBGT8](experiments/NBGT8/), and [experiments/NBGT9](experiments/NBGT9/).
+**NBG-T10** adds explicit trust-policy and conflict-resolution receipts: reviewer roles and authority are registered, policies are hashed data objects with quorum/weight/time rules, the same preserved disagreement can yield different named governance outcomes, and no policy outcome is presented as objective truth.
+
+See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), [experiments/NBGT6](experiments/NBGT6/), [experiments/NBGT7](experiments/NBGT7/), [experiments/NBGT8](experiments/NBGT8/), [experiments/NBGT9](experiments/NBGT9/), and [experiments/NBGT10](experiments/NBGT10/).
 
 ## Frozen AH ladder
 
@@ -128,6 +130,7 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── NBGT7/            Frozen evidence-capture adapter rung
 │   ├── NBGT8/            Frozen live-adapter / review-queue rung
 │   ├── NBGT9/            Frozen portable evidence-bundle rung
+│   ├── NBGT10/           Frozen trust-policy / resolution-receipt rung
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff
