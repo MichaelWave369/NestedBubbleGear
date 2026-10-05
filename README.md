@@ -72,7 +72,9 @@ The first executable rung, **NBG-T1**, freezes a synthetic witness in which two 
 
 **NBG-T14** adds intervention-equivalence classes and Governance Residue: histories that are identical through one Governance Keyhole can split under a richer temporal query family, while ledger-different negative controls can remain behaviorally equivalent.
 
-See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), [experiments/NBGT6](experiments/NBGT6/), [experiments/NBGT7](experiments/NBGT7/), [experiments/NBGT8](experiments/NBGT8/), [experiments/NBGT9](experiments/NBGT9/), [experiments/NBGT10](experiments/NBGT10/), [experiments/NBGT11](experiments/NBGT11/), [experiments/NBGT12](experiments/NBGT12/), [experiments/NBGT13](experiments/NBGT13/), and [experiments/NBGT14](experiments/NBGT14/).
+**NBG-T15** adds Adaptive Keyhole Synthesis: static observers minimize fixed Keyhole sets, adaptive observers choose the next query from the remaining ambiguity, restricted observer languages can explicitly refuse unseparable histories, and observer cost remains separate from epistemic value.
+
+See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), [experiments/NBGT6](experiments/NBGT6/), [experiments/NBGT7](experiments/NBGT7/), [experiments/NBGT8](experiments/NBGT8/), [experiments/NBGT9](experiments/NBGT9/), [experiments/NBGT10](experiments/NBGT10/), [experiments/NBGT11](experiments/NBGT11/), [experiments/NBGT12](experiments/NBGT12/), [experiments/NBGT13](experiments/NBGT13/), [experiments/NBGT14](experiments/NBGT14/), and [experiments/NBGT15](experiments/NBGT15/).
 
 ## Frozen AH ladder
 
@@ -143,6 +145,7 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── NBGT12/           Frozen counterfactual governance / divergence rung
 │   ├── NBGT13/           Frozen governance sensitivity / minimal intervention rung
 │   ├── NBGT14/           Frozen intervention equivalence / Governance Residue rung
+│   ├── NBGT15/           Frozen Adaptive Keyhole Synthesis rung
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff

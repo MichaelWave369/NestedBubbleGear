@@ -39,6 +39,13 @@ import {
   defaultEquivalencePairs,
   interventionPairReceipt,
 } from './interventionEquivalence.js'
+import {
+  OBSERVER_CHANNELS,
+  SYNTHESIS_FAMILIES,
+  buildObserverSynthesisExport,
+  synthesizeAdaptiveObserver,
+  synthesizeStaticObserver,
+} from './adaptiveKeyholeSynthesis.js'
 
 const stack = [
   { mark: 'B', name: 'NBG', title: 'Domains + interfaces', text: 'Defines where state lives, how domains nest, and where constrained interfaces exist.' },
@@ -229,6 +236,8 @@ function App() {
   const [sensitivityKnown, setSensitivityKnown] = useState(10)
   const [sensitivityValid, setSensitivityValid] = useState(10)
   const [equivalencePair, setEquivalencePair] = useState('PAIR_DEACTIVATION')
+  const [synthesisFamilyId, setSynthesisFamilyId] = useState('EIGHT')
+  const [synthesisChannel, setSynthesisChannel] = useState('JOINT')
   const active = keyholes[depth]
   const activeBubble = bubbleFamilies[bubbleIndex]
   const activeExperiment = experiments[experimentIndex]
@@ -365,6 +374,25 @@ function App() {
     [],
   )
 
+  const synthesisFamily = useMemo(
+    () => SYNTHESIS_FAMILIES.find((row) => row.id === synthesisFamilyId),
+    [synthesisFamilyId],
+  )
+
+  const staticObserver = useMemo(
+    () => synthesizeStaticObserver(synthesisFamily.interventionIds, synthesisChannel),
+    [synthesisFamily, synthesisChannel],
+  )
+
+  const adaptiveObserver = useMemo(
+    () => synthesizeAdaptiveObserver(synthesisFamily.interventionIds, synthesisChannel),
+    [synthesisFamily, synthesisChannel],
+  )
+
+  const adaptiveRoot = adaptiveObserver.tree.nodeKind === 'QUERY'
+    ? adaptiveObserver.tree
+    : null
+
   function reviewEvidenceCapture(captureId, decision) {
     setEvidenceQueueDecisions((current) =>
       applyQueueDecision(current, captureId, decision),
@@ -380,6 +408,19 @@ function App() {
     const anchor = document.createElement('a')
     anchor.href = url
     anchor.download = 'nbg-t8-evidence-review-queue.json'
+    anchor.click()
+    URL.revokeObjectURL(url)
+  }
+
+  function exportObserverSynthesis() {
+    const payload = buildObserverSynthesisExport(synthesisFamilyId, synthesisChannel)
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {
+      type: 'application/json',
+    })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = `nbg-t15-observer-synthesis-${synthesisFamilyId.toLowerCase()}-${synthesisChannel.toLowerCase()}.json`
     anchor.click()
     URL.revokeObjectURL(url)
   }
@@ -1467,6 +1508,152 @@ function App() {
             </div>
             <button className="button primary" onClick={exportEquivalenceAtlas}>
               Export equivalence receipt
+            </button>
+          </div>
+        </div>
+
+        <div className="synthesis-shell">
+          <div className="section-label">NBG-T15 · ADAPTIVE KEYHOLE SYNTHESIS</div>
+          <div className="section-heading-row synthesis-heading">
+            <div>
+              <h2>Stop asking every question.<br />Find the smallest observer that works.</h2>
+              <p className="muted">
+                T15 synthesizes the Governance Keyholes needed to distinguish a declared family of
+                intervention histories, then compares a fixed minimal observer with an adaptive next-query strategy.
+              </p>
+            </div>
+            <span className="status">OBSERVER COST ≠ EPISTEMIC VALUE</span>
+          </div>
+
+          <div className="synthesis-control-grid">
+            <div>
+              <span>HISTORY FAMILY</span>
+              <div className="synthesis-button-row family">
+                {SYNTHESIS_FAMILIES.map((family) => (
+                  <button
+                    key={family.id}
+                    className={synthesisFamilyId === family.id ? 'active' : ''}
+                    onClick={() => setSynthesisFamilyId(family.id)}
+                  >
+                    <strong>{family.label}</strong>
+                    <small>{family.interventionIds.length} histories</small>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <span>OBSERVER CHANNEL</span>
+              <div className="synthesis-button-row channels">
+                {OBSERVER_CHANNELS.map((channel) => (
+                  <button
+                    key={channel}
+                    className={synthesisChannel === channel ? 'active' : ''}
+                    onClick={() => setSynthesisChannel(channel)}
+                  >
+                    {channel}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="synthesis-result-grid">
+            <article>
+              <div className="synthesis-card-head">
+                <span>STATIC MINIMAL OBSERVER</span>
+                <strong className={staticObserver.status === 'PASS' ? 'pass' : 'refuse'}>
+                  {staticObserver.status}
+                </strong>
+              </div>
+              {staticObserver.status === 'PASS' ? (
+                <>
+                  <div className="synthesis-metric-row">
+                    <div><small>MIN CARDINALITY</small><strong>{staticObserver.minimalCardinality}</strong></div>
+                    <div><small>RESOURCE COST</small><strong>{staticObserver.totalObserverCost}</strong></div>
+                    <div><small>PAIR TARGETS</small><strong>{staticObserver.pairCount}</strong></div>
+                  </div>
+                  <div className="synthesis-keyholes">
+                    {staticObserver.selectedKeyholes.map((keyhole) => (
+                      <code key={keyhole.keyholeId}>
+                        {keyhole.keyholeId} · cost {keyhole.observerCost}
+                      </code>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <div className="synthesis-refusal">
+                  <strong>REFUSE_UNSEPARABLE</strong>
+                  <p>
+                    No admissible {synthesisChannel.toLowerCase()} Keyhole family separates every history pair.
+                    The unresolved distinctions are reported rather than hallucinated into existence.
+                  </p>
+                  {staticObserver.unseparablePairs.map((pair) => (
+                    <code key={pair.join('::')}>{pair.join(' ↔ ')}</code>
+                  ))}
+                </div>
+              )}
+              <small>{staticObserver.selectionFingerprint}</small>
+            </article>
+
+            <article>
+              <div className="synthesis-card-head">
+                <span>ADAPTIVE OBSERVER</span>
+                <strong className={adaptiveObserver.status === 'PASS' ? 'pass' : 'refuse'}>
+                  {adaptiveObserver.status}
+                </strong>
+              </div>
+              <div className="synthesis-metric-row">
+                <div><small>WORST-CASE DEPTH</small><strong>{adaptiveObserver.stats.worstCaseDepth}</strong></div>
+                <div><small>QUERY NODES</small><strong>{adaptiveObserver.stats.queryNodeCount}</strong></div>
+                <div><small>DISTINCT KEYHOLES</small><strong>{adaptiveObserver.stats.distinctKeyholeCount}</strong></div>
+              </div>
+
+              <div className="adaptive-next-query">
+                <span>NEXT QUERY</span>
+                {adaptiveRoot ? (
+                  <>
+                    <strong>{adaptiveRoot.selectedKeyhole.keyholeId}</strong>
+                    <small>
+                      split score {adaptiveRoot.splitScore} · cost {adaptiveRoot.selectedKeyhole.observerCost}
+                    </small>
+                    <div className="adaptive-partitions">
+                      {adaptiveRoot.children.map((row) => (
+                        <code key={JSON.stringify(row.signature)}>
+                          {row.interventionIds.length} → {row.interventionIds.join(', ')}
+                        </code>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <strong>NO QUERY NEEDED</strong>
+                )}
+              </div>
+
+              {adaptiveObserver.stats.unresolvedLeafCount > 0 && (
+                <div className="adaptive-warning">
+                  <strong>{adaptiveObserver.stats.unresolvedLeafCount} unresolved leaf</strong>
+                  <small>
+                    Adaptive selection cannot manufacture distinctions absent from the declared observer language.
+                  </small>
+                </div>
+              )}
+              <small>{adaptiveObserver.adaptiveFingerprint}</small>
+            </article>
+          </div>
+
+          <div className="synthesis-contract">
+            <div>
+              <strong>Static and adaptive are different contracts.</strong>
+              <p>
+                Static synthesis minimizes the number of fixed Keyholes first, then the frozen resource cost.
+                Adaptive synthesis chooses the next Keyhole that splits the most remaining history pairs.
+                Neither score is promoted into a measure of truth or scientific importance.
+              </p>
+              <small>OBSERVER_SYNTHESIS_RELATIVE_TO_DECLARED_QUERY_LANGUAGE</small>
+            </div>
+            <button className="button primary" onClick={exportObserverSynthesis}>
+              Export observer synthesis
             </button>
           </div>
         </div>

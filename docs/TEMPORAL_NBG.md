@@ -339,3 +339,23 @@ NBG-T14 is reserved for intervention equivalence classes and Governance Residue:
 - the live research site exposes focal equivalence, full temporal equivalence, first separating Keyhole, Governance Residue, and governed pair export.
 
 NBG-T15 is reserved for Adaptive Keyhole Synthesis: finding the smallest admissible observer family that separates a declared set of intervention histories.
+
+
+## Fifteenth executable rung
+
+[NBG-T15](../experiments/NBGT15/) freezes static and adaptive Governance Keyhole synthesis over the qualified NBG-T14 intervention family.
+
+- the admissible observer space is the full 144-Keyhole k1...k12 × t1...t12 family;
+- observer channels are explicit: POLICY, OUTCOME, or JOINT;
+- static synthesis minimizes fixed Keyhole cardinality before the frozen resource-cost proxy;
+- observer cost is declared as a resource proxy and is never promoted into epistemic value;
+- unseparable intervention pairs emit `REFUSE_UNSEPARABLE` rather than receiving invented distinctions;
+- the restricted policy-vs-outcome witness demonstrates that separability depends on the declared observer language;
+- the full nine-history family remains unseparable because T14 qualified one pair as behaviorally identical across the entire declared Keyhole family;
+- the eight-history family is fully separable under JOINT observation;
+- adaptive synthesis chooses the next Keyhole by maximum remaining pair split, then minimum cost and canonical time order;
+- every adaptive selection emits a deterministic query-selection receipt;
+- unresolved adaptive leaves preserve the exact intervention histories that remain observationally merged;
+- the live research site exposes family/channel controls, static minimum observers, adaptive next-query selection, refusal states, and governed synthesis export.
+
+NBG-T16 is reserved for Keyhole Robustness + Observer Failure: testing which synthesized distinctions survive missing, stale, or corrupted observer components.

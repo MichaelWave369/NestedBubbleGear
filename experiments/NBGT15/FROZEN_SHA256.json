@@ -1,0 +1,23 @@
+{
+  "experiment": "NBG-T15",
+  "files": {
+    "SPEC.md": "ff848dc8a5ad436e13eb14f9ea93fed3ab7941d2d0a0c4dfe74aac1ac840f269",
+    "src/nbgt15.py": "fd2b4a70bbf39e278b5584f2944316327e94fdef7ceead77a4d5d884b7349612",
+    "tests/test_nbgt15.py": "0fafe447c5d344e89898fc94ddd9214d8c5a6cf70ff56143c9d26ab32ee79b9e",
+    "../../src/adaptiveKeyholeSynthesis.js": "395cba700acc4f8527d09c3ece46df2f8764e62f8f387463812f8d85e0f9e950",
+    "../../scripts/test_adaptive_keyhole_synthesis.mjs": "7957890d5659c79f53657189f3d6d2b2a16fd84764e9a978e61fb3a94485f13a"
+  },
+  "generated_artifacts": {
+    "result.json": "063489729846349c15002256c6b7009454285a020f8c1c54fa035e9bb4163acc",
+    "static_joint_eight.json": "a3fa290433bb02c4241598047a822e4e5588e4aaee900c78040b9c61fdc7a26b",
+    "static_policy_pair.json": "cca9e9ac4a5077525bcbd47715d1119895ca79233ed494e17f855013fff48f95",
+    "static_outcome_pair_refusal.json": "b09dda366d83798c7ab2c62606476c43e7e3b6b5eb2d810ee1a09ee4fd0c06d9",
+    "static_full9_refusal.json": "d3927913697bc770a3028e70d8007d12d96912954a4c2def3c6573a54b0806db",
+    "adaptive_joint_eight.json": "4d96455bac23b002da6a12a0da39932eb546b442a4129ee7020e97f802872690",
+    "adaptive_full9.json": "7cd8399ce27045a5525aa6dcf1f639990e398516a40a099635a707f7c36c43cb",
+    "observer_comparison.json": "0ba57b21a7be0e9a483dc111ff62c4c28359de9af281c0800ba66c32f93446db"
+  },
+  "mutable_site_shell_note": "App.jsx and styles.css remain build/witness tested integration surfaces so later temporal rungs may extend the research site without invalidating T15 semantics.",
+  "status": "FROZEN_AFTER_CANDIDATE_HASH_CAPTURE",
+  "version": "0.1.0"
+}
