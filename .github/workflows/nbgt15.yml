@@ -1,0 +1,98 @@
+name: NBG-T15 Adaptive Keyhole Synthesis Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT15/**"
+      - "src/adaptiveKeyholeSynthesis.js"
+      - "scripts/test_adaptive_keyhole_synthesis.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt15.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT15/**"
+      - "src/adaptiveKeyholeSynthesis.js"
+      - "scripts/test_adaptive_keyhole_synthesis.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt15.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt15:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install site dependencies
+        run: npm install
+
+      - name: Print candidate hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum \
+            experiments/NBGT15/SPEC.md \
+            experiments/NBGT15/src/nbgt15.py \
+            experiments/NBGT15/tests/test_nbgt15.py \
+            src/adaptiveKeyholeSynthesis.js \
+            scripts/test_adaptive_keyhole_synthesis.mjs
+
+      - name: Run NBG-T15 synthesis harness
+        run: python experiments/NBGT15/src/nbgt15.py
+
+      - name: Run NBG-T15 Python tests
+        run: python -m unittest discover -s experiments/NBGT15/tests -v
+
+      - name: Run browser observer-synthesis acceptance
+        run: npm run test:adaptive-keyhole-synthesis
+
+      - name: Build research site
+        run: npm run build
+
+      - name: Verify candidate witness
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT15/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT15"
+          assert result["checks_passed"]==42
+          assert result["checks_total"]==42
+          assert result["witness"]["static_joint_eight"]["status"]=="PASS"
+          assert result["witness"]["restricted_policy_pair"]["status"]=="PASS"
+          assert result["witness"]["restricted_policy_pair"]["minimal_cardinality"]==1
+          assert result["witness"]["restricted_outcome_pair"]["status"]=="REFUSE_UNSEPARABLE"
+          assert result["witness"]["full9_joint"]["status"]=="REFUSE_UNSEPARABLE"
+          assert result["witness"]["adaptive8_stats"]["unresolved_leaf_count"]==0
+          assert result["witness"]["adaptive8_stats"]["resolved_leaf_count"]==8
+          assert result["witness"]["adaptive9_stats"]["unresolved_leaf_count"]>=1
+          for name in (
+              "result.json",
+              "static_joint_eight.json",
+              "static_policy_pair.json",
+              "static_outcome_pair_refusal.json",
+              "static_full9_refusal.json",
+              "adaptive_joint_eight.json",
+              "adaptive_full9.json",
+              "observer_comparison.json",
+          ):
+              print(name, hashlib.sha256((root/name).read_bytes()).hexdigest())
+          print("PASS_NBGT15_CANDIDATE")
+          PY
+          grep -q 'NBG-T15 · ADAPTIVE KEYHOLE SYNTHESIS' src/App.jsx
+          grep -q 'OBSERVER COST ≠ EPISTEMIC VALUE' src/App.jsx
+          grep -q 'PASS_NBGT15_ADAPTIVE_KEYHOLE_SYNTHESIS' scripts/test_adaptive_keyhole_synthesis.mjs
