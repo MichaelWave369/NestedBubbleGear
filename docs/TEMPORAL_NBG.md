@@ -300,3 +300,22 @@ NBG-T12 is reserved for explicit counterfactual governance branches over an immu
 - every branch carries the explicit boundary `COUNTERFACTUAL_BRANCH_NOT_OBSERVED_HISTORY`.
 
 NBG-T13 is reserved for a Governance Sensitivity Atlas and minimal outcome-changing intervention sets.
+
+
+## Thirteenth executable rung
+
+[NBG-T13](../experiments/NBGT13/) freezes a deterministic Governance Sensitivity Atlas over the qualified NBG-T12 intervention grammar.
+
+- nine admissible one-event interventions are enumerated explicitly;
+- every intervention is classified separately for the declared target query and across the temporal replay window;
+- target classes distinguish outcome change, policy-only change, and target inertness;
+- temporal classes distinguish outcome leverage, policy leverage, and ledger-only inertness;
+- the payload-only mutation is a frozen negative control where the branch ledger hash changes but governance behavior does not;
+- removing the explicit NORMAL@1.0 supersession is also inert in the frozen witness;
+- target-inert interventions may still carry temporal leverage elsewhere;
+- minimal intervention sets for a declared desired outcome are enumerated in increasing cardinality;
+- the complete frozen minimum family for REJECTED at k10/t10 contains four singleton interventions;
+- every atlas row and minimal-set result carries an explicit no-causal-attribution boundary;
+- the live site exposes the sensitivity table, leverage classes, first divergence, minimal sets, negative controls, and governed JSON export.
+
+NBG-T14 is reserved for intervention equivalence classes and Governance Residue: interventions that look equal through one Keyhole but differ elsewhere in their retained history.
