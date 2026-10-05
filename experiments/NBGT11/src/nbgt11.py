@@ -282,6 +282,7 @@ def resolve_keyhole(
     capture_id,
     known_cutoff,
     valid_time,
+    evidence_known_cutoff=10,
 ):
     keyhole = governance_keyhole(
         policy_records,
@@ -299,7 +300,7 @@ def resolve_keyhole(
         capture_id=capture_id,
         reviewer_registry=reviewer_registry,
         policy=row["t10_policy"],
-        known_time=known_cutoff,
+        known_time=evidence_known_cutoff,
         expected_manifest_hash=bundle["manifest"]["manifest_hash"],
         expected_reviewer_registry_hash=reviewer_registry["registry_sha256"],
     )
@@ -310,6 +311,7 @@ def resolve_keyhole(
         "capture_id": capture_id,
         "known_cutoff": int(known_cutoff),
         "valid_time": int(valid_time),
+        "evidence_known_cutoff": int(evidence_known_cutoff),
         "policy_version_id": pid,
         "policy_record_hash": row["record_hash"],
         "policy_ledger_head": keyhole["ledger_head"],
@@ -341,6 +343,7 @@ def replay_keyhole_receipt(
         capture_id=receipt["capture_id"],
         known_cutoff=receipt["known_cutoff"],
         valid_time=receipt["valid_time"],
+        evidence_known_cutoff=receipt["evidence_known_cutoff"],
     )
     if canonical(rebuilt) != canonical(receipt):
         raise ValueError("temporal governance receipt replay mismatch")
