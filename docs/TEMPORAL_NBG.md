@@ -228,3 +228,22 @@ NBG-T8 is reserved for optional integration of the qualified capture contract in
 - cached evidence bundles replay with networking disabled.
 
 NBG-T9 is reserved for portable evidence-bundle import/export and a stable source registry.
+
+
+## Ninth executable rung
+
+[NBG-T9](../experiments/NBGT9/) freezes portable evidence-bundle and stable source-registry semantics.
+
+- every source has a stable source ID and explicit independence group;
+- the source registry is canonicalized and SHA-256 hashed;
+- evidence bytes are stored by content digest;
+- bundle manifests hash the payload, registry, decision-chain head, and parent export lineage;
+- import validation returns `REVIEW_REQUIRED`, never automatic trust;
+- duplicate or mirrored content is detected across source IDs;
+- same-independence-group mirrors do not create extra corroboration;
+- source drift remains attached to the stable source ID across exports;
+- reviewer attribution survives bundle merge;
+- ACCEPT/REJECT disagreement becomes `REVIEW_CONFLICT`, never last-write-wins;
+- portable export/import preserves manifests, payloads, bytes, and deterministic offline replay.
+
+NBG-T10 is reserved for explicit trust policies and conflict-resolution receipts over preserved T9 evidence.

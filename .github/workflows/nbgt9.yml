@@ -1,0 +1,74 @@
+name: NBG-T9 Portable Evidence Bundle Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT9/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt9.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT9/**"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt9.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt9:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify NBG-T9 frozen hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd experiments/NBGT9
+          printf '%s  %s\n' \
+            'c22d9026b3dfddfe3c47aa922ed8e927f8154b60a44d6c422618cd4ea4da2781' 'SPEC.md' \
+            '5248d6cdae4b8e8bd84c018711c61efd4ee328cb55a57cc057fc2393c18775bb' 'src/nbgt9.py' \
+            '994eaf7a77551cce7e79c3edc7adf5a371f09a4ed9ce76b0e7e04abb58f6bbf0' 'tests/test_nbgt9.py' \
+            | sha256sum -c -
+
+      - name: Run NBG-T9 bundle harness
+        run: python experiments/NBGT9/src/nbgt9.py
+
+      - name: Run NBG-T9 unit tests
+        run: python -m unittest discover -s experiments/NBGT9/tests -v
+
+      - name: Verify qualified artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT9/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT9"
+          assert result["checks_passed"]==22
+          assert result["checks_total"]==22
+          assert result["witness"]["source_count"]==3
+          assert result["witness"]["duplicate_cluster_count"]==1
+          assert result["witness"]["drift_count"]==1
+          assert result["witness"]["merged_decision_count"]==4
+          assert result["witness"]["oppose_review_state"]=="REVIEW_CONFLICT"
+          assert result["witness"]["claim_source_status"]=="ALLEGED"
+          assert result["witness"]["claim_review_status"]=="CORROBORATED"
+          assert result["witness"]["first_import_added"]==3
+          assert result["witness"]["second_import_reused"]==3
+          assert result["witness"]["import_trust_state"]=="REVIEW_REQUIRED"
+          expected={
+              "result.json":"eb876ffd3ff7f602d410b0eec990ad33e23fc735b6023f6c42bd946bccd23801",
+              "source_registry.json":"0a55c91c02d6673014f1e50ba539de35fec60e5ceffe207b0890251b5af93cd6",
+              "duplicate_clusters.json":"b7c62912dcedccc232f5b9909df6a89798bd1fdc48e3ac8210ff0f7526d6f327",
+              "drift_history.json":"87728cf6102fa882d91fed3d0b3fab44de2244a5a4ba1bf40594b60fb42d96f7",
+              "merged_bundle.json":"d8f594c6af14a044a01035a78bc44046bbd3f1fd831c3200e72f7296663db5b1",
+              "merged_claim_state.json":"29c43d26a761e78739efa7fce4f655054af9dd0b823b5fbd4e0872073041a1a4",
+          }
+          for name,want in expected.items():
+              got=hashlib.sha256((root/name).read_bytes()).hexdigest()
+              assert got==want,(name,got,want)
+          print("PASS_NBGT9_QUALIFIED")
+          PY
