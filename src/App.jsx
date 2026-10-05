@@ -9,6 +9,13 @@ import {
   deriveTemporalView,
   provenanceBundle,
 } from './temporalKeyhole.js'
+import {
+  T8_FROZEN_DECISIONS,
+  applyQueueDecision,
+  buildQueueExport,
+  deriveQueueStatus,
+  queueRows,
+} from './evidenceReviewQueue.js'
 
 const stack = [
   { mark: 'B', name: 'NBG', title: 'Domains + interfaces', text: 'Defines where state lives, how domains nest, and where constrained interfaces exist.' },
@@ -188,6 +195,7 @@ function App() {
   const [temporalRelations, setTemporalRelations] = useState([])
   const [showAnalyst, setShowAnalyst] = useState(false)
   const [selectedTemporalRecord, setSelectedTemporalRecord] = useState('C1')
+  const [evidenceQueueDecisions, setEvidenceQueueDecisions] = useState(T8_FROZEN_DECISIONS)
   const active = keyholes[depth]
   const activeBubble = bubbleFamilies[bubbleIndex]
   const activeExperiment = experiments[experimentIndex]
@@ -239,6 +247,35 @@ function App() {
   const changedTemporalIds = temporalComparison
     .filter((row) => row.changed)
     .map((row) => row.recordId)
+
+  const evidenceQueue = useMemo(
+    () => queueRows(evidenceQueueDecisions),
+    [evidenceQueueDecisions],
+  )
+
+  const evidenceQueueDerived = useMemo(
+    () => deriveQueueStatus(evidenceQueueDecisions),
+    [evidenceQueueDecisions],
+  )
+
+  function reviewEvidenceCapture(captureId, decision) {
+    setEvidenceQueueDecisions((current) =>
+      applyQueueDecision(current, captureId, decision),
+    )
+  }
+
+  function exportEvidenceQueue() {
+    const payload = buildQueueExport(evidenceQueueDecisions)
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {
+      type: 'application/json',
+    })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = 'nbg-t8-evidence-review-queue.json'
+    anchor.click()
+    URL.revokeObjectURL(url)
+  }
 
   function exportTemporalComparison() {
     const payload = buildTemporalExport(temporalLeft, temporalRight)
@@ -658,6 +695,92 @@ function App() {
             </button>
             <small>Browser fingerprints are display checks, not replacements for the frozen SHA-256 receipts.</small>
           </article>
+        </div>
+
+        <div className="evidence-queue-shell">
+          <div className="section-label">NBG-T8 · EVIDENCE REVIEW QUEUE</div>
+          <div className="section-heading-row evidence-queue-heading">
+            <div>
+              <h2>Capture first. Decide later.</h2>
+              <p className="muted">
+                The browser shows the frozen T8 review queue. Live capture is operator-triggered by the
+                read-only CLI; retrieval alone never changes the source claim.
+              </p>
+            </div>
+            <span className="status">RETRIEVED ≠ ACCEPTED</span>
+          </div>
+
+          <div className="evidence-queue-summary">
+            <div>
+              <small>SOURCE STATUS</small>
+              <strong>{evidenceQueueDerived.sourceStatus}</strong>
+            </div>
+            <div>
+              <small>SESSION REVIEW STATUS</small>
+              <strong>{evidenceQueueDerived.reviewStatus}</strong>
+            </div>
+            <div>
+              <small>SUPPORT GROUPS</small>
+              <strong>{evidenceQueueDerived.supportGroups.join(' · ') || 'NONE'}</strong>
+            </div>
+            <div>
+              <small>OPPOSE GROUPS</small>
+              <strong>{evidenceQueueDerived.opposeGroups.join(' · ') || 'NONE'}</strong>
+            </div>
+          </div>
+
+          <div className="evidence-queue-list">
+            {evidenceQueue.map((row) => (
+              <article className={row.drift ? 'evidence-queue-row drift' : 'evidence-queue-row'} key={row.captureId}>
+                <div className="evidence-queue-top">
+                  <div>
+                    <strong>{row.captureId}</strong>
+                    <span>{row.stance} · {row.independenceGroup}</span>
+                  </div>
+                  <div className="evidence-badges">
+                    <span>{row.retrievalStatus}</span>
+                    <span className={row.queueState.toLowerCase()}>{row.queueState}</span>
+                    {row.drift && <span className="drift-badge">DRIFT DETECTED</span>}
+                  </div>
+                </div>
+                <code>{row.locator}</code>
+                <small>{row.contentSha256 ? shortHash(row.contentSha256) : 'NO CONTENT DIGEST'}</small>
+
+                {row.retrievalStatus === 'CAPTURED' && (
+                  <div className="evidence-review-actions">
+                    <button
+                      className={row.queueState === 'ACCEPT' ? 'active accept' : 'accept'}
+                      onClick={() => reviewEvidenceCapture(row.captureId, 'ACCEPT')}
+                    >
+                      ACCEPT
+                    </button>
+                    <button
+                      className={row.queueState === 'REJECT' ? 'active reject' : 'reject'}
+                      onClick={() => reviewEvidenceCapture(row.captureId, 'REJECT')}
+                    >
+                      REJECT
+                    </button>
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+
+          <div className="evidence-queue-footer">
+            <div>
+              <strong>Operator capture boundary</strong>
+              <p>
+                <code>python scripts/nbgt8_capture.py --url … --allow-host …</code>
+              </p>
+              <small>
+                The CLI persists the receipt and captured bytes before review. Static-site buttons above
+                are session-only projections and export a review proposal; they do not rewrite the frozen ledger.
+              </small>
+            </div>
+            <button className="button primary" onClick={exportEvidenceQueue}>
+              Export review queue
+            </button>
+          </div>
         </div>
       </section>
 

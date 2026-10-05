@@ -1,0 +1,98 @@
+name: NBG-T8 Live Adapter + Review Queue Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT8/**"
+      - "scripts/nbgt8_capture.py"
+      - "scripts/test_evidence_review_queue.mjs"
+      - "src/evidenceReviewQueue.js"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt8.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT8/**"
+      - "scripts/nbgt8_capture.py"
+      - "scripts/test_evidence_review_queue.mjs"
+      - "src/evidenceReviewQueue.js"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt8.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt8:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install site dependencies
+        run: npm install
+
+      - name: Verify NBG-T8 frozen semantic and adapter hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s  %s\n' \
+            '35c9bd9e489f0e623d0e5da529c014162c93e31108e8788a53e55dcedb269a18' 'experiments/NBGT8/SPEC.md' \
+            '2e35696fb9e7c57db31d51a2d63d443461516b77613b89696785a6840a06aa4c' 'experiments/NBGT8/src/nbgt8.py' \
+            'aaed219260d23e57fecd141cc0bf60ccd9b4d6c1925ddd74b8d1c164da594f27' 'experiments/NBGT8/tests/test_nbgt8.py' \
+            'be9924baaa5dc470e56f6529f79f94a4b2c5cd096626c3ac58984736520a76b4' 'scripts/nbgt8_capture.py' \
+            'aaf966a6b25845b8484c0206a5ce69f879be46cf915365a0588d29dd931d8417' 'src/evidenceReviewQueue.js' \
+            'a8bd5706294b3cefbfb553c3f3024ac3ab0eb45c582d697df528e11ef53e28c0' 'scripts/test_evidence_review_queue.mjs' \
+            | sha256sum -c -
+
+      - name: Run NBG-T8 adapter harness
+        run: python experiments/NBGT8/src/nbgt8.py
+
+      - name: Run NBG-T8 Python tests
+        run: python -m unittest discover -s experiments/NBGT8/tests -v
+
+      - name: Run browser review-queue acceptance
+        run: npm run test:evidence-queue
+
+      - name: Build current research site
+        run: npm run build
+
+      - name: Verify frozen generated artifacts and UI wiring
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT8/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT8"
+          assert result["checks_passed"]==18
+          assert result["checks_total"]==18
+          assert result["witness"]["k5_status"]=="ALLEGED"
+          assert result["witness"]["k6_status"]=="CORROBORATED"
+          assert result["witness"]["k9_status"]=="DISPUTED"
+          assert result["witness"]["drift_count"]==1
+          expected={
+              "result.json":"1b22aefcfbb575501112237a6fc15c92f75cc9526bcac7f139a336d647377e91",
+              "base_claim.json":"cd52d647129e43fb6989a60de30abce9aca6deacc92ab848b4e4e4aa907927ef",
+              "capture_receipts.json":"206dae40f333a35e5d236a80a80eff4c165ef1f45396f3b45d384a4b06fc7d2f",
+              "review_decisions.json":"6c122a0761ae638cfe4d583f4579271641234950e186a59d050e13a778ba8bf3",
+              "drift_report.json":"7d3c549ab513d8e2ef8509169b8713030f6acbb393091417606d2424564baaef",
+              "review_queue_k8.json":"dc4e59fe4fb20d38ef9367e896816e6b7b7b0b71c9355b44c021cfa9a135053b",
+          }
+          for name,want in expected.items():
+              got=hashlib.sha256((root/name).read_bytes()).hexdigest()
+              assert got==want,(name,got,want)
+          PY
+          grep -q 'NBG-T8 · EVIDENCE REVIEW QUEUE' src/App.jsx
+          grep -q 'DRIFT DETECTED' src/App.jsx
+          grep -q 'RETRIEVED ≠ ACCEPTED' src/App.jsx
+          echo PASS_NBGT8_QUALIFIED

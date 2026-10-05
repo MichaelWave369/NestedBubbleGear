@@ -58,7 +58,9 @@ The first executable rung, **NBG-T1**, freezes a synthetic witness in which two 
 
 **NBG-T7** adds governed evidence-capture semantics: every retrieval becomes a hashed receipt, retrieval alone cannot alter review state, source-version drift is explicit, contradictions are preserved, and captured evidence can replay offline.
 
-See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), [experiments/NBGT6](experiments/NBGT6/), and [experiments/NBGT7](experiments/NBGT7/).
+**NBG-T8** connects that contract to an operator-triggered read-only HTTP capture path and a governed review queue in the Temporal Explorer. Captures are persisted before review, host access is allow-listed, drift is visible, and browser ACCEPT/REJECT controls remain session projections until exported.
+
+See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), [experiments/NBGT6](experiments/NBGT6/), [experiments/NBGT7](experiments/NBGT7/), and [experiments/NBGT8](experiments/NBGT8/).
 
 ## Frozen AH ladder
 
@@ -122,6 +124,7 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── NBGT5/            Frozen evidence-review / Temporal Keyhole rung
 │   ├── NBGT6/            Frozen Temporal Keyhole Explorer UI rung
 │   ├── NBGT7/            Frozen evidence-capture adapter rung
+│   ├── NBGT8/            Frozen live-adapter / review-queue rung
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff
