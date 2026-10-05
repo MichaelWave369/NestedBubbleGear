@@ -1,0 +1,21 @@
+{
+  "experiment": "NBG-T13",
+  "files": {
+    "SPEC.md": "98d55908f796307e74cab58c65981c06ca11f215170a2f628bc8674d04648732",
+    "src/nbgt13.py": "eac12ea279049ebb9f6053094c4ed44c68a8d0d67ee4bf10977f13b1c00950da",
+    "tests/test_nbgt13.py": "3099fb7e888beecbcfc7600b9079ff6bba7ac5df8653bf40c8b664c5bba75b19",
+    "../../src/governanceSensitivity.js": "ab3d6c290d939a764d29bf8e91227b2cbef22310e4b70a72a1f95120ff8a1a8a",
+    "../../scripts/test_governance_sensitivity.mjs": "c35ee408d28a5500736758c8997a9f2109dcd3964d4a2795b39c486f2ecc034e"
+  },
+  "generated_artifacts": {
+    "result.json": "9471db3949e4b9e477418f8b1fc1eb79dfc282231d1648ac213e9221badc62b3",
+    "sensitivity_atlas.json": "505075bab3f11c2f4fc4811df59c8d4fe75fc26bb37cd8b7af0a6cddcb08e4a1",
+    "intervention_receipts.json": "fbdc477de37ba37d9649ccb0000dcd5e238641b967899c85870679c42102deab",
+    "minimal_intervention_sets.json": "490bb1d662dd9b9ad4fb6a7211822af3dc1d57d386e18a280871ea4d5c17c8fe",
+    "payload_negative_control.json": "dda17e80b8b88c24f41d69f2b7d7881ead69aa88aef93a2bd8d6ccc46229726f",
+    "alter_valid10_row.json": "3fa82690f297ac4e11bf761845a6e892873ea9de8cb3bb072ad3fcb68c805bf3"
+  },
+  "mutable_site_shell_note": "App.jsx and styles.css remain build/witness tested integration surfaces so later temporal rungs may extend the research site without invalidating T13 semantics.",
+  "status": "FROZEN_AFTER_CANDIDATE_HASH_CAPTURE",
+  "version": "0.1.0"
+}

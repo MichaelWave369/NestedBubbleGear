@@ -36,7 +36,8 @@
 - [x] NBG-T10 — explicit trust policies + conflict-resolution receipts
 - [x] NBG-T11 — temporal policy ledger + Governance Keyholes
 - [x] NBG-T12 — observed/counterfactual governance branches + divergence receipts
-- [ ] NBG-T13 — Governance Sensitivity Atlas + minimal intervention sets
+- [x] NBG-T13 — Governance Sensitivity Atlas + minimal intervention sets
+- [ ] NBG-T14 — intervention equivalence + Governance Residue
 
 ## Control-layer integration
 

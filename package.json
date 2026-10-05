@@ -10,7 +10,8 @@
     "test:temporal": "node scripts/test_temporal_keyhole.mjs",
     "test:evidence-queue": "node scripts/test_evidence_review_queue.mjs",
     "test:governance-keyholes": "node scripts/test_governance_keyholes.mjs",
-    "test:counterfactual-governance": "node scripts/test_counterfactual_governance.mjs"
+    "test:counterfactual-governance": "node scripts/test_counterfactual_governance.mjs",
+    "test:governance-sensitivity": "node scripts/test_governance_sensitivity.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.4",
