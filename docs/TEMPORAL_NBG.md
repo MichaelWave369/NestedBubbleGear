@@ -264,3 +264,21 @@ NBG-T10 is reserved for explicit trust policies and conflict-resolution receipts
 - policy outcomes explicitly state that they are governance results, not objective truth.
 
 NBG-T11 is reserved for temporal policy ledgers and Governance Keyholes.
+
+
+## Eleventh executable rung
+
+[NBG-T11](../experiments/NBGT11/) makes governance history itself bitemporal and replayable.
+
+- every policy version has valid time and known time;
+- policy registration, supersession, emergency activation, and emergency deactivation are append-only hash-chained events;
+- Governance Keyholes query both a knowledge cutoff and a modeled valid time;
+- a policy that was valid earlier but only learned later does not leak backward into an earlier knowledge snapshot;
+- later supersession does not rewrite earlier Governance Keyholes;
+- emergency deactivation at a later valid time does not erase the emergency policy from earlier historical valid-time queries;
+- every temporal resolution receipt pins the exact policy version, policy-record hash, policy-ledger head, Governance Keyhole hash, and embedded T10 resolution receipt;
+- earlier resolution receipts remain byte-identical after later policy events;
+- governance bundles preserve policy records, ledger events, reviewer registry, input T9 manifest, and temporal resolution receipts;
+- the live research site exposes side-by-side Governance Keyholes and governed JSON export.
+
+NBG-T12 is reserved for explicit counterfactual governance branches over an immutable observed policy ledger.

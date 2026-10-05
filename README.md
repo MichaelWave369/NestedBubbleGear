@@ -64,7 +64,9 @@ The first executable rung, **NBG-T1**, freezes a synthetic witness in which two 
 
 **NBG-T10** adds explicit trust-policy and conflict-resolution receipts: reviewer roles and authority are registered, policies are hashed data objects with quorum/weight/time rules, the same preserved disagreement can yield different named governance outcomes, and no policy outcome is presented as objective truth.
 
-See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), [experiments/NBGT6](experiments/NBGT6/), [experiments/NBGT7](experiments/NBGT7/), [experiments/NBGT8](experiments/NBGT8/), [experiments/NBGT9](experiments/NBGT9/), and [experiments/NBGT10](experiments/NBGT10/).
+**NBG-T11** makes policy history bitemporal: policy versions have valid time and known time, registration/supersession/emergency events form an append-only ledger, side-by-side Governance Keyholes replay policy state without hindsight, and later policy changes never rewrite earlier resolution receipts.
+
+See [docs/TEMPORAL_NBG.md](docs/TEMPORAL_NBG.md), [experiments/NBGT1](experiments/NBGT1/), and [experiments/NBGT2](experiments/NBGT2/). See also [experiments/NBGT3](experiments/NBGT3/), [experiments/NBGT4](experiments/NBGT4/), [experiments/NBGT5](experiments/NBGT5/), [experiments/NBGT6](experiments/NBGT6/), [experiments/NBGT7](experiments/NBGT7/), [experiments/NBGT8](experiments/NBGT8/), [experiments/NBGT9](experiments/NBGT9/), [experiments/NBGT10](experiments/NBGT10/), and [experiments/NBGT11](experiments/NBGT11/).
 
 ## Frozen AH ladder
 
@@ -131,6 +133,7 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── NBGT8/            Frozen live-adapter / review-queue rung
 │   ├── NBGT9/            Frozen portable evidence-bundle rung
 │   ├── NBGT10/           Frozen trust-policy / resolution-receipt rung
+│   ├── NBGT11/           Frozen temporal policy-ledger / Governance Keyhole rung
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
 ├── CITATION.cff

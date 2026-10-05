@@ -1,0 +1,97 @@
+name: NBG-T11 Governance Keyhole Qualification
+
+on:
+  pull_request:
+    paths:
+      - "experiments/NBGT11/**"
+      - "src/governanceKeyholes.js"
+      - "scripts/test_governance_keyholes.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt11.yml"
+  push:
+    branches: [ main ]
+    paths:
+      - "experiments/NBGT11/**"
+      - "src/governanceKeyholes.js"
+      - "scripts/test_governance_keyholes.mjs"
+      - "src/App.jsx"
+      - "src/styles.css"
+      - "package.json"
+      - "docs/TEMPORAL_NBG.md"
+      - ".github/workflows/nbgt11.yml"
+  workflow_dispatch:
+
+jobs:
+  qualify-nbgt11:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install site dependencies
+        run: npm install
+
+      - name: Verify NBG-T11 frozen semantic hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s  %s\n' \
+            '540b4a9f4d1863830a458428fb6f777466d72ca3a38f2086531e403e71e82f21' 'experiments/NBGT11/SPEC.md' \
+            'b45fdb75a3dc4ee8f1d299de3f65208f118ced0a6abb3fc582924912cd6959b6' 'experiments/NBGT11/src/nbgt11.py' \
+            'b05fb31961af2f9878c7cef0ca8fc6bd9deef12b8bbaf2e9f5b751e8cad2b654' 'experiments/NBGT11/tests/test_nbgt11.py' \
+            '2fc72813e716c11e202a55a449ef2e89739dcf2e29cab81657a21ce922e2f24d' 'src/governanceKeyholes.js' \
+            '29f950f17b5bd42344b75c21d989c74568a61165e30cc43fb11794f40e7a8d7c' 'scripts/test_governance_keyholes.mjs' \
+            | sha256sum -c -
+
+      - name: Run NBG-T11 governance harness
+        run: python experiments/NBGT11/src/nbgt11.py
+
+      - name: Run NBG-T11 Python tests
+        run: python -m unittest discover -s experiments/NBGT11/tests -v
+
+      - name: Run browser Governance Keyhole acceptance
+        run: npm run test:governance-keyholes
+
+      - name: Build current research site
+        run: npm run build
+
+      - name: Verify frozen artifacts and UI wiring
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("experiments/NBGT11/results")
+          result=json.loads((root/"result.json").read_text())
+          assert result["verdict"]=="PASS_NBGT11"
+          assert result["checks_passed"]==28
+          assert result["checks_total"]==28
+          assert result["witness"]["k5_selected"]=="NORMAL@1.0"
+          assert result["witness"]["k7_selected"]=="EMERGENCY@1.0"
+          assert result["witness"]["k8_selected"]=="EMERGENCY@1.0"
+          assert result["witness"]["k10_selected"]=="NORMAL@2.0"
+          assert result["witness"]["historical_k7_late_selected"]=="EMERGENCY@1.0"
+          assert result["witness"]["k10_outcome"]=="ABSTAIN_CONFLICT"
+          expected={
+              "result.json":"123f1e9ac620908f61e9f8debfacc88ef7773f19c1f715c36f65959d0048498d",
+              "policy_records.json":"277e3fe6f803dba4b303d5d4a664782bd1ae6aed00e7b7f93eddd4899152332d",
+              "policy_ledger.json":"62e0118590b40e26c07dcb9f64dc1930f5716281b5456ee16b83e45f5a05d170",
+              "governance_bundle.json":"44a89719471f63de60a704150d1fa745a2abb48d0e4b9b29974c10bcd51e4ef7",
+              "keyhole_comparison.json":"f9686fe3647b7296ec8f718ae1fa78b12285dfe8c10891a0305b3857d2c1adc9",
+              "k10_resolution_receipt.json":"9d708007b8f2a5a3bf505a73eb43379c63138acfcb4cb1bfc5a9ad996d1e443c",
+          }
+          for name,want in expected.items():
+              got=hashlib.sha256((root/name).read_bytes()).hexdigest()
+              assert got==want,(name,got,want)
+          PY
+          grep -q 'NBG-T11 · GOVERNANCE KEYHOLES' src/App.jsx
+          grep -q 'POLICY ≠ TRUTH' src/App.jsx
+          grep -q 'PASS_NBGT11_GOVERNANCE_KEYHOLES' scripts/test_governance_keyholes.mjs
+          echo PASS_NBGT11_QUALIFIED

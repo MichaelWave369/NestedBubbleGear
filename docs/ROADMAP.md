@@ -34,7 +34,8 @@
 - [x] NBG-T8 — optional live adapter integration + governed review queue
 - [x] NBG-T9 — portable evidence-bundle import/export + stable source registry
 - [x] NBG-T10 — explicit trust policies + conflict-resolution receipts
-- [ ] NBG-T11 — temporal policy ledger + Governance Keyholes
+- [x] NBG-T11 — temporal policy ledger + Governance Keyholes
+- [ ] NBG-T12 — observed/counterfactual governance branches + divergence receipts
 
 ## Control-layer integration
 
