@@ -50,3 +50,21 @@ The frozen W1 harness lives in `src/w1.py`.
 Pull-request CI is intentionally no-training. It checks syntax, parameter arithmetic, AH11 hard-pair construction, lineage splits, int8 commit rules, metadata size and authority gating.
 
 The first optimizer step is exposed only through the manual `W1 Execute Frozen Protocol` workflow. That workflow is guarded to `main`, pins NumPy, fixes BLAS thread counts, reruns static checks, executes all five W1/baseline seed runs, and uploads an **unreviewed** JSON artifact. The workflow does not commit a result sentence.
+
+
+## Reviewed W1 result
+
+The first frozen execution is reviewed in [RESULTS.md](RESULTS.md).
+
+Verdict: `PASS_W1` under the preregistered median-seed acceptance rule.
+
+Important limits:
+
+- the residue gate remained closed on every reported seed;
+- actual used active memory was 32 bytes, all in the Keyhole;
+- seed 2 lost to the stronger learned baseline;
+- the Keyhole remained nonminimal, with high same-target noncollapse;
+- no compression claim is authorized;
+- revocation produced zero unauthorized readouts in the frozen harness.
+
+W1 is not rerun to repair any of those facts.
