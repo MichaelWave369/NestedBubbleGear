@@ -61,11 +61,11 @@ def frozen_intervention_specs():
             "reason": "Remove explicit supersession of NORMAL@1.0.",
         },
         {
-            "intervention_id": "I_DELAY_ACTIVATE_EMERGENCY_8",
+            "intervention_id": "I_DELAY_ACTIVATE_EMERGENCY_7",
             "operation": "DELAY_EVENT",
             "target_event_id": "EV_ACTIVATE_EMERGENCY",
-            "patch": {"known_time": 8, "valid_time": 8},
-            "reason": "Delay emergency activation to k8/t8.",
+            "patch": {"known_time": 7, "valid_time": 7},
+            "reason": "Delay emergency activation to k7/t7.",
         },
         {
             "intervention_id": "I_REMOVE_REGISTER_NORMAL2",
@@ -592,7 +592,7 @@ def run_suite():
 
     payload_control = atlas_by_id["I_ALTER_DEACTIVATE_PAYLOAD_ONLY"]
     supersede_control = atlas_by_id["I_REMOVE_SUPERSEDE_NORMAL1"]
-    activate = atlas_by_id["I_DELAY_ACTIVATE_EMERGENCY_8"]
+    activate = atlas_by_id["I_DELAY_ACTIVATE_EMERGENCY_7"]
     alter_t10 = atlas_by_id["I_ALTER_DEACTIVATE_VALID10"]
 
     expected_minimal = {
