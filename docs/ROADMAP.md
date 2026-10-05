@@ -30,7 +30,8 @@
 - [x] NBG-T4 — dense hostile-ingest stress test using a provenance-safe synthetic derivative fixture
 - [x] NBG-T5 — evidence-linked review and temporal Keyholes
 - [x] NBG-T6 — Temporal Keyhole Explorer in the research site
-- [ ] NBG-T7 — external evidence adapters with provenance-safe capture and reviewer acceptance
+- [x] NBG-T7 — external evidence adapters with provenance-safe capture and reviewer acceptance
+- [ ] NBG-T8 — optional live adapter integration + governed review queue
 
 ## Control-layer integration
 
