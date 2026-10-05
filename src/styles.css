@@ -1101,3 +1101,175 @@ footer {
   .governance-delta { grid-template-columns: 1fr; }
   .governance-event-list { grid-template-columns: 1fr; }
 }
+
+
+/* NBG-T12 · Counterfactual governance */
+.counterfactual-shell {
+  margin-top: 34px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+.counterfactual-heading { align-items: flex-end; }
+.counterfactual-heading p { max-width: 780px; line-height: 1.65; }
+.counterfactual-option-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 18px 0 12px;
+}
+.counterfactual-option {
+  min-height: 148px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: rgba(7,16,13,.78);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+.counterfactual-option:hover,
+.counterfactual-option.active {
+  border-color: rgba(115,255,197,.5);
+  box-shadow: inset 3px 0 var(--green);
+}
+.counterfactual-option strong { color: #d2e6df; }
+.counterfactual-option span {
+  color: var(--green);
+  font-family: monospace;
+  font-size: 9px;
+}
+.counterfactual-option small {
+  color: #72877f;
+  line-height: 1.45;
+}
+.counterfactual-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.counterfactual-controls label {
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: rgba(5,13,11,.82);
+}
+.counterfactual-controls span {
+  display: block;
+  color: #789087;
+  font-size: 9px;
+  letter-spacing: .1em;
+  margin-bottom: 12px;
+}
+.counterfactual-controls input {
+  width: 100%;
+  accent-color: var(--green);
+}
+.counterfactual-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.counterfactual-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: rgba(6,15,12,.78);
+}
+.counterfactual-card.branch {
+  border-color: rgba(139,201,255,.25);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(86,141,255,.08), transparent 28%),
+    rgba(6,15,12,.78);
+}
+.counterfactual-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.counterfactual-card-head span {
+  color: #677d75;
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+.counterfactual-card-head code {
+  color: #61766f;
+  font-size: 9px;
+}
+.counterfactual-card > strong {
+  color: var(--green);
+  font-family: monospace;
+  font-size: 17px;
+}
+.counterfactual-card.branch > strong { color: #8bc9ff; }
+.counterfactual-outcome {
+  margin: 18px 0 12px;
+  padding: 14px;
+  border: 1px solid rgba(172,255,226,.09);
+}
+.counterfactual-outcome small {
+  display: block;
+  color: #657a73;
+  font-size: 8px;
+  letter-spacing: .1em;
+  margin-bottom: 7px;
+}
+.counterfactual-outcome b { color: #d5e8e1; }
+.counterfactual-card > small { color: #667b74; }
+.counterfactual-delta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 12px 0;
+}
+.counterfactual-delta > div {
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: rgba(7,16,13,.78);
+  min-width: 0;
+}
+.counterfactual-delta small {
+  display: block;
+  color: #647970;
+  font-size: 8px;
+  letter-spacing: .1em;
+  margin-bottom: 7px;
+}
+.counterfactual-delta strong {
+  color: var(--green);
+  font-family: monospace;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+.counterfactual-receipt {
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: rgba(5,13,11,.84);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.counterfactual-receipt > div { min-width: 0; }
+.counterfactual-receipt strong { color: #8bc9ff; font-family: monospace; }
+.counterfactual-receipt p { color: #8da29a; line-height: 1.5; max-width: 850px; }
+.counterfactual-receipt code {
+  display: block;
+  color: #61766f;
+  font-size: 9px;
+  overflow-wrap: anywhere;
+  margin-bottom: 7px;
+}
+.counterfactual-receipt small { color: #e0c785; letter-spacing: .06em; }
+
+@media (max-width: 900px) {
+  .counterfactual-option-grid,
+  .counterfactual-controls,
+  .counterfactual-compare-grid { grid-template-columns: 1fr; }
+  .counterfactual-delta { grid-template-columns: 1fr 1fr; }
+  .counterfactual-receipt { align-items: stretch; flex-direction: column; }
+}
+@media (max-width: 620px) {
+  .counterfactual-delta { grid-template-columns: 1fr; }
+}

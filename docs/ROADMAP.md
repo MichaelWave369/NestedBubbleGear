@@ -35,7 +35,8 @@
 - [x] NBG-T9 — portable evidence-bundle import/export + stable source registry
 - [x] NBG-T10 — explicit trust policies + conflict-resolution receipts
 - [x] NBG-T11 — temporal policy ledger + Governance Keyholes
-- [ ] NBG-T12 — observed/counterfactual governance branches + divergence receipts
+- [x] NBG-T12 — observed/counterfactual governance branches + divergence receipts
+- [ ] NBG-T13 — Governance Sensitivity Atlas + minimal intervention sets
 
 ## Control-layer integration
 
