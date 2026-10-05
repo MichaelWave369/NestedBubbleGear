@@ -14,6 +14,8 @@ NBG separates **demonstrated toy-model results**, **formal work under developmen
 
 These are exact properties of the published/executable constructions. They are not empirical claims about nature.
 
+- NBG-W1 frozen learned-memory execution: under the preregistered median-seed rule, a learned 32-byte Keyhole met the frozen distinction and held-out route criteria and produced zero unauthorized readouts in the frozen revocation harness. The residue gate remained closed, one seed lost to the stronger baseline, the representation was nonminimal, and no compression claim is made.
+
 ## Formal / under development
 
 - Altermath active kernel and flux Altermath.
