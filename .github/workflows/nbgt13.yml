@@ -37,16 +37,17 @@ jobs:
       - name: Install site dependencies
         run: npm install
 
-      - name: Print candidate hashes
+      - name: Verify NBG-T13 frozen semantic hashes
         shell: bash
         run: |
           set -euo pipefail
-          sha256sum \
-            experiments/NBGT13/SPEC.md \
-            experiments/NBGT13/src/nbgt13.py \
-            experiments/NBGT13/tests/test_nbgt13.py \
-            src/governanceSensitivity.js \
-            scripts/test_governance_sensitivity.mjs
+          printf '%s  %s\n' \
+            '98d55908f796307e74cab58c65981c06ca11f215170a2f628bc8674d04648732' 'experiments/NBGT13/SPEC.md' \
+            'eac12ea279049ebb9f6053094c4ed44c68a8d0d67ee4bf10977f13b1c00950da' 'experiments/NBGT13/src/nbgt13.py' \
+            '3099fb7e888beecbcfc7600b9079ff6bba7ac5df8653bf40c8b664c5bba75b19' 'experiments/NBGT13/tests/test_nbgt13.py' \
+            'ab3d6c290d939a764d29bf8e91227b2cbef22310e4b70a72a1f95120ff8a1a8a' 'src/governanceSensitivity.js' \
+            'c35ee408d28a5500736758c8997a9f2109dcd3964d4a2795b39c486f2ecc034e' 'scripts/test_governance_sensitivity.mjs' \
+            | sha256sum -c -
 
       - name: Run NBG-T13 sensitivity harness
         run: python experiments/NBGT13/src/nbgt13.py
@@ -57,10 +58,10 @@ jobs:
       - name: Run browser sensitivity acceptance
         run: npm run test:governance-sensitivity
 
-      - name: Build research site
+      - name: Build current research site
         run: npm run build
 
-      - name: Verify candidate witness
+      - name: Verify frozen artifacts and UI wiring
         shell: bash
         run: |
           set -euo pipefail
@@ -82,16 +83,19 @@ jobs:
           assert result["witness"]["payload_control_class"]=="LEDGER_ONLY_INERT"
           assert result["witness"]["alter_valid10_first_divergence"]["known_cutoff"]==9
           assert result["witness"]["alter_valid10_first_divergence"]["valid_time"]==9
-          for name in (
-              "result.json",
-              "sensitivity_atlas.json",
-              "intervention_receipts.json",
-              "minimal_intervention_sets.json",
-              "payload_negative_control.json",
-              "alter_valid10_row.json",
-          ):
-              print(name, hashlib.sha256((root/name).read_bytes()).hexdigest())
-          print("PASS_NBGT13_CANDIDATE")
+          expected={
+              "result.json":"9471db3949e4b9e477418f8b1fc1eb79dfc282231d1648ac213e9221badc62b3",
+              "sensitivity_atlas.json":"505075bab3f11c2f4fc4811df59c8d4fe75fc26bb37cd8b7af0a6cddcb08e4a1",
+              "intervention_receipts.json":"fbdc477de37ba37d9649ccb0000dcd5e238641b967899c85870679c42102deab",
+              "minimal_intervention_sets.json":"490bb1d662dd9b9ad4fb6a7211822af3dc1d57d386e18a280871ea4d5c17c8fe",
+              "payload_negative_control.json":"dda17e80b8b88c24f41d69f2b7d7881ead69aa88aef93a2bd8d6ccc46229726f",
+              "alter_valid10_row.json":"3fa82690f297ac4e11bf761845a6e892873ea9de8cb3bb072ad3fcb68c805bf3",
+          }
+          for name,want in expected.items():
+              got=hashlib.sha256((root/name).read_bytes()).hexdigest()
+              assert got==want,(name,got,want)
           PY
           grep -q 'NBG-T13 · GOVERNANCE SENSITIVITY ATLAS' src/App.jsx
           grep -q 'SENSITIVITY ≠ CAUSAL ATTRIBUTION' src/App.jsx
+          grep -q 'PASS_NBGT13_GOVERNANCE_SENSITIVITY_ATLAS' scripts/test_governance_sensitivity.mjs
+          echo PASS_NBGT13_QUALIFIED
