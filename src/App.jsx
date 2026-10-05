@@ -22,6 +22,12 @@ import {
   governanceKeyhole,
   governanceTimeline,
 } from './governanceKeyholes.js'
+import {
+  COUNTERFACTUAL_OPTIONS,
+  buildCounterfactualExport,
+  counterfactualComparison,
+  firstOutcomeDivergence,
+} from './counterfactualGovernance.js'
 
 const stack = [
   { mark: 'B', name: 'NBG', title: 'Domains + interfaces', text: 'Defines where state lives, how domains nest, and where constrained interfaces exist.' },
@@ -206,6 +212,9 @@ function App() {
   const [governanceValidA, setGovernanceValidA] = useState(5)
   const [governanceKnownB, setGovernanceKnownB] = useState(10)
   const [governanceValidB, setGovernanceValidB] = useState(10)
+  const [counterfactualOption, setCounterfactualOption] = useState('REMOVE_DEACTIVATE')
+  const [counterfactualKnown, setCounterfactualKnown] = useState(10)
+  const [counterfactualValid, setCounterfactualValid] = useState(10)
   const active = keyholes[depth]
   const activeBubble = bubbleFamilies[bubbleIndex]
   const activeExperiment = experiments[experimentIndex]
@@ -285,6 +294,21 @@ function App() {
 
   const governanceEvents = useMemo(() => governanceTimeline(), [])
 
+  const counterfactualView = useMemo(
+    () => counterfactualComparison(counterfactualOption, counterfactualKnown, counterfactualValid),
+    [counterfactualOption, counterfactualKnown, counterfactualValid],
+  )
+
+  const counterfactualDivergence = useMemo(
+    () => firstOutcomeDivergence(counterfactualOption),
+    [counterfactualOption],
+  )
+
+  const counterfactualMeta = useMemo(
+    () => COUNTERFACTUAL_OPTIONS.find((row) => row.id === counterfactualOption),
+    [counterfactualOption],
+  )
+
   function reviewEvidenceCapture(captureId, decision) {
     setEvidenceQueueDecisions((current) =>
       applyQueueDecision(current, captureId, decision),
@@ -300,6 +324,23 @@ function App() {
     const anchor = document.createElement('a')
     anchor.href = url
     anchor.download = 'nbg-t8-evidence-review-queue.json'
+    anchor.click()
+    URL.revokeObjectURL(url)
+  }
+
+  function exportCounterfactualGovernance() {
+    const payload = buildCounterfactualExport(
+      counterfactualOption,
+      counterfactualKnown,
+      counterfactualValid,
+    )
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {
+      type: 'application/json',
+    })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement('a')
+    anchor.href = url
+    anchor.download = `nbg-t12-${counterfactualOption.toLowerCase()}-k${counterfactualKnown}-t${counterfactualValid}.json`
     anchor.click()
     URL.revokeObjectURL(url)
   }
@@ -973,6 +1014,127 @@ function App() {
             </div>
             <button className="button primary" onClick={exportGovernanceComparison}>
               Export Governance Keyholes
+            </button>
+          </div>
+        </div>
+
+        <div className="counterfactual-shell">
+          <div className="section-label">NBG-T12 · COUNTERFACTUAL GOVERNANCE</div>
+          <div className="section-heading-row counterfactual-heading">
+            <div>
+              <h2>Fork the policy history.<br />Never confuse it with the observed one.</h2>
+              <p className="muted">
+                T12 keeps the observed governance ledger immutable, then derives an explicitly marked
+                counterfactual branch by removing, delaying, or altering one frozen policy event.
+              </p>
+            </div>
+            <span className="status">OBSERVED ≠ COUNTERFACTUAL</span>
+          </div>
+
+          <div className="counterfactual-option-grid">
+            {COUNTERFACTUAL_OPTIONS.map((option) => (
+              <button
+                key={option.id}
+                className={counterfactualOption === option.id ? 'counterfactual-option active' : 'counterfactual-option'}
+                onClick={() => setCounterfactualOption(option.id)}
+              >
+                <strong>{option.label}</strong>
+                <span>{option.operation}</span>
+                <small>{option.description}</small>
+              </button>
+            ))}
+          </div>
+
+          <div className="counterfactual-controls">
+            <label>
+              <span>KNOWN-TIME CUTOFF · k{counterfactualKnown}</span>
+              <input
+                aria-label="Counterfactual known-time cutoff"
+                type="range"
+                min="1"
+                max="12"
+                step="1"
+                value={counterfactualKnown}
+                onChange={(event) => setCounterfactualKnown(Number(event.target.value))}
+              />
+            </label>
+            <label>
+              <span>VALID TIME · t{counterfactualValid}</span>
+              <input
+                aria-label="Counterfactual valid time"
+                type="range"
+                min="1"
+                max="12"
+                step="1"
+                value={counterfactualValid}
+                onChange={(event) => setCounterfactualValid(Number(event.target.value))}
+              />
+            </label>
+          </div>
+
+          <div className="counterfactual-compare-grid">
+            <article className="counterfactual-card observed">
+              <div className="counterfactual-card-head">
+                <span>OBSERVED LEDGER</span>
+                <code>{counterfactualView.observed.ledgerFingerprint}</code>
+              </div>
+              <strong>{counterfactualView.observed.selectedPolicyVersionId || 'NO ACTIVE POLICY'}</strong>
+              <div className="counterfactual-outcome">
+                <small>GOVERNANCE OUTCOME</small>
+                <b>{counterfactualView.observed.governanceOutcome}</b>
+              </div>
+              <small>{counterfactualView.observed.visibleEventIds.length} visible policy events</small>
+            </article>
+
+            <article className="counterfactual-card branch">
+              <div className="counterfactual-card-head">
+                <span>COUNTERFACTUAL BRANCH</span>
+                <code>{counterfactualView.counterfactual.ledgerFingerprint}</code>
+              </div>
+              <strong>{counterfactualView.counterfactual.selectedPolicyVersionId || 'NO ACTIVE POLICY'}</strong>
+              <div className="counterfactual-outcome">
+                <small>GOVERNANCE OUTCOME</small>
+                <b>{counterfactualView.counterfactual.governanceOutcome}</b>
+              </div>
+              <small>{counterfactualView.counterfactual.visibleEventIds.length} visible branch events</small>
+            </article>
+          </div>
+
+          <div className="counterfactual-delta">
+            <div>
+              <small>POLICY CHANGED</small>
+              <strong>{counterfactualView.policyChanged ? 'YES' : 'NO'}</strong>
+            </div>
+            <div>
+              <small>OUTCOME CHANGED</small>
+              <strong>{counterfactualView.outcomeChanged ? 'YES' : 'NO'}</strong>
+            </div>
+            <div>
+              <small>ALTERED EVENT</small>
+              <strong>{counterfactualMeta?.targetEventId}</strong>
+            </div>
+            <div>
+              <small>FIRST OUTCOME DIVERGENCE</small>
+              <strong>
+                {counterfactualDivergence
+                  ? \`k\${counterfactualDivergence.knownCutoff} / t\${counterfactualDivergence.validTime}\`
+                  : 'NONE IN WINDOW'}
+              </strong>
+            </div>
+          </div>
+
+          <div className="counterfactual-receipt">
+            <div>
+              <strong>{counterfactualView.branchId}</strong>
+              <p>
+                {counterfactualMeta?.operation} · target {counterfactualMeta?.targetEventId}.
+                The observed ledger remains the reference product; this branch is a synthetic model intervention.
+              </p>
+              <code>{counterfactualView.comparisonFingerprint}</code>
+              <small>COUNTERFACTUAL_BRANCH_NOT_OBSERVED_HISTORY</small>
+            </div>
+            <button className="button primary" onClick={exportCounterfactualGovernance}>
+              Export counterfactual branch
             </button>
           </div>
         </div>
