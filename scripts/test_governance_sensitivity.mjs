@@ -28,7 +28,7 @@ assert.equal(alter.temporalClass,'TEMPORAL_OUTCOME_LEVERAGE')
 assert.equal(alter.firstOutcomeDivergence.knownCutoff,9)
 assert.equal(alter.firstOutcomeDivergence.validTime,9)
 
-const activate=classifySensitivity('I_REMOVE_ACTIVATE_EMERGENCY',10,10)
+const activate=classifySensitivity('I_DELAY_ACTIVATE_EMERGENCY_8',10,10)
 assert.equal(activate.targetClass,'TARGET_INERT')
 assert.equal(activate.temporalClass,'TEMPORAL_POLICY_LEVERAGE')
 assert.equal(activate.firstOutcomeDivergence,null)
