@@ -641,6 +641,7 @@ export function promoteMemory(
     evidenceEvent,
     transitionId,
     derivedMemoryId,
+    derivedContent,
     knownTime = null,
   } = {},
 ) {
@@ -674,7 +675,7 @@ export function promoteMemory(
 
   const derived = createEpistemicMemory({
     memoryId: derivedMemoryId,
-    content: memory.content,
+    content: derivedContent === undefined ? memory.content : derivedContent,
     origin: targetOrigin,
     confidence: memory.epistemic.confidence,
     evidence: [...memory.epistemic.evidence, evidence],
@@ -721,6 +722,7 @@ export function recordObservationFromPossibility(
     observationId,
     observedMemoryId,
     evidenceEvent,
+    observedContent,
     knownTime = null,
   } = {},
 ) {
@@ -737,7 +739,7 @@ export function recordObservationFromPossibility(
 
   const observed = createEpistemicMemory({
     memoryId: observedMemoryId,
-    content: memory.content,
+    content: observedContent === undefined ? memory.content : observedContent,
     origin: 'OBSERVED',
     confidence: memory.epistemic.confidence,
     evidence: [evidence],
