@@ -255,6 +255,8 @@ export function validateEpistemicMemory(memory, { requireFingerprint = true } = 
     if (!memory || typeof memory !== 'object') return false
     if (memory.schemaVersion !== 'NBG_EPISTEMIC_1') return false
     if (!memory.memoryId || typeof memory.memoryId !== 'string') return false
+    if (!memory.epistemic || typeof memory.epistemic !== 'object') return false
+    if (!EPISTEMIC_ORIGINS.includes(memory.epistemic.origin)) return false
     makeEpistemicEnvelope(memory.epistemic)
     if (
       memory.epistemic.origin === 'OBSERVED' &&
@@ -325,7 +327,9 @@ export function retrieveMemories(memories, { predicate = () => true } = {}) {
 }
 
 export function factualRecall(memories, { predicate = () => true } = {}) {
-  const matches = memories.filter(predicate)
+  const matches = memories
+    .filter(predicate)
+    .filter((memory) => memory.epistemic.authority.reasoningUsable)
   const factual = matches.filter((memory) =>
     ['OBSERVED', 'VERIFIED'].includes(memory.epistemic.origin),
   )
