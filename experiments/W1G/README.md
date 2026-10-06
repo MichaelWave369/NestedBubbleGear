@@ -1,6 +1,6 @@
 # NBG-W1G v0.1.0 — Gate / Commit Alignment
 
-**Status:** protocol freeze candidate. **Not a result. No W1G training has been run.**
+**Status:** reviewed first frozen execution. **Verdict: `FAIL_W1G_GATE_ALIGNMENT`.**
 
 W1G is the experiment named by the reviewed W1R negative result.
 
@@ -118,4 +118,6 @@ The first optimizer step is exposed only through the manual `W1G Execute Frozen 
 
 That workflow is `workflow_dispatch` only, refuses non-`main` refs, pins NumPy, fixes BLAS thread counts, reruns static checks, executes all five seeds for FORCED_OPEN / COMMIT_STE / RB_STE, and uploads an **unreviewed** JSON artifact.
 
-No result sentence is committed by the implementation PR or execution workflow.
+The first valid frozen execution has now been reviewed and locked in [RESULTS.md](RESULTS.md).
+
+The reviewed result is `FAIL_W1G_GATE_ALIGNMENT`: FORCED_OPEN preserved the preregistered hard and held-out distinctions through the actual int8 commit path, while COMMIT_STE closed every learned gate across all five seeds. Controls, revocation and forward/commit identity audits passed. No compression claim is made.

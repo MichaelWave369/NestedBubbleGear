@@ -64,13 +64,15 @@ Promotion on this line requires predictive/closure advantage over simpler baseli
 - [x] NBG-W1R execution — reviewed `FAIL_W1R_NO_RESIDUE`; controls/revocation passed, committed residue failed
 - [x] NBG-W1G — freeze gate/commit alignment protocol named by W1R negative result; no training/result yet
 - [x] NBG-W1G-E0 — freeze executable semantics before first optimizer step
-- [ ] NBG-W1G implementation — forced-open + commit-STE harness, no PR training
-- [ ] NBG-W1G execution — run frozen seeds, controls, revocation and forward/commit identity audit
+- [x] NBG-W1G implementation — forced-open + commit-STE harness, no PR training
+- [x] NBG-W1G execution — reviewed `FAIL_W1G_GATE_ALIGNMENT`; FORCED_OPEN representation/commit positive control passed, COMMIT_STE closed every learned gate, controls/revocation/identity audits passed
 - [ ] NBG-W2 — learned minimum-cost probe policy over a frozen admissible probe set
 - [ ] NBG-W3 — governed weight updates with Φ acceptance/rejection and hashed update receipts
 - [ ] NBG-W4 — parameter-memory audit / machine-unlearning line, if separately specified
 
 W1 promotion requires beating the AH11 wrong-distinction control and both capacity-matched learned baselines under the frozen budget while maintaining (L_{\text{revoke}}=0) for every seed.
+
+W1G is closed after its first valid frozen execution. Do not rerun it to tune the result. Any follow-up on gate retention requires a new frozen experiment/version.
 
 ## Cross-cutting memory provenance
 
