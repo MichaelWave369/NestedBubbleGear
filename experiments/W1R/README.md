@@ -74,3 +74,27 @@ It fixes:
 - separation from the live epistemic provenance wrapper.
 
 No optimizer step is authorized by this repository until the execution freeze and a separate implementation PR are both merged to `main`.
+
+
+## Implementation candidate
+
+The W1R harness is implemented in `src/w1r.py`.
+
+Pull-request CI is intentionally **no-training**. It verifies:
+
+- Python syntax;
+- exact 4,456 trainable parameters;
+- absence of learned `K.*` parameters;
+- AH11 row/order and hard-pair construction;
+- byte-identical Keyholes for coarse-equivalent states;
+- fixed route splits and READY Keyhole;
+- K0 structural failure to separate hidden pairs;
+- RB source identity on frozen hard pairs;
+- int8/metadata contracts;
+- stale-authority read refusal;
+- exclusion of epistemic provenance fields from learner inputs;
+- refusal to execute training before post-merge authorization.
+
+The first optimizer step is exposed only through the manual `W1R Execute Frozen Protocol` workflow. That workflow is `workflow_dispatch` only, refuses non-`main` refs, pins NumPy, fixes BLAS thread counts, reruns static checks, executes all five W1R and RB seed runs, and uploads an **unreviewed** JSON artifact.
+
+No result sentence is committed by the implementation PR or execution workflow.
