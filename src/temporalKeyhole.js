@@ -1,8 +1,3 @@
-import {
-  appendEvidenceToEnvelope,
-  makeEpistemicEnvelope,
-} from './epistemicProvenance.js'
-
 export const TEMPORAL_GENESIS = 'GENESIS'
 
 export const STATUS_OPTIONS = [
@@ -167,43 +162,6 @@ export function fingerprint(value) {
   return 'fnv1a32:' + (hash >>> 0).toString(16).padStart(8, '0')
 }
 
-function temporalEpistemicEnvelope(record) {
-  const analystHypothesis = record.originKind === 'ANALYST_HYPOTHESIS'
-  const origin = analystHypothesis ? 'INFERRED' : 'OBSERVED'
-  const evidenceKind = analystHypothesis ? 'ANALYST_DERIVATION' : 'OBSERVATION'
-  const locator = record.provenance?.sourceLocator ?? null
-
-  return makeEpistemicEnvelope({
-    origin,
-    confidence: analystHypothesis ? 0.5 : 1,
-    evidence: [
-      {
-        evidenceId: 'BASE:' + record.recordId,
-        kind: evidenceKind,
-        source: locator,
-        knownTime: record.knownTime,
-        validTime: record.validTime,
-        details: {
-          originKind: record.originKind,
-          sourceStatus: record.sourceStatus,
-          relation: record.relation,
-        },
-      },
-    ],
-    lineage: {
-      rootMemoryId: record.recordId,
-      parentMemoryId: null,
-      transitionReceiptIds: [],
-      sourceMemoryIds: [],
-    },
-    authority: {
-      retainable: true,
-      reasoningUsable: true,
-      actionAuthorized: false,
-    },
-  })
-}
-
 function deriveRecord(record) {
   return {
     recordId: record.recordId,
@@ -217,7 +175,6 @@ function deriveRecord(record) {
     reviewStatus: record.sourceStatus,
     ambiguity: Boolean(record.ambiguity),
     provenance: clone(record.provenance),
-    epistemic: temporalEpistemicEnvelope(record),
     externalEvidence: [],
     appliedEventIds: [],
   }
@@ -271,18 +228,6 @@ export function deriveTemporalView(
         ...clone(event.payload),
         ledgerEventId: event.eventId,
       })
-      target.epistemic = appendEvidenceToEnvelope(target.epistemic, {
-        evidenceId: event.payload.evidenceId,
-        kind: 'EXTERNAL_EVIDENCE',
-        source: event.payload.source?.locator ?? null,
-        knownTime: event.knownTime,
-        validTime: null,
-        details: {
-          independenceGroup: event.payload.source?.independenceGroup ?? null,
-          reviewStatus: event.payload.status,
-          ledgerEventId: event.eventId,
-        },
-      })
       target.reviewStatus = event.payload.status
       target.appliedEventIds.push(event.eventId)
     }
@@ -328,15 +273,10 @@ export function provenanceBundle(recordId, knowledgeCutoff) {
     (event) => event.targetRecordId === recordId,
   )
 
-  const derivedRecord = deriveTemporalView(knowledgeCutoff, {
-    includeAnalystHypotheses: true,
-  }).items.find((item) => item.recordId === recordId) ?? null
-
   const bundle = {
     recordId,
     knowledgeCutoff,
     baseRecord: clone(baseRecord),
-    epistemicMemory: derivedRecord ? clone(derivedRecord.epistemic) : null,
     reviewEvents,
     baseDigest: TEMPORAL_BASE_DIGEST,
     ledgerHeadAtExport:
