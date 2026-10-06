@@ -16,6 +16,7 @@ These are exact properties of the published/executable constructions. They are n
 
 - NBG-W1 frozen learned-memory execution: under the preregistered median-seed rule, a learned 32-byte Keyhole met the frozen distinction and held-out route criteria and produced zero unauthorized readouts in the frozen revocation harness. The residue gate remained closed, one seed lost to the stronger baseline, the representation was nonminimal, and no compression claim is made.
 - NBG-W1R reviewed frozen execution: the forced coarse Keyhole and negative controls behaved as preregistered and revocation produced zero unauthorized readouts, but committed residue separated 0/18 AH11 hard pairs and every seed failed the reserved lineage residue criterion. The reviewed result is `FAIL_W1R_NO_RESIDUE`. Continuous training residue sometimes separated before the frozen gate/commit stage discarded it. No compression claim is made.
+- NBG-W1G reviewed frozen execution: the FORCED_OPEN positive-control arm preserved the preregistered AH11 and held-out lineage distinctions through the actual int8 commit path, while COMMIT_STE closed every learned gate across all five seeds. Controls, revocation and forward/commit identity audits passed. The reviewed result is `FAIL_W1G_GATE_ALIGNMENT`. No compression claim is made.
 
 ## Formal / under development
 
@@ -28,7 +29,6 @@ These are exact properties of the published/executable constructions. They are n
 - NBG-CW1 cosmic-web Keyhole/closure protocol, including observer refinement and baseline comparison. Protocol status is not an empirical NBG result.
 - NBG-W1 bounded learned causal-memory run protocol. Architecture, budgets, baselines, splits, optimizer, seeds, and revocation rules are frozen; no training result is claimed.
 
-- NBG-W1G gate/commit alignment protocol. This protocol tests whether residue + int8 commit works under a forced-open positive control and whether a hard-forward straight-through learned gate can retain the same distinctions. Protocol status is not a result.
 
 ## Speculative
 
