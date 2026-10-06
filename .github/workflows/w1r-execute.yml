@@ -1,0 +1,49 @@
+name: W1R Execute Frozen Protocol
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  execute:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NBG_W1R_EXECUTION_AUTHORIZED: main-merged
+      PYTHONHASHSEED: "0"
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install frozen execution dependency
+        run: python -m pip install --disable-pip-version-check -r experiments/W1R/requirements-execute.txt
+
+      - name: Re-run static W1R contract before training
+        run: |
+          python -m py_compile experiments/W1R/src/w1r.py
+          python experiments/W1R/src/w1r.py --static-check
+          python -m unittest discover -s experiments/W1R/tests -v
+
+      - name: Execute frozen W1R seeds and controls
+        run: |
+          mkdir -p w1r-artifact
+          python experiments/W1R/src/w1r.py --execute --output w1r-artifact/W1R_EXECUTION_CANDIDATE.json
+
+      - name: Upload unreviewed execution artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nbg-w1r-unreviewed-execution-${{ github.run_id }}
+          path: w1r-artifact/
+          if-no-files-found: error
+          retention-days: 30
