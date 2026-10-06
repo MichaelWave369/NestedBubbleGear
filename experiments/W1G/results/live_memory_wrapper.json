@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "NBG_EPISTEMIC_1",
+  "memoryId": "nbg-w1g:0.1.0:run-37411224406:reviewed",
+  "content": {
+    "experiment": "NBG-W1G",
+    "summary": "Forced-open residue plus int8 commit retained the preregistered hidden distinctions, but the learned commit-aligned gate closed on every evaluated row across all five seeds.",
+    "verdict": "FAIL_W1G_GATE_ALIGNMENT",
+    "version": "0.1.0"
+  },
+  "epistemic": {
+    "origin": "SIMULATED",
+    "confidence": 1.0,
+    "evidence": [
+      {
+        "evidenceId": "W1G_REVIEW_RECEIPT",
+        "kind": "EXTERNAL_EVIDENCE",
+        "source": "repo://experiments/W1G/results/review_receipt.json",
+        "knownTime": "2026-10-06T03:55:30Z",
+        "validTime": null,
+        "details": {
+          "reviewStatus": "REVIEWED",
+          "verdict": "FAIL_W1G_GATE_ALIGNMENT"
+        },
+        "evidenceFingerprint": "fnv1a32:6c740212"
+      },
+      {
+        "evidenceId": "W1G_RUN_37411224406",
+        "kind": "SIMULATION_RESULT",
+        "source": "github-actions://NestedBubbleGear/37411224406",
+        "knownTime": "2026-10-06T03:55:30Z",
+        "validTime": null,
+        "details": {
+          "artifactZipSha256": "28b71c9e8de12f372d1d8c577b237d316a2a707cd907d4e3a9b49dc717085039",
+          "implementationCommit": "7f46d712f6bc0d1f927e62eebce5fbe02794b637",
+          "resultJsonSha256": "982a76adda9bd80a29d604f34c28b4394c163d36ff663d6aa9e724991c5c0d5d"
+        },
+        "evidenceFingerprint": "fnv1a32:152806d7"
+      }
+    ],
+    "lineage": {
+      "rootMemoryId": "nbg-w1g:0.1.0:run-37411224406:reviewed",
+      "parentMemoryId": null,
+      "transitionReceiptIds": [],
+      "sourceMemoryIds": [],
+      "compactedFrom": []
+    },
+    "authority": {
+      "retainable": true,
+      "reasoningUsable": true,
+      "actionAuthorized": false
+    }
+  },
+  "validTime": null,
+  "knownTime": "2026-10-06T03:55:30Z",
+  "tags": [
+    "NBG-W1G",
+    "REVIEWED_RESULT"
+  ],
+  "recordFingerprint": "fnv1a32:ae8f94e8"
+}
