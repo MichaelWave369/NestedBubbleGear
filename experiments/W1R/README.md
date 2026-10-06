@@ -1,6 +1,6 @@
 # NBG-W1R v0.1.0 — Forced-Keyhole Residue Necessity
 
-**Status:** frozen protocol candidate. **Not a result. No W1R training has been run.**
+**Status:** reviewed first execution: `FAIL_W1R_NO_RESIDUE`.
 
 W1R is the experiment named by the reviewed W1 result.
 
@@ -98,3 +98,34 @@ Pull-request CI is intentionally **no-training**. It verifies:
 The first optimizer step is exposed only through the manual `W1R Execute Frozen Protocol` workflow. That workflow is `workflow_dispatch` only, refuses non-`main` refs, pins NumPy, fixes BLAS thread counts, reruns static checks, executes all five W1R and RB seed runs, and uploads an **unreviewed** JSON artifact.
 
 No result sentence is committed by the implementation PR or execution workflow.
+
+
+## Reviewed first execution
+
+The first valid frozen execution is reviewed in [RESULTS.md](RESULTS.md).
+
+Verdict:
+
+`FAIL_W1R_NO_RESIDUE`
+
+Important facts retained:
+
+- the structurally coarse Keyhole passed its no-leak checks;
+- K0 and RB controls failed to separate hidden distinctions as required;
+- every Panel-A committed residue gate was closed;
+- committed residue separated 0/18 AH11 hard pairs;
+- every seed failed the reserved `NORTH`/`SOUTH` residue criterion;
+- every seed had `L_revoke = 0`;
+- some continuous training residues showed separation before the frozen gate/commit stage discarded them;
+- no compression claim is authorized;
+- W1R is not rerun to repair the failure.
+
+The reviewed result is wrapped for live NBG memory in [results/live_memory_wrapper.json](results/live_memory_wrapper.json) with:
+
+`origin=SIMULATED`
+
+`reasoningUsable=true`
+
+`actionAuthorized=false`
+
+The wrapper references the reviewed receipts and artifact digests without rewriting the raw execution artifact.

@@ -1,0 +1,60 @@
+{
+  "content": {
+    "experiment": "NBG-W1R",
+    "summary": "Forced-Keyhole controls and revocation passed, but committed residue did not retain the frozen hard distinctions under the frozen gate/commit contract.",
+    "verdict": "FAIL_W1R_NO_RESIDUE",
+    "version": "0.1.0"
+  },
+  "epistemic": {
+    "authority": {
+      "actionAuthorized": false,
+      "reasoningUsable": true,
+      "retainable": true
+    },
+    "confidence": 1.0,
+    "evidence": [
+      {
+        "details": {
+          "reviewStatus": "REVIEWED",
+          "verdict": "FAIL_W1R_NO_RESIDUE"
+        },
+        "evidenceFingerprint": "fnv1a32:7b92c909",
+        "evidenceId": "W1R_REVIEW_RECEIPT",
+        "kind": "EXTERNAL_EVIDENCE",
+        "knownTime": "2026-10-06T01:27:20Z",
+        "source": "repo://experiments/W1R/results/review_receipt.json",
+        "validTime": null
+      },
+      {
+        "details": {
+          "artifactZipSha256": "68f35a86d23d2c8bcdc50bfad68ac6592244da47db4ad5d76ac7a8e54d9ecff6",
+          "implementationCommit": "cedf77b921a067aabdc659d44555a6b8b8a05fd1",
+          "resultJsonSha256": "91de22b3d4c40e161282eae766283b941f25f94fd430445180d26dddf6e290d0"
+        },
+        "evidenceFingerprint": "fnv1a32:d783f1dd",
+        "evidenceId": "W1R_RUN_37399206259",
+        "kind": "SIMULATION_RESULT",
+        "knownTime": "2026-10-06T01:27:20Z",
+        "source": "github-actions://NestedBubbleGear/37399206259",
+        "validTime": null
+      }
+    ],
+    "lineage": {
+      "compactedFrom": [],
+      "parentMemoryId": null,
+      "rootMemoryId": "nbg-w1r:0.1.0:run-37399206259:reviewed",
+      "sourceMemoryIds": [],
+      "transitionReceiptIds": []
+    },
+    "origin": "SIMULATED"
+  },
+  "knownTime": "2026-10-06T01:27:20Z",
+  "memoryId": "nbg-w1r:0.1.0:run-37399206259:reviewed",
+  "recordFingerprint": "fnv1a32:82e2fd89",
+  "schemaVersion": "NBG_EPISTEMIC_1",
+  "tags": [
+    "NBG-W1R",
+    "REVIEWED_RESULT"
+  ],
+  "validTime": null
+}

@@ -60,8 +60,9 @@ Promotion on this line requires predictive/closure advantage over simpler baseli
 - [x] NBG-W1 execution — reviewed PASS under frozen median-seed rule; residue unused, no compression claim
 - [x] NBG-W1R — freeze forced-Keyhole residue-necessity protocol; no training/result yet
 - [x] NBG-W1R-E0 — freeze executable semantics before first optimizer step
-- [ ] NBG-W1R implementation — forced-Keyhole residue harness + K0/RB controls, no PR training
-- [ ] NBG-W1R execution — run frozen seeds, controls, held-out routes, and revocation
+- [x] NBG-W1R implementation — forced-Keyhole residue harness + K0/RB controls, no PR training
+- [x] NBG-W1R execution — reviewed `FAIL_W1R_NO_RESIDUE`; controls/revocation passed, committed residue failed
+- [ ] NBG-W1G — gate/commit alignment protocol named by W1R negative result; no rerun of W1R
 - [ ] NBG-W2 — learned minimum-cost probe policy over a frozen admissible probe set
 - [ ] NBG-W3 — governed weight updates with Φ acceptance/rejection and hashed update receipts
 - [ ] NBG-W4 — parameter-memory audit / machine-unlearning line, if separately specified
@@ -71,7 +72,7 @@ W1 promotion requires beating the AH11 wrong-distinction control and both capaci
 ## Cross-cutting memory provenance
 
 - [x] Epistemic provenance / Dream isolation — first-class origin, evidence lineage, fail-closed import, promotion receipts, retrieval labels, compaction/summary/handoff preservation, and Dream Contamination tests
-- [ ] Bind future learned W-line residues to the epistemic envelope when they enter live agent memory, without rewriting frozen W1/W1R artifacts
+- [x] Bind reviewed W1R result to the epistemic envelope as `SIMULATED` without rewriting the frozen artifact; extend this pattern to future W-line results
 - [ ] Add production-grade cryptographic receipt hashing if/when browser-only FNV fingerprints become insufficient for deployment
 
 Dream/simulation retention is allowed. Dream/simulation promotion to factual memory requires new qualifying evidence and an explicit receipt.
