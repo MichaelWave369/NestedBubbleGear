@@ -112,6 +112,8 @@ See [experiments/W1](experiments/W1/).
 
 **NBG-W1G** follows the reviewed W1R negative result by separating residue representation/commit from learned gate alignment. See [experiments/W1G](experiments/W1G/).
 
+**NBG-W1H** follows the reviewed W1G gate-alignment failure with a one-variable successor protocol: remove the explicit keep-cost pressure while preserving the commit-aligned hard-gate path, controls, revocation semantics and provenance firewall. See [experiments/W1H](experiments/W1H/).
+
 ## Frozen AH ladder
 
 | Rung | Focus | Outcome |
