@@ -26,7 +26,7 @@ import {
 import {
   deriveTemporalView,
   provenanceBundle,
-} from '../src/temporalKeyhole.js'
+} from '../src/epistemicTemporalView.js'
 
 assert.deepEqual(EPISTEMIC_ORIGINS, [
   'OBSERVED',
