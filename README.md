@@ -110,6 +110,8 @@ See [experiments/W1](experiments/W1/).
 
 **NBG-W1R** follows the reviewed W1 result with a structurally frozen coarse Keyhole so hidden distinctions cannot be carried by the Keyhole itself. See [experiments/W1R](experiments/W1R/).
 
+**NBG-W1G** follows the reviewed W1R negative result by separating residue representation/commit from learned gate alignment. See [experiments/W1G](experiments/W1G/).
+
 ## Frozen AH ladder
 
 | Rung | Focus | Outcome |
