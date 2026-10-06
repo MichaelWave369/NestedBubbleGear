@@ -9,7 +9,7 @@
   },
   "epistemic": {
     "origin": "SIMULATED",
-    "confidence": 1.0,
+    "confidence": 1,
     "evidence": [
       {
         "evidenceId": "W1G_REVIEW_RECEIPT",
@@ -56,5 +56,5 @@
     "NBG-W1G",
     "REVIEWED_RESULT"
   ],
-  "recordFingerprint": "fnv1a32:ae8f94e8"
+  "recordFingerprint": "fnv1a32:54b9c0c6"
 }
