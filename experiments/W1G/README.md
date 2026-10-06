@@ -65,3 +65,30 @@ Epistemic provenance remains outside learner inputs.
 A reviewed W1G result may later be wrapped in live NBG memory as `SIMULATED`, but the execution artifact remains immutable.
 
 See [SPEC.md](SPEC.md) for the full frozen scientific contract.
+
+
+## Execution freeze
+
+The implementation-level contract is frozen in [EXECUTION.md](EXECUTION.md).
+
+It fixes:
+
+- exact row and pair order;
+- deterministic Keyhole bytes;
+- source serialization;
+- arm-by-arm parameter shapes and initialization identity;
+- inclusive hard gate threshold;
+- exact quantizer and gate STE derivatives;
+- hard-forward keep cost;
+- final post-step-500 evaluation timing;
+- forward/commit byte-identity audit;
+- model-hash ordering;
+- metadata/revocation behavior;
+- K0 and RB_STE control semantics;
+- diagnostic raw/gate statistics;
+- result-class precedence;
+- artifact provenance;
+- no-rerun rule;
+- epistemic provenance separation.
+
+No optimizer step is authorized until this execution freeze and a separate implementation PR are merged to `main`.
