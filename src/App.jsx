@@ -8,7 +8,7 @@ import {
   compareTemporalViews,
   deriveTemporalView,
   provenanceBundle,
-} from './temporalKeyhole.js'
+} from './epistemicTemporalView.js'
 import {
   T8_FROZEN_DECISIONS,
   applyQueueDecision,
@@ -205,6 +205,10 @@ function TemporalClaimCard({ item, selected, onSelect }) {
         <div>
           <small>REVIEW STATUS</small>
           <b>{item.reviewStatus}</b>
+        </div>
+        <div>
+          <small>EPISTEMIC ORIGIN</small>
+          <b>{item.epistemic?.origin ?? 'UNKNOWN'}</b>
         </div>
       </div>
       <div className="temporal-card-foot">
@@ -838,6 +842,8 @@ function App() {
                   <div><dt>Locator</dt><dd>{selectedBundle.baseRecord.provenance.sourceLocator}</dd></div>
                   <div><dt>Lineage</dt><dd>{selectedBundle.baseRecord.provenance.sourceLineage}</dd></div>
                   <div><dt>Base status</dt><dd>{selectedBundle.baseRecord.sourceStatus}</dd></div>
+                  <div><dt>Epistemic origin</dt><dd>{selectedBundle.epistemicMemory?.origin ?? 'UNKNOWN'}</dd></div>
+                  <div><dt>Epistemic evidence</dt><dd>{selectedBundle.epistemicMemory?.evidence?.length ?? 0}</dd></div>
                   <div><dt>Base digest</dt><dd>{shortHash(TEMPORAL_BASE_DIGEST)}</dd></div>
                 </dl>
                 <div className="review-events">

@@ -416,4 +416,6 @@ jobs:
         with:
           node-version: 22
       - run: npm install
+      - name: Run complete browser/model test suite
+        run: npm test
       - run: npm run build

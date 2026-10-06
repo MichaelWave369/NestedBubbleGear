@@ -13,7 +13,9 @@
     "test:counterfactual-governance": "node scripts/test_counterfactual_governance.mjs",
     "test:governance-sensitivity": "node scripts/test_governance_sensitivity.mjs",
     "test:intervention-equivalence": "node scripts/test_intervention_equivalence.mjs",
-    "test:adaptive-keyhole-synthesis": "node scripts/test_adaptive_keyhole_synthesis.mjs"
+    "test:adaptive-keyhole-synthesis": "node scripts/test_adaptive_keyhole_synthesis.mjs",
+    "test:epistemic": "node scripts/test_epistemic_provenance.mjs",
+    "test": "npm run test:temporal && npm run test:evidence-queue && npm run test:governance-keyholes && npm run test:counterfactual-governance && npm run test:governance-sensitivity && npm run test:intervention-equivalence && npm run test:adaptive-keyhole-synthesis && npm run test:epistemic"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.4",

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MichaelWave369/NestedBubbleGear/schemas/epistemic-transition-receipt.schema.json",
+  "title": "NBG Epistemic Transition Receipt",
+  "type": "object",
+  "required": [
+    "receiptType",
+    "transitionId",
+    "fromMemoryId",
+    "toMemoryId",
+    "fromOrigin",
+    "toOrigin",
+    "evidenceId",
+    "evidenceFingerprint",
+    "sourceMemoryFingerprint",
+    "derivedMemoryFingerprint",
+    "authorityChanged",
+    "receiptFingerprint"
+  ],
+  "properties": {
+    "receiptType": {
+      "enum": [
+        "EPISTEMIC_PROMOTION",
+        "EPISTEMIC_OBSERVATION_DERIVATION"
+      ]
+    },
+    "transitionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fromMemoryId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "toMemoryId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fromOrigin": {
+      "enum": [
+        "OBSERVED",
+        "VERIFIED",
+        "INFERRED",
+        "DREAMED",
+        "SIMULATED",
+        "UNKNOWN"
+      ]
+    },
+    "toOrigin": {
+      "enum": [
+        "OBSERVED",
+        "VERIFIED",
+        "INFERRED",
+        "DREAMED",
+        "SIMULATED",
+        "UNKNOWN"
+      ]
+    },
+    "evidenceId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidenceFingerprint": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceMemoryFingerprint": {
+      "type": "string",
+      "minLength": 1
+    },
+    "derivedMemoryFingerprint": {
+      "type": "string",
+      "minLength": 1
+    },
+    "knownTime": {},
+    "authorityChanged": {
+      "const": false
+    },
+    "receiptFingerprint": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

@@ -67,6 +67,14 @@ Promotion on this line requires predictive/closure advantage over simpler baseli
 
 W1 promotion requires beating the AH11 wrong-distinction control and both capacity-matched learned baselines under the frozen budget while maintaining (L_{\text{revoke}}=0) for every seed.
 
+## Cross-cutting memory provenance
+
+- [x] Epistemic provenance / Dream isolation — first-class origin, evidence lineage, fail-closed import, promotion receipts, retrieval labels, compaction/summary/handoff preservation, and Dream Contamination tests
+- [ ] Bind future learned W-line residues to the epistemic envelope when they enter live agent memory, without rewriting frozen W1/W1R artifacts
+- [ ] Add production-grade cryptographic receipt hashing if/when browser-only FNV fingerprints become insufficient for deployment
+
+Dream/simulation retention is allowed. Dream/simulation promotion to factual memory requires new qualifying evidence and an explicit receipt.
+
 ## Control-layer integration
 
 Φ-System 2.0 remains a separate control/governance line. Integration points should be explicit rather than collapsing both projects into one theory.

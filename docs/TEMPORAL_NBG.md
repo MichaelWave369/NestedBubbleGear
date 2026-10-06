@@ -52,6 +52,32 @@ UNKNOWN
 
 These labels record epistemic/provenance state. They are not a magic truth oracle.
 
+## Epistemic origin is separate from evidence state
+
+The live Temporal NBG retrieval layer now attaches a first-class epistemic envelope to retained records through `src/epistemicTemporalView.js`, while the frozen NBG-T6 `src/temporalKeyhole.js` semantic core remains byte-identical.
+
+Epistemic origin answers **how the memory entered the system**:
+
+`OBSERVED · VERIFIED · INFERRED · DREAMED · SIMULATED · UNKNOWN`
+
+This is independent of the claim's evidence state and independent of authority.
+
+For example:
+
+```text
+origin = OBSERVED
+relation = ALLEGED_LINK
+sourceStatus = ALLEGED
+```
+
+means the system directly captured a source making an allegation. It does not convert the allegation into an observed causal fact.
+
+Review evidence may be appended to the epistemic evidence list, but it does not silently promote origin. Promotion requires a separate evidence-bearing transition receipt.
+
+Dreamed and simulated memories remain logically isolated as possibility memory and must retain their origin through retrieval, summary, compaction, export/import and handoff.
+
+See [Epistemic Provenance / Dream Isolation](EPISTEMIC_PROVENANCE.md).
+
 ## Relation semantics matter
 
 These statements are not equivalent:

@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MichaelWave369/NestedBubbleGear/schemas/epistemic-memory.schema.json",
+  "title": "NBG Epistemic Memory",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "memoryId",
+    "content",
+    "epistemic",
+    "recordFingerprint"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "NBG_EPISTEMIC_1"
+    },
+    "memoryId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content": {},
+    "epistemic": {
+      "type": "object",
+      "required": [
+        "origin",
+        "confidence",
+        "evidence",
+        "lineage",
+        "authority"
+      ],
+      "properties": {
+        "origin": {
+          "enum": [
+            "OBSERVED",
+            "VERIFIED",
+            "INFERRED",
+            "DREAMED",
+            "SIMULATED",
+            "UNKNOWN"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "evidenceId",
+              "kind",
+              "evidenceFingerprint"
+            ],
+            "properties": {
+              "evidenceId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source": {},
+              "knownTime": {},
+              "validTime": {},
+              "details": {},
+              "evidenceFingerprint": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "lineage": {
+          "type": "object",
+          "required": [
+            "rootMemoryId",
+            "parentMemoryId",
+            "transitionReceiptIds",
+            "sourceMemoryIds",
+            "compactedFrom"
+          ],
+          "properties": {
+            "rootMemoryId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "parentMemoryId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "transitionReceiptIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "sourceMemoryIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "compactedFrom": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "authority": {
+          "type": "object",
+          "required": [
+            "retainable",
+            "reasoningUsable",
+            "actionAuthorized"
+          ],
+          "properties": {
+            "retainable": {
+              "type": "boolean"
+            },
+            "reasoningUsable": {
+              "type": "boolean"
+            },
+            "actionAuthorized": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "validTime": {},
+    "knownTime": {},
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repetitionCount": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "recordFingerprint": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}
