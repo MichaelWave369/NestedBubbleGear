@@ -296,6 +296,17 @@ assert.equal(
   false,
 )
 
+assert.throws(
+  () =>
+    promoteMemory(inferred.derived, {
+      targetOrigin: 'VERIFIED',
+      evidenceEvent: evidenceE37,
+      transitionId: 'VER:BAD_REUSE',
+      derivedMemoryId: 'verification:bad-reuse',
+    }),
+  /promotion requires new evidence/,
+)
+
 const verified = promoteMemory(inferred.derived, {
   targetOrigin: 'VERIFIED',
   evidenceEvent: {
@@ -381,6 +392,12 @@ const mergedMixed = mergeMemorySets(
 assert.equal(mergedMixed.length, 2)
 assert.deepEqual(
   mergedMixed.map((memory) => memory.epistemic.origin).sort(),
+  ['DREAMED', 'VERIFIED'],
+)
+
+const crossBubbleRetrieved = retrieveMemories(mergedMixed)
+assert.deepEqual(
+  crossBubbleRetrieved.map((row) => row.origin).sort(),
   ['DREAMED', 'VERIFIED'],
 )
 
