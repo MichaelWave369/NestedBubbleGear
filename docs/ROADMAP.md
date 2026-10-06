@@ -63,7 +63,7 @@ Promotion on this line requires predictive/closure advantage over simpler baseli
 - [x] NBG-W1R implementation — forced-Keyhole residue harness + K0/RB controls, no PR training
 - [x] NBG-W1R execution — reviewed `FAIL_W1R_NO_RESIDUE`; controls/revocation passed, committed residue failed
 - [x] NBG-W1G — freeze gate/commit alignment protocol named by W1R negative result; no training/result yet
-- [ ] NBG-W1G-E0 — freeze executable semantics before first optimizer step
+- [x] NBG-W1G-E0 — freeze executable semantics before first optimizer step
 - [ ] NBG-W1G implementation — forced-open + commit-STE harness, no PR training
 - [ ] NBG-W1G execution — run frozen seeds, controls, revocation and forward/commit identity audit
 - [ ] NBG-W2 — learned minimum-cost probe policy over a frozen admissible probe set
