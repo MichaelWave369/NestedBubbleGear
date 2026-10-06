@@ -59,7 +59,7 @@ Promotion on this line requires predictive/closure advantage over simpler baseli
 - [x] NBG-W1-E0 — freeze executable semantics before first optimizer step
 - [x] NBG-W1 execution — reviewed PASS under frozen median-seed rule; residue unused, no compression claim
 - [x] NBG-W1R — freeze forced-Keyhole residue-necessity protocol; no training/result yet
-- [ ] NBG-W1R-E0 — freeze executable semantics before first optimizer step
+- [x] NBG-W1R-E0 — freeze executable semantics before first optimizer step
 - [ ] NBG-W1R execution — run frozen seeds, controls, held-out routes, and revocation
 - [ ] NBG-W2 — learned minimum-cost probe policy over a frozen admissible probe set
 - [ ] NBG-W3 — governed weight updates with Φ acceptance/rejection and hashed update receipts
