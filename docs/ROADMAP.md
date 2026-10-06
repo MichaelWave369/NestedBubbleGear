@@ -66,8 +66,8 @@ Promotion on this line requires predictive/closure advantage over simpler baseli
 - [x] NBG-W1G-E0 — freeze executable semantics before first optimizer step
 - [x] NBG-W1G implementation — forced-open + commit-STE harness, no PR training
 - [x] NBG-W1G execution — reviewed `FAIL_W1G_GATE_ALIGNMENT`; FORCED_OPEN representation/commit positive control passed, COMMIT_STE closed every learned gate, controls/revocation/identity audits passed
-- [ ] NBG-W1H — freeze gate-retention-without-keep-pressure protocol; no training/result yet
-- [ ] NBG-W1H-E0 — freeze executable semantics before first optimizer step
+- [x] NBG-W1H — freeze gate-retention-without-keep-pressure protocol; no training/result yet
+- [x] NBG-W1H-E0 — freeze executable semantics before first optimizer step
 - [ ] NBG-W1H implementation — FORCED_OPEN + NO_KEEP_STE + RB_NO_KEEP_STE harness, no PR training
 - [ ] NBG-W1H execution — run frozen seeds, controls, revocation and forward/commit identity audit
 - [ ] NBG-W2 — learned minimum-cost probe policy over a frozen admissible probe set
