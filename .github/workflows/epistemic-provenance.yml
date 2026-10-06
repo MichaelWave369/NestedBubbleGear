@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'src/epistemicProvenance.js'
+      - 'src/epistemicTemporalView.js'
       - 'src/temporalKeyhole.js'
       - 'scripts/test_epistemic_provenance.mjs'
       - 'schemas/epistemic-memory.schema.json'
