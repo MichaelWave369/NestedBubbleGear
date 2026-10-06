@@ -84,6 +84,22 @@ The purpose is not to argue that the cosmic web visually resembles NBG. CW1 asks
 
 See [experiments/CW1](experiments/CW1/).
 
+## Epistemic provenance / Dream isolation
+
+NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
+
+Supported origins are:
+
+`OBSERVED · VERIFIED · INFERRED · DREAMED · SIMULATED · UNKNOWN`
+
+Core invariants:
+
+`DREAMED != OBSERVED` · `SIMULATED != OBSERVED` · `REPETITION != EVIDENCE` · `MEMORY != FACT`
+
+Dreamed and simulated memories may be retained and used for hypothesis generation, but retrieval preserves their origin and they cannot silently become factual through repetition, compaction, restart, merge, summary, import/export, or confidence.
+
+See [docs/EPISTEMIC_PROVENANCE.md](docs/EPISTEMIC_PROVENANCE.md).
+
 ## Learned memory line (NBG-W)
 
 **NBG-W1** freezes a run protocol for bounded learned causal memory without claiming a result. It separates exact append-only history (L), learned compression maps (Theta), and bounded replaceable active memory (M_t).
