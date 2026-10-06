@@ -107,3 +107,31 @@ It fixes:
 - artifact provenance and no-rerun rule.
 
 No optimizer step is authorized until this execution freeze and a separate implementation PR are merged to `main`.
+
+
+## Implementation candidate
+
+The W1H harness is implemented in `src/w1h.py`.
+
+Pull-request CI is intentionally **no-training**. It verifies:
+
+- exact 4,416 / 4,456 parameter counts;
+- no learned `K.*` parameters;
+- fresh byte-identical E/R initialization across all three arms;
+- byte-identical G initialization between NO_KEEP_STE and RB_NO_KEEP_STE;
+- ties-to-even int8 quantization and strict STE clip bounds;
+- inclusive `p=0.5` hard-gate threshold;
+- commit-aligned forward/commit identity on handcrafted tensors;
+- exact task-only objective terms `L_A_collapse + L_A_separate + L_B_separate`;
+- absence of `L_keep` and any direct keep-gradient branch;
+- task-only gate gradient decomposition;
+- structurally coarse Keyholes and RB sources;
+- K0 structural failure;
+- stale-authority refusal;
+- refusal to execute training before post-merge authorization.
+
+The first optimizer step is exposed only through the manual **W1H Execute Frozen Protocol** workflow.
+
+That workflow is `workflow_dispatch` only, refuses non-`main` refs, pins NumPy, fixes BLAS thread counts, reruns the static contract, executes all five seeds for FORCED_OPEN / NO_KEEP_STE / RB_NO_KEEP_STE, and uploads an **unreviewed** JSON artifact.
+
+No result sentence is committed by this implementation PR or execution workflow.

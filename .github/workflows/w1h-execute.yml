@@ -1,0 +1,49 @@
+name: W1H Execute Frozen Protocol
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  execute:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NBG_W1H_EXECUTION_AUTHORIZED: main-merged
+      PYTHONHASHSEED: "0"
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install frozen execution dependency
+        run: python -m pip install --disable-pip-version-check -r experiments/W1H/requirements-execute.txt
+
+      - name: Re-run static W1H contract before training
+        run: |
+          python -m py_compile experiments/W1H/src/w1h.py
+          python experiments/W1H/src/w1h.py --static-check
+          python -m unittest discover -s experiments/W1H/tests -v
+
+      - name: Execute frozen W1H arms and controls
+        run: |
+          mkdir -p w1h-artifact
+          python experiments/W1H/src/w1h.py --execute --output w1h-artifact/W1H_EXECUTION_CANDIDATE.json
+
+      - name: Upload unreviewed execution artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nbg-w1h-unreviewed-execution-${{ github.run_id }}
+          path: w1h-artifact/
+          if-no-files-found: error
+          retention-days: 30
