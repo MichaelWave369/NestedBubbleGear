@@ -92,3 +92,30 @@ It fixes:
 - epistemic provenance separation.
 
 No optimizer step is authorized until this execution freeze and a separate implementation PR are merged to `main`.
+
+
+## Implementation candidate
+
+The W1G harness is implemented in `src/w1g.py`.
+
+Pull-request CI is intentionally **no-training**. It verifies:
+
+- exact 4,416 / 4,456 parameter counts;
+- absence of learned `K.*` parameters;
+- byte-identical shared E/R initialization across FORCED_OPEN, COMMIT_STE and RB_STE;
+- byte-identical G initialization between COMMIT_STE and RB_STE;
+- ties-to-even int8 quantization and strict STE clip bounds;
+- inclusive hard-gate threshold at (p=0.5);
+- byte-identical coarse Keyholes;
+- frozen AH11 and lineage splits;
+- K0 structural failure;
+- RB_STE coarse-source identity;
+- stale-authority refusal;
+- handcrafted forward/commit identity;
+- refusal to execute training before post-merge authorization.
+
+The first optimizer step is exposed only through the manual `W1G Execute Frozen Protocol` workflow.
+
+That workflow is `workflow_dispatch` only, refuses non-`main` refs, pins NumPy, fixes BLAS thread counts, reruns static checks, executes all five seeds for FORCED_OPEN / COMMIT_STE / RB_STE, and uploads an **unreviewed** JSON artifact.
+
+No result sentence is committed by the implementation PR or execution workflow.
