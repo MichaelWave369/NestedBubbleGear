@@ -421,6 +421,15 @@ jobs:
       - name: W1R no-training unit tests
         run: python -m unittest discover -s experiments/W1R/tests -v
 
+      - name: W1G static implementation syntax
+        run: python -m py_compile experiments/W1G/src/w1g.py
+
+      - name: W1G static contract check
+        run: python experiments/W1G/src/w1g.py --static-check
+
+      - name: W1G no-training unit tests
+        run: python -m unittest discover -s experiments/W1G/tests -v
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
