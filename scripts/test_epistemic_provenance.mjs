@@ -146,7 +146,7 @@ assert.equal(mergedDreams[0].repetitionCount, 7)
 
 const decayedDream = decayMemory(dream, 0.01)
 assert.equal(decayedDream.epistemic.origin, 'DREAMED')
-assert.equal(decayedDream.epistemic.confidence, 0.0063)
+assert.ok(Math.abs(decayedDream.epistemic.confidence - 0.0063) < 1e-12)
 assert.equal(
   factualRecall([decayedDream], {
     predicate: () => true,
@@ -243,12 +243,14 @@ const observation = recordObservationFromPossibility(dreamPromotionSource, {
   observationId: 'OBS:E37',
   observedMemoryId: 'obs:E37',
   evidenceEvent: evidenceE37,
+  observedContent: 'The object is red.',
   knownTime: 1107,
 })
 
 assert.equal(dreamPromotionSource.epistemic.origin, 'DREAMED')
 assert.equal(dreamPromotionSource.epistemic.evidence.length, 0)
 assert.equal(observation.observed.epistemic.origin, 'OBSERVED')
+assert.equal(observation.observed.content, 'The object is red.')
 assert.equal(observation.observed.epistemic.evidence[0].evidenceId, 'E37')
 assert.equal(
   observation.observed.epistemic.lineage.parentMemoryId,
@@ -265,10 +267,15 @@ const inferred = promoteMemory(dreamPromotionSource, {
   evidenceEvent: evidenceE37,
   transitionId: 'INF:I12',
   derivedMemoryId: 'inference:I12',
+  derivedContent: 'The object is conditionally supported as red.',
   knownTime: 1108,
 })
 
 assert.equal(inferred.derived.epistemic.origin, 'INFERRED')
+assert.equal(
+  inferred.derived.content,
+  'The object is conditionally supported as red.',
+)
 assert.equal(inferred.derived.epistemic.evidence[0].evidenceId, 'E37')
 assert.equal(
   inferred.derived.epistemic.lineage.parentMemoryId,
@@ -299,10 +306,12 @@ const verified = promoteMemory(inferred.derived, {
   },
   transitionId: 'VER:V4',
   derivedMemoryId: 'verification:V4',
+  derivedContent: 'The object is red.',
   knownTime: 1114,
 })
 
 assert.equal(verified.derived.epistemic.origin, 'VERIFIED')
+assert.equal(verified.derived.content, 'The object is red.')
 assert.deepEqual(
   verified.derived.epistemic.evidence.map((row) => row.evidenceId),
   ['E37', 'E42'],
