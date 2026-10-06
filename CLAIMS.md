@@ -28,6 +28,8 @@ These are exact properties of the published/executable constructions. They are n
 - NBG-CW1 cosmic-web Keyhole/closure protocol, including observer refinement and baseline comparison. Protocol status is not an empirical NBG result.
 - NBG-W1 bounded learned causal-memory run protocol. Architecture, budgets, baselines, splits, optimizer, seeds, and revocation rules are frozen; no training result is claimed.
 
+- NBG-W1G gate/commit alignment protocol. This protocol tests whether residue + int8 commit works under a forced-open positive control and whether a hard-forward straight-through learned gate can retain the same distinctions. Protocol status is not a result.
+
 ## Speculative
 
 - Application to event horizons or black/white causal boundaries.
