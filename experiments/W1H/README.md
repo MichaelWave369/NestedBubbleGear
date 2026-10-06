@@ -81,3 +81,29 @@ W1H requires, in order:
 The first valid execution is retained even if the hypothesis fails.
 
 See [SPEC.md](SPEC.md) for the complete frozen scientific contract.
+
+
+## Execution freeze
+
+The implementation-level contract is frozen in [EXECUTION.md](EXECUTION.md).
+
+It fixes:
+
+- Python/NumPy/CPU determinism;
+- canonical row and pair order;
+- exact Keyhole and source bytes;
+- exact E/R/G parameter layouts;
+- fresh seed initialization identity across arms;
+- actual int8 quantizer forward and strict STE backward;
+- inclusive hard gate threshold and sigmoid gate STE;
+- exact residue/gate gradient decomposition;
+- **absence of any keep-loss or replacement gate regularizer**;
+- exact AdamW settings and 500-step timing;
+- post-step-500 no-gradient scientific evaluation;
+- byte-level forward/commit identity audits;
+- K0 and RB_NO_KEEP_STE control semantics;
+- revocation and ledger-prefix semantics;
+- structural/scientific result precedence;
+- artifact provenance and no-rerun rule.
+
+No optimizer step is authorized until this execution freeze and a separate implementation PR are merged to `main`.
