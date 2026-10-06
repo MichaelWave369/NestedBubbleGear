@@ -260,7 +260,9 @@ Content may remain inspectable for forensic recovery, but factual authority does
 
 ## Temporal NBG integration
 
-`src/temporalKeyhole.js` now attaches an epistemic envelope to retained temporal records.
+`src/epistemicTemporalView.js` attaches an epistemic envelope over the frozen `src/temporalKeyhole.js` semantic core.
+
+The NBG-T6 qualification pins `src/temporalKeyhole.js` by SHA-256. The first integration attempt correctly failed that frozen-hash check. The implementation therefore preserves the T6 file byte-for-byte and layers epistemic retrieval above it rather than weakening the qualification.
 
 Existing semantics remain intact:
 
