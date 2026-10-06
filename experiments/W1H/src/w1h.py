@@ -1264,7 +1264,9 @@ def static_check() -> dict[str, Any]:
             and "keep_grad" not in inspect.getsource(loss_and_grads)
             and "keep_grad" not in inspect.getsource(backward)
         ),
-        "no_w1g_state_import": "experiments/W1G" not in Path(__file__).read_text(),
+        "no_w1g_state_import": (
+            ("experiments/" + "W1G") not in Path(__file__).read_text()
+        ),
     }
 
     # Handcrafted forward/commit identity checks, no optimizer.
