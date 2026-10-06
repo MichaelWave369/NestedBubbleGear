@@ -66,13 +66,17 @@ Promotion on this line requires predictive/closure advantage over simpler baseli
 - [x] NBG-W1G-E0 — freeze executable semantics before first optimizer step
 - [x] NBG-W1G implementation — forced-open + commit-STE harness, no PR training
 - [x] NBG-W1G execution — reviewed `FAIL_W1G_GATE_ALIGNMENT`; FORCED_OPEN representation/commit positive control passed, COMMIT_STE closed every learned gate, controls/revocation/identity audits passed
+- [ ] NBG-W1H — freeze gate-retention-without-keep-pressure protocol; no training/result yet
+- [ ] NBG-W1H-E0 — freeze executable semantics before first optimizer step
+- [ ] NBG-W1H implementation — FORCED_OPEN + NO_KEEP_STE + RB_NO_KEEP_STE harness, no PR training
+- [ ] NBG-W1H execution — run frozen seeds, controls, revocation and forward/commit identity audit
 - [ ] NBG-W2 — learned minimum-cost probe policy over a frozen admissible probe set
 - [ ] NBG-W3 — governed weight updates with Φ acceptance/rejection and hashed update receipts
 - [ ] NBG-W4 — parameter-memory audit / machine-unlearning line, if separately specified
 
 W1 promotion requires beating the AH11 wrong-distinction control and both capacity-matched learned baselines under the frozen budget while maintaining (L_{\text{revoke}}=0) for every seed.
 
-W1G is closed after its first valid frozen execution. Do not rerun it to tune the result. Any follow-up on gate retention requires a new frozen experiment/version.
+W1G is closed after its first valid frozen execution. Do not rerun it to tune the result. W1H is the new frozen successor question and changes one scientific variable: it removes W1G's keep-cost term while preserving the commit-aligned hard-gate path, controls, revocation and provenance firewall.
 
 ## Cross-cutting memory provenance
 
