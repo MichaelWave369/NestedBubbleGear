@@ -90,7 +90,7 @@ class W1GStaticContractTests(unittest.TestCase):
         p = w1g.sigmoid(logits)
         gate = w1g.hard_gate_from_p(p)
         np.testing.assert_allclose(p, 0.5)
-        np.testing.assert_array_equal(gate, 1.0)
+        self.assertTrue(np.all(gate == 1.0))
 
     def test_forced_open_forward_matches_commit_without_training(self):
         forced, _, _ = w1g.init_arm_params(0)
