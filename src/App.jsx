@@ -8,7 +8,7 @@ import {
   compareTemporalViews,
   deriveTemporalView,
   provenanceBundle,
-} from './temporalKeyhole.js'
+} from './epistemicTemporalView.js'
 import {
   T8_FROZEN_DECISIONS,
   applyQueueDecision,
