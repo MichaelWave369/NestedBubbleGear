@@ -54,7 +54,7 @@ These labels record epistemic/provenance state. They are not a magic truth oracl
 
 ## Epistemic origin is separate from evidence state
 
-Temporal NBG now attaches a first-class epistemic envelope to retained records.
+The live Temporal NBG retrieval layer now attaches a first-class epistemic envelope to retained records through `src/epistemicTemporalView.js`, while the frozen NBG-T6 `src/temporalKeyhole.js` semantic core remains byte-identical.
 
 Epistemic origin answers **how the memory entered the system**:
 
