@@ -100,6 +100,12 @@ Dreamed and simulated memories may be retained and used for hypothesis generatio
 
 See [docs/EPISTEMIC_PROVENANCE.md](docs/EPISTEMIC_PROVENANCE.md).
 
+## PhiPie physical-memory ingress
+
+NBG now has a governed ingress for PhiPie host-health episode memory. The importer accepts the pinned `NBG_EPISTEMIC_1` shape only when the episode remains `INFERRED`, routes to `DERIVED_MEMORY`, carries qualifying PhiPie journal evidence, and keeps `actionAuthorized=false`. Unknown bridge revisions, provenance drift, semantic promotion, and conflicting same-ID records fail closed.
+
+See [docs/PHIPIE_PHYSICAL_MEMORY.md](docs/PHIPIE_PHYSICAL_MEMORY.md).
+
 ## Learned memory line (NBG-W)
 
 **NBG-W1** freezes a run protocol for bounded learned causal memory without claiming a result. It separates exact append-only history (L), learned compression maps (Theta), and bounded replaceable active memory (M_t).

@@ -1,0 +1,40 @@
+name: PhiPie Physical Memory Ingress
+
+on:
+  pull_request:
+    paths:
+      - 'src/phipiePhysicalMemory.js'
+      - 'src/epistemicProvenance.js'
+      - 'scripts/test_phipie_physical_memory.mjs'
+      - 'schemas/epistemic-memory.schema.json'
+      - 'docs/PHIPIE_PHYSICAL_MEMORY.md'
+      - 'package.json'
+      - '.github/workflows/phipie-physical-memory.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install JavaScript dependencies
+        run: npm install
+
+      - name: Run PhiPie physical-memory ingress suite
+        run: npm run test:phipie-memory
+
+      - name: Re-run epistemic provenance suite
+        run: npm run test:epistemic
+
+      - name: Build live research site
+        run: npm run build
