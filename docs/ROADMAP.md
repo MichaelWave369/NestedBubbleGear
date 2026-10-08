@@ -83,6 +83,7 @@ W1G is closed after its first valid frozen execution. Do not rerun it to tune th
 - [x] Epistemic provenance / Dream isolation — first-class origin, evidence lineage, fail-closed import, promotion receipts, retrieval labels, compaction/summary/handoff preservation, and Dream Contamination tests
 - [x] Bind reviewed W1R result to the epistemic envelope as `SIMULATED` without rewriting the frozen artifact; extend this pattern to future W-line results
 - [x] PhiPie physical-memory ingress v0.1 — accept pinned host-health episode memories as `INFERRED` / `DERIVED_MEMORY` with action authority fixed false
+- [x] PhiPie physical episode recall v0.1 — deterministic same-host structural similarity retrieval with explicit non-causal / no-action boundary
 - [ ] Add production-grade cryptographic receipt hashing if/when browser-only FNV fingerprints become insufficient for deployment
 
 Dream/simulation retention is allowed. Dream/simulation promotion to factual memory requires new qualifying evidence and an explicit receipt.
