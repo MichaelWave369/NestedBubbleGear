@@ -1,0 +1,44 @@
+name: PhiPie Physical Episode Recall
+
+on:
+  pull_request:
+    paths:
+      - 'src/phipiePhysicalRecall.js'
+      - 'src/phipiePhysicalMemory.js'
+      - 'src/epistemicProvenance.js'
+      - 'scripts/test_phipie_physical_recall.mjs'
+      - 'scripts/test_phipie_physical_memory.mjs'
+      - 'docs/PHIPIE_PHYSICAL_RECALL.md'
+      - 'package.json'
+      - '.github/workflows/phipie-physical-recall.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install JavaScript dependencies
+        run: npm install
+
+      - name: Run physical episode recall suite
+        run: npm run test:phipie-recall
+
+      - name: Re-run physical memory ingress suite
+        run: npm run test:phipie-memory
+
+      - name: Re-run epistemic provenance suite
+        run: npm run test:epistemic
+
+      - name: Build live research site
+        run: npm run build

@@ -106,6 +106,12 @@ NBG now has a governed ingress for PhiPie host-health episode memory. The import
 
 See [docs/PHIPIE_PHYSICAL_MEMORY.md](docs/PHIPIE_PHYSICAL_MEMORY.md).
 
+## PhiPie physical episode recall
+
+NBG can now rank previously imported PhiPie host-health episodes by explicit structural similarity across changed signals, throttling flags, peak classification, close reason, and sequence duration. Recall is same-host by default, deterministic under candidate reordering, and always returns `causalClaim=false` and `actionAuthorized=false`.
+
+See [docs/PHIPIE_PHYSICAL_RECALL.md](docs/PHIPIE_PHYSICAL_RECALL.md).
+
 ## Learned memory line (NBG-W)
 
 **NBG-W1** freezes a run protocol for bounded learned causal memory without claiming a result. It separates exact append-only history (L), learned compression maps (Theta), and bounded replaceable active memory (M_t).
