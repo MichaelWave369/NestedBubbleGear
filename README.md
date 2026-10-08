@@ -124,6 +124,12 @@ NBG can now turn repeated same-host episode evidence into conservative read-only
 
 See [docs/PHIPIE_PHYSICAL_ADVISOR.md](docs/PHIPIE_PHYSICAL_ADVISOR.md).
 
+## PhiBot physical experience handoff
+
+NBG can now package bounded PhiPie physical-experience advisories into a portable PhiBot-facing handoff. The packet carries evidence references and uncertainty while explicitly granting no tool, hardware, safety, maintenance, or action authority. Any future tool use must pass an independent PhiOS/runtime authorization path.
+
+See [docs/PHIBOT_PHYSICAL_HANDOFF.md](docs/PHIBOT_PHYSICAL_HANDOFF.md).
+
 ## Learned memory line (NBG-W)
 
 **NBG-W1** freezes a run protocol for bounded learned causal memory without claiming a result. It separates exact append-only history (L), learned compression maps (Theta), and bounded replaceable active memory (M_t).

@@ -86,6 +86,7 @@ W1G is closed after its first valid frozen execution. Do not rerun it to tune th
 - [x] PhiPie physical episode recall v0.1 — deterministic same-host structural similarity retrieval with explicit non-causal / no-action boundary
 - [x] PhiPie physical recall explanation v0.1 — evidence-linked deterministic match explanations with no causal, diagnostic, maintenance, or action promotion
 - [x] PhiPie physical experience advisor v0.1 — same-host evidence-linked investigation prompts restricted to read-only observation and review
+- [x] PhiBot physical experience handoff v0.1 — portable advisory-only agent packet with evidence index, no tool grant, and independent authorization requirement
 - [ ] Add production-grade cryptographic receipt hashing if/when browser-only FNV fingerprints become insufficient for deployment
 
 Dream/simulation retention is allowed. Dream/simulation promotion to factual memory requires new qualifying evidence and an explicit receipt.

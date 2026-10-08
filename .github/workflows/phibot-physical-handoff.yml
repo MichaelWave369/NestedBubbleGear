@@ -1,0 +1,52 @@
+name: PhiBot Physical Experience Handoff
+
+on:
+  pull_request:
+    paths:
+      - 'src/phibotPhysicalHandoff.js'
+      - 'src/phipiePhysicalAdvisor.js'
+      - 'src/phipiePhysicalExplanation.js'
+      - 'src/phipiePhysicalRecall.js'
+      - 'src/phipiePhysicalMemory.js'
+      - 'src/epistemicProvenance.js'
+      - 'scripts/test_phibot_physical_handoff.mjs'
+      - 'docs/PHIBOT_PHYSICAL_HANDOFF.md'
+      - 'package.json'
+      - '.github/workflows/phibot-physical-handoff.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install JavaScript dependencies
+        run: npm install
+
+      - name: Run PhiBot physical handoff suite
+        run: npm run test:phibot-handoff
+
+      - name: Re-run physical advisor suite
+        run: npm run test:phipie-advisor
+
+      - name: Re-run physical explanation suite
+        run: npm run test:phipie-explanation
+
+      - name: Re-run physical recall suite
+        run: npm run test:phipie-recall
+
+      - name: Re-run physical memory ingress suite
+        run: npm run test:phipie-memory
+
+      - name: Build live research site
+        run: npm run build
