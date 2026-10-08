@@ -112,6 +112,12 @@ NBG can now rank previously imported PhiPie host-health episodes by explicit str
 
 See [docs/PHIPIE_PHYSICAL_RECALL.md](docs/PHIPIE_PHYSICAL_RECALL.md).
 
+## PhiPie physical recall explanation
+
+NBG now exposes deterministic evidence-linked explanations for PhiPie physical episode matches. Explanations identify shared and contrasting signals/flags, peak and recovery relationships, and exact source record fingerprints/evidence IDs while keeping causal claims, diagnosis, maintenance prescription, and action authority false.
+
+See [docs/PHIPIE_PHYSICAL_EXPLANATION.md](docs/PHIPIE_PHYSICAL_EXPLANATION.md).
+
 ## Learned memory line (NBG-W)
 
 **NBG-W1** freezes a run protocol for bounded learned causal memory without claiming a result. It separates exact append-only history (L), learned compression maps (Theta), and bounded replaceable active memory (M_t).
