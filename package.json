@@ -15,10 +15,11 @@
     "test:intervention-equivalence": "node scripts/test_intervention_equivalence.mjs",
     "test:adaptive-keyhole-synthesis": "node scripts/test_adaptive_keyhole_synthesis.mjs",
     "test:epistemic": "node scripts/test_epistemic_provenance.mjs",
-    "test": "npm run test:temporal && npm run test:evidence-queue && npm run test:governance-keyholes && npm run test:counterfactual-governance && npm run test:governance-sensitivity && npm run test:intervention-equivalence && npm run test:adaptive-keyhole-synthesis && npm run test:epistemic && npm run test:phipie-memory && npm run test:phipie-recall && npm run test:phipie-explanation",
+    "test": "npm run test:temporal && npm run test:evidence-queue && npm run test:governance-keyholes && npm run test:counterfactual-governance && npm run test:governance-sensitivity && npm run test:intervention-equivalence && npm run test:adaptive-keyhole-synthesis && npm run test:epistemic && npm run test:phipie-memory && npm run test:phipie-recall && npm run test:phipie-explanation && npm run test:phipie-advisor",
     "test:phipie-memory": "node scripts/test_phipie_physical_memory.mjs",
     "test:phipie-recall": "node scripts/test_phipie_physical_recall.mjs",
-    "test:phipie-explanation": "node scripts/test_phipie_physical_explanation.mjs"
+    "test:phipie-explanation": "node scripts/test_phipie_physical_explanation.mjs",
+    "test:phipie-advisor": "node scripts/test_phipie_physical_advisor.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.4",
