@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { createHash } from 'node:crypto'
 
 import { createEpistemicMemory } from '../src/epistemicProvenance.js'
 import {
@@ -21,6 +22,7 @@ function makeMemory({
   end = 4,
 } = {}) {
   const memoryId = 'phipie:host-health:' + id
+  const journalHash = createHash('sha256').update(id).digest('hex')
   return createEpistemicMemory({
     memoryId,
     content: {
@@ -58,13 +60,13 @@ function makeMemory({
     confidence: 0.5,
     evidence: [
       {
-        evidenceId: 'evidence-' + id,
+        evidenceId: 'evidence-' + journalHash.slice(0, 16),
         kind: 'OBSERVATION',
         source: {
           system: 'PhiPie',
           journalContract: 'phi-host-health-journal/v0.1',
           episodeContract: 'phi-host-health-episode/v0.1',
-          journalRecordHash: id.padEnd(64, 'a').slice(0, 64),
+          journalRecordHash: journalHash,
         },
         knownTime: null,
         validTime: {
