@@ -1,0 +1,47 @@
+name: PhiPie Physical Experience Advisor
+
+on:
+  pull_request:
+    paths:
+      - 'src/phipiePhysicalAdvisor.js'
+      - 'src/phipiePhysicalExplanation.js'
+      - 'src/phipiePhysicalRecall.js'
+      - 'src/phipiePhysicalMemory.js'
+      - 'scripts/test_phipie_physical_advisor.mjs'
+      - 'docs/PHIPIE_PHYSICAL_ADVISOR.md'
+      - 'package.json'
+      - '.github/workflows/phipie-physical-advisor.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install JavaScript dependencies
+        run: npm install
+
+      - name: Run physical advisor suite
+        run: npm run test:phipie-advisor
+
+      - name: Re-run physical explanation suite
+        run: npm run test:phipie-explanation
+
+      - name: Re-run physical recall suite
+        run: npm run test:phipie-recall
+
+      - name: Re-run physical memory ingress suite
+        run: npm run test:phipie-memory
+
+      - name: Build live research site
+        run: npm run build
