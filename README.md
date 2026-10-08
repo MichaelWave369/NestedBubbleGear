@@ -118,6 +118,12 @@ NBG now exposes deterministic evidence-linked explanations for PhiPie physical e
 
 See [docs/PHIPIE_PHYSICAL_EXPLANATION.md](docs/PHIPIE_PHYSICAL_EXPLANATION.md).
 
+## PhiPie physical experience advisor
+
+NBG can now turn repeated same-host episode evidence into conservative read-only investigation prompts. The advisor surfaces what evidence to inspect next while fixing diagnosis, safety conclusions, maintenance recommendations, physical actions, and hardware commands to false/null.
+
+See [docs/PHIPIE_PHYSICAL_ADVISOR.md](docs/PHIPIE_PHYSICAL_ADVISOR.md).
+
 ## Learned memory line (NBG-W)
 
 **NBG-W1** freezes a run protocol for bounded learned causal memory without claiming a result. It separates exact append-only history (L), learned compression maps (Theta), and bounded replaceable active memory (M_t).
