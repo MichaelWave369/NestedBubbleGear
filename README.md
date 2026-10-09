@@ -106,6 +106,10 @@ See [experiments/RB3](experiments/RB3/).
 
 See [experiments/RB3/R0](experiments/RB3/R0/).
 
+**NBG-RB3-R1** adds 18 additional **primary-text-attributed candidate rows** from the 2014 and 2016 PLOS embryonic neural-stem-cell experiments (both lineage L002), with figure/table/assay provenance, unknown-value discipline, tamper tests and a cross-assay predictor-collision audit. The combined R0+R1 extraction totals 27 rows across 3 source papers but only 2 of 11 lineages. The real model remains execution-blocked.
+
+See [experiments/RB3/R1](experiments/RB3/R1/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
