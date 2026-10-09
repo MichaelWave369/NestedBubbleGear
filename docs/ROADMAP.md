@@ -53,6 +53,17 @@
 
 Promotion on this line requires predictive/closure advantage over simpler baselines. Morphological resemblance is never an acceptance criterion.
 
+## Resonant-bubble application line — NBG-RB
+
+- [x] NBG-RB1 — freeze the frequency-only closure stress-test protocol, bubble map, source-lineage holdout rule, mechanism firewall and initial source ledger
+- [ ] NBG-RB2 — freeze the eligible literature corpus, extraction schema, normalization rules, lineage map and hashes/receipts
+- [ ] NBG-RB3 — implement FREQ_ONLY vs MULTIPARAMETER with synthetic-window, permutation and shuffled-boundary controls
+- [ ] NBG-RB4 — test hidden-gamma recovery and cross-bubble composition
+- [ ] NBG-RB5 — test state-dependent retuning / persistent response-state memory
+- [ ] NBG-RB6 — direct-DNA vs membrane/channel-mediated mechanism discrimination, only if the corpus supports an identifiable test
+
+Promotion on this line requires held-out advantage over simpler baselines and survival of shuffled-boundary controls. A spectral peak is not a healing frequency, and a downstream transcriptional response is not evidence of direct DNA antenna coupling.
+
 ## Learned memory line — NBG-W
 
 - [x] NBG-W1 — freeze bounded learned causal-memory run protocol; no training/result yet

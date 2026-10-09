@@ -84,6 +84,16 @@ The purpose is not to argue that the cosmic web visually resembles NBG. CW1 asks
 
 See [experiments/CW1](experiments/CW1/).
 
+## Resonant-bubbles application line (NBG-RB)
+
+**NBG-RB** tests whether nested systems exhibit state-dependent response spectra whose cross-scale coupling preserves future-relevant information.
+
+The first rung, **NBG-RB1**, is intentionally adversarial to "magic frequency" claims. It freezes a source-lineage-held-out comparison between a frequency-only model and a preregistered multiparameter field/context model, with shuffled-boundary, label-permutation, and synthetic-window controls.
+
+RB1 gives 7.83 Hz, 10.5 Hz, 14.1 Hz, and every other candidate frequency **no privileged status**. It is literature/computation-facing only and authorizes no human exposure or treatment claims. Direct-DNA EMF coupling remains a separate competing hypothesis rather than a premise.
+
+See [docs/RESONANT_BUBBLES.md](docs/RESONANT_BUBBLES.md) and [experiments/RB1](experiments/RB1/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
@@ -215,6 +225,7 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── NBGT14/           Frozen intervention equivalence / Governance Residue rung
 │   ├── NBGT15/           Frozen Adaptive Keyhole Synthesis rung
 │   ├── CW1/              Cosmic-web Keyhole closure protocol candidate
+│   ├── RB1/              Resonant-bubble frequency-only closure protocol
 │   ├── W1/               Frozen bounded learned causal-memory run protocol
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall

@@ -1,0 +1,63 @@
+{
+  "protocol_id": "NBG-RB1",
+  "version": "0.1.0",
+  "title": "Frequency-Only Closure Stress Test",
+  "status": "PROTOCOL_ONLY",
+  "result_authorized": false,
+  "human_exposure_authorized": false,
+  "primary_question": "Does a frozen multiparameter perturbation/context model improve held-out biological EMF response prediction over frequency alone without source-lineage leakage?",
+  "bubbles": [
+    "B0_FIELD",
+    "B1_MEMBRANE_CHANNEL",
+    "B2_INTRACELLULAR_SIGNAL",
+    "B3_TRANSCRIPTION_CELL_STATE",
+    "B4_CELL_BEHAVIOR_PATTERN",
+    "B5_TISSUE_FUNCTION"
+  ],
+  "arms": [
+    "FREQ_ONLY",
+    "MULTIPARAMETER",
+    "SHUFFLED_BOUNDARY",
+    "LABEL_PERMUTATION",
+    "SYNTHETIC_WINDOW_POSITIVE"
+  ],
+  "candidate_frequency_policy": "NO_PRIVILEGED_FREQUENCIES",
+  "candidate_values_from_external_claims": [
+    "7.83 Hz",
+    "10.5 Hz",
+    "14.1 Hz"
+  ],
+  "candidate_values_authority": "NONE",
+  "split_rule": "SOURCE_LINEAGE_HOLDOUT",
+  "missing_data_rule": "EXPLICIT_NULL_NO_GUESSING",
+  "direct_dna_rule": "DOWNSTREAM_TRANSCRIPTION_DOES_NOT_IMPLY_DIRECT_DNA_COUPLING",
+  "provenance_origins": [
+    "OBSERVED",
+    "VERIFIED",
+    "INFERRED",
+    "DREAMED",
+    "SIMULATED",
+    "UNKNOWN"
+  ],
+  "void_states": [
+    "VOID_RB1_SOURCE_LEAK",
+    "VOID_RB1_CONTROL_FAILURE",
+    "VOID_RB1_PROTOCOL_DRIFT",
+    "VOID_RB1_INSUFFICIENT_LINEAGE_HOLDOUT"
+  ],
+  "scientific_states": [
+    "FAIL_RB1_NO_REPRODUCIBLE_STRUCTURE",
+    "FAIL_RB1_MULTIPARAMETER_NO_ADVANTAGE",
+    "FAIL_RB1_BOUNDARY_NO_ADVANTAGE",
+    "QUALIFIED_RB1_MULTIPARAMETER_RESPONSE",
+    "QUALIFIED_RB1_NESTED_RESPONSE_STRUCTURE"
+  ],
+  "forbidden_claims": [
+    "human treatment frequency",
+    "complete human regeneration",
+    "cure claim",
+    "MedBed validation",
+    "DNA proven to be a literal radio antenna"
+  ],
+  "no_rerun_after_frozen_execution": true
+}
