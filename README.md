@@ -98,6 +98,10 @@ See [docs/RESONANT_BUBBLES.md](docs/RESONANT_BUBBLES.md) and [experiments/RB1](e
 
 See [experiments/RB2](experiments/RB2/).
 
+**NBG-RB3-E0** freezes the executable comparison before any real literature-model result: deterministic frequency-only, multiparameter, shuffled-boundary and label-permutation arms; a planted synthetic positive control; train-only preprocessing; and hard source-lineage leakage checks. The real-corpus execution remains gated on a separately frozen condition-by-endpoint extraction table.
+
+See [experiments/RB3](experiments/RB3/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
@@ -231,6 +235,7 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── CW1/              Cosmic-web Keyhole closure protocol candidate
 │   ├── RB1/              Resonant-bubble frequency-only closure protocol
 │   ├── RB2/              Frozen EMF literature corpus + extraction contract
+│   ├── RB3/              Frozen executable response-model semantics / controls
 │   ├── W1/               Frozen bounded learned causal-memory run protocol
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall

@@ -57,7 +57,8 @@ Promotion on this line requires predictive/closure advantage over simpler baseli
 
 - [x] NBG-RB1 — freeze the frequency-only closure stress-test protocol, bubble map, source-lineage holdout rule, mechanism firewall and initial source ledger
 - [x] NBG-RB2 — freeze the eligible literature corpus, extraction schema, normalization rules, lineage map and hashes/receipts
-- [ ] NBG-RB3 — implement FREQ_ONLY vs MULTIPARAMETER with synthetic-window, permutation and shuffled-boundary controls
+- [x] NBG-RB3-E0 — freeze deterministic executable semantics, train-only preprocessing, source-leak checks and synthetic positive control; no real-corpus fit yet
+- [ ] NBG-RB3 — freeze the complete source-backed condition-by-endpoint table, implement the frozen arms, and run the first main-only real-corpus execution
 - [ ] NBG-RB4 — test hidden-gamma recovery and cross-bubble composition
 - [ ] NBG-RB5 — test state-dependent retuning / persistent response-state memory
 - [ ] NBG-RB6 — direct-DNA vs membrane/channel-mediated mechanism discrimination, only if the corpus supports an identifiable test
