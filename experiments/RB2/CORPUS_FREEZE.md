@@ -105,7 +105,7 @@ This prevents any source lineage from being used simultaneously for training and
 
 Corpus manifest digest:
 
-`b0fbfa33e848fafaddaa73fbf1066d8c2a542ec57e415d57fbea8f4979d15993`
+`2a91f27c113fb4ae3b63ec8bfad2b2c1c99e84417bd5f3e095c803b9e4c4e351`
 
 The digest is over the ordered newline-separated record digests in `corpus_manifest.json`.
 
