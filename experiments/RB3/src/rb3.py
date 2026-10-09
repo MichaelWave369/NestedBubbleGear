@@ -789,8 +789,16 @@ def fold_partition(
     valid: list[dict[str, Any]] = []
     test: list[dict[str, Any]] = []
 
+    known_lineages = {
+        lineage
+        for lineages in EXPECTED_FOLDS.values()
+        for lineage in lineages
+    }
+
     for row in rows:
         lineage = row.get("lineage_id")
+        if lineage not in known_lineages:
+            raise ValueError("unknown RB2 lineage cannot enter training")
 
         if lineage in test_lineages:
             test.append(row)
@@ -802,9 +810,61 @@ def fold_partition(
     return train, valid, test
 
 
+def assert_real_rows_frozen(rows_path: Path) -> None:
+    """Require reviewed corpus freeze before any real-data model fitting."""
+    freeze_path = ROOT / "REAL_ROWS_FREEZE.json"
+    if not freeze_path.exists():
+        raise RuntimeError("REFUSED_RB3_REAL_ROWS_UNFROZEN")
+
+    freeze = load_json(freeze_path)
+    expected_path = ROOT / "FROZEN_ROWS.csv"
+    if not (
+        freeze.get("status") == "REVIEWED_FROZEN"
+        and freeze.get("execution_authorized") is True
+        and freeze.get("row_file") == "FROZEN_ROWS.csv"
+        and rows_path.resolve() == expected_path.resolve()
+        and expected_path.is_file()
+    ):
+        raise RuntimeError("REFUSED_RB3_REAL_ROWS_UNAUTHORIZED")
+
+    digest = sha256_bytes(expected_path.read_bytes())
+    if digest != freeze.get("sha256"):
+        raise RuntimeError("REFUSED_RB3_REAL_ROWS_HASH_DRIFT")
+
+    rows = load_rows_csv(expected_path)
+    manifest = load_json(RB2 / "corpus_manifest.json")
+    expected_sources = {r["id"]: r["lineage"] for r in manifest["records"]}
+    observed_sources = set()
+    observed_lineages = set()
+    ids = set()
+    for row in rows:
+        rid = row.get("row_id")
+        source = row.get("source_id")
+        lineage = row.get("lineage_id")
+        if (
+            not rid or rid in ids
+            or source not in expected_sources
+            or expected_sources[source] != lineage
+            or row.get("reported_direction") not in TARGET_CLASSES
+        ):
+            raise RuntimeError("REFUSED_RB3_REAL_ROWS_CONTRACT_DRIFT")
+        ids.add(rid)
+        observed_sources.add(source)
+        observed_lineages.add(lineage)
+
+    if (
+        observed_sources != set(expected_sources)
+        or observed_lineages != set(expected_sources.values())
+        or len(observed_lineages) != 11
+    ):
+        raise RuntimeError("REFUSED_RB3_REAL_ROWS_INCOMPLETE")
+
+
 def execute(
     rows_path: Path,
 ) -> dict[str, Any]:
+    # A valid-looking arbitrary CSV must never trigger a real fit.
+    assert_real_rows_frozen(rows_path)
     static_check()
 
     syn = synthetic_control()
