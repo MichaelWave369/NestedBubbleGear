@@ -1,0 +1,33 @@
+name: RB3 E0 Qualification
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Compile RB3
+        run: python -m py_compile experiments/RB3/src/rb3.py
+
+      - name: Verify frozen static contract
+        run: python experiments/RB3/src/rb3.py --static-check
+
+      - name: Run deterministic synthetic positive control
+        run: python experiments/RB3/src/rb3.py --synthetic-check
+
+      - name: Run RB3 unit tests
+        run: python -m unittest discover -s experiments/RB3/tests -v
