@@ -1,0 +1,32 @@
+name: RB3 R1 Primary Source Audit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Python syntax qualification
+        run: |
+          python -m py_compile experiments/RB3/R1/validate_candidate.py
+          python -m py_compile experiments/RB3/src/rb3.py
+      - name: Primary paper and row evidence audit
+        run: python experiments/RB3/R1/validate_candidate.py
+      - name: Tamper and execution-refusal tests
+        run: python -m unittest discover -s experiments/RB3/R1/tests -v
+      - name: Preserve R0 contract
+        run: python -m unittest discover -s experiments/RB3/R0/tests -v
+      - name: Preserve E0 model mechanics
+        run: python experiments/RB3/src/rb3.py --static-check
+      # No real literature fitting or --execute invocation in PR CI.
