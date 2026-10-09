@@ -102,6 +102,10 @@ See [experiments/RB2](experiments/RB2/).
 
 See [experiments/RB3](experiments/RB3/).
 
+**NBG-RB3-R0** adds an auditable **partial** condition-by-endpoint extraction from the 2025 mouse spinal neural-stem-cell study: nine figure-level comparisons and a separate evidence ledger retaining reported means, p-values and assay details. The remaining RB2 sources remain in a review queue. Real model execution is now hard-gated on a separately reviewed complete input freeze, including exact source coverage and SHA-256 verification. R0 is not a biological result.
+
+See [experiments/RB3/R0](experiments/RB3/R0/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.

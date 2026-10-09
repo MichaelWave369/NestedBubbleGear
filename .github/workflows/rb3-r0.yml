@@ -1,0 +1,30 @@
+name: RB3 R0 Extraction Audit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  static-extraction-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Compile audit and frozen model runner
+        run: |
+          python -m py_compile experiments/RB3/R0/validate_candidate.py
+          python -m py_compile experiments/RB3/src/rb3.py
+      - name: Check partial extraction and provenance
+        run: python experiments/RB3/R0/validate_candidate.py
+      - name: Verify fail-closed execution and tamper refusals
+        run: python -m unittest discover -s experiments/RB3/R0/tests -v
+      - name: Check prior RB3 E0 static protocol
+        run: python experiments/RB3/src/rb3.py --static-check
+      # No --execute invocation is permitted in pull-request CI.
