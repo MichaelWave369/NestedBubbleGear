@@ -1,0 +1,123 @@
+{
+  "registry_id": "NBG-RB3-R0-ROW-EVIDENCE",
+  "status": "PARTIAL_SOURCE_BACKED",
+  "source_id": "RB2-S001",
+  "source_url": "https://www.nature.com/articles/s41598-025-14738-x",
+  "doi": "10.1038/s41598-025-14738-x",
+  "comparison": "each exposed condition vs 0 mT sham, reported by source",
+  "population": "in vitro adult mouse spinal neural stem cells",
+  "frequency_hz": 50,
+  "field_amplitude_units": "mT",
+  "exposure": "1 hour per day for 3 consecutive days",
+  "warning": "NULL is a nonsignificant-vs-sham label, not a demonstrated absence of biological effect. Original measured means and p-values retained here; the RB3 predictor MUST NOT ingest this file.",
+  "records": [
+    {
+      "row_id": "RB3R0-S001-01",
+      "figure": "Figure 3C",
+      "assay": "NeuN mRNA qRT-PCR",
+      "mean": 168.5,
+      "comparator_mean": 100,
+      "units": "percent_of_sham",
+      "p_vs_sham": "0.078",
+      "n": 5,
+      "meaning": "source-reported comparison",
+      "reference": "https://www.nature.com/articles/s41598-025-14738-x"
+    },
+    {
+      "row_id": "RB3R0-S001-02",
+      "figure": "Figure 3C",
+      "assay": "NeuN mRNA qRT-PCR",
+      "mean": 299.3,
+      "comparator_mean": 100,
+      "units": "percent_of_sham",
+      "p_vs_sham": "<0.001",
+      "n": 5,
+      "meaning": "source-reported comparison",
+      "reference": "https://www.nature.com/articles/s41598-025-14738-x"
+    },
+    {
+      "row_id": "RB3R0-S001-03",
+      "figure": "Figure 3C",
+      "assay": "NeuN mRNA qRT-PCR",
+      "mean": 321.8,
+      "comparator_mean": 100,
+      "units": "percent_of_sham",
+      "p_vs_sham": "<0.001",
+      "n": 5,
+      "meaning": "source-reported comparison",
+      "reference": "https://www.nature.com/articles/s41598-025-14738-x"
+    },
+    {
+      "row_id": "RB3R0-S001-04",
+      "figure": "Figure 3B",
+      "assay": "NeuN-positive cell immunostaining normalized to sham",
+      "mean": 157.1,
+      "comparator_mean": 100,
+      "units": "percent_of_sham",
+      "p_vs_sham": "0.027",
+      "n": 4,
+      "meaning": "source-reported comparison",
+      "reference": "https://www.nature.com/articles/s41598-025-14738-x"
+    },
+    {
+      "row_id": "RB3R0-S001-05",
+      "figure": "Figure 3B",
+      "assay": "NeuN-positive cell immunostaining normalized to sham",
+      "mean": 182,
+      "comparator_mean": 100,
+      "units": "percent_of_sham",
+      "p_vs_sham": "0.002",
+      "n": 4,
+      "meaning": "source-reported comparison",
+      "reference": "https://www.nature.com/articles/s41598-025-14738-x"
+    },
+    {
+      "row_id": "RB3R0-S001-06",
+      "figure": "Figure 3B",
+      "assay": "NeuN-positive cell immunostaining normalized to sham",
+      "mean": 147.2,
+      "comparator_mean": 100,
+      "units": "percent_of_sham",
+      "p_vs_sham": "0.073",
+      "n": 4,
+      "meaning": "source-reported comparison",
+      "reference": "https://www.nature.com/articles/s41598-025-14738-x"
+    },
+    {
+      "row_id": "RB3R0-S001-07",
+      "figure": "Figure 3G",
+      "assay": "Tuj1 neurites per cell count",
+      "mean": 2.56,
+      "comparator_mean": 2.21,
+      "units": "neurites_per_cell",
+      "p_vs_sham": "0.295",
+      "n": 5,
+      "meaning": "source-reported comparison",
+      "reference": "https://www.nature.com/articles/s41598-025-14738-x"
+    },
+    {
+      "row_id": "RB3R0-S001-08",
+      "figure": "Figure 3G",
+      "assay": "Tuj1 neurites per cell count",
+      "mean": 2.96,
+      "comparator_mean": 2.21,
+      "units": "neurites_per_cell",
+      "p_vs_sham": "0.009",
+      "n": 5,
+      "meaning": "source-reported comparison",
+      "reference": "https://www.nature.com/articles/s41598-025-14738-x"
+    },
+    {
+      "row_id": "RB3R0-S001-09",
+      "figure": "Figure 3G",
+      "assay": "Tuj1 neurites per cell count",
+      "mean": 2.52,
+      "comparator_mean": 2.21,
+      "units": "neurites_per_cell",
+      "p_vs_sham": "0.380",
+      "n": 5,
+      "meaning": "source-reported comparison",
+      "reference": "https://www.nature.com/articles/s41598-025-14738-x"
+    }
+  ]
+}
