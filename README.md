@@ -94,6 +94,10 @@ RB1 gives 7.83 Hz, 10.5 Hz, 14.1 Hz, and every other candidate frequency **no pr
 
 See [docs/RESONANT_BUBBLES.md](docs/RESONANT_BUBBLES.md) and [experiments/RB1](experiments/RB1/).
 
+**NBG-RB2** freezes the first literature corpus before modeling: 14 primary experimental EMF records across 11 source lineages, a grouped five-fold lineage evaluation schedule, an extraction/normalization schema, record digests, and a context-only registry that keeps endogenous planarian bioelectric work and the DNA-fractal-antenna debate out of RB3 predictive inputs.
+
+See [experiments/RB2](experiments/RB2/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
@@ -226,6 +230,7 @@ Read [CLAIMS.md](CLAIMS.md) before treating a mathematical toy result as evidenc
 │   ├── NBGT15/           Frozen Adaptive Keyhole Synthesis rung
 │   ├── CW1/              Cosmic-web Keyhole closure protocol candidate
 │   ├── RB1/              Resonant-bubble frequency-only closure protocol
+│   ├── RB2/              Frozen EMF literature corpus + extraction contract
 │   ├── W1/               Frozen bounded learned causal-memory run protocol
 │   └── archive-index.json
 ├── CLAIMS.md             Claim-status firewall
