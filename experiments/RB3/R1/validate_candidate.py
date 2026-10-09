@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 RB3 = ROOT.parent
-RB2 = ROOT.parents[2] / "RB2"
+RB2 = ROOT.parents[1] / "RB2"
 R0 = RB3 / "R0"
 CANDIDATE = ROOT / "additional_rows.csv"
 EVIDENCE = ROOT / "source_evidence.json"
