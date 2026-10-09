@@ -1,0 +1,378 @@
+{
+  "corpus_id": "NBG-RB2-CORPUS",
+  "version": "0.1.0",
+  "status": "FROZEN_SOURCE_SET_PROTOCOL_ONLY",
+  "frozen_on": "2026-10-09",
+  "manifest_digest_sha256": "b0fbfa33e848fafaddaa73fbf1066d8c2a542ec57e415d57fbea8f4979d15993",
+  "source_count": 14,
+  "lineage_count": 11,
+  "split_policy": {
+    "type": "GROUPED_5_FOLD_LINEAGE_CROSS_VALIDATION",
+    "ordering_rule": "Sort unique lineage IDs by SHA256('NBG-RB2-LINEAGE-ORDER-v0.1.0:' + lineage_id), then assign round-robin folds 0..4.",
+    "folds": {
+      "0": [
+        "L004",
+        "L002",
+        "L005"
+      ],
+      "1": [
+        "L003",
+        "L006"
+      ],
+      "2": [
+        "L009",
+        "L007"
+      ],
+      "3": [
+        "L011",
+        "L008"
+      ],
+      "4": [
+        "L010",
+        "L001"
+      ]
+    },
+    "evaluation_rule": "For outer test fold k, validation fold=(k+1) mod 5; train on remaining three folds."
+  },
+  "records": [
+    {
+      "id": "RB2-S001",
+      "lineage": "L001",
+      "pmid": "40789910",
+      "doi": "10.1038/s41598-025-14738-x",
+      "year": 2025,
+      "title": "Extremely low-frequency electromagnetic fields facilitate proliferation and functional differentiation in spinal neural stem cells",
+      "system": "adult mouse spinal cord-derived neural stem cells",
+      "frequency_hz": [
+        50
+      ],
+      "amplitude": [
+        "0.2 mT",
+        "0.5 mT",
+        "1.0 mT"
+      ],
+      "exposure": "1 h/day for 3 consecutive days",
+      "endpoint": [
+        "PROLIFERATION",
+        "SELF_RENEWAL",
+        "DIFFERENTIATION",
+        "NEURITE_OUTGROWTH",
+        "ION_CHANNEL_ACTIVITY",
+        "CALCIUM_SIGNAL",
+        "GENE_EXPRESSION"
+      ],
+      "direction": "MIXED_POSITIVE_WINDOW",
+      "mechanism": "MEMBRANE_CHANNEL_MEDIATED",
+      "record_digest_sha256": "74ee95f1ecc76a9b173e66325563d6a4d0f95a44046f95dc4dc202aa2f65f9fe"
+    },
+    {
+      "id": "RB2-S002",
+      "lineage": "L002",
+      "pmid": "26950212",
+      "doi": "10.1371/journal.pone.0150923",
+      "year": 2016,
+      "title": "Extremely Low-Frequency Electromagnetic Fields Promote In Vitro Neuronal Differentiation and Neurite Outgrowth of Embryonic Neural Stem Cells via Up-Regulating TRPC1",
+      "system": "mouse embryonic neural stem cells",
+      "frequency_hz": [
+        50
+      ],
+      "amplitude": [
+        "1 mT"
+      ],
+      "exposure": "4 h/day for 1, 2, or 3 days",
+      "endpoint": [
+        "PROLIFERATION",
+        "SELF_RENEWAL",
+        "DIFFERENTIATION",
+        "NEURITE_OUTGROWTH",
+        "CALCIUM_SIGNAL",
+        "GENE_EXPRESSION"
+      ],
+      "direction": "POSITIVE",
+      "mechanism": "MEMBRANE_CHANNEL_MEDIATED",
+      "record_digest_sha256": "f176364654d2235ee1595543ba3056e06164d338d9f2f564ba6131a508ad135f"
+    },
+    {
+      "id": "RB2-S003",
+      "lineage": "L002",
+      "pmid": "24595264",
+      "doi": "10.1371/journal.pone.0090041",
+      "year": 2014,
+      "title": "Extremely low-frequency electromagnetic fields affect transcript levels of neuronal differentiation-related genes in embryonic neural stem cells",
+      "system": "mouse embryonic neural stem cells",
+      "frequency_hz": [
+        50
+      ],
+      "amplitude": [
+        "2 mT key differentiation condition; multiple intensities used"
+      ],
+      "exposure": "3 days for key differentiation condition; multiple exposure times in study",
+      "endpoint": [
+        "PROLIFERATION",
+        "DIFFERENTIATION",
+        "GENE_EXPRESSION"
+      ],
+      "direction": "MIXED_MOLECULAR_ONLY",
+      "mechanism": "UNRESOLVED",
+      "record_digest_sha256": "19e7b9638830f265bd1b56c8059e73d047ec1f4f091c99a8ab3ffce77207518f"
+    },
+    {
+      "id": "RB2-S004",
+      "lineage": "L003",
+      "pmid": "17941084",
+      "doi": "10.1002/jcp.21293",
+      "year": 2008,
+      "title": "Extremely low-frequency electromagnetic fields promote in vitro neurogenesis via upregulation of Ca(v)1-channel activity",
+      "system": "newborn mouse cortical neural stem/progenitor cells",
+      "frequency_hz": [
+        50
+      ],
+      "amplitude": [
+        "1 mT"
+      ],
+      "exposure": null,
+      "endpoint": [
+        "DIFFERENTIATION",
+        "ION_CHANNEL_ACTIVITY",
+        "CALCIUM_SIGNAL"
+      ],
+      "direction": "POSITIVE",
+      "mechanism": "MEMBRANE_CHANNEL_MEDIATED",
+      "record_digest_sha256": "3cf6828c2991166b46a8562a6ea6d20a120f5bd5428e76fe584acd71d204085e"
+    },
+    {
+      "id": "RB2-S005",
+      "lineage": "L003",
+      "pmid": "20816824",
+      "doi": "10.1016/j.expneurol.2010.08.022",
+      "year": 2010,
+      "title": "Exposure to extremely low-frequency (50 Hz) electromagnetic fields enhances adult hippocampal neurogenesis in C57BL/6 mice",
+      "system": "adult C57BL/6 mouse hippocampus in vivo",
+      "frequency_hz": [
+        50
+      ],
+      "amplitude": [
+        "1 mT"
+      ],
+      "exposure": "1 to 7 h/day for 7 days",
+      "endpoint": [
+        "PROLIFERATION",
+        "DIFFERENTIATION",
+        "FUNCTIONAL_RECOVERY"
+      ],
+      "direction": "POSITIVE",
+      "mechanism": "MEMBRANE_CHANNEL_MEDIATED",
+      "record_digest_sha256": "0ed3f5bf09e12ea1422472ca7b20ba2da6c46c5d7437a297c21fc93e2c64bb8a"
+    },
+    {
+      "id": "RB2-S006",
+      "lineage": "L004",
+      "pmid": "22926783",
+      "doi": "10.1002/bem.21747",
+      "year": 2013,
+      "title": "Effects of low frequency electromagnetic field on proliferation of human epidermal stem cells: An in vitro study",
+      "system": "human epidermal stem cells",
+      "frequency_hz": [
+        1,
+        10,
+        50
+      ],
+      "amplitude": [
+        "5 mT"
+      ],
+      "exposure": "30 min/day for 3, 5, or 7 days",
+      "endpoint": [
+        "PROLIFERATION"
+      ],
+      "direction": "FREQUENCY_DEPENDENT_POSITIVE",
+      "mechanism": "UNRESOLVED",
+      "record_digest_sha256": "33bb01a9f4b1eaa456178ddfb1a097e4a7337a45ce8d1352fcc43772b198a515"
+    },
+    {
+      "id": "RB2-S007",
+      "lineage": "L004",
+      "pmid": "22568519",
+      "doi": "10.3109/09553002.2012.692496",
+      "year": 2012,
+      "title": "Effects of 50 Hz electromagnetic fields on human epidermal stem cells cultured on collagen sponge scaffolds",
+      "system": "human epidermal stem cells on type-I collagen sponge scaffolds",
+      "frequency_hz": [
+        50
+      ],
+      "amplitude": [
+        "5 mT"
+      ],
+      "exposure": "30 min/day for 14 days",
+      "endpoint": [
+        "PROLIFERATION"
+      ],
+      "direction": "POSITIVE",
+      "mechanism": "UNRESOLVED",
+      "record_digest_sha256": "5d7d6dea018582494a730042d0f10b488379c0471f1923148cccec6a2a24434c"
+    },
+    {
+      "id": "RB2-S008",
+      "lineage": "L005",
+      "pmid": "22676915",
+      "doi": "10.3109/15368378.2012.662194",
+      "year": 2012,
+      "title": "Effects of 50 Hz pulsed electromagnetic fields on the growth and cell cycle arrest of mesenchymal stem cells: an in vitro study",
+      "system": "rat mesenchymal stem cells",
+      "frequency_hz": [
+        50
+      ],
+      "amplitude": [
+        "10 mT"
+      ],
+      "exposure": "3 h or 6 h",
+      "endpoint": [
+        "PROLIFERATION"
+      ],
+      "direction": "TRANSIENT_POSITIVE",
+      "mechanism": "UNRESOLVED",
+      "record_digest_sha256": "bc13825c01052f4866a16578d4a7bb8a0982cc69052af7d7e151e199ce418bc0"
+    },
+    {
+      "id": "RB2-S009",
+      "lineage": "L006",
+      "pmid": "24068522",
+      "doi": "10.1007/s12013-013-9764-8",
+      "year": 2014,
+      "title": "The time-dependent manner of sinusoidal electromagnetic fields on rat bone marrow mesenchymal stem cells proliferation, differentiation, and mineralization",
+      "system": "rat bone marrow mesenchymal stem cells",
+      "frequency_hz": [
+        15
+      ],
+      "amplitude": [
+        "1 mT"
+      ],
+      "exposure": "multiple durations; time-dependent design",
+      "endpoint": [
+        "PROLIFERATION",
+        "DIFFERENTIATION",
+        "TISSUE_ARCHITECTURE"
+      ],
+      "direction": "TIME_DEPENDENT_POSITIVE",
+      "mechanism": "INTRACELLULAR_SIGNAL_MEDIATED",
+      "record_digest_sha256": "8e4c35c2538b8b5ccaefe83c91dc0e15f85493d8e98a1b1534a22735ce883ad2"
+    },
+    {
+      "id": "RB2-S010",
+      "lineage": "L007",
+      "pmid": "27254779",
+      "doi": "10.3109/15368378.2016.1138123",
+      "year": 2016,
+      "title": "Effects of extremely low-frequency magnetotherapy on proliferation of human dermal fibroblasts",
+      "system": "human dermal fibroblasts",
+      "frequency_hz": [
+        5,
+        50
+      ],
+      "amplitude": [
+        "0.25-1.6 mT"
+      ],
+      "exposure": "1.5 h",
+      "endpoint": [
+        "PROLIFERATION",
+        "SURVIVAL"
+      ],
+      "direction": "DECREASED_PROLIFERATION_NO_VIABILITY_CHANGE",
+      "mechanism": "UNRESOLVED",
+      "record_digest_sha256": "67d3a62d38c010754ba4ba1bf96f448382f3e4801730dd2fc365f4ebf51a799a"
+    },
+    {
+      "id": "RB2-S011",
+      "lineage": "L008",
+      "pmid": "11510961",
+      "doi": "10.14670/HH-16.719",
+      "year": 2001,
+      "title": "Sinusoidal 50 Hz magnetic fields do not affect structural morphology and proliferation of human cells in vitro",
+      "system": "human MCF-7 cells and normal human fibroblasts",
+      "frequency_hz": [
+        50
+      ],
+      "amplitude": [
+        "20 uT",
+        "500 uT"
+      ],
+      "exposure": "1 to 4 days",
+      "endpoint": [
+        "PROLIFERATION",
+        "SURVIVAL"
+      ],
+      "direction": "NULL",
+      "mechanism": "UNRESOLVED",
+      "record_digest_sha256": "d0fb909e8c4eb2820cc990eb76245a238b3fef3d546d350f401ab202b7ffd502"
+    },
+    {
+      "id": "RB2-S012",
+      "lineage": "L009",
+      "pmid": "9364198",
+      "doi": "10.1016/S0024-3205(97)00833-3",
+      "year": 1997,
+      "title": "Investigation of the effects of 50 Hz magnetic fields on purified human hematopoietic progenitors",
+      "system": "purified human hematopoietic progenitor cells",
+      "frequency_hz": [
+        50
+      ],
+      "amplitude": [
+        "10 uT",
+        "1 mT"
+      ],
+      "exposure": null,
+      "endpoint": [
+        "PROLIFERATION",
+        "SELF_RENEWAL"
+      ],
+      "direction": "NULL",
+      "mechanism": "UNRESOLVED",
+      "record_digest_sha256": "ba5e367649a0618713b80dfe2adbef6dec0ce072bd1aec2da412a6bebb5134a6"
+    },
+    {
+      "id": "RB2-S013",
+      "lineage": "L010",
+      "pmid": "8919028",
+      "doi": "10.3109/08977199609003222",
+      "year": 1996,
+      "title": "Exposure to extremely low frequency magnetic fields has no effect on growth rate or clonogenic potential of multipotential haemopoietic progenitor cells",
+      "system": "mouse multipotential hematopoietic progenitor cell line FDCP-mix(A4)",
+      "frequency_hz": [
+        50
+      ],
+      "amplitude": [
+        "6 uT RMS plus other regimes"
+      ],
+      "exposure": "1, 4, 7, or 21 days",
+      "endpoint": [
+        "PROLIFERATION",
+        "SELF_RENEWAL"
+      ],
+      "direction": "NULL",
+      "mechanism": "UNRESOLVED",
+      "record_digest_sha256": "d96016613f99dd7d40efa20524edb7f547e91bd688bdd779211aec23590afd06"
+    },
+    {
+      "id": "RB2-S014",
+      "lineage": "L011",
+      "pmid": "15777847",
+      "doi": "10.1016/j.bbamcr.2004.09.005",
+      "year": 2005,
+      "title": "50-Hz extremely low frequency electromagnetic fields enhance cell proliferation and DNA damage: possible involvement of a redox mechanism",
+      "system": "HL-60 leukemia, Rat-1 fibroblast, and WI-38 human fibroblast cells",
+      "frequency_hz": [
+        50
+      ],
+      "amplitude": [
+        "0.5-1.0 mT"
+      ],
+      "exposure": "24-72 h",
+      "endpoint": [
+        "PROLIFERATION",
+        "GENE_EXPRESSION"
+      ],
+      "direction": "POSITIVE_WITH_DNA_DAMAGE",
+      "mechanism": "INTRACELLULAR_SIGNAL_MEDIATED",
+      "record_digest_sha256": "b4c92f523d444077aadbff36ea58496fdf648346ab914dab92126974bac15d3b"
+    }
+  ]
+}
