@@ -1,0 +1,101 @@
+{
+  "queue_id": "NBG-RB3-R0-EXTRACTION-QUEUE",
+  "status": "OPEN_PARTIAL",
+  "complete": false,
+  "model_execution_authorized": false,
+  "source_count": 14,
+  "source_ids": [
+    "RB2-S001",
+    "RB2-S002",
+    "RB2-S003",
+    "RB2-S004",
+    "RB2-S005",
+    "RB2-S006",
+    "RB2-S007",
+    "RB2-S008",
+    "RB2-S009",
+    "RB2-S010",
+    "RB2-S011",
+    "RB2-S012",
+    "RB2-S013",
+    "RB2-S014"
+  ],
+  "entries": [
+    {
+      "source_id": "RB2-S001",
+      "status": "PARTIAL_FIGURE_LEVEL_EXTRACTION",
+      "notes": "Nine Figure 3B/3C/3G rows verified; other outcomes and conditions remain unextracted."
+    },
+    {
+      "source_id": "RB2-S002",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "notes": "Abstract-level overall direction is not condition-level evidence; verify individual arm/endpoint comparisons before adding."
+    },
+    {
+      "source_id": "RB2-S003",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "notes": "Abstract-level overall direction is not condition-level evidence; verify individual arm/endpoint comparisons before adding."
+    },
+    {
+      "source_id": "RB2-S004",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "notes": "Abstract-level overall direction is not condition-level evidence; verify individual arm/endpoint comparisons before adding."
+    },
+    {
+      "source_id": "RB2-S005",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "notes": "Abstract-level overall direction is not condition-level evidence; verify individual arm/endpoint comparisons before adding."
+    },
+    {
+      "source_id": "RB2-S006",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "notes": "Abstract-level overall direction is not condition-level evidence; verify individual arm/endpoint comparisons before adding."
+    },
+    {
+      "source_id": "RB2-S007",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "notes": "Abstract-level overall direction is not condition-level evidence; verify individual arm/endpoint comparisons before adding."
+    },
+    {
+      "source_id": "RB2-S008",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "notes": "Abstract-level overall direction is not condition-level evidence; verify individual arm/endpoint comparisons before adding."
+    },
+    {
+      "source_id": "RB2-S009",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "notes": "Abstract-level overall direction is not condition-level evidence; verify individual arm/endpoint comparisons before adding."
+    },
+    {
+      "source_id": "RB2-S010",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "notes": "Abstract-level overall direction is not condition-level evidence; verify individual arm/endpoint comparisons before adding."
+    },
+    {
+      "source_id": "RB2-S011",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "notes": "Abstract-level overall direction is not condition-level evidence; verify individual arm/endpoint comparisons before adding."
+    },
+    {
+      "source_id": "RB2-S012",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "notes": "Abstract-level overall direction is not condition-level evidence; verify individual arm/endpoint comparisons before adding."
+    },
+    {
+      "source_id": "RB2-S013",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "notes": "Abstract-level overall direction is not condition-level evidence; verify individual arm/endpoint comparisons before adding."
+    },
+    {
+      "source_id": "RB2-S014",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "notes": "Abstract-level overall direction is not condition-level evidence; verify individual arm/endpoint comparisons before adding."
+    }
+  ],
+  "gates": [
+    "UNREVIEWED_SOURCE_ARMS",
+    "UNHASHED_COMPLETE_EXTRACTION",
+    "NO_REVIEWED_FREEZE_RECEIPT",
+    "NO_MODEL_EXECUTION_AUTHORITY"
+  ]
+}
