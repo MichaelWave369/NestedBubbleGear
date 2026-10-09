@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "status": "FROZEN_SOURCE_SET_PROTOCOL_ONLY",
   "frozen_on": "2026-10-09",
-  "manifest_digest_sha256": "b0fbfa33e848fafaddaa73fbf1066d8c2a542ec57e415d57fbea8f4979d15993",
+  "manifest_digest_sha256": "2a91f27c113fb4ae3b63ec8bfad2b2c1c99e84417bd5f3e095c803b9e4c4e351",
   "source_count": 14,
   "lineage_count": 11,
   "split_policy": {
@@ -114,7 +114,7 @@
       ],
       "direction": "MIXED_MOLECULAR_ONLY",
       "mechanism": "UNRESOLVED",
-      "record_digest_sha256": "19e7b9638830f265bd1b56c8059e73d047ec1f4f091c99a8ab3ffce77207518f"
+      "record_digest_sha256": "66eacb920e11f6375ec876cc3ac6586c631358d399c1d088dc17c29afcb9f91b"
     },
     {
       "id": "RB2-S004",
