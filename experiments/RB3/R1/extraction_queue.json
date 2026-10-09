@@ -1,0 +1,93 @@
+{
+  "queue_id": "NBG-RB3-R1-EXTRACTION-QUEUE",
+  "status": "OPEN_PARTIAL",
+  "complete": false,
+  "model_execution_authorized": false,
+  "sources_total": 14,
+  "entries": [
+    {
+      "source_id": "RB2-S001",
+      "status": "R0_PARTIAL_FIGURE_LEVEL",
+      "candidate_rows": 9
+    },
+    {
+      "source_id": "RB2-S002",
+      "status": "R1_PRIMARY_FULLTEXT_PARTIAL",
+      "candidate_rows": 9
+    },
+    {
+      "source_id": "RB2-S003",
+      "status": "R1_PRIMARY_FULLTEXT_PARTIAL",
+      "candidate_rows": 9
+    },
+    {
+      "source_id": "RB2-S004",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "candidate_rows": 0
+    },
+    {
+      "source_id": "RB2-S005",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "candidate_rows": 0
+    },
+    {
+      "source_id": "RB2-S006",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "candidate_rows": 0
+    },
+    {
+      "source_id": "RB2-S007",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "candidate_rows": 0
+    },
+    {
+      "source_id": "RB2-S008",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "candidate_rows": 0
+    },
+    {
+      "source_id": "RB2-S009",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "candidate_rows": 0
+    },
+    {
+      "source_id": "RB2-S010",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "candidate_rows": 0
+    },
+    {
+      "source_id": "RB2-S011",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "candidate_rows": 0
+    },
+    {
+      "source_id": "RB2-S012",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "candidate_rows": 0
+    },
+    {
+      "source_id": "RB2-S013",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "candidate_rows": 0
+    },
+    {
+      "source_id": "RB2-S014",
+      "status": "PENDING_CONDITION_LEVEL_VERIFICATION",
+      "candidate_rows": 0
+    }
+  ],
+  "blockers": [
+    "Only L001 and L002 have extracted candidate conditions",
+    "12 additional source records not yet extracted to condition level",
+    "No reviewed full-corpus freeze",
+    "No source-lineage-complete model input",
+    "Real-run authorization remains absent"
+  ],
+  "next_priority": [
+    "RB2-S004",
+    "RB2-S005",
+    "RB2-S006",
+    "RB2-S010",
+    "RB2-S011"
+  ]
+}
