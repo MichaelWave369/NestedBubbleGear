@@ -1,0 +1,50 @@
+{
+  "registry_id": "NBG-RB2-CONTEXT",
+  "version": "0.1.0",
+  "model_input": false,
+  "purpose": "Mechanism and hypothesis context only. These records must never be treated as rows in RB3 predictive evaluation.",
+  "records": [
+    {
+      "id": "RB2-C001",
+      "pmid": "30799071",
+      "doi": "10.1016/j.bpj.2019.01.029",
+      "class": "ENDOGENOUS_BIOELECTRIC_PATTERNING",
+      "note": "Planarian early bioelectric polarity; not an external-frequency exposure study."
+    },
+    {
+      "id": "RB2-C002",
+      "pmid": "28538159",
+      "doi": "10.1016/j.bpj.2017.04.011",
+      "class": "ENDOGENOUS_BIOELECTRIC_MEMORY",
+      "note": "Persistent planarian regenerative target-state work; not an external-frequency exposure study."
+    },
+    {
+      "id": "RB2-C003",
+      "pmid": "21457072",
+      "doi": "10.3109/09553002.2011.538130",
+      "class": "DIRECT_DNA_HYPOTHESIS",
+      "note": "DNA fractal-antenna proposal; review/interpretation, not an RB3 outcome row."
+    },
+    {
+      "id": "RB2-C004",
+      "pmid": "22132741",
+      "doi": "10.3109/09553002.2011.626490",
+      "class": "DIRECT_DNA_CRITIQUE",
+      "note": "Published critique of the fractal-antenna proposal."
+    },
+    {
+      "id": "RB2-C005",
+      "pmid": "38280492",
+      "doi": "10.1016/j.pbiomolbio.2024.01.003",
+      "class": "REVIEW_DISCOVERY",
+      "note": "PEMF tissue repair/regeneration review; source discovery only, not a model row."
+    },
+    {
+      "id": "RB2-C006",
+      "pmid": "32495506",
+      "doi": "10.1002/bem.22271",
+      "class": "CLINICAL_META_ANALYSIS",
+      "note": "Bone-healing meta-analysis; context and source discovery only, not pooled into cellular response rows."
+    }
+  ]
+}

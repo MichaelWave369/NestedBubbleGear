@@ -1,0 +1,89 @@
+{
+  "schema_id": "NBG-RB2-EXTRACTION",
+  "version": "0.1.0",
+  "row_unit": "One experimental condition/arm x endpoint observation from an included primary source.",
+  "required_fields": [
+    "row_id",
+    "source_id",
+    "lineage_id",
+    "species",
+    "sample_class",
+    "system_class",
+    "endpoint_class",
+    "frequency_hz",
+    "field_type",
+    "amplitude_value_si",
+    "amplitude_original",
+    "waveform",
+    "duty_cycle",
+    "exposure_duration_s",
+    "repeated_exposure_count",
+    "geometry_or_orientation",
+    "sham_control_present",
+    "reported_direction",
+    "reported_significance",
+    "effect_size_value",
+    "effect_size_type",
+    "mechanism_claim_class",
+    "bubble_from",
+    "bubble_to",
+    "value_origin",
+    "source_locator",
+    "extraction_note"
+  ],
+  "enums": {
+    "endpoint_class": [
+      "PROLIFERATION",
+      "SURVIVAL",
+      "SELF_RENEWAL",
+      "MIGRATION",
+      "DIFFERENTIATION",
+      "NEURITE_OUTGROWTH",
+      "ION_CHANNEL_ACTIVITY",
+      "CALCIUM_SIGNAL",
+      "GENE_EXPRESSION",
+      "PATTERNING",
+      "TISSUE_ARCHITECTURE",
+      "FUNCTIONAL_RECOVERY",
+      "OTHER_DECLARED"
+    ],
+    "reported_direction": [
+      "INCREASE",
+      "DECREASE",
+      "NULL",
+      "MIXED",
+      "NOT_APPLICABLE"
+    ],
+    "reported_significance": [
+      "SIGNIFICANT",
+      "NOT_SIGNIFICANT",
+      "NOT_REPORTED",
+      "MIXED"
+    ],
+    "mechanism_claim_class": [
+      "MEMBRANE_CHANNEL_MEDIATED",
+      "INTRACELLULAR_SIGNAL_MEDIATED",
+      "DIRECT_DNA_ASSERTED",
+      "UNRESOLVED",
+      "OTHER_DECLARED"
+    ],
+    "value_origin": [
+      "DIRECTLY_REPORTED",
+      "DERIVED_UNIT_CONVERSION",
+      "UNKNOWN"
+    ]
+  },
+  "normalization": {
+    "frequency": "Hz",
+    "magnetic_flux_density": "tesla",
+    "exposure_duration": "seconds",
+    "missing_values": "null only; never impute during extraction",
+    "unit_conversion": "retain original value/unit and normalized SI value",
+    "textual_ranges": "retain source text plus min/max normalized fields when derivable"
+  },
+  "anti_leakage": [
+    "No title, author, DOI, PMID, source ID, lineage ID, journal, publication year, reported direction, significance, or outcome text may enter predictive features.",
+    "No field may be inferred from a related paper merely because authors or apparatus appear similar.",
+    "Rows from one lineage may never appear in more than one of train/validation/test within a fold."
+  ]
+}

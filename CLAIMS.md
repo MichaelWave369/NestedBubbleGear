@@ -28,6 +28,7 @@ These are exact properties of the published/executable constructions. They are n
 - Task-typed convergence and conveyor-aware control.
 - NBG-CW1 cosmic-web Keyhole/closure protocol, including observer refinement and baseline comparison. Protocol status is not an empirical NBG result.
 - NBG-RB1 resonant-bubble / frequency-only closure protocol. The protocol compares frequency-only and multiparameter response models under source-lineage holdout with shuffled-boundary and permutation controls. Protocol status is not an empirical regeneration result and does not identify a treatment frequency.
+- NBG-RB2 frozen literature corpus and extraction contract. The frozen source set, lineage groups, folds, hashes and context quarantine are research infrastructure, not a biological result. Inclusion in the corpus does not validate a paper's mechanism or imply clinical efficacy.
 - NBG-W1 bounded learned causal-memory run protocol. Architecture, budgets, baselines, splits, optimizer, seeds, and revocation rules are frozen; no training result is claimed.
 - NBG-W1H gate-retention-without-keep-pressure protocol. This new protocol asks whether the W1G commit-aligned learned hard gate can retain the preregistered hidden distinctions when the explicit keep-cost term is removed. Protocol status is not a result.
 
