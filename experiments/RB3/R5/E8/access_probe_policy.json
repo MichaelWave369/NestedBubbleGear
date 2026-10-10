@@ -1,0 +1,37 @@
+{
+  "schema_id": "NBG-RB3-R5-E8-OPEN-ACCESS-PROBE",
+  "version": "0.1.0",
+  "scope": "LEGAL_ACCESS_METADATA_DISCOVERY_NOT_FULLTEXT_REVIEW",
+  "provider": "EUROPE_PMC_RESTFUL_SEARCH",
+  "provider_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search",
+  "focus_source_ids": [
+    "RB2-S005",
+    "RB2-S007",
+    "RB2-S008",
+    "RB2-S009",
+    "RB2-S013"
+  ],
+  "missing_candidate_lineages": [
+    "L005",
+    "L006",
+    "L010"
+  ],
+  "actual_independent_fulltext_reviews": 0,
+  "reviewed_fit_eligible_rows": 0,
+  "training_authorized": false,
+  "execution_authorized": false,
+  "never_download_article_content": true,
+  "never_assume_hasPDF_means_open_access": true,
+  "network_error_is_not_no_fulltext": true,
+  "no_publication_figure_or_effect_invention": true,
+  "summary": "Five frozen RB2 paper identities are probed via Europe PMC index metadata. A validated OA/PMCID result yields a *candidate link*; it never proves actual inspectable content, licensed redistribution, peer review, per-arm statistics or eligible model rows.",
+  "access_workflow": [
+    "Lookup exact MED record by frozen PMID",
+    "Require matching DOI, PMID and source",
+    "Use Europe PMC isOpenAccess and PMCID only to identify a candidate repository route",
+    "Report unknown/non-indexed/provider errors without asserting absence of a legal fulltext copy",
+    "Require human original figure/table and license checks before E1/E7 evidence proposals",
+    "No model execution, dataset mutation, or automated evidence promotion"
+  ],
+  "required_external_human_action": "Legally inspect the original article and evidence figure/table, record per-arm exposure, comparator, assay, readout time and source statistics in separate E1 drafts, then adjudicate separately."
+}
