@@ -1,0 +1,78 @@
+name: RB3 primary-source evidence request
+description: Submit an evidence-access lead or an arm-by-arm verification request for a frozen RB2 source. This is NOT independent review approval.
+title: "[RB3 evidence] RB2-Sxxx: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **This form requests evidence, not clinical advice, scientific validation, or dataset promotion.**
+        Begin with the R5-E2 reviewer dossier attached to the most recent RB3 R5 E2 CI run. Do not upload paywalled PDFs, copyrighted figures, private contact details, or credentials. A GitHub issue is not an independent reviewer signoff.
+  - type: dropdown
+    id: source
+    attributes:
+      label: Frozen source ID
+      description: Use the exact source identifier from the RB2 manifest.
+      options:
+        - RB2-S001
+        - RB2-S002
+        - RB2-S003
+        - RB2-S004
+        - RB2-S005
+        - RB2-S006
+        - RB2-S007
+        - RB2-S008
+        - RB2-S009
+        - RB2-S010
+        - RB2-S011
+        - RB2-S012
+        - RB2-S013
+        - RB2-S014
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence_kind
+    attributes:
+      label: Evidence needed or found
+      options:
+        - Primary full-text access lead
+        - Exact exposure-arm and sham comparison
+        - Figure or table assay/statistical detail
+        - Exposure schedule or post-exposure timepoint
+        - Contradiction or provenance correction
+        - Other evidence clarification
+    validations:
+      required: true
+  - type: input
+    id: document_link
+    attributes:
+      label: Public source or publisher landing-page URL
+      placeholder: https://pubmed.ncbi.nlm.nih.gov/...
+      description: A landing page alone is NOT proof of full-text access.
+    validations:
+      required: true
+  - type: textarea
+    id: exact_question
+    attributes:
+      label: Exact unresolved evidence question
+      description: Specify the dose, comparator, assay and timepoint instead of a pooled publication-level claim.
+      placeholder: Which figure supports the 6-hour PEMF versus sham proliferation response at the early readout?
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: Evidence locator or source note
+      description: Page, section, figure, panel, table, and comparison if known. Mark any unknown explicitly. Do not paste copyrighted full-text passages.
+    validations:
+      required: true
+  - type: checkboxes
+    id: conditions
+    attributes:
+      label: Scientific provenance guard
+      options:
+        - label: I understand this issue is a request/lead, not approval of a row or a verification of a biological claim.
+          required: true
+        - label: I have not treated a pooled null or an exposed-arm comparison as an independently verified sham contrast.
+          required: true
+        - label: I have not included private article copies, credentials, or personal contact details.
+          required: true
