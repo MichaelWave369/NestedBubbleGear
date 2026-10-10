@@ -75,3 +75,13 @@ The `R5/review_decisions.json` adjudication ledger starts **empty** and is requi
 The next R5 review/adjudication rung must be a separately reviewed change with actual article-specific evidence and attributable independent reviewer decisions. Missing conditions or unresolved pooled results remain unresolved and may ultimately require `VOID_INSUFFICIENT_CORPUS`.
 
 **Real RB3 fit remains blocked.**
+
+## RB3-R5-E1 review intake
+
+R5/E1 makes the reviewer packet **actionable without falsely promoting evidence**. For any frozen `RB2-Sxxx` source, `review_intake.py --source RB2-Sxxx` emits a structured draft containing DOI, PMID, source lineage, evidence risks and the SHA-256 fingerprint of each already extracted candidate row. `--validate draft.json` performs structural checks against the current immutable R5-E0 packet and requires actual full-text figure/assay/comparator descriptions for any **proposed** eligibility.
+
+The only successful output is `STRUCTURAL_REVIEW_DRAFT_VALID_NOT_ATTESTED`. No authenticated reviewer identity is established by CLI; even apparently complete draft proposals require an independent human reviewer and a separately reviewed PR. A source with zero existing candidate rows may report discovered, documented conditions in a draft but cannot directly mint a model row.
+
+The S008/L005, S009/L006 and S013/L010 access records identify the exact missing comparator-by-duration evidence. Publisher or PubMed landing-page accessibility is **not** equivalent to an inspected primary full-text figure/table.
+
+The authoritative R5-E0 `review_decisions.json` remains empty. `FROZEN_ROWS.csv` and `REAL_ROWS_FREEZE.json` remain absent, so real execution remains refused.
