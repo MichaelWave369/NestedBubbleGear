@@ -59,11 +59,11 @@ class CandidateOracleCeilingTests(unittest.TestCase):
 
     def test_bound_math_for_identical_inputs(self):
         miniature = [
-            {"row_id": "a", "reported_direction": "INCREASE",
+            {"row_id": "a", "source_id":"TEST", "lineage_id":"TEST", "reported_direction": "INCREASE",
              **{field: "x" for field in bound.previous.MODEL_FIELDS}},
-            {"row_id": "b", "reported_direction": "NULL",
+            {"row_id": "b", "source_id":"TEST", "lineage_id":"TEST", "reported_direction": "NULL",
              **{field: "x" for field in bound.previous.MODEL_FIELDS}},
-            {"row_id": "c", "reported_direction": "INCREASE",
+            {"row_id": "c", "source_id":"TEST", "lineage_id":"TEST", "reported_direction": "INCREASE",
              **{field: "x" for field in bound.previous.MODEL_FIELDS}},
         ]
         result = bound.group_bound(miniature)
