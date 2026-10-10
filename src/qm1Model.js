@@ -70,13 +70,14 @@ export async function verifyEducationalPoW({nonce,seed,leadingZeroBits:bits,sha2
 }
 export async function runPoWSchedule({
   strategy='SEQUENTIAL',universe=128,budget=128,leadingZeroBits:bits=8,
-  seed=369,sha256,clock=()=>performance.now(),
+  seed=369,sha256,clock=()=>performance.now(),captureAllHits=false,
 }={}){
   checkConfig({universe,budget,leadingZeroBits:bits,seed})
   const order=nonceOrder(strategy,universe,seed).slice(0,budget)
   let firstHit=null
   let hits=0
   const proofSamples=[]
+  const allHitProofs=captureAllHits?[]:null
   const start=clock()
   for(let i=0;i<order.length;i++){
     const nonce=order[i]
@@ -86,6 +87,7 @@ export async function runPoWSchedule({
       hits+=1
       if(firstHit===null)firstHit={nonce,attempt:i+1,hash:hex(hash),leadingZeroBits:leading}
       if(proofSamples.length<12)proofSamples.push({nonce,hash:hex(hash),leadingZeroBits:leading})
+      if(allHitProofs)allHitProofs.push({nonce,hash:hex(hash),leadingZeroBits:leading})
     }
   }
   const elapsedMs=Math.max(0,clock()-start)
@@ -99,6 +101,7 @@ export async function runPoWSchedule({
     hashesComputed:budget,
     doubleSha256Operations:2*budget,
     firstHit,hits,proofSamples,
+    ...(captureAllHits?{allHitProofs}:{}),
     // Wall-clock timings are only meaningful on one given runtime; no energy measurement.
     joulesPerHash:null,energyMeasurement:'NOT_MEASURED',
   }
