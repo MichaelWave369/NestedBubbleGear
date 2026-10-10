@@ -135,3 +135,11 @@ E6's negative tests reject source population mislabeling, missing comparison cla
 For already extracted candidates, **even exact agreement** on figure, assay, exposure, readout, comparator and statistics cannot set `REVIEWED_ELIGIBLE`. Disagreement produces a human-adjudication queue. For S005/S007/S008/S009/S013 with zero candidates, concordant full-text evidence discovery can only request a **separate extraction PR**, not a new training row.
 
 JSON handle declarations are not verified identities or independent source certification. The frozen original `review_decisions.json` remains empty, and no final `FROZEN_ROWS.csv`/`REAL_ROWS_FREEZE.json` is generated.
+
+## RB3-R5-E8 legal fulltext discovery
+
+`R5/E8/access_probe.py` performs optional read-only public Europe PMC metadata queries for the five frozen unextracted source records (S005/S007/S008/S009/S013) and validates their DOI/PMID/MED identity against the original R5 source review register. A provider response with `isOpenAccess=Y` and a valid PMCID produces a **candidate repository landing link**, *not* verified original full text. An indexed PDF indicator alone does not imply legal accessibility. A network error or missing index record does not prove the paper is unavailable elsewhere.
+
+The GitHub Action uploads only a metadata-only access report, never a publisher document or figures. All five source records remain at zero candidate rows, including the three unrepresented lineages L005/L006/L010. No original candidate CSV, feature vector, grouped CV fold, R5 independent review ledger or model execution authorization changes.
+
+Original paper methods, figures, legal terms and per-arm quantitative comparisons still require **separate human primary-source review**, and external reviewers cannot be authenticated by a metadata service.

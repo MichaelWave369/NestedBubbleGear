@@ -71,6 +71,7 @@ Promotion on this line requires predictive/closure advantage over simpler baseli
 - [x] NBG-RB3-R5-E5 — compute a 60/64 optimistic in-sample *candidate-label* deterministic lookup ceiling, fold-0 23/27 diagnostic and missing L005/L006/L010 fold coverage; never report as model/test accuracy
 - [x] NBG-RB3-R5-E6 — source-check three missing lineages S008/S009/S013 and record 10 properly typed abstract-level comparator/time claims, with no fulltext per-arm measurements invented
 - [x] NBG-RB3-R5-E7 — implement structured two-reviewer source and candidate-row reconciliation with human-disagreement states; matching source drafts are never treated as authenticated approval
+- [x] NBG-RB3-R5-E8 — add Europe PMC live open-access *metadata discovery* for five still-unextracted sources with DOI/PMID matching, legal access routes, negative tests and downloadable report; no fulltext content or independent scientific review claimed
 - [ ] NBG-RB3-R5 — obtain actual independent primary-fulltext per-arm reviews and resolution decisions; freeze only admissible rows or declare VOID_INSUFFICIENT_CORPUS
 - [ ] NBG-RB3 — freeze and hash complete source-backed condition-by-endpoint table, then run the first main-only real-corpus execution
 - [ ] NBG-RB4 — test hidden-gamma recovery and cross-bubble composition

@@ -1,0 +1,45 @@
+name: RB3 R5 E8 Lawful Fulltext Locator Qualification
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deterministic-metadata-source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Compile metadata-only source access probe
+        run: python -m py_compile experiments/RB3/R5/E8/access_probe.py
+      - name: Deterministic offline source identity and missing-lineage audit
+        run: python experiments/RB3/R5/E8/access_probe.py --audit
+      - name: Reject fake OA/fulltext, science approval, DOI swaps, and paywalled assumptions
+        run: python -m unittest discover -s experiments/RB3/R5/E8/tests -v
+      - name: Preserve source reviewer, abstract, fit and freeze boundaries
+        run: |
+          python -m unittest discover -s experiments/RB3/R5/E7/tests -v
+          python experiments/RB3/R5/E6/audit_contrasts.py --audit
+          python experiments/RB3/src/rb3.py --static-check
+      # This additional live query is metadata-only. A network failure cannot
+      # qualify or disqualify any biological paper. No PDFs or article text.
+      - name: Query Europe PMC for five unresolved PMIDs (metadata ONLY)
+        run: python experiments/RB3/R5/E8/access_probe.py --probe-live --out-dir "$RUNNER_TEMP/nbg-r5-e8-access"
+      - name: Independently revalidate metadata report scientific stop-state
+        run: python experiments/RB3/R5/E8/access_probe.py --validate-report "$RUNNER_TEMP/nbg-r5-e8-access/access_report.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rb3-r5-e8-open-access-candidate-locations
+          path: ${{ runner.temp }}/nbg-r5-e8-access/
+          retention-days: 30
+          if-no-files-found: error
+      # Reviewer's lawful primary-article inspection and independent adjudication
+      # happen OUTSIDE CI. No live service can mark model rows eligible.
