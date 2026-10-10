@@ -73,3 +73,9 @@ A future genuine review may reject rows, retain unknowns, or conclude `VOID_INSU
 See [E1/README.md](E1/README.md). `E1/review_intake.py` generates draft forms and rejects structural inconsistencies for all 14 frozen sources. It also provides a source-access ledger for the three unrepresented lineages and other unresolved papers.
 
 The forms are **not signed evidence**. Even after a human supplies a proposal, the script only validates structure and source fingerprints. Any scientific promotion must occur later in a separately approved review process; this E0 ledger and the frozen model inputs remain untouched.
+
+## E2: external evidence-request dispatch
+
+See [E2/README.md](E2/README.md). The E2 script generates 14 source-specific evidence dossiers and a SHA-256 manifest of the unchanged R5-E0 review packet. The PR workflow uploads these records as a downloadable Actions artifact, while the GitHub Issues template permits outside contributors to report exactly which source figures and exposure comparisons remain unresolved.
+
+An evidence issue, a reviewer draft, a CI pass or an artifact hash is **not** a human peer-review decision and does not change `review_decisions.json` or the real-fit guard.
