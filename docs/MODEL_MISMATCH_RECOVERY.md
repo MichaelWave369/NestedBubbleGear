@@ -60,7 +60,10 @@ incorrect, but it should refute its generalization to the shifted regime.
 
 - Default unknown e=0.72 is rejected by the original catalog and can be
   recovered by the FINE grid under the bounded simulation.
-- Known e=0.32 and near-catalog e=0.29 are refused at the recovery gate.
+- Known e=0.32 is refused at the recovery gate. The near-catalog e=0.29
+control may be rejected by the original observer at the selected quantization,
+but the fixed new proposal family starts at e=0.56. It therefore yields
+NO_TRAINING_COMPATIBLE_PROPOSAL rather than authorizing a forced fit.
 - Invalid noise assumptions are refused before proposal generation.
 - A deliberately inadequate proposal grid reports NO_TRAINING_COMPATIBLE_PROPOSAL.
 - Changing only the holdout regime must not alter the frozen training candidate.
