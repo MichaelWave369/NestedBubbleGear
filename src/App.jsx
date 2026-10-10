@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import SpiralGearLab from './SpiralGearLab.jsx'
 import {
   RELATION_OPTIONS,
   STATUS_OPTIONS,
@@ -505,6 +506,7 @@ function App() {
         <nav>
           <a href="#stack">Stack</a>
           <a href="#atlas">Bubble Atlas</a>
+          <a href="#spiral-gears">Spiral Gears</a>
           <a href="#keyholes">Keyholes</a>
           <a href="#temporal">Temporal</a>
           <a href="#experiments">Experiments</a>
@@ -624,6 +626,8 @@ function App() {
           ))}
         </div>
       </section>
+
+      <SpiralGearLab />
 
       <section id="keyholes" className="section keyhole-section">
         <div className="section-label">INTERACTIVE KEYHOLE</div>
