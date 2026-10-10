@@ -1,0 +1,102 @@
+{
+  "queue_id": "NBG-RB3-R2-EXTRACTION-QUEUE",
+  "status": "OPEN_PARTIAL",
+  "complete": false,
+  "model_execution_authorized": false,
+  "frozen_rb2_sources": 14,
+  "entries": [
+    {
+      "source_id": "RB2-S001",
+      "candidate_rows": 9,
+      "status": "R0_PARTIAL_SOURCE_CANDIDATE"
+    },
+    {
+      "source_id": "RB2-S002",
+      "candidate_rows": 9,
+      "status": "R1_PARTIAL_SOURCE_CANDIDATE"
+    },
+    {
+      "source_id": "RB2-S003",
+      "candidate_rows": 9,
+      "status": "R1_PARTIAL_SOURCE_CANDIDATE"
+    },
+    {
+      "source_id": "RB2-S004",
+      "candidate_rows": 0,
+      "status": "AWAITING_ARM_LEVEL_VERIFICATION"
+    },
+    {
+      "source_id": "RB2-S005",
+      "candidate_rows": 0,
+      "status": "AWAITING_ARM_LEVEL_VERIFICATION"
+    },
+    {
+      "source_id": "RB2-S006",
+      "candidate_rows": 9,
+      "status": "R2_PARTIAL_SOURCE_CANDIDATE"
+    },
+    {
+      "source_id": "RB2-S007",
+      "candidate_rows": 0,
+      "status": "AWAITING_ARM_LEVEL_VERIFICATION"
+    },
+    {
+      "source_id": "RB2-S008",
+      "candidate_rows": 0,
+      "status": "AWAITING_ARM_LEVEL_VERIFICATION"
+    },
+    {
+      "source_id": "RB2-S009",
+      "candidate_rows": 0,
+      "status": "AWAITING_ARM_LEVEL_VERIFICATION"
+    },
+    {
+      "source_id": "RB2-S010",
+      "candidate_rows": 12,
+      "status": "R2_PARTIAL_SOURCE_CANDIDATE"
+    },
+    {
+      "source_id": "RB2-S011",
+      "candidate_rows": 8,
+      "status": "R2_PARTIAL_SOURCE_CANDIDATE"
+    },
+    {
+      "source_id": "RB2-S012",
+      "candidate_rows": 0,
+      "status": "AWAITING_ARM_LEVEL_VERIFICATION"
+    },
+    {
+      "source_id": "RB2-S013",
+      "candidate_rows": 0,
+      "status": "AWAITING_ARM_LEVEL_VERIFICATION"
+    },
+    {
+      "source_id": "RB2-S014",
+      "candidate_rows": 0,
+      "status": "AWAITING_ARM_LEVEL_VERIFICATION"
+    }
+  ],
+  "known_uncovered_source_ids": [
+    "RB2-S004",
+    "RB2-S005",
+    "RB2-S007",
+    "RB2-S008",
+    "RB2-S009",
+    "RB2-S012",
+    "RB2-S013",
+    "RB2-S014"
+  ],
+  "still_missing_lineages": [
+    "L003",
+    "L005",
+    "L006",
+    "L009",
+    "L010",
+    "L011"
+  ],
+  "notes": [
+    "Counts are paper rows, NOT independent biological replicates",
+    "R0+R1+R2 candidates cover only 5/11 source lineages",
+    "No real model fitting or scientific promotion authorized"
+  ]
+}

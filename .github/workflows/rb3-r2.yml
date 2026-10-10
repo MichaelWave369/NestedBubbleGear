@@ -1,0 +1,34 @@
+name: RB3 R2 Cross-Lineage Extraction Audit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Compile extraction audits
+        run: |
+          python -m py_compile experiments/RB3/R2/validate_candidate.py
+          python -m py_compile experiments/RB3/src/rb3.py
+      - name: Verify R2 source-backed conditions
+        run: python experiments/RB3/R2/validate_candidate.py
+      - name: Tamper tests and real-execution refusal
+        run: python -m unittest discover -s experiments/RB3/R2/tests -v
+      - name: Retain preceding R0/R1 qualification
+        run: |
+          python -m unittest discover -s experiments/RB3/R0/tests -v
+          python -m unittest discover -s experiments/RB3/R1/tests -v
+      - name: Preserve frozen model contract
+        run: python experiments/RB3/src/rb3.py --static-check
+      # No real dataset fit, --execute invocation, or result promotion.

@@ -110,6 +110,10 @@ See [experiments/RB3/R0](experiments/RB3/R0/).
 
 See [experiments/RB3/R1](experiments/RB3/R1/).
 
+**NBG-RB3-R2** adds 29 more source-attributed candidate comparisons across three previously unrepresented lineages (L004, L007, L008), including significant increased, significant decreased and unchanged/non-significant cell-assay responses. R0+R1+R2 now cover 56 candidate rows, 6 RB2 papers and 5/11 lineages. The source evidence explicitly records device higher harmonics, indirect MTT growth proxies, cancer-cell-line limitations and missing per-arm p values. No actual literature fit is authorized.
+
+See [experiments/RB3/R2](experiments/RB3/R2/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
