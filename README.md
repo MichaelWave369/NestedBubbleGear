@@ -130,6 +130,10 @@ See [experiments/RB3/R5](experiments/RB3/R5/).
 
 See [experiments/RB3/R5/E1](experiments/RB3/R5/E1/).
 
+**NBG-RB3-R5-E2** builds a reviewer-facing evidence dispatch bundle with 14 source dossiers, SHA-256-verified row references, a GitHub Issues evidence-request form and an Actions artifact. Five sources without candidate rows remain explicitly classed as *missing evidence*, not null biological outcomes. This rung provides an independent reviewer handoff without recording any independent approval, changing the evidence or unlocking real model execution.
+
+See [experiments/RB3/R5/E2](experiments/RB3/R5/E2/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
