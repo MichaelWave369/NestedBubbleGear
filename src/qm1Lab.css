@@ -1,0 +1,49 @@
+.qm1{scroll-margin-top:72px;background:radial-gradient(circle at 35% 0,#75ffc30c,transparent 58%),#07100b}
+.qm1 h2 em{color:#73ffc5;font-style:normal;font-weight:350}
+.qm1-intro{max-width:980px;color:#b9d1c0;font-size:17px;line-height:1.65}
+.qm1-surface{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(265px,.76fr);margin-top:28px;border:1px solid #73ffc536;background:#73ffc536;gap:1px}
+.qm1-primary,.qm1-side{background:#0a1b12;padding:22px;min-width:0}
+.qm1-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px;color:#73ffc5;font-size:11px;letter-spacing:.13em}
+.qm1-head small{font-size:9px;color:#9eb49e;letter-spacing:0}
+.qm1-settings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.qm1-settings label,.qm1-grover-settings label{display:flex;flex-direction:column;gap:8px;font-size:11px;color:#bbd2bd}
+.qm1-settings select,.qm1-grover-settings select{padding:10px;background:#133421;border:1px solid #73ffc54d;color:#e7fbee;font-size:12px;width:100%}
+.qm1-run,.qm1-side button{padding:13px;border:1px solid #73ffc5;background:#73ffc5;color:#07180f;cursor:pointer;font:700 12px inherit;width:100%}
+.qm1-run:disabled,.qm1-side button:disabled{opacity:.46;cursor:not-allowed}
+.qm1-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:18px 0}
+.qm1-results article{padding:13px 11px;background:#0e2c1c;border:1px solid #73ffc535;min-width:0}
+.qm1-results article.qm1-gear{border-color:#ffc56f66}
+.qm1-strategy-head{display:flex;flex-direction:column;gap:6px;margin-bottom:17px;min-height:50px}
+.qm1-strategy-head strong{font-size:15px;color:#e5fff1}
+.qm1-strategy-head span{font-size:9px;color:#a6bd9f}
+.qm1-metric strong{font:700 20px ui-monospace,monospace;color:#73ffc5;display:block;overflow-wrap:anywhere}
+.qm1-metric span{font-size:10px;color:#9aaf9a}
+.qm1-bar{height:7px;background:#07180e;margin:12px 0}
+.qm1-bar>div{height:100%;background:#73ffc5}
+.qm1-gear .qm1-bar>div{background:#ffc56f}
+.qm1-results dl{margin:10px 0 0;font-size:10px}
+.qm1-results dl div{display:flex;justify-content:space-between;gap:6px;border-top:1px solid #73ffc520;padding:8px 0}
+.qm1-results dt{color:#a9c3ae}
+.qm1-results dd{margin:0;color:#ebffee;font-weight:700;text-align:right}
+.qm1-notice,.qm1-boundary,.qm1-checks{border:1px solid #ffc56f4b;background:#ffc56f07;padding:16px;margin-bottom:25px}
+.qm1-notice strong,.qm1-boundary>span,.qm1-checks span{font-size:10px;letter-spacing:.1em;color:#ffc56f}
+.qm1-notice p,.qm1-boundary p,.qm1-checks p{color:#c0cab5;font-size:12px;line-height:1.65}
+.qm1-grover-settings{display:grid;grid-template-columns:1fr 1.2fr;gap:17px;margin-bottom:20px}
+.qm1-grover-settings label strong{color:#73ffc5}
+.qm1-grover-settings input{width:100%;accent-color:#73ffc5}
+.qm1-prob-display{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#73ffc528}
+.qm1-prob-display>div{background:#0b291b;padding:13px 9px}
+.qm1-prob-display small{font-size:9px;color:#abbfac;display:block;margin-bottom:10px}
+.qm1-prob-display strong{font:700 20px ui-monospace,monospace;color:#73ffc5}
+.qm1-graph{display:block;width:100%;height:auto;margin-top:11px}
+.qm1-caveat,.qm1-side p{font-size:12px;color:#b1cbb4;line-height:1.7}
+.qm1-side .qm1-boundary strong{display:block;color:#ffdfa3;font-size:15px;margin:9px 0}
+.qm1-side button{background:#123421;color:#73ffc5;margin:10px 0}
+.qm1-side a{display:block;color:#73ffc5;font-size:12px;margin:14px 0;text-decoration:underline}
+.qm1-side .qm1-small{color:#adc0a9;font-size:11px}
+.qm1-checks{margin-top:28px;border-color:#73ffc54a}
+.qm1-checks span{color:#73ffc5}
+.qm1-error{color:#ffb1aa;font-size:12px}
+.qm1 button:focus-visible,.qm1 a:focus-visible,.qm1 select:focus-visible{outline:2px solid #ffc56f;outline-offset:3px}
+@media(max-width:1140px){.qm1-surface{grid-template-columns:1fr}}
+@media(max-width:750px){.qm1-primary,.qm1-side{padding:14px}.qm1-settings,.qm1-results{grid-template-columns:1fr}.qm1-grover-settings{grid-template-columns:1fr}.qm1-strategy-head{min-height:0}.qm1-prob-display{grid-template-columns:1fr}.qm1-intro{font-size:15px}}
