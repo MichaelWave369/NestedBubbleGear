@@ -1,0 +1,32 @@
+name: RB3 R5 E1 Review Intake Qualification
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-unattested-review-intake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Compile reviewer intake
+        run: python -m py_compile experiments/RB3/R5/E1/review_intake.py
+      - name: Generate and validate all source templates without approval
+        run: python experiments/RB3/R5/E1/review_intake.py --audit
+      - name: Tamper, forged-signoff, and real-fit-refusal tests
+        run: python -m unittest discover -s experiments/RB3/R5/E1/tests -v
+      - name: Keep R5-E0 review ledger empty
+        run: python -m unittest discover -s experiments/RB3/R5/tests -v
+      - name: Preserve existing source-readiness and frozen model controls
+        run: |
+          python experiments/RB3/R4/audit_readiness.py
+          python experiments/RB3/src/rb3.py --static-check
+      # No source outcome approvals, CI reviewer attestations, or model fitting.
