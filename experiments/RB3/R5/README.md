@@ -97,3 +97,9 @@ This is a **review-priority identifiability signal**, not independent confirmati
 See [E5/README.md](E5/README.md). E5 computes the **mathematical best-case in-sample accuracy bound**, not achieved model accuracy, for a hypothetical label-informed deterministic lookup on the 64 original unreviewed candidates. Four mixed-label groups force four errors, so at most 60/64 original candidate labels can be matched simultaneously by identical-input deterministic output rules.
 
 The E5 audit also checks the original five-fold lineage map and missing L005/L006/L010 candidate coverage. It adds no model features, modifies no candidate labels, and authorizes no actual model execution or independent approval.
+
+## E6: source-abstract comparator atomicity
+
+See [E6/README.md](E6/README.md). E6 records the actual accessible original abstract statements for the still-missing L005, L006 and L010 lineages with explicit comparator and readout timing semantics. Ten source-level claim atoms are distinguished but **zero** become model-ready rows. Its validator protects against calling 3h-versus-6h nonsignificance a sham null, or expanding a pooled multi-regime study conclusion into invented arm-level results.
+
+The abstract-only evidence remains awaiting legitimate primary full-text page/table access and independent human review. This rung is a source-evidence triage, not scientific peer review or model validation.
