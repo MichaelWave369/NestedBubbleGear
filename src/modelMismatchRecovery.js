@@ -5,7 +5,7 @@ import { runUnknownGearExperiment, simulateUnknownReading } from './unknownGearM
 export const RECOVERY_GRIDS = Object.freeze({
   FINE: Object.freeze(Array.from({length:18},(_,i)=>Number((.56+.02*i).toFixed(2)))),
   COARSE: Object.freeze([.56,.64,.72,.80,.88]),
-  EXCLUDES_TRUTH: Object.freeze([.56,.60,.64,.68]),
+  EXCLUDES_TRUTH: Object.freeze([.56,.58,.60,.62]),
 })
 export const RECOVERY_SCENARIOS = Object.freeze([
   { id:'FAR_UNKNOWN', label:'Rejected unknown (e = .72)', truth:.72 },
