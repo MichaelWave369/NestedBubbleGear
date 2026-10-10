@@ -79,3 +79,9 @@ The forms are **not signed evidence**. Even after a human supplies a proposal, t
 See [E2/README.md](E2/README.md). The E2 script generates 14 source-specific evidence dossiers and a SHA-256 manifest of the unchanged R5-E0 review packet. The PR workflow uploads these records as a downloadable Actions artifact, while the GitHub Issues template permits outside contributors to report exactly which source figures and exposure comparisons remain unresolved.
 
 An evidence issue, a reviewer draft, a CI pass or an artifact hash is **not** a human peer-review decision and does not change `review_decisions.json` or the real-fit guard.
+
+## E3: primary-publisher readout timing
+
+[E3/README.md](E3/README.md) documents the assistant-conducted HTML spotcheck of the 2025 Scientific Reports neural-stem-cell article and 2016 PLOS embryonic NSC article. The key finding is **nonuniform post-exposure readout time** despite matching nominal exposure schedules (7-day secondary-neurosphere count and 3-day GFAP cell maturation, versus immediate post-exposure assays).
+
+`E3/audit_timing.py` cross-checks the 18 inspected rows against their frozen candidate/evidence receipts, prevents timing and numeric source tampering, and explicitly refuses any independent-review or real-fit promotion. This is a *preparatory source check*, not human adjudication.
