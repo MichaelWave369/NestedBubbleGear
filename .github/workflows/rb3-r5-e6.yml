@@ -1,0 +1,40 @@
+name: RB3 R5 E6 Abstract Contrast and Missing Lineage Audit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  primary-abstract-comparator-guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Compile contrast auditor
+        run: python -m py_compile experiments/RB3/R5/E6/audit_contrasts.py
+      - name: Verify all ten typed abstract-level claims
+        run: python experiments/RB3/R5/E6/audit_contrasts.py --audit
+      - name: Reject pooled-to-arm claims and forged reviewer statuses
+        run: python -m unittest discover -s experiments/RB3/R5/E6/tests -v
+      - name: Preserve source, identifiability and no-fit constraints
+        run: |
+          python -m unittest discover -s experiments/RB3/R5/E5/tests -v
+          python -m unittest discover -s experiments/RB3/R5/E4/tests -v
+          python experiments/RB3/R4/audit_readiness.py
+          python experiments/RB3/src/rb3.py --static-check
+      - name: Emit source-request summary, NOT verified full-text evidence
+        run: python experiments/RB3/R5/E6/audit_contrasts.py --markdown > "$RUNNER_TEMP/rb3-e6-source-contrast-request.md"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rb3-r5-e6-source-contrast-request
+          path: ${{ runner.temp }}/rb3-e6-source-contrast-request.md
+          retention-days: 30
+          if-no-files-found: error
+      # This workflow never fetches restricted journal PDFs or trains RB3.
