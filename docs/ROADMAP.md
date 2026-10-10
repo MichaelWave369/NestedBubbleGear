@@ -63,7 +63,8 @@ Promotion on this line requires predictive/closure advantage over simpler baseli
 - [x] NBG-RB3-R2 — add 29 source-attributed conditions from S006/L004, S010/L007 and S011/L008, with measured harmonic/confounder and null semantics
 - [x] NBG-RB3-R3 — add 8 provisional abstract-attributed candidates from L003/L009/L011 and preserve five unresolved source records
 - [x] NBG-RB3-R4 — audit 14 frozen sources, 64 candidate rows and unresolved L005/L006/L010 with explicit source-vs-admissible-row gate; no new training rows
-- [ ] NBG-RB3-R5 — independent primary-fulltext per-arm review of candidate records, resolver decisions for remaining lineages; freeze only admissible rows or declare VOID_INSUFFICIENT_CORPUS
+- [x] NBG-RB3-R5-E0 — add deterministic 64-row independent-review packet, 14-source risk register, stable digests and empty tamper-checked adjudication ledger; no independent reviews or model fits yet
+- [ ] NBG-RB3-R5 — obtain actual independent primary-fulltext per-arm reviews and resolution decisions; freeze only admissible rows or declare VOID_INSUFFICIENT_CORPUS
 - [ ] NBG-RB3 — freeze and hash complete source-backed condition-by-endpoint table, then run the first main-only real-corpus execution
 - [ ] NBG-RB4 — test hidden-gamma recovery and cross-bubble composition
 - [ ] NBG-RB5 — test state-dependent retuning / persistent response-state memory
