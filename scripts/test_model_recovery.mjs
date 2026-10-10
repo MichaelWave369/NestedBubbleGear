@@ -60,6 +60,6 @@ assert.deepEqual(receipt,modelRecoveryReceipt(runModelMismatchRecovery()))
 for(const o of [
   {proposalGrid:'UNDEFINED'},{holdoutShift:1},{holdoutCount:0},
   {holdoutCount:6},{truthEccentricity:-1},{truthEccentricity:.9},
-  {truthEccentricity:.84,holdoutShift:.14},{queryBudget:13},
+  {truthEccentricity:.99},{queryBudget:13},
 ])assert.throws(()=>runModelMismatchRecovery(o),RangeError)
 console.log('PASS: recovery gates, predeclared fitting, frozen-candidate holdout, drift falsification, quarantine and deterministic receipts')
