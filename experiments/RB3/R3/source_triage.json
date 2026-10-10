@@ -1,0 +1,51 @@
+{
+  "registry_id": "NBG-RB3-R3-UNRESOLVED-TRIAGE",
+  "status": "PENDING_EVIDENCE_NOT_MODEL_ROWS",
+  "items": [
+    {
+      "source_id": "RB2-S005",
+      "lineage_id": "L003",
+      "pmid": "20816824",
+      "doi": "10.1016/j.expneurol.2010.08.022",
+      "known": "50 Hz/1 mT; 1, 3, or 7 hours per day for seven days; reported enhancement of hippocampal neurogenesis",
+      "blocker": "Specific outcomes/significance per 1h/3h/7h arm not pinned from accessible evidence; do not clone aggregate result across three arms",
+      "context_locator": "https://www.emf-portal.org/en/article/18613"
+    },
+    {
+      "source_id": "RB2-S008",
+      "lineage_id": "L005",
+      "pmid": "22676915",
+      "doi": "10.3109/15368378.2012.662194",
+      "known": "50 Hz pulsed 10 mT; 3h or 6h exposure; early proliferation elevation, late 16h null reported",
+      "blocker": "Source abstract does not unambiguously identify a sham-specific significance label for each 3h/6h arm and readout time",
+      "context_locator": "https://pubmed.ncbi.nlm.nih.gov/22676915/"
+    },
+    {
+      "source_id": "RB2-S009",
+      "lineage_id": "L006",
+      "pmid": "24068522",
+      "doi": "10.1007/s12013-013-9764-8",
+      "known": "15 Hz 1 mT sinusoidal; different durations; proliferation, osteogenic gene markers, alkaline phosphatase, calcium deposition",
+      "blocker": "Exact exposure duration and condition-to-endpoint statistical comparisons not given by abstract; avoid assigning all changes to each duration",
+      "context_locator": "https://pubmed.ncbi.nlm.nih.gov/24068522/"
+    },
+    {
+      "source_id": "RB2-S013",
+      "lineage_id": "L010",
+      "pmid": "8919028",
+      "doi": "10.3109/08977199609003222",
+      "known": "Mouse FDCP-mix(A4); 50 Hz vertical 6 uT RMS and other ambient/null/cyclotron regimes; exposure days 1/4/7/21; aggregate unchanged growth and clonogenicity",
+      "blocker": "Cannot assume no-effect outcome at each regime × day combination from pooled statement; null-field regime must not be represented as positive-frequency stimulus",
+      "context_locator": "https://pubmed.ncbi.nlm.nih.gov/8919028/"
+    },
+    {
+      "source_id": "RB2-S007",
+      "lineage_id": "L004",
+      "pmid": "22568519",
+      "doi": "10.3109/09553002.2012.692496",
+      "known": "50 Hz 5 mT human epidermal stem cells on collagen scaffolds 30min/day for 14 days",
+      "blocker": "Exact endpoint- and assay-specific reported effects require fulltext, already represented lineage L004",
+      "context_locator": "https://pubmed.ncbi.nlm.nih.gov/22568519/"
+    }
+  ]
+}
