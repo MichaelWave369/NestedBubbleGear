@@ -146,6 +146,10 @@ See [experiments/RB3/R5/E4](experiments/RB3/R5/E4/).
 
 See [experiments/RB3/R5/E5](experiments/RB3/R5/E5/).
 
+**NBG-RB3-R5-E6** conducts a new scoped primary-source abstract search for the three missing RB2 lineages and distinguishes **10 source-level claims** by endpoint, comparator and readout window. S008 includes early versus late findings and between-exposure comparisons that cannot be relabeled as sham nulls; S009 has duration-dependent outcomes with no exact per-arm schedule; S013 has a multi-regime pooled null that cannot be multiplied into per-regime experimental rows. **No unverified training rows or independent reviewer attestations were created.**
+
+See [experiments/RB3/R5/E6](experiments/RB3/R5/E6/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
