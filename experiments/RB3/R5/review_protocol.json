@@ -1,0 +1,156 @@
+{
+  "protocol_id": "NBG-RB3-R5-REVIEW",
+  "version": "0.1.0",
+  "phase": "REVIEW_PREPARATION_ONLY",
+  "inherited": {
+    "frozen_source_count": 14,
+    "frozen_lineage_count": 11,
+    "corpus_digest_sha256": "2a91f27c113fb4ae3b63ec8bfad2b2c1c99e84417bd5f3e095c803b9e4c4e351",
+    "candidate_files": [
+      "R0/candidate_rows.csv",
+      "R1/additional_rows.csv",
+      "R2/additional_rows.csv",
+      "R3/additional_rows.csv"
+    ],
+    "candidate_expected_counts": [
+      9,
+      18,
+      29,
+      8
+    ],
+    "expected_candidate_rows": 64,
+    "expected_candidate_sources": 9,
+    "expected_candidate_lineages": 8
+  },
+  "review_cases": {
+    "RB2-S001": {
+      "risk": [
+        "ONE_PAPER_MULTIPLE_ENDPOINTS",
+        "CHECK_EFFECT_SIZE_AND_P_VALUE_AGAINST_FIGURES"
+      ],
+      "priority": "MEDIUM"
+    },
+    "RB2-S002": {
+      "risk": [
+        "ASSAY_SPECIFIC_COMPARISONS",
+        "EXACT_P_VALUES_NOT_EXTRACTED",
+        "CHECK_TIME_WINDOW"
+      ],
+      "priority": "HIGH"
+    },
+    "RB2-S003": {
+      "risk": [
+        "ASSAY_SPECIFIC_COMPARISONS",
+        "INTERMITTENT_EXPOSURE",
+        "COARSE_PREDICTOR_COLLISIONS"
+      ],
+      "priority": "HIGH"
+    },
+    "RB2-S004": {
+      "risk": [
+        "ABSTRACT_ATTRIBUTION_ONLY",
+        "EXPOSURE_DURATION_UNRESOLVED"
+      ],
+      "priority": "HIGH"
+    },
+    "RB2-S005": {
+      "risk": [
+        "NO_CANDIDATE_ROWS",
+        "DURATION_BY_ENDPOINT_GRID_MISSING"
+      ],
+      "priority": "HIGH"
+    },
+    "RB2-S006": {
+      "risk": [
+        "MTT_METABOLIC_PROXY_NOT_DIRECT_CELL_COUNT",
+        "CONDITION_SIGNIFICANCE_RECHECK"
+      ],
+      "priority": "HIGH"
+    },
+    "RB2-S007": {
+      "risk": [
+        "NO_CANDIDATE_ROWS",
+        "COLLAGEN_SCAFFOLD_CONTEXT"
+      ],
+      "priority": "MEDIUM"
+    },
+    "RB2-S008": {
+      "risk": [
+        "NO_CANDIDATE_ROWS",
+        "SHAM_VS_DURATION_CONTRAST_CONFUSION",
+        "FOLLOWUP_TIME_AMBIGUITY"
+      ],
+      "priority": "CRITICAL"
+    },
+    "RB2-S009": {
+      "risk": [
+        "NO_CANDIDATE_ROWS",
+        "DURATION_BY_ENDPOINT_GRID_MISSING"
+      ],
+      "priority": "CRITICAL"
+    },
+    "RB2-S010": {
+      "risk": [
+        "NOMINAL_FREQUENCY_HAS_MEASURED_HARMONICS",
+        "VIABILITY_VS_PROLIFERATION_DISTINCTION"
+      ],
+      "priority": "HIGH"
+    },
+    "RB2-S011": {
+      "risk": [
+        "ABSTRACT_ATTRIBUTED_POOLED_NULL",
+        "CANCER_CELL_LINE_NOT_REGENERATING_TISSUE"
+      ],
+      "priority": "CRITICAL"
+    },
+    "RB2-S012": {
+      "risk": [
+        "ABSTRACT_ATTRIBUTED_POOLED_NULL",
+        "PER_ARM_NULL_UNVERIFIED"
+      ],
+      "priority": "CRITICAL"
+    },
+    "RB2-S013": {
+      "risk": [
+        "NO_CANDIDATE_ROWS",
+        "NULLED_FIELD_IS_NOT_ACTIVE_50HZ",
+        "MULTIPLE_EXPOSURE_REGIMES"
+      ],
+      "priority": "CRITICAL"
+    },
+    "RB2-S014": {
+      "risk": [
+        "POOLED_ACROSS_CELL_LINES",
+        "DNA_DAMAGE_CO_REPORTED",
+        "PER_LINE_EFFECT_UNVERIFIED"
+      ],
+      "priority": "CRITICAL"
+    }
+  },
+  "outcome_classes": [
+    "REVIEWED_ELIGIBLE",
+    "REJECTED_UNSUPPORTED",
+    "UNRESOLVED_NEEDS_FULLTEXT",
+    "SOURCE_UNAVAILABLE",
+    "CONFLICT_REVIEW"
+  ],
+  "conditions_for_reviewed_eligible": [
+    "Reviewer independently checks primary full text at precise page/table/figure",
+    "Reviewer is identifiable and is not the original row extractor",
+    "Exact intervention and exposure regime tied to endpoint and comparator",
+    "Reported significance and measured direction refer to exact arm, not pooled result",
+    "Source statements and reviewer adjudication do not contradict",
+    "Null means nonsignificant or author-reported unchanged, not equivalence",
+    "No new predictors, sources, labels or altered RB2 folds",
+    "Separate GitHub-reviewed PR and explicit review receipts before any frozen training set"
+  ],
+  "constraints": {
+    "this_rung_has_no_human_review_attestation": true,
+    "no_automatic_review_status_upgrade": true,
+    "no_source_set_or_fold_change": true,
+    "no_model_training": true,
+    "no_final_frozen_rows": true,
+    "execution_authorized": false,
+    "reviewed_row_count": 0
+  }
+}
