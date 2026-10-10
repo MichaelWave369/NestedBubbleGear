@@ -67,3 +67,9 @@ The current expected report is:
 A future genuine review may reject rows, retain unknowns, or conclude `VOID_INSUFFICIENT_CORPUS`. That is a valid outcome, not a reason to adjust the frozen hypothesis.
 
 **No treatment-frequency, tissue-regeneration, DNA-antenna, or safety claim is authorized.**
+
+## E1: reviewer-intake workbench
+
+See [E1/README.md](E1/README.md). `E1/review_intake.py` generates draft forms and rejects structural inconsistencies for all 14 frozen sources. It also provides a source-access ledger for the three unrepresented lineages and other unresolved papers.
+
+The forms are **not signed evidence**. Even after a human supplies a proposal, the script only validates structure and source fingerprints. Any scientific promotion must occur later in a separately approved review process; this E0 ledger and the frozen model inputs remain untouched.
