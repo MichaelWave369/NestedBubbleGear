@@ -111,3 +111,11 @@ The affected records reflect **different measured quantities**: Tuj1- versus GFA
 The evidence is an assistant-prepared source crosswalk and **not a new RB3 outcome**, an accepted independent review, or proof of biological oscillatory hidden state. The original source set, row labels, features and grouped folds remain unchanged. Neither dropping conflicting rows to improve performance nor adding target identity/readout time post-hoc is allowed under the original freeze.
 
 The model remains blocked awaiting independent article-level adjudication and adequate coverage across L005/L006/L010.
+
+## RB3-R5-E5 candidate-only oracle ceiling
+
+On the original 64 R0–R3 candidate observations, the unchanged E0 thirteen-field exact predictor vector has 57 unique values, four conflicting-label groups and ten rows in those groups. For a deterministic mapping of the frozen vector, the maximum **in-sample** number of matches with access to the true candidate labels is `sum(input groups, maximum class count)` = **60 of 64 (93.75%)**, with a **4 of 64 (6.25%)** forced-error lower bound. This is **not achieved accuracy**; it is an optimistic oracle bound, and the actual frozen multinomial-softmax model can be more restrictive.
+
+All conflicts occur in L002, which belongs to the original outer test fold 0. Available *unreviewed candidates* in that fold have a label-informed bound of 23/27, and L002 alone has 14/18; these are **not real or cross-validated test scores**. Three of the five frozen test folds contain at least one lineage with no candidate rows (fold 0 L005, fold 1 L006, fold 4 L010). Those lineages remain part of the RB2 immutable source set.
+
+No accepted empirical model results or independently reviewed eligible records have been produced. The model and its inputs remain unchanged; no retuning, cherry-picking or post-hoc addition of hidden assay or readout-time features is permitted. Missing independent source evidence can result in `VOID_INSUFFICIENT_CORPUS`.
