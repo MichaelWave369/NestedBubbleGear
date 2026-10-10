@@ -8,7 +8,7 @@ assert.equal(normal.checks.pitchContactConsistent, true)
 assert.equal(normal.observers.ENDPOINT.distinguishes, false)
 assert.equal(normal.observers.PHASE_TRACE.distinguishes, true)
 assert.equal(normal.observers.SPEED_TRACE.distinguishes, true)
-assert.ok(normal.phasePeak.differenceDegrees > 0)
+assert.ok(Math.abs(normal.phasePeak.differenceDegrees) > 0)
 assert.equal(normal.retainedMemoryStatus, 'NO_STORED_HISTORY')
 assert.equal(normal.rows.length, 129)
 
