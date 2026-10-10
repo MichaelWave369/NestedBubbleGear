@@ -118,6 +118,10 @@ See [experiments/RB3/R2](experiments/RB3/R2/).
 
 See [experiments/RB3/R3](experiments/RB3/R3/).
 
+**NBG-RB3-R4** freezes a source-versus-model-row **admissibility audit** for five unresolved papers. It documents the three still-unrepresented lineages (L005, L006, L010), quarantines pooled study conclusions, and adds a programmatic rule that a source record is not an eligible training row. The 64 existing candidate rows across 8 lineages remain **unreviewed, non-fit-ready evidence**, and real RB3 execution is still blocked.
+
+See [experiments/RB3/R4](experiments/RB3/R4/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
