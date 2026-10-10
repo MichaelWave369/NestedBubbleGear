@@ -127,3 +127,11 @@ E6 searches accessible PubMed/source landing pages for the previously unrepresen
 The original 64 R0–R3 candidates, their original label classes, all 14 RB2 papers, 11 source lineages and frozen RB3 feature/fold definitions remain unchanged. These three source papers still require legitimate full-text figure/table access and independent actual arm-by-endpoint adjudication before any row could be eligible. The source search does not establish that no full text exists anywhere.
 
 E6's negative tests reject source population mislabeling, missing comparison classes, fabricated review status, guessed durations and rewritten pooled nulls. `review_decisions.json` remains empty and actual model execution remains blocked.
+
+## RB3-R5-E7 two-reviewer handoff
+
+`R5/E7/reconcile_reviews.py --compare reviewer-a.json reviewer-b.json` accepts two structurally valid, independently prepared E1 intake drafts for one original RB2 source. It refuses non-distinct reviewer handle declarations, original-extractor declarations, mismatched source/row hashes, forged approvals, abstract-only evidence locators and ambiguous pooled comparator descriptions. It emits only unapproved reconciliation states.
+
+For already extracted candidates, **even exact agreement** on figure, assay, exposure, readout, comparator and statistics cannot set `REVIEWED_ELIGIBLE`. Disagreement produces a human-adjudication queue. For S005/S007/S008/S009/S013 with zero candidates, concordant full-text evidence discovery can only request a **separate extraction PR**, not a new training row.
+
+JSON handle declarations are not verified identities or independent source certification. The frozen original `review_decisions.json` remains empty, and no final `FROZEN_ROWS.csv`/`REAL_ROWS_FREEZE.json` is generated.
