@@ -65,3 +65,13 @@ An accessible primary abstract reporting a pooled 3h/6h proliferation effect (S0
 `R4/admission_policy.json` requires independently reviewed source-specific control comparison, exposure regime, endpoint identity, statistical source evidence, provenance and a no-pooling gate before any future `REVIEWED_ELIGIBLE` state. Without admissible rows across all frozen lineage folds, the appropriate conclusion is `VOID_INSUFFICIENT_CORPUS`, not synthetic filling or altered split rules.
 
 At this stage: **14 frozen sources, 11 lineages, 64 candidate comparisons, 9 represented sources, 8 represented lineages, 0 newly reviewed fit-eligible rows, 0 model runs**. CI confirms this *readiness classification*, not the validity of the original papers' findings.
+
+## RB3-R5-E0 independent-review preparation
+
+`R5/build_review_packet.py` cross-links all 64 unchanged R0–R3 candidate rows to their frozen RB2 source/lineage, source-specific evidence receipt, intervention features, caution flags, and source risk classification. It emits a deterministic SHA-256 fingerprint for the reviewer packet and each original candidate row. This is bookkeeping to support future audits, not statistical analysis.
+
+The `R5/review_decisions.json` adjudication ledger starts **empty** and is required to remain empty in this preparatory PR. No reviewer signatures or independent primary-source checks have been acquired by this change, and automated validation must never promote `PENDING_INDEPENDENT_REVIEW` to `REVIEWED_ELIGIBLE`.
+
+The next R5 review/adjudication rung must be a separately reviewed change with actual article-specific evidence and attributable independent reviewer decisions. Missing conditions or unresolved pooled results remain unresolved and may ultimately require `VOID_INSUFFICIENT_CORPUS`.
+
+**Real RB3 fit remains blocked.**
