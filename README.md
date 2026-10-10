@@ -150,6 +150,10 @@ See [experiments/RB3/R5/E5](experiments/RB3/R5/E5/).
 
 See [experiments/RB3/R5/E6](experiments/RB3/R5/E6/).
 
+**NBG-RB3-R5-E7** adds practical **two-reviewer evidence reconciliation**: two independently submitted E1 source-review drafts can be structurally compared for source/row-hash identity, exact figure/assay/exposure/comparator/statistic agreement, and disagreements requiring human adjudication. Reviewer names in draft JSON are *declarations*, never authenticated signatures. Matching eligibility proposals do **not** approve a row or authorize the original RB3 real-data fit.
+
+See [experiments/RB3/R5/E7](experiments/RB3/R5/E7/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.

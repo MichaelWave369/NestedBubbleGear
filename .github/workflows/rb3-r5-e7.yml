@@ -1,0 +1,33 @@
+name: RB3 R5 E7 Dual Reviewer Reconciliation Qualification
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  no-automatic-scientific-approval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Compile dual-review structural comparison
+        run: python -m py_compile experiments/RB3/R5/E7/reconcile_reviews.py
+      - name: Verify fourteen untouched source templates and empty reviewer ledger
+        run: python experiments/RB3/R5/E7/reconcile_reviews.py --audit
+      - name: Refuse forged reviewers, abstract-only evidence and mismatched comparators
+        run: python -m unittest discover -s experiments/RB3/R5/E7/tests -v
+      - name: Preserve original source-abstract and frozen statistical boundaries
+        run: |
+          python -m unittest discover -s experiments/RB3/R5/E6/tests -v
+          python -m unittest discover -s experiments/RB3/R5/E1/tests -v
+          python experiments/RB3/R5/E5/bound_audit.py --audit
+          python experiments/RB3/src/rb3.py --static-check
+      # No real reviews loaded in CI; all paired test examples are fabricated.
+      # No GitHub identity is authenticated by a JSON handle, no model execution.

@@ -1,0 +1,60 @@
+{
+  "schema_id": "NBG-RB3-R5-E7-DUAL-REVIEW-RECONCILIATION",
+  "version": "0.1.0",
+  "phase": "REVIEW_RECONCILIATION_PREPARATION_NOT_ATTESTATION",
+  "input_contract": "Two independently authored E1 reviewer draft JSON files from different declared GitHub handles, both bound to the same frozen R5 packet hash, frozen study/lineage, and candidate-row digests",
+  "declaration_check": "Case-insensitive distinct handles and both not original extractor are structurally required; string handles ARE NOT verified identities or signatures",
+  "human_gate": "A real external reviewer must verify the original article and GitHub PR history; two matching drafts alone never cause approval",
+  "material_fields": [
+    "source_figure_or_table",
+    "assay_exact",
+    "exposure_window",
+    "readout_timepoint",
+    "control_comparator",
+    "reported_direction_evidence",
+    "statistical_basis"
+  ],
+  "disallowed_figure_evidence": [
+    "ABSTRACT",
+    "PUBMED",
+    "RESEARCHGATE ABSTRACT",
+    "NOT_EXTRACTED",
+    "NONE",
+    "UNKNOWN"
+  ],
+  "known_source_only_ids": [
+    "RB2-S005",
+    "RB2-S007",
+    "RB2-S008",
+    "RB2-S009",
+    "RB2-S013"
+  ],
+  "special_risks": {
+    "RB2-S008": [
+      "3h vs 6h exposed is NOT 3h vs sham",
+      "early and 16h after exposure are distinct readout windows"
+    ],
+    "RB2-S009": [
+      "duration × each assay required",
+      "U0126 inhibitor comparison does not substitute for sham"
+    ],
+    "RB2-S013": [
+      "50Hz active, nulled, ambient, cyclotron regimes distinct",
+      "pooled no-significant effect is not per-arm null"
+    ]
+  },
+  "approved_rows": 0,
+  "independent_review_attestations": 0,
+  "training_authorized": false,
+  "execution_authorized": false,
+  "allowed_states": [
+    "AWAITING_BOTH_PRIMARY_REVIEWS",
+    "CONCORDANT_UNATTESTED_ELIGIBILITY_PROPOSALS",
+    "AGREED_PROPOSED_REJECTION_NOT_FINAL",
+    "AGREED_NEEDS_PRIMARY_TEXT",
+    "CONFLICT_REQUIRES_HUMAN_ADJUDICATION",
+    "MATERIAL_EVIDENCE_DISAGREEMENT_REQUIRES_HUMAN_ADJUDICATION",
+    "CONCORDANT_SOURCE_DISCOVERY_NEEDS_NEW_EXTRACTION_PR",
+    "SOURCE_DISCOVERY_CONFLICT_REQUIRES_HUMAN_ADJUDICATION"
+  ]
+}
