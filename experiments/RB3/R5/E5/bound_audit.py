@@ -264,7 +264,7 @@ def audit() -> dict[str,Any]:
             "real review approval claimed prematurely")
     require(not (RB3/"FROZEN_ROWS.csv").exists() and not (RB3/"REAL_ROWS_FREEZE.json").exists(),
             "premature training freeze present")
-    require(frozen.static_check()["passed"] is True,
+    require(all(frozen.static_check().values()),
             "frozen RB3 static protocol no longer qualified")
     return checked_bound(json_file(POLICY),e4.read_rows(),fold_map_from_original())
 
