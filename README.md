@@ -134,6 +134,10 @@ See [experiments/RB3/R5/E1](experiments/RB3/R5/E1/).
 
 See [experiments/RB3/R5/E2](experiments/RB3/R5/E2/).
 
+**NBG-RB3-R5-E3** adds an explicit primary-publisher HTML spotcheck and assay-readout timing crosswalk for 18 existing S001/S002 candidate rows. It catches the 2016 study's three-day *post-exposure* GFAP-cell assay lag and seven-day secondary-neurosphere count lag, without silently adding a model feature, inventing an outcome or claiming independent human review. Real RB3 fitting stays locked.
+
+See [experiments/RB3/R5/E3](experiments/RB3/R5/E3/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.

@@ -66,6 +66,7 @@ Promotion on this line requires predictive/closure advantage over simpler baseli
 - [x] NBG-RB3-R5-E0 — add deterministic 64-row independent-review packet, 14-source risk register, stable digests and empty tamper-checked adjudication ledger; no independent reviews or model fits yet
 - [x] NBG-RB3-R5-E1 — build reviewer intake for all 14 sources and reproducible source-specific full-text evidence requests; validate proposed decisions structurally without attestation or training
 - [x] NBG-RB3-R5-E2 — generate 14-source human-review dossiers, hashed dispatch packet, GitHub evidence issue intake and CI download artifact; keep unreviewed rows and real fit blocked
+- [x] NBG-RB3-R5-E3 — crosswalk 18 S001/S002 primary-publisher comparisons; distinguish 3-day GFAP maturation and 7-day neurosphere replating readout lags from the 3-day exposure course
 - [ ] NBG-RB3-R5 — obtain actual independent primary-fulltext per-arm reviews and resolution decisions; freeze only admissible rows or declare VOID_INSUFFICIENT_CORPUS
 - [ ] NBG-RB3 — freeze and hash complete source-backed condition-by-endpoint table, then run the first main-only real-corpus execution
 - [ ] NBG-RB4 — test hidden-gamma recovery and cross-bubble composition
