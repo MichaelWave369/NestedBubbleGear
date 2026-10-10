@@ -1,0 +1,40 @@
+name: RB3 R5 E4 Identifiability and Readout Confound Audit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  review-source-collisions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Compile E4 audit
+        run: python -m py_compile experiments/RB3/R5/E4/audit_identifiability.py
+      - name: Report all exact opposing-label feature collisions
+        run: python experiments/RB3/R5/E4/audit_identifiability.py --audit
+      - name: Produce review-only Markdown evidence audit
+        run: python experiments/RB3/R5/E4/audit_identifiability.py --markdown > "$RUNNER_TEMP/rb3-e4-feature-conflicts.md"
+      - name: Validate adversarial controls and real-fit refusal
+        run: python -m unittest discover -s experiments/RB3/R5/E4/tests -v
+      - name: Preserve earlier R5-E3 and R5 reviewer integrity
+        run: |
+          python -m unittest discover -s experiments/RB3/R5/E3/tests -v
+          python -m unittest discover -s experiments/RB3/R5/tests -v
+          python experiments/RB3/R4/audit_readiness.py
+          python experiments/RB3/src/rb3.py --static-check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rb3-r5-e4-identifiability-review
+          path: ${{ runner.temp }}/rb3-e4-feature-conflicts.md
+          retention-days: 30
+          if-no-files-found: error
+      # No real predictive model is fit or approved, and no feature extension is proposed.

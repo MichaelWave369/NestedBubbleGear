@@ -101,3 +101,13 @@ E3 adds an assistant-authored primary-publisher HTML source inspection for the e
 The 2016 PLOS study explicitly counts secondary neurospheres **seven days after re-plating without exposure** and GFAP-positive differentiated cells **three days after the three-day exposure ends**. In contrast, GFAP mRNA is sampled after the exposure course. The original RB3 feature list has no post-exposure-readout-delay term, so these biologically different measurement windows must not be explained away as a pure frequency response. The timing information is attached as non-model evidence in `R5/E3/primary_html_spotcheck.json`.
 
 A successful E3 audit confirms the crosswalk's consistency with published text and prior internal receipts, **not independent scientific validation**. Existing `review_decisions.json` remains empty, source eligibility stays unapproved, and real fit remains blocked.
+
+## RB3-R5-E4 frozen-predictor collisions
+
+E4 inventories **57 unique exact E0 model predictor vectors across 64 candidate rows**. Four groups spanning ten rows map an identical 13-field input vector to more than one source-attributed directional label. All four groups are within the L002 source lineage (S002 2016 and S003 2014).
+
+The affected records reflect **different measured quantities**: Tuj1- versus GFAP-positive differentiated-cell proportions (including an independently documented *assay schedule*, not an independent reviewer); Tuj1 versus GFAP transcripts; neurite length versus primary-number versus branch count; and Tuj1/Sox2/Ngn1 transcripts. Only the first case has a documented 3-day GFAP post-exposure timing discrepancy; E4 does **not** assert timing explains the other cases.
+
+The evidence is an assistant-prepared source crosswalk and **not a new RB3 outcome**, an accepted independent review, or proof of biological oscillatory hidden state. The original source set, row labels, features and grouped folds remain unchanged. Neither dropping conflicting rows to improve performance nor adding target identity/readout time post-hoc is allowed under the original freeze.
+
+The model remains blocked awaiting independent article-level adjudication and adequate coverage across L005/L006/L010.
