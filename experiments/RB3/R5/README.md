@@ -103,3 +103,9 @@ The E5 audit also checks the original five-fold lineage map and missing L005/L00
 See [E6/README.md](E6/README.md). E6 records the actual accessible original abstract statements for the still-missing L005, L006 and L010 lineages with explicit comparator and readout timing semantics. Ten source-level claim atoms are distinguished but **zero** become model-ready rows. Its validator protects against calling 3h-versus-6h nonsignificance a sham null, or expanding a pooled multi-regime study conclusion into invented arm-level results.
 
 The abstract-only evidence remains awaiting legitimate primary full-text page/table access and independent human review. This rung is a source-evidence triage, not scientific peer review or model validation.
+
+## E7: two-reviewer source reconciliation
+
+See [E7/README.md](E7/README.md). The E7 tool compares two original E1 reviewer draft JSON submissions and reports agreement, figure/assay/comparator/statistical disagreement, missing primary full text or a need for a new extraction PR. It includes mutation tests and declines to treat a PubMed/author-request landing page as full-text evidence.
+
+A structurally consistent paired draft **never** authenticates two human reviewers or passes a scientific-eligibility gate. Matching proposals need independent human checks of original source text and GitHub review receipts in a subsequent adjudication PR. This rung adds zero approved observations.
