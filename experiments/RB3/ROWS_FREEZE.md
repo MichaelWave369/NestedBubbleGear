@@ -35,3 +35,13 @@ This closes an E0 guard weakness without changing the frozen model family, featu
 The combined **27 rows / 3 source papers / 2 lineages** remain too incomplete for real fitting. Both added papers belong to L002, not two independent holdout lineages. The `R1/validate_candidate.py` contract checks lineage, exact exposure metadata, figure/table references, unknown fields, SI units, unresolved numeric effects and tamper refusals.
 
 This line also reports feature-vector collisions where different assays yield different labels for the same coarse predictors. Such collisions are a limitation/latent-variable clue, not permission to add assay IDs or tune model features after the freeze.
+
+## RB3-R2 cross-lineage extraction
+
+`R2/additional_rows.csv` adds 29 literature-attributed candidate rows from RB2-S006 (L004), RB2-S010 (L007) and RB2-S011 (L008). The source-level evidence files preserve study-specific exposure combinations, assay distinctions, per-arm unextracted numerical fields, and explicit source limitations.
+
+The total R0+R1+R2 candidate pool contains **56 rows / 6 RB2 source papers / 5 of 11 lineages**. These are not frozen as fit-ready `FROZEN_ROWS.csv`. The R2 validator enforces original source identity, exposure-intensity combinations, field-unit normalization, correct source-attributed reported direction/significance, missingness, waveform-harmonic caveats, the original R0/R1 row counts, and no real-fit authorization.
+
+Special caution: S010's nominal frequency has measured higher harmonics, and S006 uses an MTT metabolic proxy. Model features must not be secretly altered or replaced with full-spectral measurements that do not exist. Source-reported NULL / no appreciable effect is not formal equivalence.
+
+The final full-corpus freeze and independent extraction review remain required before any real fitting.
