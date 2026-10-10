@@ -1,0 +1,100 @@
+{
+  "queue_id": "NBG-RB3-R3-EXTRACTION-QUEUE",
+  "status": "PARTIAL",
+  "source_count": 14,
+  "complete": false,
+  "model_execution_authorized": false,
+  "entries": [
+    {
+      "source_id": "RB2-S001",
+      "candidate_rows": 9,
+      "status": "EARLIER_PARTIAL_CANDIDATE"
+    },
+    {
+      "source_id": "RB2-S002",
+      "candidate_rows": 9,
+      "status": "EARLIER_PARTIAL_CANDIDATE"
+    },
+    {
+      "source_id": "RB2-S003",
+      "candidate_rows": 9,
+      "status": "EARLIER_PARTIAL_CANDIDATE"
+    },
+    {
+      "source_id": "RB2-S004",
+      "candidate_rows": 3,
+      "status": "R3_PROVISIONAL_ABSTRACT_EXTRACT"
+    },
+    {
+      "source_id": "RB2-S005",
+      "candidate_rows": 0,
+      "status": "REQUIRES_FULLTEXT_ARM_LEVEL_EVIDENCE"
+    },
+    {
+      "source_id": "RB2-S006",
+      "candidate_rows": 9,
+      "status": "EARLIER_PARTIAL_CANDIDATE"
+    },
+    {
+      "source_id": "RB2-S007",
+      "candidate_rows": 0,
+      "status": "REQUIRES_FULLTEXT_ARM_LEVEL_EVIDENCE"
+    },
+    {
+      "source_id": "RB2-S008",
+      "candidate_rows": 0,
+      "status": "REQUIRES_FULLTEXT_ARM_LEVEL_EVIDENCE"
+    },
+    {
+      "source_id": "RB2-S009",
+      "candidate_rows": 0,
+      "status": "REQUIRES_FULLTEXT_ARM_LEVEL_EVIDENCE"
+    },
+    {
+      "source_id": "RB2-S010",
+      "candidate_rows": 12,
+      "status": "EARLIER_PARTIAL_CANDIDATE"
+    },
+    {
+      "source_id": "RB2-S011",
+      "candidate_rows": 8,
+      "status": "EARLIER_PARTIAL_CANDIDATE"
+    },
+    {
+      "source_id": "RB2-S012",
+      "candidate_rows": 2,
+      "status": "R3_PROVISIONAL_ABSTRACT_EXTRACT"
+    },
+    {
+      "source_id": "RB2-S013",
+      "candidate_rows": 0,
+      "status": "REQUIRES_FULLTEXT_ARM_LEVEL_EVIDENCE"
+    },
+    {
+      "source_id": "RB2-S014",
+      "candidate_rows": 3,
+      "status": "R3_PROVISIONAL_ABSTRACT_EXTRACT"
+    }
+  ],
+  "total_candidate_rows": 64,
+  "source_papers_with_candidates": 9,
+  "lineages_with_candidate_coverage": 8,
+  "unrepresented_lineages": [
+    "L005",
+    "L006",
+    "L010"
+  ],
+  "unresolved_sources": [
+    "RB2-S005",
+    "RB2-S007",
+    "RB2-S008",
+    "RB2-S009",
+    "RB2-S013"
+  ],
+  "blockers": [
+    "Per-arm outcome support missing for several abstract-only sources",
+    "No completed independent primary-source review",
+    "No complete reviewed row freeze, no real model authorization",
+    "Pooled study-level claims not independently replicated"
+  ]
+}
