@@ -1,0 +1,98 @@
+{
+  "registry_id": "NBG-RB3-R5-E1-SOURCE-ACCESS",
+  "version": "0.1.0",
+  "purpose": "reviewer discovery and evidence requests, not model promotion",
+  "checked_on": "2026-10-09",
+  "records": [
+    {
+      "source_id": "RB2-S008",
+      "lineage_id": "L005",
+      "doi": "10.3109/15368378.2012.662194",
+      "pmid": "22676915",
+      "priority": "CRITICAL",
+      "landing_pages": [
+        "https://pubmed.ncbi.nlm.nih.gov/22676915/",
+        "https://www.tandfonline.com/doi/abs/10.3109/15368378.2012.662194"
+      ],
+      "access_status": "ABSTRACT_VISIBLE_FULLTEXT_NOT_VERIFIED",
+      "request_exactly": [
+        "3h versus sham: which assay and at what post-exposure time?",
+        "6h versus sham: which assay and at what post-exposure time?",
+        "3h versus 6h direct comparison distinct from either sham contrast",
+        "G1 fraction and 16h null statistics per exposure arm"
+      ],
+      "note": "Publisher abstract accessible; no independent full-text figure/table audit done in this rung."
+    },
+    {
+      "source_id": "RB2-S009",
+      "lineage_id": "L006",
+      "doi": "10.1007/s12013-013-9764-8",
+      "pmid": "24068522",
+      "priority": "CRITICAL",
+      "landing_pages": [
+        "https://pubmed.ncbi.nlm.nih.gov/24068522/",
+        "https://www.researchgate.net/publication/257075067_The_Time-Dependent_Manner_of_Sinusoidal_Electromagnetic_Fields_on_Rat_Bone_Marrow_Mesenchymal_Stem_Cells_Proliferation_Differentiation_and_Mineralization"
+      ],
+      "access_status": "ABSTRACT_VISIBLE_FULLTEXT_REQUEST_PAGE",
+      "request_exactly": [
+        "Numerical exposure-duration schedule, not only time-dependent statement",
+        "Duration-specific proliferation assay and control comparison",
+        "RUNX2/BSP/OPN, ALP and calcium-deposition figure/table by exact exposure",
+        "MEK/ERK inhibitor arms separate from baseline exposed/sham contrasts"
+      ],
+      "note": "ResearchGate reports request-full-text route; full article not independently verified."
+    },
+    {
+      "source_id": "RB2-S013",
+      "lineage_id": "L010",
+      "doi": "10.3109/08977199609003222",
+      "pmid": "8919028",
+      "priority": "CRITICAL",
+      "landing_pages": [
+        "https://pubmed.ncbi.nlm.nih.gov/8919028/",
+        "https://doi.org/10.3109/08977199609003222"
+      ],
+      "access_status": "ABSTRACT_VISIBLE_FULLTEXT_NOT_VERIFIED",
+      "request_exactly": [
+        "Vertical 50 Hz 6 uT RMS arm separately from ambient laboratory field",
+        "Nulled-field group as distinct unexposed comparator, not 50 Hz exposure",
+        "Cyclotron-resonance arm independently specified and contrasted",
+        "1/4/7/21-day growth, cell-cycle and clonogenic per-arm statistics"
+      ],
+      "note": "Pooled absence of growth/clonogenic effects does not justify enumerating every arm as NULL."
+    },
+    {
+      "source_id": "RB2-S005",
+      "lineage_id": "L003",
+      "doi": "10.1016/j.expneurol.2010.08.022",
+      "pmid": "20816824",
+      "priority": "HIGH",
+      "landing_pages": [
+        "https://pubmed.ncbi.nlm.nih.gov/20816824/"
+      ],
+      "access_status": "ABSTRACT_VISIBLE_FULLTEXT_NOT_VERIFIED",
+      "request_exactly": [
+        "Separate 1h/3h/7h daily exposure for each neurogenesis endpoint",
+        "Source group sizes and sham comparisons"
+      ],
+      "note": "Lineage L003 has provisional related evidence from S004; same lineage cannot create an extra independent fold."
+    },
+    {
+      "source_id": "RB2-S007",
+      "lineage_id": "L004",
+      "doi": "10.3109/09553002.2012.692496",
+      "pmid": "22568519",
+      "priority": "MEDIUM",
+      "landing_pages": [
+        "https://pubmed.ncbi.nlm.nih.gov/22568519/"
+      ],
+      "access_status": "ABSTRACT_VISIBLE_FULLTEXT_NOT_VERIFIED",
+      "request_exactly": [
+        "Collagen scaffold sample context retained in assay interpretation",
+        "Specific exposed/sham cell response and figure/table by measured endpoint"
+      ],
+      "note": "Lineage L004 already has provisional evidence from S006; a second paper is not an independent lineage."
+    }
+  ],
+  "provenance_warning": "Landing-page verification is not proof of access to full figures or independent review."
+}
