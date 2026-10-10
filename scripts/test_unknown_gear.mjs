@@ -52,7 +52,7 @@ for(const seed of [0,1,369,999,65535]){
 for(const sample of [0,.24,.32,.72]){
   const reading=simulateUnknownReading(sample,105,4,1,369,1)
   assert.ok(Math.abs(reading.jitterDegrees)<=1)
-  assert.equal(reading.observedDegrees%4,0)
+  assert.ok(reading.observedDegrees%4===0, 'measurement must lie on rounding grid')
   const ids=PHASE_CATALOG.map(row=>row.id)
   const after=compatibleUnknownCandidates(ids,105,reading.observedDegrees,4,1.5)
   assert.deepEqual(after,ids.filter(id=>{
