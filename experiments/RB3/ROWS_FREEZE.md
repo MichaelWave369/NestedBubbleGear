@@ -55,3 +55,13 @@ The S012 source reports a pooled null across 10 microtesla and 1 mT conditions w
 R3 also introduces `source_triage.json` for unresolved S005, S007, S008, S009 and S013. In particular, **L005/L006/L010 remain without admissible candidate data** because the available abstracts do not justify assigning pooled conclusions to exact intervention windows.
 
 The R3 static audit checks source DOI/PMID/lineage, schema, amplitude units, missingness, outcome provenance, aggregate/arm review status and the absent execution authorization. PR CI does not train on these rows.
+
+## RB3-R4 admission audit
+
+R4 adds **no new model rows**. It formalizes the distinction between an in-scope original RB2 **source**, a partially attributed R0–R3 **candidate**, and an independently reviewed **eligible condition × endpoint** observation.
+
+An accessible primary abstract reporting a pooled 3h/6h proliferation effect (S008), duration-dependent 15 Hz osteogenesis (S009), or an aggregate null across ambient/nulled/cyclotron/vertical 50 Hz field regimes over several days (S013) cannot be expanded into precisely assigned per-arm outcomes. All five unextracted sources are recorded in `R4/unresolved_studies.json`, with explicit `eligible_for_model_freeze: false`.
+
+`R4/admission_policy.json` requires independently reviewed source-specific control comparison, exposure regime, endpoint identity, statistical source evidence, provenance and a no-pooling gate before any future `REVIEWED_ELIGIBLE` state. Without admissible rows across all frozen lineage folds, the appropriate conclusion is `VOID_INSUFFICIENT_CORPUS`, not synthetic filling or altered split rules.
+
+At this stage: **14 frozen sources, 11 lineages, 64 candidate comparisons, 9 represented sources, 8 represented lineages, 0 newly reviewed fit-eligible rows, 0 model runs**. CI confirms this *readiness classification*, not the validity of the original papers' findings.
