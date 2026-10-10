@@ -30,7 +30,7 @@ deterministic angle quantization. There is NO empirical sensor calibration.
 Use only a **predeclared grid**, not knowledge of the synthetic oracle, to propose
 new ellipse eccentricities. Three demo grids are FINE (0.56..0.90, step 0.02),
 COARSE (0.56, 0.64, 0.72, 0.80, 0.88), and EXCLUDES_TRUTH
-(0.56, 0.60, 0.64, 0.68).
+(0.56, 0.58, 0.60, 0.62).
 
 Reject any candidate inconsistent with even one training observation.
 Among compatible candidates choose the minimum total absolute residual,
