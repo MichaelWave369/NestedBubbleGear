@@ -6,6 +6,7 @@ import UnknownGearLab from './UnknownGearLab.jsx'
 import ModelMismatchRecoveryLab from './ModelMismatchRecoveryLab.jsx'
 import DiscoveryLoop from './DiscoveryLoop.jsx'
 import QM1Lab from './QM1Lab.jsx'
+import QM2Lab from './QM2Lab.jsx'
 import {
   RELATION_OPTIONS,
   STATUS_OPTIONS,
@@ -519,6 +520,7 @@ function App() {
           <a href="#model-recovery">Model Recovery</a>
           <a href="#discovery-loop">Discovery Loop</a>
           <a href="#qm1">QM1 Mining</a>
+          <a href="#qm2">QM2 Trials</a>
           <a href="#keyholes">Keyholes</a>
           <a href="#temporal">Temporal</a>
           <a href="#experiments">Experiments</a>
@@ -646,6 +648,7 @@ function App() {
       <ModelMismatchRecoveryLab />
       <DiscoveryLoop />
       <QM1Lab />
+      <QM2Lab />
 
       <section id="keyholes" className="section keyhole-section">
         <div className="section-label">INTERACTIVE KEYHOLE</div>
