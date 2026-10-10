@@ -45,3 +45,13 @@ The total R0+R1+R2 candidate pool contains **56 rows / 6 RB2 source papers / 5 o
 Special caution: S010's nominal frequency has measured higher harmonics, and S006 uses an MTT metabolic proxy. Model features must not be secretly altered or replaced with full-spectral measurements that do not exist. Source-reported NULL / no appreciable effect is not formal equivalence.
 
 The final full-corpus freeze and independent extraction review remain required before any real fitting.
+
+## RB3-R3 provisional-source triage
+
+R3 adds 8 conditional literature **candidates**, not fit-ready rows, from S004/L003, S012/L009 and S014/L011, bringing the unreviewed aggregate to 64 candidate rows in 9 source records / 8 distinct lineages.
+
+The S012 source reports a pooled null across 10 microtesla and 1 mT conditions without a per-arm statistical table; the S014 source reports an aggregate approximately 30% proliferation response at 1 mT/72 h while separately reporting DNA damage. Such claims require **independent fulltext per-arm confirmation** before model promotion, and candidate metadata explicitly tags each row as `eligible_for_model_freeze: false`.
+
+R3 also introduces `source_triage.json` for unresolved S005, S007, S008, S009 and S013. In particular, **L005/L006/L010 remain without admissible candidate data** because the available abstracts do not justify assigning pooled conclusions to exact intervention windows.
+
+The R3 static audit checks source DOI/PMID/lineage, schema, amplitude units, missingness, outcome provenance, aggregate/arm review status and the absent execution authorization. PR CI does not train on these rows.
