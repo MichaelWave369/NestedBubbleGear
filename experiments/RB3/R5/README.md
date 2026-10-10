@@ -85,3 +85,9 @@ An evidence issue, a reviewer draft, a CI pass or an artifact hash is **not** a 
 [E3/README.md](E3/README.md) documents the assistant-conducted HTML spotcheck of the 2025 Scientific Reports neural-stem-cell article and 2016 PLOS embryonic NSC article. The key finding is **nonuniform post-exposure readout time** despite matching nominal exposure schedules (7-day secondary-neurosphere count and 3-day GFAP cell maturation, versus immediate post-exposure assays).
 
 `E3/audit_timing.py` cross-checks the 18 inspected rows against their frozen candidate/evidence receipts, prevents timing and numeric source tampering, and explicitly refuses any independent-review or real-fit promotion. This is a *preparatory source check*, not human adjudication.
+
+## E4: frozen-predictor collision audit
+
+See [E4/README.md](E4/README.md). `E4/audit_identifiability.py` computes exact E0 input collisions across all 64 already attributed candidates and cross-checks four mixed-label groups against the original source evidence, particularly the E3 assay-timing crosswalk. Ten rows in four groups carry conflicting labels under the same 13 frozen features.
+
+This is a **review-priority identifiability signal**, not independent confirmation, new experiments, revised scientific model, or proof of hidden gamma. The current `review_decisions.json` ledger remains empty.
