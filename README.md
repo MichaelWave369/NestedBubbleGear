@@ -114,6 +114,10 @@ See [experiments/RB3/R1](experiments/RB3/R1/).
 
 See [experiments/RB3/R2](experiments/RB3/R2/).
 
+**NBG-RB3-R3** adds 8 **provisional, abstract-attributed** comparison candidates from frozen studies in L003, L009 and L011, plus a five-study unresolved-source triage ledger. Combined candidate coverage reaches 64 rows, 9 papers and 8 of 11 source lineages, but pooled outcomes and missing per-arm statistics remain **pending primary-fulltext independent review**. The real-model execution gate stays closed.
+
+See [experiments/RB3/R3](experiments/RB3/R3/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
