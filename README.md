@@ -126,6 +126,10 @@ See [experiments/RB3/R4](experiments/RB3/R4/).
 
 See [experiments/RB3/R5](experiments/RB3/R5/).
 
+**NBG-RB3-R5-E1** adds a practical source-by-source review intake tool and targeted full-text evidence requests for the unrepresented L005/L006/L010 lineages. Templates for all 14 frozen sources embed the original candidate row hashes and risk warnings; structural validation rejects fabricated signoffs and cannot promote evidence or authorize any real model fit.
+
+See [experiments/RB3/R5/E1](experiments/RB3/R5/E1/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
