@@ -138,6 +138,10 @@ See [experiments/RB3/R5/E2](experiments/RB3/R5/E2/).
 
 See [experiments/RB3/R5/E3](experiments/RB3/R5/E3/).
 
+**NBG-RB3-R5-E4** runs an exact frozen-input identifiability audit across 64 existing candidate observations. **4 groups / 10 rows have identical original 13-feature vectors but opposing author-attributed outcome classes.** Original assay specificity and some post-exposure measurement timing explain why these are not necessarily contradictions of one biological measurement. The frozen predictors and all candidate rows are preserved; no independent review approval or real-data fit is authorized.
+
+See [experiments/RB3/R5/E4](experiments/RB3/R5/E4/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
