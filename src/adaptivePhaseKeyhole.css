@@ -1,0 +1,75 @@
+.apk{background:radial-gradient(circle at 14% 0,#73ffc512,transparent 62%),#06100b;scroll-margin-top:72px}
+.apk-introduction h2 em{font-style:normal;color:#73ffc5;font-weight:350}
+.apk-introduction p{font-size:17px;line-height:1.65;color:#bbd3c5;max-width:860px}
+.apk-shell{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.85fr);border:1px solid #73ffc53d;background:#09170f;margin-top:27px}
+.apk-left{min-width:0;padding:22px;border-right:1px solid #73ffc52e}
+.apk-right{min-width:0;padding:22px}
+.apk-overview{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#73ffc528;margin-bottom:20px}
+.apk-overview>div{background:#0c1e14;min-width:0;padding:16px 10px;display:flex;flex-direction:column;gap:6px}
+.apk-overview small{font-size:9px;letter-spacing:.1em;color:#9bb4a5}
+.apk-overview strong{font:700 25px ui-monospace,Consolas,monospace;color:#73ffc5}
+.apk-overview span{font-size:10px;color:#8fac9c}
+.apk-panel-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#73ffc5;font-size:10px;letter-spacing:.13em;font-weight:700;margin-bottom:14px}
+.apk-panel-heading small{font-size:9px;color:#89aa97;text-align:right;letter-spacing:0}
+.apk-atlas{border:1px solid #73ffc528;background:#07140e;padding:14px;min-width:0}
+.apk-atlas .apk-panel-heading{margin-bottom:7px}
+.apk-graph{width:100%;height:auto;display:block}
+.apk-graph-caption{display:flex;flex-wrap:wrap;gap:15px;padding-top:10px;color:#a5bfb0;font-size:10px}
+.apk-graph-caption>span{display:inline-flex;align-items:center;gap:6px}
+.apk-line-green,.apk-line-grey{display:inline-block;width:13px;height:3px;background:#73ffc5}
+.apk-line-grey{background:#7b9292}.apk-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#ffc56f}
+.apk-honesty{color:#8fac9b;font-size:11px;line-height:1.6}
+.apk-controls-play{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.apk-controls-play button,.apk-export{padding:12px;border:1px solid #73ffc54d;background:#143020;color:#e7fff0;font-family:inherit;font-weight:700;font-size:12px;cursor:pointer}
+.apk-controls-play button.apk-primary{background:#73ffc5;color:#07150e}
+.apk button:disabled{cursor:not-allowed;opacity:.45}
+.apk button:not(:disabled):hover{border-color:#73ffc5}
+.apk-next{padding:17px;border:1px solid #ffc56f44;background:#211e0b32;margin-bottom:23px}
+.apk-next span{font-size:10px;letter-spacing:.12em;color:#ffc56f}
+.apk-next strong{display:block;margin-top:8px;color:#fff1d7;font-size:19px;overflow-wrap:anywhere}
+.apk-next p{color:#bfbea7;font-size:12px;line-height:1.6;margin-bottom:0}
+.apk-tiles-title{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:13px}
+.apk-tiles-title strong{font-size:15px;color:#e4fff1}
+.apk-tiles-title label{display:flex;align-items:center;gap:9px;font-size:11px;color:#a6c7b3}
+.apk-tiles-title input{accent-color:#ffc56f;width:16px;height:16px}
+.apk-candidates{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.apk-candidate{border:1px solid #73ffc53d;background:#0b2819;padding:10px;min-width:0;display:flex;flex-direction:column;gap:7px}
+.apk-candidate.removed{opacity:.35}
+.apk-candidate span{color:#73ffc5;font-size:10px}
+.apk-candidate strong{font:700 12px ui-monospace,monospace;color:#dbf5e3}
+.apk-candidate small{color:#a0b6a4;font-size:9px}
+.apk-candidate .apk-truth{color:#ffc56f}
+.apk-right>label:not(:first-child){display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#bed4c5;margin:22px 0 9px}
+.apk-right label strong{font:700 12px ui-monospace,monospace;color:#eafff3}
+.apk-right select{background:#143121;color:#dffff0;width:100%;border:1px solid #73ffc54f;padding:10px;font-size:12px}
+.apk-right input[type=range]{width:100%;accent-color:#73ffc5;cursor:pointer}
+.apk-compare{border:1px solid #73ffc536;background:#0c2217;padding:15px;margin:25px 0}
+.apk-compare-head{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.apk-compare-head span,.apk-negative>span{color:#73ffc5;font-size:10px;letter-spacing:.12em}
+.apk-compare-head small{color:#a0bbaa;font-size:10px}
+.apk-compare-row{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-top:1px solid #73ffc516;color:#b5d1be;font-size:11px}
+.apk-compare-row strong{font:700 14px ui-monospace,monospace;color:#effff6}
+.apk-compare p{font-size:11px;line-height:1.65;color:#9bb5a4}
+.apk-steps>p{font-size:12px;line-height:1.5;color:#8dac98}
+.apk-step{border:1px solid #73ffc52c;margin:9px 0;padding:12px;background:#0a2215}
+.apk-step>div{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.apk-step span{color:#73ffc5;font-size:11px}
+.apk-step strong{font:700 16px ui-monospace,monospace;color:#effff5}
+.apk-step p{font-size:11px;color:#b6ccbc;line-height:1.5}
+.apk-step small{color:#8da994;font-size:10px}
+.apk-negative{margin-top:20px;padding:14px;border:1px solid #73ffc536;background:#0a2215}
+.apk-negative strong{display:block;color:#73ffc5;font-size:18px;margin:9px 0}
+.apk-negative p{color:#a3bcaa;font-size:11px;line-height:1.65}
+.apk-export{width:100%;margin-top:15px;background:transparent;color:#73ffc5}
+.apk-export-help{display:block;margin-top:8px;font-size:10px;color:#9fb5a8}
+.apk-explain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#73ffc528;margin-top:23px}
+.apk-explain article{min-width:0;padding:23px;background:#0d2015}
+.apk-explain article>span{color:#73ffc5;font-size:10px;letter-spacing:.13em}
+.apk-explain h3{font-size:20px;margin:15px 0 10px}
+.apk-explain p{color:#a7c1b0;font-size:13px;line-height:1.65}
+.apk-warning{margin-top:18px;border:1px solid #ffc56f3b;padding:20px;background:#ffc56f08}
+.apk-warning strong{color:#ffc56f;font-size:11px;letter-spacing:.12em}
+.apk-warning p{font-size:13px;line-height:1.6;color:#b2c5ad;max-width:1000px}
+.apk button:focus-visible,.apk input:focus-visible,.apk select:focus-visible{outline:2px solid #ffc56f;outline-offset:3px}
+@media(max-width:1150px){.apk-shell{grid-template-columns:1fr}.apk-left{border-right:0;border-bottom:1px solid #73ffc52e}}
+@media(max-width:700px){.apk-left,.apk-right{padding:14px}.apk-candidates{grid-template-columns:repeat(2,minmax(0,1fr))}.apk-overview{grid-template-columns:repeat(2,minmax(0,1fr))}.apk-explain{grid-template-columns:1fr}.apk-explain article{padding:19px}.apk-introduction p{font-size:15px}}

@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import SpiralGearLab from './SpiralGearLab.jsx'
 import PhaseClosureLab from './PhaseClosureLab.jsx'
+import AdaptivePhaseKeyhole from './AdaptivePhaseKeyhole.jsx'
 import {
   RELATION_OPTIONS,
   STATUS_OPTIONS,
@@ -509,6 +510,7 @@ function App() {
           <a href="#atlas">Bubble Atlas</a>
           <a href="#spiral-gears">Spiral Gears</a>
           <a href="#phase-closure">Phase &amp; Closure</a>
+          <a href="#adaptive-phase">Adaptive Phase</a>
           <a href="#keyholes">Keyholes</a>
           <a href="#temporal">Temporal</a>
           <a href="#experiments">Experiments</a>
@@ -631,6 +633,7 @@ function App() {
 
       <SpiralGearLab />
       <PhaseClosureLab />
+      <AdaptivePhaseKeyhole />
 
       <section id="keyholes" className="section keyhole-section">
         <div className="section-label">INTERACTIVE KEYHOLE</div>
