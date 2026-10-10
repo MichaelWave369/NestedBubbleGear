@@ -91,3 +91,9 @@ An evidence issue, a reviewer draft, a CI pass or an artifact hash is **not** a 
 See [E4/README.md](E4/README.md). `E4/audit_identifiability.py` computes exact E0 input collisions across all 64 already attributed candidates and cross-checks four mixed-label groups against the original source evidence, particularly the E3 assay-timing crosswalk. Ten rows in four groups carry conflicting labels under the same 13 frozen features.
 
 This is a **review-priority identifiability signal**, not independent confirmation, new experiments, revised scientific model, or proof of hidden gamma. The current `review_decisions.json` ledger remains empty.
+
+## E5: frozen-model candidate oracle ceiling
+
+See [E5/README.md](E5/README.md). E5 computes the **mathematical best-case in-sample accuracy bound**, not achieved model accuracy, for a hypothetical label-informed deterministic lookup on the 64 original unreviewed candidates. Four mixed-label groups force four errors, so at most 60/64 original candidate labels can be matched simultaneously by identical-input deterministic output rules.
+
+The E5 audit also checks the original five-fold lineage map and missing L005/L006/L010 candidate coverage. It adds no model features, modifies no candidate labels, and authorizes no actual model execution or independent approval.

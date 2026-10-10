@@ -1,0 +1,40 @@
+name: RB3 R5 E5 Candidate Oracle Bound Audit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  bounded-diagnostic-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Compile oracle bound audit
+        run: python -m py_compile experiments/RB3/R5/E5/bound_audit.py
+      - name: Recompute candidate-only mathematical ceiling and frozen fold gaps
+        run: python experiments/RB3/R5/E5/bound_audit.py --audit
+      - name: Reject label changes, missing-lineage filling and false model accuracy
+        run: python -m unittest discover -s experiments/RB3/R5/E5/tests -v
+      - name: Preserve existing source and feature-collision gates
+        run: |
+          python -m unittest discover -s experiments/RB3/R5/E4/tests -v
+          python -m unittest discover -s experiments/RB3/R5/E3/tests -v
+          python experiments/RB3/R4/audit_readiness.py
+          python experiments/RB3/src/rb3.py --static-check
+      - name: Generate review-only bound summary
+        run: python experiments/RB3/R5/E5/bound_audit.py --markdown > "$RUNNER_TEMP/rb3-e5-candidate-only-ceiling.md"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rb3-r5-e5-candidate-oracle-bound
+          path: ${{ runner.temp }}/rb3-e5-candidate-only-ceiling.md
+          retention-days: 30
+          if-no-files-found: error
+      # NEVER run real RB3 training on candidate data. No review attestation or model score.

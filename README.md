@@ -142,6 +142,10 @@ See [experiments/RB3/R5/E3](experiments/RB3/R5/E3/).
 
 See [experiments/RB3/R5/E4](experiments/RB3/R5/E4/).
 
+**NBG-RB3-R5-E5** proves a **candidate-only representational ceiling** for the frozen 13-feature deterministic classifier: the 64 unreviewed candidate rows map to 57 distinct exact feature vectors, with four opposing-label groups forcing at least four errors. A label-informed in-sample oracle therefore cannot match more than **60/64 (93.75%)** of these candidate labels, and the L002 subgroup ceiling is **14/18**. This is *neither a model fit nor held-out accuracy*. E5 also exposes frozen fold gaps in L005/L006/L010; no independent source review or real execution is approved.
+
+See [experiments/RB3/R5/E5](experiments/RB3/R5/E5/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
