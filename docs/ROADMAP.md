@@ -60,7 +60,10 @@ Promotion on this line requires predictive/closure advantage over simpler baseli
 - [x] NBG-RB3-E0 — freeze deterministic executable semantics, train-only preprocessing, source-leak checks and synthetic positive control; no real-corpus fit yet
 - [x] NBG-RB3-R0 — add source-backed partial Figure 3 extraction, per-row evidence receipts, tamper tests, and fail-closed real execution authorization
 - [x] NBG-RB3-R1 — expand the partial candidate extraction by 18 source-attributed rows from two primary PLOS articles; add cross-assay collision visibility, source audit, and tamper controls; real run still blocked
-- [ ] NBG-RB3-R2 — continue extracting the remaining RB2 sources at condition × assay level, especially sources outside L001/L002; preserve nulls and source evidence
+- [x] NBG-RB3-R2 — add 29 source-attributed conditions from S006/L004, S010/L007 and S011/L008, with measured harmonic/confounder and null semantics
+- [x] NBG-RB3-R3 — add 8 provisional abstract-attributed candidates from L003/L009/L011 and preserve five unresolved source records
+- [x] NBG-RB3-R4 — audit 14 frozen sources, 64 candidate rows and unresolved L005/L006/L010 with explicit source-vs-admissible-row gate; no new training rows
+- [ ] NBG-RB3-R5 — independent primary-fulltext per-arm review of candidate records, resolver decisions for remaining lineages; freeze only admissible rows or declare VOID_INSUFFICIENT_CORPUS
 - [ ] NBG-RB3 — freeze and hash complete source-backed condition-by-endpoint table, then run the first main-only real-corpus execution
 - [ ] NBG-RB4 — test hidden-gamma recovery and cross-bubble composition
 - [ ] NBG-RB5 — test state-dependent retuning / persistent response-state memory
