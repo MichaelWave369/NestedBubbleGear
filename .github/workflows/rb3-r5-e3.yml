@@ -1,0 +1,34 @@
+name: RB3 R5 E3 Source Timing Crosswalk
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  primary-source-readout-timing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Compile timing audit
+        run: python -m py_compile experiments/RB3/R5/E3/audit_timing.py
+      - name: Recheck publisher-text transcription and timing claims against frozen evidence receipts
+        run: python experiments/RB3/R5/E3/audit_timing.py
+      - name: Reject sham comparison, sample size, figure, lag and review-status tampering
+        run: python -m unittest discover -s experiments/RB3/R5/E3/tests -v
+      - name: Preserve existing reviewer packet and intake guards
+        run: |
+          python -m unittest discover -s experiments/RB3/R5/tests -v
+          python -m unittest discover -s experiments/RB3/R5/E1/tests -v
+          python experiments/RB3/R4/audit_readiness.py
+      - name: Validate unchanged model static semantics
+        run: python experiments/RB3/src/rb3.py --static-check
+      # This is a static comparison to recorded source text, not live fetching or independent human review.
+      # No real literature model fitting and no training authorization.
