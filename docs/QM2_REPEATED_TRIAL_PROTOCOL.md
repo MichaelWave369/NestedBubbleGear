@@ -58,13 +58,23 @@ classical scheduler is a quantum algorithm. The QM1 toy Grover
 simulator stays separate.
 
 QM2 JSON receipts retain the ordered execution plan, exact seed for
-each round, raw trial timings, derived statistics, complete independent
-reference-hit counts, audits, and provenance flags. The AQLEN graph
-adapter currently supports QM1's fixed three-node import contract
-only. QM2 receipts are exported separately and are **not silently
-imported into AQLEN** or promoted into its quantum evidence ledger.
-A QM2-AQLEN extension would require explicit versioning, validation
-and another review.
+each round, raw trial timings, derived statistics, complete reference
+recomputation counts, audits, and provenance flags. The AQLEN React
+console's **separately reviewed QM2 v1 receipt importer** (AQLEN PR #24)
+accepts this full JSON document directly, using its existing
+**Import JSON** file chooser. It converts the receipt into a read-only
+software evidence graph in browser memory.
+
+The importer validates frozen `nbg.qm2.receipt.v1` provenance, trial
+balance, same-work/same-seed controls, reference-audit reporting, and
+the arithmetic of descriptive and paired statistics. It does
+**not** recompute SHA-256 hashes from the imported report, verify
+actual hardware timing or energy, certify causal performance effects,
+or promote the results into the AQLEN quantum ledger. A valid
+self-consistent receipt is not proof of authentic benchmark execution.
+
+Use the exported `nbg-qm2-repeated-trial-receipt.json` file for
+handoff. Never import the QM1 graph in place of a QM2 receipt.
 
 ## Accepted protocol checks
 

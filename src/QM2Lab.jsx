@@ -193,10 +193,17 @@ export default function QM2Lab(){
           target="_blank" rel="noreferrer">Read frozen QM2 comparison protocol ↗</a>
         <a href="#qm1">Back to QM1's quantum toy comparison ↗</a>
         <div className="qm2-aqlen">
-          <strong>AQLEN LINKAGE</strong>
-          <p>AQLEN's current importer understands QM1's evidence graph contract.
-            QM2's expanded multi-trial receipt requires a separately reviewed
-            schema extension before AQLEN can import it. No silent ledger writes.</p>
+          <strong>AQLEN × QM2 · READ-ONLY EVIDENCE BRIDGE</strong>
+          <p>Export the full QM2 JSON receipt above, then open AQLEN's
+            Research Console and select <strong>Import JSON</strong>.
+            AQLEN's versioned QM2 adapter checks reported trial structure,
+            arithmetic summaries, balancing, and provenance before displaying
+            it as an untrusted local evidence graph.</p>
+          <a href="https://michaelwave369.github.io/aqlen-quantum-ledger/"
+            target="_blank" rel="noreferrer">Open AQLEN receipt explorer ↗</a>
+          <p>AQLEN does not independently redo the SHA-256 hashes or verify
+            a real mining performance advantage. Import stays in the browser
+            session; it cannot authorize or mutate quantum research records.</p>
         </div>
       </aside>
     </div>
