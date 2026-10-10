@@ -109,3 +109,9 @@ The abstract-only evidence remains awaiting legitimate primary full-text page/ta
 See [E7/README.md](E7/README.md). The E7 tool compares two original E1 reviewer draft JSON submissions and reports agreement, figure/assay/comparator/statistical disagreement, missing primary full text or a need for a new extraction PR. It includes mutation tests and declines to treat a PubMed/author-request landing page as full-text evidence.
 
 A structurally consistent paired draft **never** authenticates two human reviewers or passes a scientific-eligibility gate. Matching proposals need independent human checks of original source text and GitHub review receipts in a subsequent adjudication PR. This rung adds zero approved observations.
+
+## E8: Europe PMC source access discovery
+
+See [E8/README.md](E8/README.md). A new metadata-only source probe uses the public Europe PMC REST API for the five frozen RB2 papers without candidate records, verifies exact DOI/PMID matches and labels potential OA/PMCID repository routes as **not yet inspected**. Its CI artifact makes any access leads visible to human source reviewers.
+
+A provider outage, PDF-index metadata or apparently open access URL does **not** count as a full-text figure check or independent study result. The authentic reviewer/fit-admission ledger remains empty.
