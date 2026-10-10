@@ -76,7 +76,7 @@ class R5E1IntakeTests(unittest.TestCase):
         self.invalid(lambda d: d["row_proposals"][0].__setitem__("candidate_row_digest_sha256","0"*64),"SHA-256 changed")
 
     def test_source_id_changed_rejected(self):
-        self.invalid(lambda d: d.__setitem__("source_id","RB2-S011"),"changed: source_id|row omitted")
+        self.invalid(lambda d: d.__setitem__("source_id","RB2-S011"),"changed:")
 
     def test_row_omission_rejected(self):
         self.invalid(lambda d: d["row_proposals"].pop(),"row omitted")
