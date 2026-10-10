@@ -122,6 +122,10 @@ See [experiments/RB3/R3](experiments/RB3/R3/).
 
 See [experiments/RB3/R4](experiments/RB3/R4/).
 
+**NBG-RB3-R5-E0** prepares the independent full-text review packet: all 64 candidate rows are enumerated with their RB2 lineage, DOI, original source locator, source-specific risk flags, stable SHA-256 fingerprints, and an explicitly **empty** reviewer-adjudication ledger. Machine-generated review readiness does **not** count as independent signoff. The real-model execution gate remains locked.
+
+See [experiments/RB3/R5](experiments/RB3/R5/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.

@@ -1,0 +1,13 @@
+{
+  "schema_id": "NBG-RB3-R5-ADJUDICATION-LEDGER",
+  "version": "0.1.0",
+  "phase": "UNREVIEWED_INITIAL_STATE",
+  "current_status": "AWAITING_INDEPENDENT_SOURCE_REVIEW",
+  "independent_reviewer_attestations": [],
+  "source_decisions": [],
+  "row_decisions": [],
+  "reviewed_eligible_row_count": 0,
+  "authorized_training_dataset": false,
+  "execution_authorized": false,
+  "note": "No machine-generated review packet, GitHub CI success, or assistant's own rereading constitutes independent review. Future decisions require a separately reviewed successor change."
+}
