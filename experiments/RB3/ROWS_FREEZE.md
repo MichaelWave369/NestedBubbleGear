@@ -85,3 +85,11 @@ The only successful output is `STRUCTURAL_REVIEW_DRAFT_VALID_NOT_ATTESTED`. No a
 The S008/L005, S009/L006 and S013/L010 access records identify the exact missing comparator-by-duration evidence. Publisher or PubMed landing-page accessibility is **not** equivalent to an inspected primary full-text figure/table.
 
 The authoritative R5-E0 `review_decisions.json` remains empty. `FROZEN_ROWS.csv` and `REAL_ROWS_FREEZE.json` remain absent, so real execution remains refused.
+
+## RB3-R5-E2 reviewer dispatch
+
+E2 creates a deterministic reviewer handoff **without changing the 64 R0–R3 candidate CSVs**. `R5/E2/build_dispatch.py --out-dir /tmp/nbg-review-dispatch` writes 14 readable source dossiers, the complete untouched R5-E0 review packet and a SHA-256 manifest. A dedicated GitHub Action exposes the bundle as a downloadable workflow artifact, and a GitHub issue form accepts source-specific evidence requests.
+
+The five frozen papers without candidates are recorded as missing-evidence sources, **not** as measured null outcomes. E2's tests reject simulated reviewer approval, changed source identity, altered candidate hashes and any writing of generated dispatch artifacts into the tracked repository.
+
+The authoritative `R5/review_decisions.json` remains empty and R4's source-versus-row evidence admission barrier remains unchanged. No independent human source review has been completed by this rung; no final model input, freeze authorization or scientific result is created.
