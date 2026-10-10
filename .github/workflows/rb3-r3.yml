@@ -1,0 +1,35 @@
+name: RB3 R3 Source Triage Audit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  static-source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Compile R3 audit
+        run: |
+          python -m py_compile experiments/RB3/R3/validate_candidate.py
+          python -m py_compile experiments/RB3/src/rb3.py
+      - name: Audit source provenance
+        run: python experiments/RB3/R3/validate_candidate.py
+      - name: Tamper and real-run refusal tests
+        run: python -m unittest discover -s experiments/RB3/R3/tests -v
+      - name: Preserve prior extraction gates
+        run: |
+          python -m unittest discover -s experiments/RB3/R0/tests -v
+          python -m unittest discover -s experiments/RB3/R1/tests -v
+          python -m unittest discover -s experiments/RB3/R2/tests -v
+      - name: Check frozen RB3 static model contract
+        run: python experiments/RB3/src/rb3.py --static-check
+      # No actual study-model fit: even provisional rows are not approved training data.
