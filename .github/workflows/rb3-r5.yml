@@ -1,0 +1,32 @@
+name: RB3 R5 Independent Review Packet Qualification
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-review-readiness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Compile reviewer packet generator
+        run: python -m py_compile experiments/RB3/R5/build_review_packet.py
+      - name: Audit review packet without attesting outcomes
+        run: python experiments/RB3/R5/build_review_packet.py --audit
+      - name: Validate tamper and fake-review refusal
+        run: python -m unittest discover -s experiments/RB3/R5/tests -v
+      - name: Preserve R4 readiness gate
+        run: |
+          python experiments/RB3/R4/audit_readiness.py
+          python -m unittest discover -s experiments/RB3/R4/tests -v
+      - name: Preserve model-semantics static contract
+        run: python experiments/RB3/src/rb3.py --static-check
+      # No --execute, no review decisions, no CSV promotion, no fit-ready artifacts.
