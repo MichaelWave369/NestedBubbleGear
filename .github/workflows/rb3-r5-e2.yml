@@ -1,0 +1,41 @@
+name: RB3 R5 E2 Reviewer Dispatch Qualification
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  deterministic-review-handoff:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Compile reviewer dispatch generator
+        run: python -m py_compile experiments/RB3/R5/E2/build_dispatch.py
+      - name: Check all 14 source dossiers without approving any row
+        run: python experiments/RB3/R5/E2/build_dispatch.py --audit
+      - name: Tamper and deterministic artifact tests
+        run: python -m unittest discover -s experiments/RB3/R5/E2/tests -v
+      - name: Preserve review packet and original admission lock
+        run: |
+          python -m unittest discover -s experiments/RB3/R5/E1/tests -v
+          python -m unittest discover -s experiments/RB3/R5/tests -v
+          python experiments/RB3/R4/audit_readiness.py
+          python experiments/RB3/src/rb3.py --static-check
+      - name: Export non-attested reviewer handoff package
+        run: python experiments/RB3/R5/E2/build_dispatch.py --out-dir "$RUNNER_TEMP/rb3-r5-e2-review-bundle"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rb3-r5-e2-review-dispatch
+          path: ${{ runner.temp }}/rb3-r5-e2-review-bundle/
+          retention-days: 30
+          if-no-files-found: error
+      # Only metadata, original public URLs and candidate hashes: no full article copies.
+      # This artifact is not scientific verification, and no real model fit is performed.
