@@ -4,6 +4,7 @@ import PhaseClosureLab from './PhaseClosureLab.jsx'
 import AdaptivePhaseKeyhole from './AdaptivePhaseKeyhole.jsx'
 import UnknownGearLab from './UnknownGearLab.jsx'
 import ModelMismatchRecoveryLab from './ModelMismatchRecoveryLab.jsx'
+import DiscoveryLoop from './DiscoveryLoop.jsx'
 import {
   RELATION_OPTIONS,
   STATUS_OPTIONS,
@@ -515,6 +516,7 @@ function App() {
           <a href="#adaptive-phase">Adaptive Phase</a>
           <a href="#unknown-gear">Unknown Gear</a>
           <a href="#model-recovery">Model Recovery</a>
+          <a href="#discovery-loop">Discovery Loop</a>
           <a href="#keyholes">Keyholes</a>
           <a href="#temporal">Temporal</a>
           <a href="#experiments">Experiments</a>
@@ -640,6 +642,7 @@ function App() {
       <AdaptivePhaseKeyhole />
       <UnknownGearLab />
       <ModelMismatchRecoveryLab />
+      <DiscoveryLoop />
 
       <section id="keyholes" className="section keyhole-section">
         <div className="section-label">INTERACTIVE KEYHOLE</div>
