@@ -154,6 +154,10 @@ See [experiments/RB3/R5/E6](experiments/RB3/R5/E6/).
 
 See [experiments/RB3/R5/E7](experiments/RB3/R5/E7/).
 
+**NBG-RB3-R5-E8** runs a **real Europe PMC metadata query** for all five frozen papers that still lack condition-level candidate rows. It matches original DOI/PMID/MED identities and can surface a possible legal open-access repository location when OA metadata and PMCID agree; it never downloads articles or equates a PDF indicator with an inspected original figure. Network failures are reported as unknown access. The reviewer ledger and real model stay locked.
+
+See [experiments/RB3/R5/E8](experiments/RB3/R5/E8/).
+
 ## Epistemic provenance / Dream isolation
 
 NBG memory now separates **epistemic origin**, **evidence status**, and **authority**.
