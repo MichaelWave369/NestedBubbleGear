@@ -93,3 +93,11 @@ E2 creates a deterministic reviewer handoff **without changing the 64 R0–R3 ca
 The five frozen papers without candidates are recorded as missing-evidence sources, **not** as measured null outcomes. E2's tests reject simulated reviewer approval, changed source identity, altered candidate hashes and any writing of generated dispatch artifacts into the tracked repository.
 
 The authoritative `R5/review_decisions.json` remains empty and R4's source-versus-row evidence admission barrier remains unchanged. No independent human source review has been completed by this rung; no final model input, freeze authorization or scientific result is created.
+
+## RB3-R5-E3 timing crosswalk
+
+E3 adds an assistant-authored primary-publisher HTML source inspection for the existing nine R0 S001 records and nine R1 S002 records, with exact figure/assay crosswalk and selected verified numeric source values. **It does not modify the frozen candidate CSVs, target outcomes or the E0 feature set**.
+
+The 2016 PLOS study explicitly counts secondary neurospheres **seven days after re-plating without exposure** and GFAP-positive differentiated cells **three days after the three-day exposure ends**. In contrast, GFAP mRNA is sampled after the exposure course. The original RB3 feature list has no post-exposure-readout-delay term, so these biologically different measurement windows must not be explained away as a pure frequency response. The timing information is attached as non-model evidence in `R5/E3/primary_html_spotcheck.json`.
+
+A successful E3 audit confirms the crosswalk's consistency with published text and prior internal receipts, **not independent scientific validation**. Existing `review_decisions.json` remains empty, source eligibility stays unapproved, and real fit remains blocked.
