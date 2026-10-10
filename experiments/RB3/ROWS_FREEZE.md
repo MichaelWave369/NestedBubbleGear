@@ -119,3 +119,11 @@ On the original 64 R0–R3 candidate observations, the unchanged E0 thirteen-fie
 All conflicts occur in L002, which belongs to the original outer test fold 0. Available *unreviewed candidates* in that fold have a label-informed bound of 23/27, and L002 alone has 14/18; these are **not real or cross-validated test scores**. Three of the five frozen test folds contain at least one lineage with no candidate rows (fold 0 L005, fold 1 L006, fold 4 L010). Those lineages remain part of the RB2 immutable source set.
 
 No accepted empirical model results or independently reviewed eligible records have been produced. The model and its inputs remain unchanged; no retuning, cherry-picking or post-hoc addition of hidden assay or readout-time features is permitted. Missing independent source evidence can result in `VOID_INSUFFICIENT_CORPUS`.
+
+## RB3-R5-E6 typed abstract-contrast source check
+
+E6 searches accessible PubMed/source landing pages for the previously unrepresented L005/S008, L006/S009 and L010/S013 papers. It records **10 distinct author-claim atoms**, explicitly differentiating early-vs-late post-exposure outcome windows, exposed-arm-vs-exposed-arm comparators, inhibitor co-intervention, and multi-regime pooled reported null findings. This source-level ledger is not an independently confirmed per-arm comparison table and does **not** add ten training rows.
+
+The original 64 R0–R3 candidates, their original label classes, all 14 RB2 papers, 11 source lineages and frozen RB3 feature/fold definitions remain unchanged. These three source papers still require legitimate full-text figure/table access and independent actual arm-by-endpoint adjudication before any row could be eligible. The source search does not establish that no full text exists anywhere.
+
+E6's negative tests reject source population mislabeling, missing comparison classes, fabricated review status, guessed durations and rewritten pooled nulls. `review_decisions.json` remains empty and actual model execution remains blocked.
