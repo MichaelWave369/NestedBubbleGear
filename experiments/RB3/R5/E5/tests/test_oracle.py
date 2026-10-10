@@ -102,7 +102,7 @@ class CandidateOracleCeilingTests(unittest.TestCase):
     def test_inventing_l005_candidate_refused(self):
         def edit(p, rs, fs):
             rs[0]["lineage_id"] = "L005"
-        self.reject(edit, "source lineage candidate count changed")
+        self.reject(edit, "lineage coverage changed")
 
     def test_oracle_cannot_be_presented_as_independently_reviewed(self):
         self.reject(lambda p, rs, fs:
