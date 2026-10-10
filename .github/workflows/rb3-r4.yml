@@ -1,0 +1,34 @@
+name: RB3 R4 Evidence Admissibility Audit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify-source-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Compile R4 evidence audit
+        run: python -m py_compile experiments/RB3/R4/audit_readiness.py
+      - name: Check source-only quarantine and readiness classification
+        run: python experiments/RB3/R4/audit_readiness.py
+      - name: Tamper controls and fail-closed real-fit refusal
+        run: python -m unittest discover -s experiments/RB3/R4/tests -v
+      - name: Preserve R0–R3 evidence validation
+        run: |
+          python -m unittest discover -s experiments/RB3/R0/tests -v
+          python -m unittest discover -s experiments/RB3/R1/tests -v
+          python -m unittest discover -s experiments/RB3/R2/tests -v
+          python -m unittest discover -s experiments/RB3/R3/tests -v
+      - name: Preserve frozen RB3 model semantics without fitting
+        run: python experiments/RB3/src/rb3.py --static-check
+      # PRs may not fit real sources or promote provisional candidate rows.

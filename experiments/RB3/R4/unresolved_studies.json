@@ -1,0 +1,199 @@
+{
+  "registry_id": "NBG-RB3-R4-UNRESOLVED-PRIMARY-STUDIES",
+  "version": "0.1.0",
+  "status": "SOURCE_LEVEL_EVIDENCE_ONLY",
+  "row_count_added": 0,
+  "evidence_grade": "PRIMARY_STUDY_ABSTRACT",
+  "source_set_frozen": true,
+  "sources": [
+    {
+      "source_id": "RB2-S008",
+      "lineage_id": "L005",
+      "pmid": "22676915",
+      "doi": "10.3109/15368378.2012.662194",
+      "title": "Effects of 50 Hz pulsed electromagnetic fields on the growth and cell cycle arrest of mesenchymal stem cells: an in vitro study",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22676915/",
+      "nominal_stimulus": {
+        "frequency_hz": 50,
+        "amplitude_tesla": 0.01,
+        "waveform": "PULSED",
+        "durations_hours": [
+          3,
+          6
+        ]
+      },
+      "comparison_facts": [
+        {
+          "claim": "Study reports significant early proliferation increase for exposed mesenchymal cells relative to control.",
+          "direction": "INCREASE",
+          "p_relation": "P<0.05",
+          "per_arm_assignment": "NOT_RESOLVED"
+        },
+        {
+          "claim": "Growth after 3-hour and 6-hour exposure did not differ significantly.",
+          "direction": "NULL_BETWEEN_EXPOSURE_ARMS",
+          "p_relation": "P>0.05",
+          "per_arm_assignment": "COMPARISON_BETWEEN_3H_AND_6H_NOT_SHAM"
+        },
+        {
+          "claim": "Exposed cell G1-phase proportion increased relative to control, with greater G1 percentage after 6 hours than 3 hours.",
+          "direction": "INCREASE",
+          "p_relation": "NOT_PINNED_PER_ARM",
+          "per_arm_assignment": "NOT_RESOLVED"
+        },
+        {
+          "claim": "By 16 hours after treatment, the source reports no significant proliferation or cell-cycle effect.",
+          "direction": "NULL_LATE",
+          "p_relation": "P>0.05",
+          "per_arm_assignment": "NOT_RESOLVED"
+        }
+      ],
+      "missing_for_admission": [
+        "exact sham-specific assay-by-duration outcome and p",
+        "early observation time",
+        "late observation time for each exposure arm",
+        "figure/table and statistical comparator"
+      ],
+      "caution": "An absence of difference between 3h and 6h is not evidence that neither differs from sham; post-exposure 16h null cannot be assigned to the early timepoint.",
+      "eligible_for_model_freeze": false
+    },
+    {
+      "source_id": "RB2-S009",
+      "lineage_id": "L006",
+      "pmid": "24068522",
+      "doi": "10.1007/s12013-013-9764-8",
+      "title": "The time-dependent manner of sinusoidal electromagnetic fields on rat bone marrow mesenchymal stem cells proliferation, differentiation, and mineralization",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24068522/",
+      "nominal_stimulus": {
+        "frequency_hz": 15,
+        "amplitude_tesla": 0.001,
+        "waveform": "SINUSOIDAL",
+        "durations_hours": null
+      },
+      "comparison_facts": [
+        {
+          "claim": "Source reports time-duration-dependent proliferation changes.",
+          "direction": "AUTHOR_REPORTED_INCREASE",
+          "per_arm_assignment": "NOT_RESOLVED"
+        },
+        {
+          "claim": "Source reports duration-dependent osteogenic RUNX2, BSP, OPN expression, ALP activity and calcium deposition.",
+          "direction": "AUTHOR_REPORTED_INCREASE",
+          "per_arm_assignment": "NOT_RESOLVED"
+        },
+        {
+          "claim": "MEK/ERK inhibition reduced proliferation and partly attenuated osteogenic-expression responses.",
+          "direction": "MECHANISM_CONTEXT_ONLY",
+          "per_arm_assignment": "INHIBITOR_CONFOUND_NOT_AS_BASELINE"
+        }
+      ],
+      "missing_for_admission": [
+        "exact exposure duration for each comparison",
+        "assay-by-duration sham statistics",
+        "post-treatment measurement schedule",
+        "full-text Table/Figure locator and effect direction per comparison"
+      ],
+      "caution": "Cannot infer a numeric duration or assign the aggregate proliferation/mineralization increase to every dose window. MEK/ERK is not a verified direct EMF sensor.",
+      "eligible_for_model_freeze": false
+    },
+    {
+      "source_id": "RB2-S013",
+      "lineage_id": "L010",
+      "pmid": "8919028",
+      "doi": "10.3109/08977199609003222",
+      "title": "Exposure to extremely low frequency magnetic fields has no effect on growth rate or clonogenic potential of multipotential haemopoietic progenitor cells",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8919028/",
+      "system": "Mouse FDCP-mix(A4) multipotential haemopoietic progenitor cell line",
+      "nominal_stimulus": {
+        "frequency_hz": 50,
+        "amplitude_tesla_rms_for_vertical_regime": 0.000006,
+        "other_regimes": [
+          "ambient laboratory",
+          "nulled field",
+          "Ca2+ ion-cyclotron-resonance regime at 50 Hz"
+        ],
+        "durations_days": [
+          1,
+          4,
+          7,
+          21
+        ]
+      },
+      "comparison_facts": [
+        {
+          "claim": "Across the tested exposure regimes and durations, authors report no significant alteration of growth rate, cell-cycle state, or clonogenic efficiency.",
+          "direction": "POOLED_AUTHOR_REPORTED_NULL",
+          "per_arm_assignment": "NOT_RESOLVED"
+        }
+      ],
+      "missing_for_admission": [
+        "regime-by-duration comparator statistics",
+        "separation of 50 Hz vertical arm from ambient/nulled controls",
+        "growth vs clonogenic endpoint-specific statistics",
+        "confirmed reference field for each outcome"
+      ],
+      "caution": "Do not encode a nulled-field condition as 50 Hz/6 microtesla exposure. A pooled null across several regimes and 1/4/7/21 days is not 16 independent null findings.",
+      "eligible_for_model_freeze": false
+    },
+    {
+      "source_id": "RB2-S005",
+      "lineage_id": "L003",
+      "pmid": "20816824",
+      "doi": "10.1016/j.expneurol.2010.08.022",
+      "title": "Exposure to extremely low-frequency (50 Hz) electromagnetic fields enhances adult hippocampal neurogenesis in C57BL/6 mice",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20816824/",
+      "nominal_stimulus": {
+        "frequency_hz": 50,
+        "amplitude_tesla": 0.001,
+        "exposure_hours_per_day": [
+          1,
+          3,
+          7
+        ],
+        "duration_days": 7
+      },
+      "comparison_facts": [
+        {
+          "claim": "Study-level report of enhanced hippocampal neurogenesis.",
+          "direction": "AUTHOR_REPORTED_INCREASE",
+          "per_arm_assignment": "NOT_RESOLVED"
+        }
+      ],
+      "missing_for_admission": [
+        "exact 1h/3h/7h biological endpoint/statistical grid",
+        "comparison/control assignment",
+        "primary figure-level extraction"
+      ],
+      "caution": "Do not infer the effect under each exposure duration from the title.",
+      "eligible_for_model_freeze": false
+    },
+    {
+      "source_id": "RB2-S007",
+      "lineage_id": "L004",
+      "pmid": "22568519",
+      "doi": "10.3109/09553002.2012.692496",
+      "title": "Effects of 50 Hz electromagnetic fields on human epidermal stem cells cultured on collagen sponge scaffolds",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22568519/",
+      "nominal_stimulus": {
+        "frequency_hz": 50,
+        "amplitude_tesla": 0.005,
+        "minutes_per_day": 30,
+        "duration_days": 14
+      },
+      "comparison_facts": [
+        {
+          "claim": "Source-level study of cultured epidermal stem-cell response on collagen scaffold.",
+          "direction": "OUTCOME_UNEXTRACTED",
+          "per_arm_assignment": "NOT_RESOLVED"
+        }
+      ],
+      "missing_for_admission": [
+        "exact endpoint/assay effect directions",
+        "figure/table statistical comparisons",
+        "separation from other L004 related study"
+      ],
+      "caution": "This is an additional paper in already represented lineage L004, not a new independent lineage.",
+      "eligible_for_model_freeze": false
+    }
+  ]
+}

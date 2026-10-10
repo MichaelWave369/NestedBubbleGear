@@ -1,0 +1,65 @@
+{
+  "policy_id": "NBG-RB3-R4-ADMISSION-GATE",
+  "version": "0.1.0",
+  "status": "READINESS_ONLY_NO_TRAINING",
+  "immutable_inherited": {
+    "rb2_source_count": 14,
+    "rb2_lineage_count": 11,
+    "rb2_manifest_digest_sha256": "2a91f27c113fb4ae3b63ec8bfad2b2c1c99e84417bd5f3e095c803b9e4c4e351",
+    "rb3_model": "MULTINOMIAL_SOFTMAX_FROZEN_RB3_E0",
+    "frozen_split_policy": "GROUPED_5_FOLD_LINEAGE_CROSS_VALIDATION"
+  },
+  "authorization": {
+    "candidate_csvs_are_never_fit_ready": true,
+    "all_extraction_review_statuses": "PENDING",
+    "execution_authorized": false,
+    "independent_review_required": true,
+    "machine_readable_row_evidence_required": true,
+    "reviewers_must_be_independent_of_original_extractor": true,
+    "no_model_fit_in_pr": true,
+    "no_imputation_at_extraction": true,
+    "no_automatic_pooled_claim_promotion": true
+  },
+  "promotion_contract": {
+    "per_row": [
+      "SOURCE_ID_IN_FROZEN_RB2",
+      "EXACT_SOURCE_LINEAGE",
+      "SOURCE_PRIMARY_FULLTEXT_LOCATOR",
+      "EXACT_FIELD_FREQUENCY_AND_AMPLITUDE",
+      "EXACT_EXPOSURE_WINDOW_OR_EXPLICIT_NULL",
+      "NAMED_ASSAY_AND_BIOLOGICAL_SYSTEM",
+      "EXPLICIT_CONTROL_COMPARATOR",
+      "CONDITION_AND_ENDPOINT_SPECIFIC_OUTCOME_EVIDENCE",
+      "STATISTICAL_SIGNIFICANCE_OR_EXPLICIT_AUTHOR_REPORT_REVIEWED",
+      "NO_ALIAS_OF_ANOTHER_ROWS_CONDITION_ENDPOINT",
+      "INDEPENDENT_REVIEW_RECEIPT",
+      "NOT_FROM_CONTEXT_ONLY_REGISTRY",
+      "NOT_EXTRAPOLATED_FROM_POOLED_SUMMARY"
+    ],
+    "entire_corpus": [
+      "ALL_14_RB2_SOURCES_REVIEWED_WITH_ELIGIBLE_ROWS_OR_EXPLICIT_UNAVAILABLE_REASON",
+      "ALL_11_LINEAGES_PRESENT_IN_REVIEW_OUTCOME",
+      "FROZEN_TABLE_SHA256_AND_CANONICAL_ORDER",
+      "PROVENANCE_ISOLATED_FROM_MODEL_FEATURES",
+      "NO_EMPTY_LINEAGE_TEST_FOLD",
+      "CONFLICTING_COARSE_PREDICTOR_LABELS_AUDITED",
+      "NO_REAL_FIT_BEFORE_SEPARATE_MAIN_ONLY_AUTHORIZATION"
+    ]
+  },
+  "classes": {
+    "SOURCE_IN_SCOPE": "The publication belongs to the frozen RB2 source set; does not mean an outcome row is eligible.",
+    "CANDIDATE_PARTIAL": "A sourced candidate exists but full condition-level extraction and independent verification may be incomplete.",
+    "CANDIDATE_ABSTRACT_POOLED": "Candidate assigned from pooled or abstract-level claim; blocked until per-arm full-text verification.",
+    "SOURCE_ONLY_BLOCKED": "Source exists, but no condition-by-endpoint candidate with adequate evidence yet.",
+    "REVIEWED_ELIGIBLE": "Human review independently confirms a specific experimental arm and endpoint with provenance.",
+    "REJECTED_UNRESOLVED": "Source remains within original corpus but cannot yield defensible model rows.",
+    "VOID_INSUFFICIENT_CORPUS": "One or more frozen lineage test folds cannot be evaluated with independently reviewed per-arm comparisons."
+  },
+  "stop_conditions": [
+    "MISSING_PRIMARY_EVIDENCE_DOES_NOT_AUTHORIZE_SYNTHESIS",
+    "NO_CHANGE_TO_RB2_ELIGIBILITY_OR_FOLDS",
+    "NO_POST_HOC_REASSIGNMENT_OF_PER_ARM_OUTCOMES",
+    "IF_LESS_THAN_11_HOLDOUT_CAPABLE_LINEAGES_AFTER_REVIEW_FLAG_VOID",
+    "IF_SOURCE_CANNOT_BE_EXTRACTED_RETAIN_IN_LEDGER_AS_UNAVAILABLE"
+  ]
+}
