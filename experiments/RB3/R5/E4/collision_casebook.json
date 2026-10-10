@@ -1,0 +1,132 @@
+{
+  "registry_id": "NBG-RB3-R5-E4-COARSE-PREDICTOR-CONTRADICTIONS",
+  "version": "0.1.0",
+  "status": "SOURCE_ATTRIBUTED_CANDIDATE_DIAGNOSTIC_UNATTESTED",
+  "analysis_scope": "All 64 frozen R0-R3 candidates; 13 original frozen RB3 model input fields; no model fitting",
+  "source_evidence": [
+    {
+      "source_id": "RB2-S002",
+      "lineage_id": "L002",
+      "doi": "10.1371/journal.pone.0150923",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0150923",
+      "scope": "Original 2016 Methods/Results, Figures 3 and 4; post-exposure timing crosswalk from R5-E3"
+    },
+    {
+      "source_id": "RB2-S003",
+      "lineage_id": "L002",
+      "doi": "10.1371/journal.pone.0090041",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090041",
+      "scope": "Original 2014 article, Figure 5 gene expression comparisons; exact timepoint context needs independent review"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "C1_NEURON_VS_ASTROCYTE_DIFFERENTIATION",
+      "source_id": "RB2-S002",
+      "row_ids": [
+        "RB3R1-S002-03",
+        "RB3R1-S002-04"
+      ],
+      "expected_labels": [
+        "INCREASE",
+        "NULL"
+      ],
+      "reported_assays": [
+        "Figure 3B: Tuj1-positive neuronal-cell fraction",
+        "Figure 3D: GFAP-positive astrocyte-cell fraction"
+      ],
+      "nonencoded_dimensions": [
+        "ASSAY_CELL_MARKER",
+        "POST_EXPOSURE_READOUT_DELAY"
+      ],
+      "known_source_time_difference": "GFAP-positive astrocyte cells measured after three additional unexposed culture days; Tuj1 neuronal cells fixed at the conclusion of three-day exposure course",
+      "explanation_boundary": "Distinct cellular markers and measurement time; same endpoint_class does not imply same measured biological target"
+    },
+    {
+      "case_id": "C2_TUJ1_VS_GFAP_TRANSCRIPTION",
+      "source_id": "RB2-S002",
+      "row_ids": [
+        "RB3R1-S002-05",
+        "RB3R1-S002-06"
+      ],
+      "expected_labels": [
+        "INCREASE",
+        "NULL"
+      ],
+      "reported_assays": [
+        "Figure 3C: Tuj1 transcript",
+        "Figure 3E: GFAP transcript"
+      ],
+      "nonencoded_dimensions": [
+        "GENE_TARGET_IDENTITY"
+      ],
+      "known_source_time_difference": "Both linked in R5-E3 to expression measurements at end of three-day exposure; no observed timing mismatch asserted for these two transcripts",
+      "explanation_boundary": "Different gene target under broad GENE_EXPRESSION class; cannot attribute discordance to assay timing here"
+    },
+    {
+      "case_id": "C3_NEURITE_LENGTH_COUNT_BRANCHES",
+      "source_id": "RB2-S002",
+      "row_ids": [
+        "RB3R1-S002-07",
+        "RB3R1-S002-08",
+        "RB3R1-S002-09"
+      ],
+      "expected_labels": [
+        "INCREASE",
+        "NULL",
+        "INCREASE"
+      ],
+      "reported_assays": [
+        "Figure 4B: total neurite length",
+        "Figure 4C: primary neurites per cell",
+        "Figure 4D: branch points per cell"
+      ],
+      "nonencoded_dimensions": [
+        "ASSAY_MORPHOMETRIC_SUBTYPE"
+      ],
+      "known_source_time_difference": "Same three-day exposed neuronal cell preparation; no distinct post-exposure delay claimed",
+      "explanation_boundary": "Length, number and branching are distinct measured morphology endpoints despite same coarse NEURITE_OUTGROWTH class"
+    },
+    {
+      "case_id": "C4_2014_DIFFERENT_NEURONAL_TRANSCRIPTS",
+      "source_id": "RB2-S003",
+      "row_ids": [
+        "RB3R1-S003-13",
+        "RB3R1-S003-14",
+        "RB3R1-S003-15"
+      ],
+      "expected_labels": [
+        "INCREASE",
+        "DECREASE",
+        "INCREASE"
+      ],
+      "reported_assays": [
+        "Figure 5A: Tuj1 expression",
+        "Figure 5A: Sox2 expression",
+        "Figure 5B: Ngn1 expression"
+      ],
+      "nonencoded_dimensions": [
+        "GENE_TARGET_IDENTITY",
+        "ASSAY_TIMEPOINT_NOT_CONFIRMED"
+      ],
+      "known_source_time_difference": "Not established for these three comparisons; no differential timing may be asserted without original paper review",
+      "explanation_boundary": "Opposite directions for different transcripts do not constitute a contradiction of a single measured variable"
+    }
+  ],
+  "review_status": {
+    "independent_review_attestations": [],
+    "fit_eligible_rows": 0,
+    "model_execution_authorized": false,
+    "classification": "DIAGNOSTIC_ONLY_REVIEW_REQUIRED",
+    "caution": "This is an audit of already source-attributed candidate labels, not a verification of scientific significance or a test of a causal hidden variable."
+  },
+  "promotion_blocks": [
+    "SOURCE_ATTRIBUTION_IS_NOT_INDEPENDENT_REVIEW",
+    "EXACT_PREDICTOR_VECTOR_COLLISION_DIAGNOSTIC_ONLY",
+    "DO_NOT_ADD_ANALYTE_IDENTITY_TO_FROZEN_RB3_MODEL",
+    "DO_NOT_ADD_POST_EXPOSURE_TIME_TO_FROZEN_RB3_MODEL",
+    "DO_NOT_DROP_CONFLICTING_ROWS_TO_IMPROVE_SCORE",
+    "DO_NOT_LABEL_NULL_AS_BIOLOGICAL_EQUIVALENCE",
+    "NO_REAL_MODEL_EXECUTION"
+  ]
+}
