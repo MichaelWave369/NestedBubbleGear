@@ -57,7 +57,9 @@ export function decodeWFDB212(bytes,header) {
   const signal=new Array(header.sampleCount)
   for(let i=0,p=0;i<signal.length;i++,p+=3) {
     const value=(bytes[p]|((bytes[p+1]&15)<<8))
-    signal[i]=(value>=2048?value-4096:value)-header.baseline
+    const signed=value>=2048?value-4096:value
+    // The most-negative format-212 code is WFDB's invalid-sample sentinel.
+    signal[i]=signed===-2048?null:signed-header.baseline
   }
   return signal
 }
@@ -142,18 +144,19 @@ export function scoreMITDBBenchmark({signal,reference,sampleRate=MITDB_RATE},det
     const end=Math.min(start+WINDOW,signal.length)
     const subDetected=events.filter(x=>x>=start&&x<end)
     const subRef=reference.filter(x=>x>=start&&x<end)
-    const changes=0
+    const windowSeconds=(end-start)/MITDB_RATE
     const score=matchBeatEvents(subDetected,subRef,TOLERANCE_SAMPLES)
-    const averageBpm=subDetected.length*60/((end-start)/MITDB_RATE)
+    const averageBpm=subDetected.length*60/windowSeconds
     const nonfinite=signal.slice(start,end).filter(x=>x===null||!Number.isFinite(x)).length
-    const variance=Math.max(...signal.slice(start,Math.min(end,start+2000)))-
-      Math.min(...signal.slice(start,Math.min(end,start+2000)))
+    const inspect=signal.slice(start,Math.min(end,start+2000)).filter(Number.isFinite)
+    const variance=inspect.length?Math.max(...inspect)-Math.min(...inspect):0
     const flags=[]
     if(nonfinite)flags.push('NONFINITE_OR_MISSING')
     if(variance<1)flags.push('FLAT_INITIAL_SEGMENT')
-    if(averageBpm<35||averageBpm>200)flags.push('CANDIDATE_RATE_OUTSIDE_35_200')
+    if(windowSeconds>=60&&(averageBpm<35||averageBpm>200))flags.push('CANDIDATE_RATE_OUTSIDE_35_200')
     windows.push({
       beginSeconds:start/MITDB_RATE,endSeconds:end/MITDB_RATE,
+      shortTailWindow:windowSeconds<60,
       detected:subDetected.length,reference:subRef.length,...score,
       flags,
     })
@@ -166,7 +169,7 @@ export function scoreMITDBBenchmark({signal,reference,sampleRate=MITDB_RATE},det
   const guardrails=[]
   if(global.recall<.95||global.precision<.95)guardrails.push('BELOW_FROZEN_95_PERCENT_BENCHMARK_TARGET')
   if(windows.some(w=>w.flags.length))guardrails.push('ARTIFACT_FLAGS_PRESENT')
-  if(windows.some(w=>w.reference<60))guardrails.push('LOW_REFERENCE_COUNT_IN_WINDOW')
+  if(windows.some(w=>!w.shortTailWindow&&w.reference<60))guardrails.push('LOW_REFERENCE_COUNT_IN_WINDOW')
   return {
     protocol:BSR5_PROTOCOL, status:guardrails.length?'NOT_QUALIFIED':'BENCHMARK_TARGET_MET_ONLY',
     guardrails,referenceBeats:reference.length,detectedBeats:events.length,
