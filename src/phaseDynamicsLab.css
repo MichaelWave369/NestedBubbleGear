@@ -1,0 +1,54 @@
+.phd{scroll-margin-top:72px;background:radial-gradient(circle at 87% 0,#47375f29,transparent 59%),#090e13}
+.phd h2 em{font-style:normal;font-weight:350;color:#dcb6ff}
+.phd-intro{color:#b8cbd0;max-width:990px;font-size:16px;line-height:1.8}
+.phd-layout{display:grid;grid-template-columns:minmax(265px,.8fr) minmax(0,1.5fr);gap:1px;border:1px solid #dcb6ff3b;background:#dcb6ff3b;margin-top:28px}
+.phd-source,.phd-main{background:#101922;padding:23px;min-width:0}
+.phd-source{display:flex;flex-direction:column;gap:13px}
+.phd-eyebrow{font:700 11px ui-monospace,monospace;color:#dcb6ff;letter-spacing:.1em}
+.phd-source>label{color:#c8dcdf;font-size:12px}
+.phd-source select,.phd-source input[type=file]{background:#1c2731;color:#e8fff5;border:1px solid #dcb6ff4d;padding:10px;max-width:100%;font-family:inherit;font-size:12px}
+.phd-file{display:flex;flex-direction:column;gap:13px;margin:9px 0;padding:17px;border:1px solid #8bc9ff35;background:#0d232d}
+.phd-file>strong{font-size:12px;color:#ffc56f}
+.phd-file-actions{display:flex;gap:11px;flex-wrap:wrap;align-items:center}
+.phd-file-actions a,.phd-license a{color:#8bc9ff;text-decoration:underline;font-size:11px}
+.phd-button,.phd-clear{border:1px solid #dcb6ff70;background:#2a2643;color:#f5eaff;padding:11px;font-family:inherit;font-size:12px;font-weight:700;cursor:pointer}
+.phd-button:disabled,.phd-clear:disabled{opacity:.5;cursor:wait}
+.phd-file-input{display:grid;gap:7px;color:#bbcbd9;font-size:11px}
+.phd-file small{color:#a2c0bf;font-size:11px}
+.phd-clear{background:transparent}
+.phd-error{color:#ffacac;font-size:12px;line-height:1.6}
+.phd-license{border-top:1px solid #dcb6ff36;padding-top:19px;margin-top:13px}
+.phd-license strong{font-size:12px;color:#dcb6ff}
+.phd-license p{font-size:12px;color:#b8cbd0;line-height:1.7}
+.phd-empty{min-height:360px;display:flex;flex-direction:column;justify-content:center;padding:28px;border:1px dashed #dcb6ff59;text-align:center}
+.phd-empty strong{font-size:23px;color:#dcb6ff}
+.phd-empty p{color:#bad0d4;font-size:13px;line-height:1.7}
+.phd-preview{border:1px solid #8bc9ff3b;background:#07131a}
+.phd-caption{padding:12px 14px;color:#dcb6ff;font:700 11px ui-monospace,monospace}
+.phd-preview svg{display:block;width:100%;height:auto}
+.phd-small{padding:12px;color:#abc2c9;font-size:11px;line-height:1.6}
+.phd-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin-top:18px;background:#8bc9ff26}
+.phd-stats div{padding:14px;background:#132632}
+.phd-stats span{font-size:11px;color:#bacbd1;display:block;margin-bottom:7px}
+.phd-stats strong{font:750 24px ui-monospace,monospace;color:#f4edff}
+.phd-gate{margin-top:17px;border:1px solid #dcb6ff35;background:#101d2d;padding:20px}
+.phd-gate>strong{display:block;color:#ffc56f;font:750 12px ui-monospace,monospace;margin-bottom:8px}
+.phd-gate>span{font-size:11px;color:#acbfcf}
+.phd-gate p{font-size:12px;color:#b5cdd0;line-height:1.7}
+.phd-gate h3{color:#d9eeef;font-size:14px;margin:22px 0 12px}
+.phd-pairs{display:flex;gap:14px;flex-wrap:wrap;color:#f2d5b4;font:12px ui-monospace,monospace}
+.phd-shifts{display:grid;grid-template-columns:repeat(auto-fit,minmax(76px,1fr));gap:7px}
+.phd-shifts div{border:1px solid #dcb6ff29;background:#232539;padding:10px}
+.phd-shifts small{display:block;color:#b8c0d1;font-size:10px}
+.phd-shifts b{display:block;font:700 16px ui-monospace,monospace;color:#dcb6ff;margin-top:7px}
+.phd-export{width:100%;margin-top:18px;background:transparent}
+.phd-notes{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#dcb6ff2e}
+.phd-notes article{background:#121e26;padding:24px;min-width:0}
+.phd-notes span{color:#dcb6ff;font:700 11px ui-monospace,monospace}
+.phd-notes h3{font-size:19px;margin:13px 0}
+.phd-notes p,.phd-warning{font-size:12px;color:#b9cbd2;line-height:1.7}
+.phd-warning{border-left:3px solid #ffc56f;background:#ffc56f09;padding:15px;margin-top:24px}
+.phd-warning strong{color:#ffc56f}.phd-warning a{color:#dcb6ff;text-decoration:underline}
+.phd input:focus-visible,.phd button:focus-visible,.phd select:focus-visible{outline:2px solid #ffc56f;outline-offset:3px}
+@media(max-width:1120px){.phd-layout{grid-template-columns:1fr}.phd-source{padding:17px}.phd-main{padding:13px}}
+@media(max-width:710px){.phd-notes{grid-template-columns:1fr}.phd-intro{font-size:14px}.phd-stats strong{font-size:19px}.phd-gate{padding:14px}}
