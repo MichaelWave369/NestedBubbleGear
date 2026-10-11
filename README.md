@@ -43,6 +43,16 @@ The lab distinguishes full-state **disturbance recovery** from a coarse **veloci
 
 See [the BR1 protocol](docs/BALANCE_RECOVERY.md) and run `npm run test:balance-recovery`.
 
+## NBG-BR2 · Resilience Atlas
+
+[Live Atlas](https://michaelwave369.github.io/NestedBubbleGear/#resilience-atlas) · [Frozen protocol](docs/RESILIENCE_ATLAS.md)
+
+**BR2** extends BR1 with a **972-cell synthetic factorial sweep** across coupling, directional asymmetry, damping and detuning (9 × 9 × 4 × 3). The live React lab renders an accessible 81-cell slice with selectable recovery, matched reciprocal comparison, and velocity-correlation Keyhole views. Click a cell to inspect state-recovery vs reciprocal, and export a provenance-marked slice receipt.
+
+The important distinction: high baseline velocity correlation is not evidence of recovery after disturbance. Directional coupling is not presumed intrinsically better or worse. All observations are limited to the dimensionless BR1 toy equations, **not physical or societal claims**.
+
+Reproduce with `npm run test:resilience-atlas` and `npm run sweep:resilience-atlas`. For a SHA-256-stamped full-grid receipt use `node scripts/run_resilience_atlas.mjs --out br2-full-sweep.json`.
+
 ## Temporal NBG (NBG-T)
 
 NBG-T extends the same hidden-structure question across **history** rather than only a single present state.

@@ -1,0 +1,44 @@
+name: BR2 Resilience Atlas Qualification
+
+on:
+  pull_request:
+    paths:
+      - 'src/resilienceAtlasModel.js'
+      - 'src/ResilienceAtlas.jsx'
+      - 'src/resilienceAtlas.css'
+      - 'src/balanceRecoveryModel.js'
+      - 'scripts/test_resilience_atlas.mjs'
+      - 'scripts/run_resilience_atlas.mjs'
+      - 'package.json'
+      - '.github/workflows/br2.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/resilienceAtlasModel.js'
+      - 'src/ResilienceAtlas.jsx'
+      - 'src/resilienceAtlas.css'
+      - 'src/balanceRecoveryModel.js'
+      - 'scripts/test_resilience_atlas.mjs'
+      - 'scripts/run_resilience_atlas.mjs'
+      - 'package.json'
+      - '.github/workflows/br2.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install web lab dependencies
+        run: npm install
+      - name: Run BR2 frozen-grid regression tests
+        run: npm run test:resilience-atlas
+      - name: Run frozen full sweep and print SHA-256
+        run: npm run sweep:resilience-atlas
+      - name: Build React site
+        run: npm run build

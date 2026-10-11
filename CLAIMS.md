@@ -22,6 +22,10 @@ These are exact properties of the published/executable constructions. They are n
 
 BR1 numerically integrates two damped, dimensionless, periodically forced oscillators with an optional directional coupling asymmetry and a single velocity disturbance. Its observed behavior exists **inside the simulator only**. Deterministic tests check baseline return, controls and receipt provenance. There is no observation of human societies, living systems, natural gears, or physical chaos; the model neither demonstrates universal benefits of symmetry nor supports spiritual or historical claims.
 
+## NBG-BR2: frozen synthetic resilience sweep
+
+BR2 enumerates 972 artificial coupled-oscillator configurations over a frozen four-factor grid. Its measurements concern numerical recovery to an undisturbed simulated trajectory and an **independent**, undisturbed velocity-correlation observer. `HORIZON_CENSORED` is not evidence of permanent failure, and greater asymmetry is **not** assumed beneficial or harmful. High correlation and recovery may disagree. The exercise neither validates new physics nor supports any inference about human societies, sex/gender, theology, cosmological duality, biology, consciousness, or mathematical chaos. Receipts have `origin=SIMULATED`, `authority=NONE`.
+
 ## Formal / under development
 
 - Altermath active kernel and flux Altermath.
