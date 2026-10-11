@@ -53,8 +53,8 @@ These are engineering evaluation metrics, not clinical sensitivity/specificity c
 
 Also report:
 
-- Descriptive quality/accuracy slices in fixed 300-second windows, including the final shorter tail.
-- Detector-derived candidate average BPM for each window, nonfinite samples, very-low-variance initial segment flag.
+- Descriptive quality/accuracy slices in fixed 300-second windows, including the final shorter tail. The final tail (only about 5.6 seconds) remains scored but is exempt from the 60-second minimum reference-count and candidate-rate plausibility rules.
+- Detector-derived candidate average BPM for each sufficiently long window, missing values, very-low-variance initial segment flag. The reserved 12-bit -2048 code is preserved as missing rather than treated as a true ECG voltage.
 - A deliberately misaligned +1-second event-control as a sanity check. This is **not a statistical p-value** and may coincidentally align with a different beat.
 - Count zero excluded windows and events. No failing window may be removed to make results look better.
 
