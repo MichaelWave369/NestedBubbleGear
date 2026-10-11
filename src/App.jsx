@@ -11,6 +11,7 @@ import BodyShipResonanceLab from './BodyShipResonanceLab.jsx'
 import BiologicalOscillatorBridge from './BiologicalOscillatorBridge.jsx'
 import ResonanceObservatory from './ResonanceObservatory.jsx'
 import PhaseDynamicsLab from './PhaseDynamicsLab.jsx'
+import IndependentSignalValidationLab from './IndependentSignalValidationLab.jsx'
 import {
   RELATION_OPTIONS,
   STATUS_OPTIONS,
@@ -523,6 +524,7 @@ function App() {
           <a href="#biological-bridge">Bio Bridge</a>
           <a href="#resonance-observatory">Observatory</a>
           <a href="#phase-dynamics">Phase Dynamics</a>
+          <a href="#independent-validation">Validation</a>
           <a href="#adaptive-phase">Adaptive Phase</a>
           <a href="#unknown-gear">Unknown Gear</a>
           <a href="#model-recovery">Model Recovery</a>
@@ -557,6 +559,7 @@ function App() {
           <a className="button ghost" href="#keyholes">Open the keyhole</a>
           <a className="button ghost" href="#resonance-observatory">Explore real recordings ↗</a>
           <a className="button ghost" href="#phase-dynamics">Explore waveform phases ↗</a>
+          <a className="button ghost" href="#independent-validation">Validate heartbeat detections ↗</a>
         </div>
         <div className="stats">
           <div><strong>AH2→AH44</strong><span>frozen experiment ladder</span></div>
@@ -657,6 +660,7 @@ function App() {
       <BiologicalOscillatorBridge />
       <ResonanceObservatory />
       <PhaseDynamicsLab />
+      <IndependentSignalValidationLab />
       <AdaptivePhaseKeyhole />
       <UnknownGearLab />
       <ModelMismatchRecoveryLab />
