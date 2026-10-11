@@ -553,6 +553,7 @@ function App() {
         <div className="hero-actions">
           <a className="button primary" href="#experiments">Explore the evidence ladder</a>
           <a className="button ghost" href="#keyholes">Open the keyhole</a>
+          <a className="button ghost" href="#resonance-observatory">Explore real recordings ↗</a>
         </div>
         <div className="stats">
           <div><strong>AH2→AH44</strong><span>frozen experiment ladder</span></div>
