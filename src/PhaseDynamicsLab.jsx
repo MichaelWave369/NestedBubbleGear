@@ -83,8 +83,10 @@ function Result({analysis,record,verified,wave,annotations}){
       <p>Time shifts are descriptive diagnostics only. They do not provide valid p-values for nonstationary recordings.</p>
     </div>
     <button className="phd-button phd-export" type="button" onClick={()=>exportJSON(buildBSR4Receipt(wave,annotations,analysis,{
-      recordId:record.id,sourceUrls:[waveformFileUrl(record.id,'Signals'),waveformFileUrl(record.id,'Breaths')],
+      recordId:record.id,
+      sourceUrls:[waveformFileUrl(record.id,'Signals'),waveformFileUrl(record.id,'Breaths')],
       verifiedByOfficialSha256:verified,
+      officialSha256:{signals:record.signalsSha256,breaths:record.breathsSha256},
     }))}>Export event-phase summary receipt (no raw signals or event timestamps)</button>
   </div>
 }
