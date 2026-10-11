@@ -11,7 +11,7 @@ const n=125*120
 const synthSignals=Array.from({length:n},(_,i)=>{
   const t=i/125
   const phase=(t*1.12)%1
-  const qrs=Math.exp(-((phase-.12)/.018)**2)
+  const qrs=Math.exp(-(((phase-.12)/.018)**2))
   const ecg=.05*Math.sin(2*Math.PI*.3*t)+.65*qrs
   return [t.toFixed(3),Math.sin(2*Math.PI*.22*t).toFixed(5),
     .5,.6,.4,ecg.toFixed(6)].join(',')
