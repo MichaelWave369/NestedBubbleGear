@@ -74,7 +74,21 @@ test('strict local envelope import preserves readings and marks provenance unver
 
 test('import rejects wrong headers, empty cells, negative envelopes and NaN', () => {
   assert.throws(() => parseEnvelopeCsv(fixture.replace(csvHead, 't,a,b,c')), /Expected header/)
-  assert.throws(() => parseEnvelopeCsv(fixture.replace('0,0.15', '0,0.15')), /./) // guarded below with explicit malformed CSV
+  const malformed = fixture.split('\n')
+  const fields = malformed[3].split(',')
+  fields[2] = ''
+  malformed[3] = fields.join(',')
+  assert.throws(() => parseEnvelopeCsv(malformed.join('\n')), /Invalid numeric CSV row/)
+  const negative = fixture.split('\n')
+  const vals = negative[3].split(',')
+  vals[2] = '-1'
+  negative[3] = vals.join(',')
+  assert.throws(() => parseEnvelopeCsv(negative.join('\n')), /nonnegative/)
+  const nonFinite = fixture.split('\n')
+  const nvals = nonFinite[3].split(',')
+  nvals[3] = 'NaN'
+  nonFinite[3] = nvals.join(',')
+  assert.throws(() => parseEnvelopeCsv(nonFinite.join('\n')), /Invalid numeric CSV row/)
 })
 
 test('receipt exports descriptive metrics but no raw personal samples', () => {
