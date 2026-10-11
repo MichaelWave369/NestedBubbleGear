@@ -38,7 +38,8 @@ test('WFDB header enforces record identity, 360 Hz, 212 format and MLII lead',()
 test('WFDB format 212 bit packing recovers signed channel-zero samples',()=>{
   const small={...meta,sampleCount:3,baseline:0}
   const dat=Uint8Array.from([...encodePair(123,-320),...encodePair(-2048,2047),...encodePair(2047,-2048)])
-  assert.deepEqual(decodeWFDB212(dat,small),[123,-2048,2047])
+  // -2048 is the reserved WFDB invalid/missing-sample code, never a real amplitude.
+  assert.deepEqual(decodeWFDB212(dat,small),[123,null,2047])
   assert.throws(()=>decodeWFDB212(dat.slice(1),small),/byte length/)
 })
 test('MIT ATR parser excludes rhythm annotations and AUX text while preserving beat classes',()=>{
@@ -99,6 +100,9 @@ test('synthetic fixture supports full-length benchmark and predeclared per-windo
   assert.equal(injected.wholeRecord.fp,0)
   assert.equal(injected.wholeRecord.fn,0)
   assert.equal(injected.byFiveMinutes.length,7)
+  assert.equal(injected.byFiveMinutes.at(-1).shortTailWindow,true)
+  assert.equal(injected.byFiveMinutes[0].shortTailWindow,false)
+  assert.ok(!injected.guardrails.includes('LOW_REFERENCE_COUNT_IN_WINDOW'))
   assert.equal(injected.exclusionsFromScoring,0)
   assert.equal(injected.status,'NOT_QUALIFIED') // flagged flat signal, no cherry-picking
 })
