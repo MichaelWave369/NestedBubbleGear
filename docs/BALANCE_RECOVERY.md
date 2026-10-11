@@ -40,6 +40,20 @@ Defaults: `k=0.85`, `a=0`, `gamma=0.46`, `delta=0.12`, `F=0.75`, horizon `38 s`.
 5. Negative damping, an intentionally unstable control (not a chaos experiment).
 6. Zero-kick negative control, which should produce exactly zero residue.
 
+## Illustrative deterministic runs (synthetic, not observed data)
+
+With the fixed default horizon and kick, these are reproducible examples, **not** independent empirical validation:
+
+| Arm | Recovery within horizon? | Time to sustained return | Final state residue | Baseline velocity correlation |
+|---|---|---:|---:|---:|
+| Reciprocal | Yes | 14.40 s | 0.0031 | 0.9131 |
+| Directional asymmetry 0.9 | Yes | 14.02 s | 0.0018 | 0.9655 |
+| Uncoupled | Yes | 14.82 s | 0.0027 | undefined (B not driven) |
+| Weak damping | No | not observed | 0.6674 | **0.9957** |
+| Negative damping | No | not observed | 722.4138 | 0.9086 |
+
+The **weak-damping counterexample** is the central Keyhole lesson: a correlation close to 1 on an undisturbed baseline does not imply that a kicked system has recovered. The **directional case** also recovers slightly sooner than the reciprocal case under the selected parameters, falsifying any automatic claim that greater directional asymmetry always reduces resilience. The uncoupled case can recover independently without coordinating, which is another reason not to collapse those concepts.
+
 ## Falsifiers and limitations
 
 The blanket hypothesis "greater asymmetry always means poorer recovery" is **not assumed**. Some directional configurations can recover at least as quickly as reciprocal ones; the interactive lab exposes that possibility. This simulator alone cannot establish that imbalance causes chaos, that NBG reveals new physics, or that social hierarchies share the oscillator equations. Correlation is not leadership, domination, agency, or ethics.
