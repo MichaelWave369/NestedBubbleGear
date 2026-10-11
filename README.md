@@ -35,6 +35,14 @@ NBG
 - **Φ-System** — task-typed convergence/control layer, maintained as a conceptually separate line.
 - **Ledger** — replayable provenance.
 
+## Balance & Recovery Lab (NBG-BR1)
+
+**NBG-BR1** adds a synthetic, dimensionless coupled-oscillator experiment to the live site. Explore reciprocal or asymmetric feedback, damping, frequency mismatch, and a velocity disturbance while comparing undisturbed and perturbed trajectories.
+
+The lab distinguishes full-state **disturbance recovery** from a coarse **velocity-correlation Keyhole**, with reciprocal, directional, uncoupled, slow-recovery, unstable-gain, and zero-kick controls. It exports explicitly `SIMULATED` JSON receipts. Recovery and coordination are operational model outcomes only; this is **not** a claim about societal hierarchy, metaphysical duality, natural gears, or chaos.
+
+See [the BR1 protocol](docs/BALANCE_RECOVERY.md) and run `npm run test:balance-recovery`.
+
 ## Temporal NBG (NBG-T)
 
 NBG-T extends the same hidden-structure question across **history** rather than only a single present state.
