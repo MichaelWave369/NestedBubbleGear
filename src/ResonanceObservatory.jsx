@@ -105,6 +105,7 @@ export default function ResonanceObservatory() {
       // fallback is always visible; no proxy or credential forwarding is used.
       const response=await fetch(bidmcUrl(selected),{credentials:'omit',mode:'cors',cache:'no-store'})
       if (!response.ok) throw Error('PhysioNet returned HTTP '+response.status)
+      if (Number(response.headers.get('content-length')||0)>150000) throw Error('Unexpectedly large official response.')
       await loadBytes(await response.arrayBuffer(),{isOfficial:true})
     } catch (err) {
       setError('Direct download failed or was blocked by browser CORS: '+
@@ -117,7 +118,10 @@ export default function ResonanceObservatory() {
     event.target.value=''
     if (!file) return
     setLoading(true); setError(''); setRecording(null); setMetadata(null)
-    try { await loadBytes(await file.arrayBuffer(),{filename:file.name}) }
+    try {
+      if(file.size>150000) throw Error('Local CSV exceeds 150 kB.')
+      await loadBytes(await file.arrayBuffer(),{filename:file.name})
+    }
     catch(err) { setError(err instanceof Error?err.message:'Could not read CSV.') }
     finally { setLoading(false) }
   }
