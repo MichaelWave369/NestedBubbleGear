@@ -18,6 +18,10 @@ These are exact properties of the published/executable constructions. They are n
 - NBG-W1R reviewed frozen execution: the forced coarse Keyhole and negative controls behaved as preregistered and revocation produced zero unauthorized readouts, but committed residue separated 0/18 AH11 hard pairs and every seed failed the reserved lineage residue criterion. The reviewed result is `FAIL_W1R_NO_RESIDUE`. Continuous training residue sometimes separated before the frozen gate/commit stage discarded it. No compression claim is made.
 - NBG-W1G reviewed frozen execution: the FORCED_OPEN positive-control arm preserved the preregistered AH11 and held-out lineage distinctions through the actual int8 commit path, while COMMIT_STE closed every learned gate across all five seeds. Controls, revocation and forward/commit identity audits passed. The reviewed result is `FAIL_W1G_GATE_ALIGNMENT`. No compression claim is made.
 
+## NBG-BR1 synthetic coupled-dynamics demonstration
+
+BR1 numerically integrates two damped, dimensionless, periodically forced oscillators with an optional directional coupling asymmetry and a single velocity disturbance. Its observed behavior exists **inside the simulator only**. Deterministic tests check baseline return, controls and receipt provenance. There is no observation of human societies, living systems, natural gears, or physical chaos; the model neither demonstrates universal benefits of symmetry nor supports spiritual or historical claims.
+
 ## Formal / under development
 
 - Altermath active kernel and flux Altermath.
