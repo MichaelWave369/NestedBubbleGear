@@ -7,6 +7,7 @@ import ModelMismatchRecoveryLab from './ModelMismatchRecoveryLab.jsx'
 import DiscoveryLoop from './DiscoveryLoop.jsx'
 import QM1Lab from './QM1Lab.jsx'
 import QM2Lab from './QM2Lab.jsx'
+import BodyShipResonanceLab from './BodyShipResonanceLab.jsx'
 import {
   RELATION_OPTIONS,
   STATUS_OPTIONS,
@@ -515,6 +516,7 @@ function App() {
           <a href="#atlas">Bubble Atlas</a>
           <a href="#spiral-gears">Spiral Gears</a>
           <a href="#phase-closure">Phase &amp; Closure</a>
+          <a href="#body-ship">Body Ship</a>
           <a href="#adaptive-phase">Adaptive Phase</a>
           <a href="#unknown-gear">Unknown Gear</a>
           <a href="#model-recovery">Model Recovery</a>
@@ -643,6 +645,7 @@ function App() {
 
       <SpiralGearLab />
       <PhaseClosureLab />
+      <BodyShipResonanceLab />
       <AdaptivePhaseKeyhole />
       <UnknownGearLab />
       <ModelMismatchRecoveryLab />
