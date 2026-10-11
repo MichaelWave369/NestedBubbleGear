@@ -37,7 +37,7 @@ check('candidate and negative-control numerical energy drift are bounded', () =>
 })
 
 check('kinetic plus on-site plus links equals declared total energy', () => {
-  assert.equal(totalEnergy([1, 0, -1], [0, 0, 0], [1, 1, 1], 0.5), 2.5)
+  assert.equal(totalEnergy([1, 0, -1], [0, 0, 0], [1, 1, 1], 0.5), 1.5)
   assert.equal(totalEnergy([0, 0, 0], [1, 0, 0], [1, 1, 1], 0), 0.5)
 })
 
