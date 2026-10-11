@@ -12,6 +12,7 @@ import BiologicalOscillatorBridge from './BiologicalOscillatorBridge.jsx'
 import ResonanceObservatory from './ResonanceObservatory.jsx'
 import PhaseDynamicsLab from './PhaseDynamicsLab.jsx'
 import BalanceRecoveryLab from './BalanceRecoveryLab.jsx'
+import ResilienceAtlas from './ResilienceAtlas.jsx'
 import IndependentSignalValidationLab from './IndependentSignalValidationLab.jsx'
 import {
   RELATION_OPTIONS,
@@ -526,6 +527,7 @@ function App() {
           <a href="#resonance-observatory">Observatory</a>
           <a href="#phase-dynamics">Phase Dynamics</a>
           <a href="#balance-recovery">Balance &amp; Recovery</a>
+          <a href="#resilience-atlas">Resilience Atlas</a>
           <a href="#independent-validation">Validation</a>
           <a href="#adaptive-phase">Adaptive Phase</a>
           <a href="#unknown-gear">Unknown Gear</a>
@@ -663,6 +665,7 @@ function App() {
       <ResonanceObservatory />
       <PhaseDynamicsLab />
       <BalanceRecoveryLab />
+      <ResilienceAtlas />
       <IndependentSignalValidationLab />
       <AdaptivePhaseKeyhole />
       <UnknownGearLab />
