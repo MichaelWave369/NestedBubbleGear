@@ -51,3 +51,16 @@ test('repeat execution deterministic and receipt excludes trajectories',()=>{
   assert.ok(!('trace' in receipt))
   assert.ok(!JSON.stringify(receipt).includes('perturbedA'))
 })
+
+test('coordination Keyhole can be high while full-state recovery is absent',()=>{
+  const weak=simulateBR1(BR1_PRESETS.weakDamping)
+  assert.ok(weak.metrics.velocityCorrelation>0.95)
+  assert.equal(weak.metrics.recovered,false)
+  assert.ok(weak.metrics.finalResidue>weak.metrics.threshold)
+})
+test('asymmetric parameter case falsifies automatic asymmetry penalty',()=>{
+  const reciprocal=simulateBR1(BR1_PRESETS.reciprocal)
+  const directed=simulateBR1(BR1_PRESETS.asymmetric)
+  assert.equal(directed.metrics.recovered,true)
+  assert.ok(directed.metrics.recoveryTime<reciprocal.metrics.recoveryTime)
+})
