@@ -147,7 +147,8 @@ export function parseEnvelopeCsv(input) {
   // Relative t starts at zero for plotting; raw text is not retained.
   const start = rows[0].t
   for (const row of rows) row.t -= start
-  if (pearson(rows.map(r => r.respiration), rows.map((r, i) => i)) === null) {
+  const breathValues = rows.map(row => row.respiration)
+  if (Math.max(...breathValues) - Math.min(...breathValues) < 1e-8) {
     throw new Error('Respiration channel has no measurable variation.')
   }
   return {
