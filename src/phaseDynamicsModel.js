@@ -135,7 +135,7 @@ export function phaseAtEvents(events,annotations,shiftSamples=0,durationSamples=
   const selected=[]
   let j=0
   for(const e of events){
-    const moved=(e+shiftSamples+max)%max
+    const moved=shiftSamples ? (e+shiftSamples)%max : e
     // Use modulo offsets for surrogates, but sort and interpolate over original breath timeline.
     selected.push(moved)
   }
