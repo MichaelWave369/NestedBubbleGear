@@ -15,7 +15,7 @@
     "test:intervention-equivalence": "node scripts/test_intervention_equivalence.mjs",
     "test:adaptive-keyhole-synthesis": "node scripts/test_adaptive_keyhole_synthesis.mjs",
     "test:epistemic": "node scripts/test_epistemic_provenance.mjs",
-    "test": "npm run test:temporal && npm run test:evidence-queue && npm run test:governance-keyholes && npm run test:counterfactual-governance && npm run test:governance-sensitivity && npm run test:intervention-equivalence && npm run test:adaptive-keyhole-synthesis && npm run test:epistemic && npm run test:phipie-memory && npm run test:phipie-recall && npm run test:phipie-explanation && npm run test:phipie-advisor && npm run test:phibot-handoff && npm run test:spiral-gears && npm run test:phase-closure && npm run test:adaptive-phase && npm run test:unknown-gear && npm run test:model-recovery && npm run test:discovery-loop && npm run test:qm1 && npm run test:qm2 && npm run test:body-ship && npm run test:biological-bridge",
+    "test": "npm run test:temporal && npm run test:evidence-queue && npm run test:governance-keyholes && npm run test:counterfactual-governance && npm run test:governance-sensitivity && npm run test:intervention-equivalence && npm run test:adaptive-keyhole-synthesis && npm run test:epistemic && npm run test:phipie-memory && npm run test:phipie-recall && npm run test:phipie-explanation && npm run test:phipie-advisor && npm run test:phibot-handoff && npm run test:spiral-gears && npm run test:phase-closure && npm run test:adaptive-phase && npm run test:unknown-gear && npm run test:model-recovery && npm run test:discovery-loop && npm run test:qm1 && npm run test:qm2 && npm run test:body-ship && npm run test:biological-bridge && npm run test:observatory",
     "test:phipie-memory": "node scripts/test_phipie_physical_memory.mjs",
     "test:phipie-recall": "node scripts/test_phipie_physical_recall.mjs",
     "test:phipie-explanation": "node scripts/test_phipie_physical_explanation.mjs",
@@ -32,7 +32,8 @@
     "test:qm2": "node scripts/test_qm2.mjs",
     "benchmark:qm2": "node scripts/benchmark_qm2.mjs",
     "test:body-ship": "node scripts/test_body_ship_resonance.mjs",
-    "test:biological-bridge": "node scripts/test_biological_oscillator_bridge.mjs"
+    "test:biological-bridge": "node scripts/test_biological_oscillator_bridge.mjs",
+    "test:observatory": "node scripts/test_resonance_observatory.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.4",

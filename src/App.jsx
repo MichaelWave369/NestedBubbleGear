@@ -9,6 +9,7 @@ import QM1Lab from './QM1Lab.jsx'
 import QM2Lab from './QM2Lab.jsx'
 import BodyShipResonanceLab from './BodyShipResonanceLab.jsx'
 import BiologicalOscillatorBridge from './BiologicalOscillatorBridge.jsx'
+import ResonanceObservatory from './ResonanceObservatory.jsx'
 import {
   RELATION_OPTIONS,
   STATUS_OPTIONS,
@@ -519,6 +520,7 @@ function App() {
           <a href="#phase-closure">Phase &amp; Closure</a>
           <a href="#body-ship">Body Ship</a>
           <a href="#biological-bridge">Bio Bridge</a>
+          <a href="#resonance-observatory">Observatory</a>
           <a href="#adaptive-phase">Adaptive Phase</a>
           <a href="#unknown-gear">Unknown Gear</a>
           <a href="#model-recovery">Model Recovery</a>
@@ -551,6 +553,7 @@ function App() {
         <div className="hero-actions">
           <a className="button primary" href="#experiments">Explore the evidence ladder</a>
           <a className="button ghost" href="#keyholes">Open the keyhole</a>
+          <a className="button ghost" href="#resonance-observatory">Explore real recordings ↗</a>
         </div>
         <div className="stats">
           <div><strong>AH2→AH44</strong><span>frozen experiment ladder</span></div>
@@ -649,6 +652,7 @@ function App() {
       <PhaseClosureLab />
       <BodyShipResonanceLab />
       <BiologicalOscillatorBridge />
+      <ResonanceObservatory />
       <AdaptivePhaseKeyhole />
       <UnknownGearLab />
       <ModelMismatchRecoveryLab />
