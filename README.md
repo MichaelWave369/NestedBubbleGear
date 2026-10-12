@@ -41,6 +41,12 @@ NBG
 
 **G1** exhaustively checks all 35 free hexominoes against exact cube-face folding, with 11 positive cube nets and 24 negative shapes. Every sample gives the same coarse six-square observation; the richer structural Keyhole distinguishes foldability. A separate tesseract graph and 4D→3D projection witness demonstrate observer information loss without requiring physical higher-dimensional claims. Export a `SIMULATED` receipt from the live site, and reproduce the counts with `npm run test:g1`. Geometric correspondence is not evidence of cosmic imprisonment or Saturnian control.
 
+## NBG-G2 · Dimensional Recovery
+
+[Interactive recovery lab](https://michaelwave369.github.io/NestedBubbleGear/#dimensional-recovery) · [Frozen G2 protocol](docs/DIMENSIONAL_RECOVERY.md)
+
+**G2** extends G1's hypercube projection witness with an exact sixteen-state GF(2) observer model. Choose which coordinates are visible, which probe families are authorized, which task must be resolved, and a synthetic query-credit budget. An exhaustive subset search computes the minimum-cost recovery plan and refuses unobservable or unaffordable tasks. The interactive site replays a state-specific evidence trail with candidate sets and exports `SIMULATED` receipts. Tests include all 512 subsets of the full probe library and all sixteen finite witness states. Costs are fictional and no extra physical dimensions or theological claims are inferred. Run `npm run test:g2`.
+
 ## Balance & Recovery Lab (NBG-BR1)
 
 **NBG-BR1** adds a synthetic, dimensionless coupled-oscillator experiment to the live site. Explore reciprocal or asymmetric feedback, damping, frequency mismatch, and a velocity disturbance while comparing undisturbed and perturbed trajectories.
