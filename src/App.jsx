@@ -13,6 +13,7 @@ import ResonanceObservatory from './ResonanceObservatory.jsx'
 import PhaseDynamicsLab from './PhaseDynamicsLab.jsx'
 import BalanceRecoveryLab from './BalanceRecoveryLab.jsx'
 import ResilienceAtlas from './ResilienceAtlas.jsx'
+import RecoveryRobustnessLab from './RecoveryRobustnessLab.jsx'
 import IndependentSignalValidationLab from './IndependentSignalValidationLab.jsx'
 import {
   RELATION_OPTIONS,
@@ -528,6 +529,7 @@ function App() {
           <a href="#phase-dynamics">Phase Dynamics</a>
           <a href="#balance-recovery">Balance &amp; Recovery</a>
           <a href="#resilience-atlas">Resilience Atlas</a>
+          <a href="#recovery-robustness">Recovery Boundaries</a>
           <a href="#independent-validation">Validation</a>
           <a href="#adaptive-phase">Adaptive Phase</a>
           <a href="#unknown-gear">Unknown Gear</a>
@@ -666,6 +668,7 @@ function App() {
       <PhaseDynamicsLab />
       <BalanceRecoveryLab />
       <ResilienceAtlas />
+      <RecoveryRobustnessLab />
       <IndependentSignalValidationLab />
       <AdaptivePhaseKeyhole />
       <UnknownGearLab />
