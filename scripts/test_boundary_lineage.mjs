@@ -99,6 +99,8 @@ const tests = [
     assert.equal(byMode.RECIPIENT_ONLY.residualBits,2)
     assert.equal(byMode.PARITY_WITNESS.residualBits,1)
     assert.equal(byMode.DUPLICATE_PARITY.residualBits,1)
+    assert.equal(byMode.DUPLICATE_PARITY.duplicateCollapsed,true)
+    assert.equal(byMode.PARITY_WITNESS.duplicateCollapsed,false)
     for (const name of ['FULL_WITNESS','FULL_CROSSCHECK']) {
       assert.equal(byMode[name].correct,16)
       assert.equal(byMode[name].falseUnique,0)
