@@ -169,7 +169,7 @@ export function analyzeBC2() {
       falseUnique: unique.filter(row => row.inferred.recoveredSource !== row.world.truth.source).length,
       residualBits: mode === 'FORGED_CONFLICT' ? null :
         results.reduce((sum,row) => sum + row.inferred.residualBits,0) / results.length,
-      duplicateCollapsed: results.every(row => row.inferred.duplicateCollapsed === (mode === 'DUPLICATE_PARITY')),
+      duplicateCollapsed: results.every(row => row.inferred.duplicateCollapsed),
     }
   })
   return {worlds: worlds.length, modes: runs}
