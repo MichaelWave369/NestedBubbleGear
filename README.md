@@ -53,6 +53,16 @@ The important distinction: high baseline velocity correlation is not evidence of
 
 Reproduce with `npm run test:resilience-atlas` and `npm run sweep:resilience-atlas`. For a SHA-256-stamped full-grid receipt use `node scripts/run_resilience_atlas.mjs --out br2-full-sweep.json`.
 
+## NBG-BR3 · Recovery Robustness & Boundaries
+
+[Live interactive explorer](https://michaelwave369.github.io/NestedBubbleGear/#recovery-robustness) · [Frozen protocol](docs/RECOVERY_ROBUSTNESS.md)
+
+**BR3** challenges the BR2 recovery classification by changing the observation horizon (**38/60/120 s**), disturbed oscillator (**A, B, BOTH**), time step (**0.04/0.02**) and full-state recovery threshold (**0.03/0.06/0.12**). The deliberately bounded pilot covers **27 base parameter configurations**, **486 numerical integrations** and **1,458 threshold outcomes**. The live React explorer shows horizon rescues, kick-site sensitivity, threshold and step-size sensitivity, and high-correlation / nonrecovery Keyhole mismatches. The full sweep produces a deterministic JSON receipt with SHA-256.
+
+BR1 and BR2 are preserved; BR3 cross-checks one overlapping case numerically against BR1. The results remain **SIMULATED** and cannot establish real-world physical stability, biological mechanisms, social hierarchy, metaphysical balance or chaos.
+
+To reproduce: `npm run test:recovery-robustness`, `npm run sweep:recovery-robustness`.
+
 ## Temporal NBG (NBG-T)
 
 NBG-T extends the same hidden-structure question across **history** rather than only a single present state.
