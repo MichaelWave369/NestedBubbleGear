@@ -35,6 +35,14 @@ NBG
 - **Φ-System** — task-typed convergence/control layer, maintained as a conceptually separate line.
 - **Ledger** — replayable provenance.
 
+## NBG-BC3 · Evidence Custody vs. Truth
+
+[Interactive BC3 custody lab](https://michaelwave369.github.io/NestedBubbleGear/#boundary-custody) · [Finite protocol & falsifiers](experiments/BC3/SPEC.md)
+
+BC3 extends BC2 with a **separate evidence custody gate** using two tiny, openly disclosed **insecure teaching key pairs**. All 16 source/edit worlds are evaluated under nine evidence regimes, for **144 exact simulated outcomes**. Duplicate records from one signer never satisfy a two-credential policy. Tampered signatures, unsigned claims and conflicting signed statements are refused. Two honestly agreeing signers allow **16/16 correct admissions** in the constructed example, while two independently credentialed but coordinated false claims produce **16/16 incorrect admissions**. This establishes a limitation of this finite policy: valid signatures and independent-looking signers cannot establish the underlying observation's truth.
+
+No real biological, genomic or secure cryptographic system is being modeled or validated. All results have origin `SIMULATED`, authority `NONE`. Run `npm run test:bc3` and `npm run receipt:bc3 -- --out bc3-receipt.json`. See [experiments/BC3](experiments/BC3/).
+
 ## NBG-BC2 · Blind Lineage Recovery
 
 [Interactive BC2 recovery lab](https://michaelwave369.github.io/NestedBubbleGear/#boundary-lineage) · [Frozen finite protocol](experiments/BC2/SPEC.md)
