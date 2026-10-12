@@ -35,6 +35,14 @@ NBG
 - **Φ-System** — task-typed convergence/control layer, maintained as a conceptually separate line.
 - **Ledger** — replayable provenance.
 
+## NBG-BC2 · Blind Lineage Recovery
+
+[Interactive BC2 recovery lab](https://michaelwave369.github.io/NestedBubbleGear/#boundary-lineage) · [Frozen finite protocol](experiments/BC2/SPEC.md)
+
+BC2 extends BC1 by **withholding the source/edit ground truth from the inference function**. It exhaustively enumerates 16 synthetic two-bit source/edit worlds across eight witness regimes (128 modeled evaluations). Destination-only inference correctly refuses four-way source ambiguity, a partial witness narrows that to two possible sources, and a full honest edit witness uniquely identifies the source. Two copied records with the same lineage cannot manufacture extra evidence. Hostile controls show both successful contradiction refusal and confidently **incorrect** attribution when witnesses are forged but mutually consistent.
+
+This is a binary XOR thought experiment with `SIMULATED` provenance and `NONE` authority, not real genetics, viral evolution, source authentication, clinical prediction or empirical NBG validation. Run `npm run test:bc2` and `npm run receipt:bc2 -- --out bc2-receipt.json` to reproduce the finite study. See [experiments/BC2](experiments/BC2/).
+
 ## NBG-BC1 · Boundary-Crossing Persistence
 
 [Live finite-state BC1 lab](https://michaelwave369.github.io/NestedBubbleGear/#boundary-crossing) · [Protocol and falsifiers](experiments/BC1/SPEC.md)
