@@ -1,0 +1,44 @@
+name: G2 Dimensional Recovery Qualification
+
+on:
+  pull_request:
+    paths:
+      - 'src/dimensionalRecovery.js'
+      - 'src/DimensionalRecoveryLab.jsx'
+      - 'src/dimensionalRecovery.css'
+      - 'scripts/test_dimensional_recovery.mjs'
+      - 'docs/DIMENSIONAL_RECOVERY.md'
+      - 'experiments/G2/**'
+      - 'src/App.jsx'
+      - 'package.json'
+      - '.github/workflows/g2-qualification.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/dimensionalRecovery.js'
+      - 'src/DimensionalRecoveryLab.jsx'
+      - 'src/dimensionalRecovery.css'
+      - 'scripts/test_dimensional_recovery.mjs'
+      - 'docs/DIMENSIONAL_RECOVERY.md'
+      - 'experiments/G2/**'
+      - 'src/App.jsx'
+      - 'package.json'
+      - '.github/workflows/g2-qualification.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  g2-exact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install
+      - name: Qualify G2 exact observer witness
+        run: npm run test:g2
+      - name: Validate production React build
+        run: npm run build
