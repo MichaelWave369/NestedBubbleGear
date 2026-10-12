@@ -38,6 +38,10 @@ BR1 numerically integrates two damped, dimensionless, periodically forced oscill
 
 BR2 enumerates 972 artificial coupled-oscillator configurations over a frozen four-factor grid. Its measurements concern numerical recovery to an undisturbed simulated trajectory and an **independent**, undisturbed velocity-correlation observer. `HORIZON_CENSORED` is not evidence of permanent failure, and greater asymmetry is **not** assumed beneficial or harmful. High correlation and recovery may disagree. The exercise neither validates new physics nor supports any inference about human societies, sex/gender, theology, cosmological duality, biology, consciousness, or mathematical chaos. Receipts have `origin=SIMULATED`, `authority=NONE`.
 
+## NBG-BR3: frozen synthetic recovery-sensitivity study
+
+BR3 changes horizon, perturbation location, numeric step and recovery threshold for 27 selected BR1 linear-system parameter triples (486 integrations; 1,458 threshold decisions). It directly tests how much the prior BR2 conclusion depends on **observer definitions**, including horizon-censoring, and cross-checks one overlap against BR1. Every result is `SIMULATED`; all evidence, agency, scientific-authority and real-world causal promotions are refused. Differences under numerical steps or thresholds are properties of this computation, not proof of biological, physical, theological, social or chaotic dynamics.
+
 ## Formal / under development
 
 - Altermath active kernel and flux Altermath.
