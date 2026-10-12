@@ -12,6 +12,7 @@ export default function LabNavigation(){
  const [activeHash,setActiveHash]=useState(currentHash)
  const root=useRef(null)
  const trigger=useRef(null)
+ const mobileTrigger=useRef(null)
  const groupById=Object.fromEntries(NAV_GROUPS.map(group=>[group.id,group]))
  const directByHref=Object.fromEntries(NAV_DIRECT.map(link=>[link.href,link]))
 
@@ -34,7 +35,7 @@ export default function LabNavigation(){
    event.preventDefault()
    setOpenGroup(null)
    setMobileOpen(false)
-   trigger.current?.focus()
+   ;(mobileOpen?mobileTrigger:trigger).current?.focus()
   }
   document.addEventListener('pointerdown',outside)
   document.addEventListener('keydown',escape)
@@ -83,7 +84,7 @@ export default function LabNavigation(){
   <a className="brand lab-brand" href="#top" onClick={()=>goTo('#top')}>
    <span>Φ</span> NBG Research Lab
   </a>
-  <button type="button" className="lab-nav-mobile-toggle" aria-expanded={mobileOpen}
+  <button ref={mobileTrigger} type="button" className="lab-nav-mobile-toggle" aria-expanded={mobileOpen}
    aria-controls="lab-nav-links" onClick={event=>{
     trigger.current=event.currentTarget
     setMobileOpen(previous=>!previous)
