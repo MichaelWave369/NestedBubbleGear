@@ -18,6 +18,7 @@ import RecoveryRobustnessLab from './RecoveryRobustnessLab.jsx'
 import GeometryKeyholeLab from './GeometryKeyholeLab.jsx'
 import DimensionalRecoveryLab from './DimensionalRecoveryLab.jsx'
 import NoisyKeyholeLab from './NoisyKeyholeLab.jsx'
+import BoundaryCrossingLab from './BoundaryCrossingLab.jsx'
 import IndependentSignalValidationLab from './IndependentSignalValidationLab.jsx'
 import {
   RELATION_OPTIONS,
@@ -649,6 +650,7 @@ function App() {
       <GeometryKeyholeLab />
       <DimensionalRecoveryLab />
       <NoisyKeyholeLab />
+      <BoundaryCrossingLab />
       <IndependentSignalValidationLab />
       <AdaptivePhaseKeyhole />
       <UnknownGearLab />
