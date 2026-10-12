@@ -6,6 +6,10 @@ NBG separates **demonstrated toy-model results**, **formal work under developmen
 
 G1 enumerates 35 free six-square polyominoes, classifies 11 valid cube nets and 24 non-nets, and builds a 4D→3D projection witness. These are exact finite combinatorial/model facts only. Counting six squares is intentionally an inadequate Keyhole; richer structural information distinguishes possible closures. G1 does not demonstrate a human or cosmic prison, historical intent behind cross or Saturn imagery, religious-energy mechanisms, metaphysical control, actual higher-dimensional physics, or a new causal residue in nature. Receipt origin: `SIMULATED`; authority: `NONE`. The Dali/cross/Saturn motivation belongs to interpretation, not experiment output.
 
+## NBG-G2 · finite dimensional-recovery observer model
+
+G2 uses the sixteen vertices of a formal four-bit hypercube, exact GF(2) parity probes, a uniform synthetic prior and frozen artificial query-credit costs. In that limited model, lower-dimensional observation can hide distinguishable states; sufficient additional queries recover the declared task, while blind or underfunded observers explicitly refuse recovery. A task such as knowing W can succeed without reconstructing the full state. These finite facts are **not** physical higher-dimensional reconstruction, evidence of literal time loops, spiritual or Saturnian imprisonment, historical intent, new physics, or empirical causal memory. Every receipt has `origin=SIMULATED`, `authority=NONE`. See [G2 protocol](docs/DIMENSIONAL_RECOVERY.md).
+
 ## Demonstrated in frozen finite toy models
 
 - Latent hidden-state revelation after an initially identical observation.
