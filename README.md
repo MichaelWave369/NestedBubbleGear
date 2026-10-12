@@ -35,6 +35,14 @@ NBG
 - **Φ-System** — task-typed convergence/control layer, maintained as a conceptually separate line.
 - **Ledger** — replayable provenance.
 
+## NBG-BC1 · Boundary-Crossing Persistence
+
+[Live finite-state BC1 lab](https://michaelwave369.github.io/NestedBubbleGear/#boundary-crossing) · [Protocol and falsifiers](experiments/BC1/SPEC.md)
+
+BC1 is a **SIMULATED**, exact 16-state boundary-transfer experiment inspired by the reported BC200-derived insertions in molluscum contagiosum virus (Gao et al., *Science*, 2026, [DOI:10.1126/science.aeh3441](https://doi.org/10.1126/science.aeh3441)). The model keeps an existing source function active, requires external machinery plus an open interface for copying, and shows how identical recipient bits can hide different source histories. Controls disable either copying machinery or interface permission. K0, K1 and K2 distinguish initial snapshot, destination outcome and synthetic lineage.
+
+**Claim firewall:** Binary toy rules are not genomic mechanisms, viral experiments, clinical predictions or empirical NBG validation. Run `npm run test:bc1` for the finite census, or `npm run receipt:bc1 -- --out bc1-receipt.json` for a deterministic SHA-256-identified `SIMULATED` receipt. See [experiments/BC1](experiments/BC1/).
+
 ## NBG-G1 · Geometry Keyhole
 
 [Interactive Geometry Keyhole](https://michaelwave369.github.io/NestedBubbleGear/#geometry-keyhole) · [Frozen finite protocol](docs/GEOMETRY_KEYHOLE.md)
