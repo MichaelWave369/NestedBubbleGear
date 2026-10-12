@@ -35,6 +35,12 @@ NBG
 - **Φ-System** — task-typed convergence/control layer, maintained as a conceptually separate line.
 - **Ledger** — replayable provenance.
 
+## NBG-G1 · Geometry Keyhole
+
+[Interactive Geometry Keyhole](https://michaelwave369.github.io/NestedBubbleGear/#geometry-keyhole) · [Frozen finite protocol](docs/GEOMETRY_KEYHOLE.md)
+
+**G1** exhaustively checks all 35 free hexominoes against exact cube-face folding, with 11 positive cube nets and 24 negative shapes. Every sample gives the same coarse six-square observation; the richer structural Keyhole distinguishes foldability. A separate tesseract graph and 4D→3D projection witness demonstrate observer information loss without requiring physical higher-dimensional claims. Export a `SIMULATED` receipt from the live site, and reproduce the counts with `npm run test:g1`. Geometric correspondence is not evidence of cosmic imprisonment or Saturnian control.
+
 ## Balance & Recovery Lab (NBG-BR1)
 
 **NBG-BR1** adds a synthetic, dimensionless coupled-oscillator experiment to the live site. Explore reciprocal or asymmetric feedback, damping, frequency mismatch, and a velocity disturbance while comparing undisturbed and perturbed trajectories.

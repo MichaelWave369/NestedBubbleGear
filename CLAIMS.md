@@ -2,6 +2,10 @@
 
 NBG separates **demonstrated toy-model results**, **formal work under development**, and **speculative interpretation**.
 
+## NBG-G1 · finite geometry demonstrator
+
+G1 enumerates 35 free six-square polyominoes, classifies 11 valid cube nets and 24 non-nets, and builds a 4D→3D projection witness. These are exact finite combinatorial/model facts only. Counting six squares is intentionally an inadequate Keyhole; richer structural information distinguishes possible closures. G1 does not demonstrate a human or cosmic prison, historical intent behind cross or Saturn imagery, religious-energy mechanisms, metaphysical control, actual higher-dimensional physics, or a new causal residue in nature. Receipt origin: `SIMULATED`; authority: `NONE`. The Dali/cross/Saturn motivation belongs to interpretation, not experiment output.
+
 ## Demonstrated in frozen finite toy models
 
 - Latent hidden-state revelation after an initially identical observation.

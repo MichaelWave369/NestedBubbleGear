@@ -1,0 +1,23 @@
+.g1-section{scroll-margin-top:76px}.g1-section h2 em{font-style:normal;color:var(--accent,#85ecc8)}
+.g1-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:26px 0}
+.g1-kpis>div,.g1-analysis,.g1-projection{border:1px solid rgba(151,213,231,.23);background:rgba(17,31,43,.5);border-radius:15px;padding:18px}
+.g1-kpis strong{display:block;font-size:2rem;color:#a4e7e0}.g1-kpis span{font-size:.79rem;opacity:.75}
+.g1-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(250px,1fr);gap:22px}
+.g1-toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px}
+.g1-toolbar h3{margin:0 auto 0 0}.g1-toolbar select{background:#182a36;color:#ebfaff;border:1px solid #5c7c89;border-radius:8px;padding:8px}
+.g1-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:8px}
+.g1-tile{min-height:100px;border:1px solid #536b7d;border-radius:10px;color:#b5e1f4;background:rgba(42,76,94,.2);cursor:pointer;padding:8px;display:flex;flex-direction:column;align-items:center;gap:5px}
+.g1-tile svg{max-width:100%;height:70px}.g1-tile span{font-size:.76rem}.g1-tile.active{outline:2px solid #83dfd1;background:rgba(62,131,133,.25)}
+.g1-tile:hover,.g1-tile:focus-visible{border-color:#b4faf0}.g1-analysis h3{margin-top:14px}.g1-selected{height:200px;display:flex;justify-content:center}
+.g1-selected svg{height:100%;max-width:100%;color:#9ed9ea}
+.g1-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
+.g1-pair>div{border:1px solid #517182;border-radius:12px;display:flex;flex-direction:column;gap:6px;align-items:center;padding:10px}
+.g1-pair small{font-size:.7rem;text-align:center}.g1-pair svg{height:110px;max-width:100%;color:#9ed9ea}
+.g1-projection{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0}
+.g1-math{display:flex;flex-direction:column;gap:13px;justify-content:center;word-break:break-word}
+.g1-math code{font-size:.9rem;color:#a9ecf3}.g1-math strong{color:#a6e6c8}
+.g1-guard{font-size:.9rem;opacity:.86;border-left:3px solid #c5ad78;padding-left:14px}
+.g1-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:20px}
+.g1-actions button{background:#90e2d7;border:0;border-radius:9px;padding:12px 18px;color:#10212b;font-weight:700;cursor:pointer}
+.g1-actions a{color:#b4eff3}
+@media(max-width:750px){.g1-layout,.g1-projection{grid-template-columns:1fr}.g1-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
