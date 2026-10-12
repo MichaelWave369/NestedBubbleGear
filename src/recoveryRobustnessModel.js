@@ -29,7 +29,7 @@ function derivative(t,s,p){
   const [xa,va,xb,vb]=s
   const kab=p.coupling*(1-p.asymmetry),kba=p.coupling*(1+p.asymmetry)
   return [va,-1.44*xa-p.damping*va+kab*(xb-xa)+BR3_PLAN.forcing*Math.sin(1.2*t),
-    vb,-(1.2+p.detuning)**2*xb-p.damping*vb+kba*(xa-xb)]
+    vb,-((1.2+p.detuning)**2)*xb-p.damping*vb+kba*(xa-xb)]
 }
 function rk4(t,s,dt,p){
   const a=derivative(t,s,p)
