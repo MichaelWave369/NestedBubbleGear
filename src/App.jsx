@@ -19,6 +19,7 @@ import GeometryKeyholeLab from './GeometryKeyholeLab.jsx'
 import DimensionalRecoveryLab from './DimensionalRecoveryLab.jsx'
 import NoisyKeyholeLab from './NoisyKeyholeLab.jsx'
 import BoundaryCrossingLab from './BoundaryCrossingLab.jsx'
+import BoundaryLineageLab from './BoundaryLineageLab.jsx'
 import IndependentSignalValidationLab from './IndependentSignalValidationLab.jsx'
 import {
   RELATION_OPTIONS,
@@ -651,6 +652,7 @@ function App() {
       <DimensionalRecoveryLab />
       <NoisyKeyholeLab />
       <BoundaryCrossingLab />
+      <BoundaryLineageLab />
       <IndependentSignalValidationLab />
       <AdaptivePhaseKeyhole />
       <UnknownGearLab />
