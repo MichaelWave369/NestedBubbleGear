@@ -47,6 +47,12 @@ NBG
 
 **G2** extends G1's hypercube projection witness with an exact sixteen-state GF(2) observer model. Choose which coordinates are visible, which probe families are authorized, which task must be resolved, and a synthetic query-credit budget. An exhaustive subset search computes the minimum-cost recovery plan and refuses unobservable or unaffordable tasks. The interactive site replays a state-specific evidence trail with candidate sets and exports `SIMULATED` receipts. Tests include all 512 subsets of the full probe library and all sixteen finite witness states. Costs are fictional and no extra physical dimensions or theological claims are inferred. Run `npm run test:g2`.
 
+## NBG-G3 · Noisy Keyhole and Confidence Calibration
+
+[Interactive G3 lab](https://michaelwave369.github.io/NestedBubbleGear/#noisy-keyhole) · [Frozen protocol](docs/NOISY_KEYHOLE.md)
+
+G3 extends G2's noiseless recovery model with finite, analytically scored noisy parity-sensor observations. A true independent-error mechanism is compared to a shared-error mechanism; the observer may correctly model the regime or falsely presume every repeated reading is independent. **Matched inference is calibrated**, while repeated common-cause errors can cause misleadingly high confidence. A fixed example with 10% shared error, five identical readings and a 95% confidence requirement yields **90% actual accuracy versus 99.9983% reported confidence** for the naive IID observer. An aware observer refuses this 95% threshold. All numbers are exact theoretical expectations inside a toy model, not observed real-world events. The G3 lab includes exact decision coverage, accepted error, confidence calibration, outcome distributions, deterministic constructed witnesses and JSON receipts. Run `npm run test:g3`.
+
 ## Balance & Recovery Lab (NBG-BR1)
 
 **NBG-BR1** adds a synthetic, dimensionless coupled-oscillator experiment to the live site. Explore reciprocal or asymmetric feedback, damping, frequency mismatch, and a velocity disturbance while comparing undisturbed and perturbed trajectories.

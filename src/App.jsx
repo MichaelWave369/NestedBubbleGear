@@ -15,6 +15,7 @@ import BalanceRecoveryLab from './BalanceRecoveryLab.jsx'
 import ResilienceAtlas from './ResilienceAtlas.jsx'
 import GeometryKeyholeLab from './GeometryKeyholeLab.jsx'
 import DimensionalRecoveryLab from './DimensionalRecoveryLab.jsx'
+import NoisyKeyholeLab from './NoisyKeyholeLab.jsx'
 import IndependentSignalValidationLab from './IndependentSignalValidationLab.jsx'
 import {
   RELATION_OPTIONS,
@@ -532,6 +533,7 @@ function App() {
           <a href="#resilience-atlas">Resilience Atlas</a>
           <a href="#geometry-keyhole">Geometry Keyhole</a>
           <a href="#dimensional-recovery">Dimensional Recovery</a>
+          <a href="#noisy-keyhole">Noisy Keyhole</a>
           <a href="#independent-validation">Validation</a>
           <a href="#adaptive-phase">Adaptive Phase</a>
           <a href="#unknown-gear">Unknown Gear</a>
@@ -672,6 +674,7 @@ function App() {
       <ResilienceAtlas />
       <GeometryKeyholeLab />
       <DimensionalRecoveryLab />
+      <NoisyKeyholeLab />
       <IndependentSignalValidationLab />
       <AdaptivePhaseKeyhole />
       <UnknownGearLab />

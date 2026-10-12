@@ -1,0 +1,24 @@
+.g3-section{scroll-margin-top:76px}.g3-section h2 em{font-style:normal;color:#8fe4d2}
+.g3-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:24px 0}
+.g3-controls label,.g3-witness-controls label{display:flex;flex-direction:column;gap:9px;padding:11px;border:1px solid rgba(166,217,227,.23);
+border-radius:11px;background:rgba(20,36,49,.6);font-size:.85rem;color:#d4e7ed}
+.g3-controls select,.g3-witness-controls select{padding:9px;min-width:0;border:1px solid #638094;border-radius:7px;background:#1e3240;color:#effcff}
+.g3-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.g3-metric,.g3-panel,.g3-verdict{padding:17px;border:1px solid rgba(151,213,231,.25);border-radius:14px;background:rgba(17,31,43,.55)}
+.g3-metric small,.g3-metric span{display:block}.g3-metric small{color:#b2ccd9}.g3-metric strong{font-size:1.65rem;display:block;color:#a5e7e0;margin:7px 0}
+.g3-metric span{font-size:.75rem;opacity:.75}.g3-verdict{margin:18px 0}.g3-verdict strong{color:#d7f0ef}
+.g3-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:17px 0}
+.g3-panel h3{margin:0 0 12px}.g3-panel .muted{font-size:.87rem}
+.g3-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.g3-table th,.g3-table td{padding:10px 6px;text-align:left;border-bottom:1px solid rgba(142,197,214,.25)}
+.g3-table tr.selected{background:rgba(78,152,149,.18)}.g3-table th{color:#b4dce4}
+.g3-barrow{display:grid;grid-template-columns:60px 1fr 62px;gap:10px;align-items:center;margin:9px 0;font-size:.79rem}
+.g3-track{height:15px;border:1px solid #507583;border-radius:5px;background:#18323d;overflow:hidden}
+.g3-track div{height:100%;background:#85c9c8}.g3-barrow strong{text-align:right}
+.g3-witness-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:13px}
+.g3-panel code{color:#b0ecec;word-break:break-all}
+.g3-firewall{font-size:.87rem;line-height:1.6;border-left:3px solid #d4b983;padding-left:14px}
+.g3-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:22px}
+.g3-actions button{border:0;border-radius:9px;padding:12px 18px;background:#98ddd7;color:#122431;font-weight:700;cursor:pointer}
+.g3-actions a{color:#a9e5eb}
+@media(max-width:760px){.g3-layout{grid-template-columns:1fr}.g3-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
