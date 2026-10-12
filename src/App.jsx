@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import LabNavigation from './LabNavigation.jsx'
 import SpiralGearLab from './SpiralGearLab.jsx'
 import PhaseClosureLab from './PhaseClosureLab.jsx'
 import AdaptivePhaseKeyhole from './AdaptivePhaseKeyhole.jsx'
@@ -519,37 +520,7 @@ function App() {
 
   return (
     <main>
-      <header className="nav">
-        <a className="brand" href="#top"><span>Φ</span> NBG Research Lab</a>
-        <nav>
-          <a href="#stack">Stack</a>
-          <a href="#atlas">Bubble Atlas</a>
-          <a href="#spiral-gears">Spiral Gears</a>
-          <a href="#phase-closure">Phase &amp; Closure</a>
-          <a href="#body-ship">Body Ship</a>
-          <a href="#biological-bridge">Bio Bridge</a>
-          <a href="#resonance-observatory">Observatory</a>
-          <a href="#phase-dynamics">Phase Dynamics</a>
-          <a href="#balance-recovery">Balance &amp; Recovery</a>
-          <a href="#resilience-atlas">Resilience Atlas</a>
-          <a href="#recovery-robustness">Recovery Boundaries</a>
-          <a href="#geometry-keyhole">Geometry Keyhole</a>
-          <a href="#dimensional-recovery">Dimensional Recovery</a>
-          <a href="#noisy-keyhole">Noisy Keyhole</a>
-          <a href="#independent-validation">Validation</a>
-          <a href="#adaptive-phase">Adaptive Phase</a>
-          <a href="#unknown-gear">Unknown Gear</a>
-          <a href="#model-recovery">Model Recovery</a>
-          <a href="#discovery-loop">Discovery Loop</a>
-          <a href="#qm1">QM1 Mining</a>
-          <a href="#qm2">QM2 Trials</a>
-          <a href="#keyholes">Keyholes</a>
-          <a href="#temporal">Temporal</a>
-          <a href="#experiments">Experiments</a>
-          <a href="#claims">Claims</a>
-          <a href="https://github.com/MichaelWave369/NestedBubbleGear">GitHub ↗</a>
-        </nav>
-      </header>
+      <LabNavigation />
 
       <section id="top" className="hero">
         <div className="hero-grid" />
