@@ -2,6 +2,18 @@
 
 NBG separates **demonstrated toy-model results**, **formal work under development**, and **speculative interpretation**.
 
+## NBG-G1 · finite geometry demonstrator
+
+G1 enumerates 35 free six-square polyominoes, classifies 11 valid cube nets and 24 non-nets, and builds a 4D→3D projection witness. These are exact finite combinatorial/model facts only. Counting six squares is intentionally an inadequate Keyhole; richer structural information distinguishes possible closures. G1 does not demonstrate a human or cosmic prison, historical intent behind cross or Saturn imagery, religious-energy mechanisms, metaphysical control, actual higher-dimensional physics, or a new causal residue in nature. Receipt origin: `SIMULATED`; authority: `NONE`. The Dali/cross/Saturn motivation belongs to interpretation, not experiment output.
+
+## NBG-G2 · finite dimensional-recovery observer model
+
+G2 uses the sixteen vertices of a formal four-bit hypercube, exact GF(2) parity probes, a uniform synthetic prior and frozen artificial query-credit costs. In that limited model, lower-dimensional observation can hide distinguishable states; sufficient additional queries recover the declared task, while blind or underfunded observers explicitly refuse recovery. A task such as knowing W can succeed without reconstructing the full state. These finite facts are **not** physical higher-dimensional reconstruction, evidence of literal time loops, spiritual or Saturnian imprisonment, historical intent, new physics, or empirical causal memory. Every receipt has `origin=SIMULATED`, `authority=NONE`. See [G2 protocol](docs/DIMENSIONAL_RECOVERY.md).
+
+## NBG-G3 · exact synthetic noise and confidence analysis
+
+In a sixteen-state toy universe with a known 3D Keyhole, G3 compares a parity-15 observer with IID read errors and a common-cause flip applied to all repeated observations. Matched Bayesian posteriors are calibrated under the declared uniform prior; an observer that incorrectly treats shared errors as independent can overstate certainty. At p=0.1, n=5, tau=0.95, the naive shared-error scenario gives **90% actual accuracy** but approximately **99.9983% stated confidence**, while a matched shared-error observer abstains. All values arise from exact analytic enumeration over a **SIMULATED** finite model with assumed error probabilities, not real measurements, causal observations, new physics, religious symbolism, Saturnian manipulation, or empirical claims about consciousness. Report authority remains `NONE`. See [G3 protocol](docs/NOISY_KEYHOLE.md).
+
 ## Demonstrated in frozen finite toy models
 
 - Latent hidden-state revelation after an initially identical observation.
