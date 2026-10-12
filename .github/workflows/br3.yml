@@ -1,0 +1,46 @@
+name: BR3 Recovery Robustness Qualification
+
+on:
+  pull_request:
+    paths:
+      - 'src/recoveryRobustnessModel.js'
+      - 'src/RecoveryRobustnessLab.jsx'
+      - 'src/recoveryRobustnessLab.css'
+      - 'scripts/test_recovery_robustness.mjs'
+      - 'scripts/run_recovery_robustness.mjs'
+      - 'src/balanceRecoveryModel.js'
+      - 'src/App.jsx'
+      - 'package.json'
+      - '.github/workflows/br3.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/recoveryRobustnessModel.js'
+      - 'src/RecoveryRobustnessLab.jsx'
+      - 'src/recoveryRobustnessLab.css'
+      - 'scripts/test_recovery_robustness.mjs'
+      - 'scripts/run_recovery_robustness.mjs'
+      - 'src/balanceRecoveryModel.js'
+      - 'src/App.jsx'
+      - 'package.json'
+      - '.github/workflows/br3.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  br3-qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install UI dependencies
+        run: npm install
+      - name: BR3 invariants and BR1 parity
+        run: npm run test:recovery-robustness
+      - name: Execute all 486 synthetic integrations / 1458 decisions
+        run: npm run sweep:recovery-robustness
+      - name: Build React research site
+        run: npm run build
