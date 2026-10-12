@@ -1,0 +1,44 @@
+name: G3 Noisy Keyhole Qualification
+
+on:
+  pull_request:
+    paths:
+      - 'src/noisyKeyhole.js'
+      - 'src/NoisyKeyholeLab.jsx'
+      - 'src/noisyKeyhole.css'
+      - 'scripts/test_noisy_keyhole.mjs'
+      - 'docs/NOISY_KEYHOLE.md'
+      - 'experiments/G3/**'
+      - 'src/App.jsx'
+      - 'package.json'
+      - '.github/workflows/g3-qualification.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/noisyKeyhole.js'
+      - 'src/NoisyKeyholeLab.jsx'
+      - 'src/noisyKeyhole.css'
+      - 'scripts/test_noisy_keyhole.mjs'
+      - 'docs/NOISY_KEYHOLE.md'
+      - 'experiments/G3/**'
+      - 'src/App.jsx'
+      - 'package.json'
+      - '.github/workflows/g3-qualification.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  g3-exact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install
+      - name: Exact G3 noise and calibration qualification
+        run: npm run test:g3
+      - name: Validate production React build
+        run: npm run build
