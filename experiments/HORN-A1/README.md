@@ -19,3 +19,16 @@ npm run receipt:horn-a1 -- --out horn-a1-receipt.json
 
 [Full protocol, formulas, controls, falsifiers and limitations](SPEC.md).
 This is a new experimental candidate; existing frozen AH packages are unchanged.
+
+## Interactive visualization
+
+On GitHub Pages open [#horn-a1](https://michaelwave369.github.io/NestedBubbleGear/#horn-a1).
+The canvas renders a rotatable 3D projection of finite longitudinal sections
+using **logarithmic horizontal display compression**. The volume and area numbers
+are evaluated from the unchanged exact calculus module, not from canvas pixels.
+The observer selector shows K0 or K1; the area-weighted probe is a deliberately
+stipulated toy rule. Uniform-weight and disabled-coupling modes serve as negative
+controls. The downloaded interactive view is marked as a user-selected, noncanonical
+SIMULATED snapshot; the frozen protocol remains separate.
+
+`npm run test:horn-a1-visual` checks the display-math boundary and finite geometry.

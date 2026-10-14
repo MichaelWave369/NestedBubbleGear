@@ -16,6 +16,7 @@ import BalanceRecoveryLab from './BalanceRecoveryLab.jsx'
 import ResilienceAtlas from './ResilienceAtlas.jsx'
 import RecoveryRobustnessLab from './RecoveryRobustnessLab.jsx'
 import GeometryKeyholeLab from './GeometryKeyholeLab.jsx'
+import HornA1Lab from './HornA1Lab.jsx'
 import DimensionalRecoveryLab from './DimensionalRecoveryLab.jsx'
 import NoisyKeyholeLab from './NoisyKeyholeLab.jsx'
 import BoundaryCrossingLab from './BoundaryCrossingLab.jsx'
@@ -650,6 +651,7 @@ function App() {
       <ResilienceAtlas />
       <RecoveryRobustnessLab />
       <GeometryKeyholeLab />
+      <HornA1Lab />
       <DimensionalRecoveryLab />
       <NoisyKeyholeLab />
       <BoundaryCrossingLab />

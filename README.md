@@ -37,7 +37,7 @@ NBG
 
 ## NBG-HORN-A1 · Finite Bulk / Persistent Boundary
 
-[Formal protocol and controls](experiments/HORN-A1/SPEC.md) · [Reproduction guide](experiments/HORN-A1/README.md)
+[Interactive Gabriel's Horn laboratory](https://michaelwave369.github.io/NestedBubbleGear/#horn-a1) · [Formal protocol and controls](experiments/HORN-A1/SPEC.md) · [Reproduction guide](experiments/HORN-A1/README.md)
 
 **HORN-A1** uses Gabriel's Horn as a classical calculus benchmark: the volume of the rotated curve y=1/x converges to π while its lateral area grows without bound. Its two-section **SIMULATED** observer model keeps bulk volume and the net orientation label equal, then defines a boundary-area-weighted probe that distinguishes the hidden label order. A richer Keyhole detects that order before intervention; uniform-weight and disabled-coupling negative controls erase the difference.
 

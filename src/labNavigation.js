@@ -28,6 +28,7 @@ export const NAV_GROUPS=Object.freeze([
   {
     id:'geometry',label:'Geometry',items:[
       {label:'Geometry Keyhole',href:'#geometry-keyhole'},
+      {label:'Gabriel’s Horn · Altermath',href:'#horn-a1'},
       {label:'Dimensional Recovery',href:'#dimensional-recovery'},
       {label:'Noisy Keyhole',href:'#noisy-keyhole'},
     ]
