@@ -35,6 +35,14 @@ NBG
 - **Φ-System** — task-typed convergence/control layer, maintained as a conceptually separate line.
 - **Ledger** — replayable provenance.
 
+## NBG-HORN-A1 · Finite Bulk / Persistent Boundary
+
+[Formal protocol and controls](experiments/HORN-A1/SPEC.md) · [Reproduction guide](experiments/HORN-A1/README.md)
+
+**HORN-A1** uses Gabriel's Horn as a classical calculus benchmark: the volume of the rotated curve y=1/x converges to π while its lateral area grows without bound. Its two-section **SIMULATED** observer model keeps bulk volume and the net orientation label equal, then defines a boundary-area-weighted probe that distinguishes the hidden label order. A richer Keyhole detects that order before intervention; uniform-weight and disabled-coupling negative controls erase the difference.
+
+This is a newly proposed formal toy experiment, **not** empirical validation of Altermath or evidence of infinite information, energy, or physical influence. Run `npm run test:horn-a1` and `npm run receipt:horn-a1 -- --out horn-a1-receipt.json`. Origin `SIMULATED`; authority `NONE`. Frozen AH research packages remain unchanged.
+
 ## NBG-BC3 · Evidence Custody vs. Truth
 
 [Interactive BC3 custody lab](https://michaelwave369.github.io/NestedBubbleGear/#boundary-custody) · [Finite protocol & falsifiers](experiments/BC3/SPEC.md)
