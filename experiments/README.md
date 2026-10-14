@@ -45,3 +45,10 @@ SHA-256:
 The runnable frozen core (spec/source/tests) is committed byte-exact and verified by CI before execution. The raw ZIP binary is not claimed as committed by this PR; binary archival backfill is a separate mechanical step.
 
 Older AH2–AH13 ZIPs likewise remain indexed by their independently verified archive hashes unless explicitly backfilled later.
+
+## HORN-A1 · Finite Bulk / Persistent Boundary
+
+The new [HORN-A1 candidate](HORN-A1/SPEC.md) is a separate classical-geometry
+and SIMULATED observer/intervention exercise. It is **not** a modification or
+retroactive validation of the frozen AH series. Run npm scripts
+`test:horn-a1` / `receipt:horn-a1` for its reproducible finite-prefix checks.
