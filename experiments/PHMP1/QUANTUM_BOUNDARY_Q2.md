@@ -58,9 +58,9 @@ node scripts/test_phmp_quantum_q2.mjs --out quantum-q2-local-receipt.json
 
 The `--out` option is optional; it exclusively creates a **new** JSON receipt path without overwrite. The normal `npm test` produces no receipts and never invokes reserved PHMP-3 E2 scoring.
 
-The finite test sweeps **21 gamma values** (0, 0.05, ... 1) and **17×17 pairs of measurement settings per gamma**, checking normalization, nonnegative Born probabilities, correlations, marginal blindness, phase-flip channel agreement, fixed-vs-optimized CHSH identities, and boundary controls.
+The finite test sweeps **21 gamma values** (0, 0.05, ... 1) and **17×17 pairs of measurement settings per gamma**, checking normalization, nonnegative Born probabilities, correlations, marginal blindness, phase-flip channel agreement, fixed-vs-optimized CHSH identities, and boundary controls, including an explicitly computed partial-transpose eigenvector (rather than a tautological comparison).
 
-Independent local Node.js verification of the source's equations passed **30,689/30,689 checks**. GitHub CI must separately confirm the committed source.
+Independent local Node.js verification of the source's equations passed **30,710/30,710 checks**. GitHub CI must separately confirm the committed source.
 
 ### Exact illustrative results
 
