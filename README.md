@@ -55,6 +55,10 @@ The [Q1 quantum-information sanity audit](experiments/PHMP1/QUANTUM_BOUNDARY_Q1.
 
 The [Q2 dephasing observer study](experiments/PHMP1/QUANTUM_BOUNDARY_Q2.md) sweeps Bell-state coherence from a separable 00/11 mixture (`gamma=0`) to the pure Bell state (`gamma=1`). A coarse 0/1 Keyhole cannot distinguish the entire family, while X/X correlation and correctly selected CHSH settings can reveal coherence. Run `npm run test:phmp-quantum-q2`. It is **established quantum mathematics simulated in software**, not physical entanglement evidence or an NBG-specific prediction. PHMP-3's reserved evaluation is unaffected.
 
+### Quantum Boundary Q3 · Finite-shot inference and weak coherence
+
+The [Q3 finite-shot CHSH benchmark](experiments/PHMP1/QUANTUM_BOUNDARY_Q3.md) explicitly tests when mathematical residual coherence is detectable under finite Born-parity samples, known white-noise visibility, and familywise error correction. It preserves null cases, predeclares measurement settings, and does **not** treat computed entanglement as a physical experiment. Run `npm run test:phmp-quantum-q3`. **PHMP-3 E2's separately reserved memory dataset remains unscored.**
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
