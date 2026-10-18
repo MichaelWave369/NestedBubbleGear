@@ -41,6 +41,28 @@ The `classical-exact` and `nbg-typed-interfaces` paths intentionally use **the s
 - Provide accuracy and abstention separately by budget, modulus, and regime, plus mean/min per-history accuracy. Four queries from the same history are **not** counted as independent observations.
 - Report model source and fixture-source byte sizes. Lookup-table `minimumCodebookPayloadBytes` reports only a **lower bound** (4 bytes of matrix entries + 1 index byte per finite-group state). Runtime JS Maps, strings, program interpreter overhead and execution RSS are **not fully byte-attributed to each individual model**. E1 therefore cannot substantiate a total-resource superiority claim.
 
+## Observed validation outcome (GitHub CI)
+
+The `CI` workflow [run 39162447649](https://github.com/MichaelWave369/NestedBubbleGear/actions/runs/39162447649) finished **successfully** on the E1 branch, executing the complete repository test suite and build. The E1 benchmark used Node.js v22.23.3 on Linux and emitted deterministic receipt SHA-256:
+
+`0129f6844a8b63498b99db81d10269875238f82efcb11824ffe838d838243913`
+
+At the **2-byte active-state cap**, the **128-history validation** report was:
+
+| Candidate | Correct queries / 512 | Exact accuracy | Abstained queries |
+| --- | ---: | ---: | ---: |
+| `classical-exact` | 512 | 100% | 0 |
+| `nbg-typed-interfaces` | 512 | 100% | 0 |
+| `mod2-only` | 256 | 50% | 256 |
+| `mod3-only` | 256 | 50% | 256 |
+| `recent-events-packed` | 118 | 23.046875% | 0 |
+| `recent-events-two-byte` | 118 | 23.046875% | 0 |
+| `whole-interleaving` | 142 | 27.734375% | 0 |
+
+Both exact competitors also met the mandatory 100% ceiling at four bytes. The `mod2-only` and `mod3-only` accuracies **include abstentions as incorrect**; their selected-modulus accuracy is 100%. The `whole-interleaving` candidate is an intentionally invalid causal summary and does not demonstrate a meaningful model alternative.
+
+These are **programmed finite task results**, not independent measurements of real learned memory or practical total memory savings. The codebook figures are minimum logical payloads, not fully measured runtime allocations. The four queries per history are correlated and must not be treated as 512 independent trials. No reserved evaluation was run.
+
 ## Meaning of a pass
 
 The exact classical and typed-interface policies can both answer all valid declared tasks with two active bytes. This is standard modular group theory. The scientific null hypothesis here is **no NBG-specific gain**.
