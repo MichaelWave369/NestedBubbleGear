@@ -28,6 +28,13 @@ const rhoGamma = gamma => {
   rho[0][3] = rho[3][0] = gamma/2;
   return rho;
 };
+const partialTransposeB = rho => {
+  const out = zero(4,4);
+  for (let a=0; a<2; a++) for (let b=0; b<2; b++)
+    for (let c=0; c<2; c++) for (let d=0; d<2; d++)
+      out[2*a+d][2*c+b] = rho[2*a+b][2*c+d];
+  return out;
+};
 const rhoBell = rhoGamma(1), rhoMixture = rhoGamma(0);
 const zObservable = theta => {
   const c=Math.cos(2*theta),s=Math.sin(2*theta);
@@ -70,7 +77,12 @@ for (const gamma of gammaGrid) {
   gate(()=>assert.ok((1-gamma)/2>=0,'density nonnegative eigenvalue'));
   // Partial transpose eigenvalues: 1/2,1/2,gamma/2,-gamma/2.
   // For gamma>0, NPT criterion proves this two-qubit family is entangled.
-  gate(()=>approx(gamma===0 ? 0 : -gamma/2,-gamma/2,'partial transpose min eigenvalue'));
+  const pt=partialTransposeB(rho);
+  const antisym=[0,1/Math.sqrt(2),-1/Math.sqrt(2),0];
+  const ptTimesVec=pt.map(row=>row.reduce((s,x,k)=>s+x*antisym[k],0));
+  const minRayleigh=antisym.reduce((s,x,k)=>s+x*ptTimesVec[k],0);
+  gate(()=>approx(minRayleigh,-gamma/2,'partial transpose negative-eigenvalue witness'));
+  gate(()=>ptTimesVec.forEach((x,k)=>approx(x,-gamma/2*antisym[k],'partial transpose eigenvector')));
   const z=probs(rho,0,0);
   gate(()=>approx(z['1:1'],.5,'matching 00 is always 1/2'));
   gate(()=>approx(z['-1:-1'],.5,'matching 11 is always 1/2'));
