@@ -39,6 +39,10 @@ The [quotient experiment](PHMP2_UNITARY_QUOTIENTS.md) demonstrates a composition
 
 The [PHMP-3 protocol](PHMP3_PROTOCOL.md) specifies a deterministic streaming-memory benchmark and mandatory classical sufficient-statistic baseline. The [generator](../../scripts/phmp3_contract.mjs) supports two typed causal histories and four post-commit modular questions per history. `npm run test:phmp3-contract` checks training/validation fixtures and the mathematical oracle without scoring the reserved split or any candidate memory model.
 
+## PHMP-3 E1 · Bounded memory model comparisons
+
+The [E1 report and audit](PHMP3_E1.md) specify exact classical, typed-connector, quotient, last-event and whole-interleaving memory policies. Train/validation only, with the classical two-byte exact baseline as a mandatory 100% ceiling. Run `npm run test:phmp3-memories`. No held-out results or new physical claims.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
