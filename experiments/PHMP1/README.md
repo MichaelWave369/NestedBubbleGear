@@ -43,6 +43,14 @@ The [PHMP-3 protocol](PHMP3_PROTOCOL.md) specifies a deterministic streaming-mem
 
 The [E1 report and audit](PHMP3_E1.md) specify exact classical, typed-connector, quotient, last-event and whole-interleaving memory policies. Train/validation only, with the classical two-byte exact baseline as a mandatory 100% ceiling. Run `npm run test:phmp3-memories`. No held-out results or new physical claims.
 
+## PHMP-3 E2 · Source-pinned reserved evaluation (not yet executed)
+
+The [E2 gate protocol](PHMP3_E2_GATE.md) introduces a deliberately non-automatic first-pass scorer for reserved seed 203. The runner checks E1's frozen source hashes, requires an explicit one-time CLI gate and new receipt path, and does not score reserved histories during `npm test`. Outcome currently **NOT_EVALUATED**.
+
+## Optical Keyholes · proposed separate baseline
+
+The [optical-observer note](OPTICAL_KEYHOLES_NOTE.md) records conventional Jones-vector and polarization-projection mathematics relevant to PHMP-1, with no new NBG or physical claim and no effect on E2 frozen scoring.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
