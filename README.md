@@ -23,6 +23,10 @@ The [native AH9/AH10 frame-covariance audit](experiments/PHMP1/PHMP2_GAUGE_COVAR
 
 The [exact finite quotient audit](experiments/PHMP1/PHMP2_UNITARY_QUOTIENTS.md) maps native `SL(2,Z)` row-vector transport to **nonfaithful** 3D and 8D real-orthogonal (hence complex-unitary) permutation representations. It tests how much incorrect native AH9/AH10 connector composition becomes invisible under those coarse observers, including mandatory kernel witnesses and complex Fourier phase cycles. Run `npm run test:phmp2-quotients`. See [Stage 3 findings](experiments/PHMP1/PHMP2_STAGE3_LEDGER.md). These are ordinary group representations, **not** a Dirac embedding or NBG-specific AI advantage.
 
+### PHMP-3 E0 · Prospective causal transport memory benchmark
+
+The [PHMP-3 frozen experiment contract](experiments/PHMP1/PHMP3_PROTOCOL.md) defines two typed connector histories, delayed modular queries, 1/2/4-byte memory budgets, an ordinary exact group-state baseline, and reserved evaluation rules. The deterministic [train/validation fixture generator and task oracle](scripts/phmp3_contract.mjs) are qualified with `npm run test:phmp3-contract`. **No candidate has been scored, and the reserved split is not evaluated in E0.** The study remains `SIMULATED / authority NONE`.
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
