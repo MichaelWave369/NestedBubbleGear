@@ -43,6 +43,10 @@ The [classical optical analyzer note](experiments/PHMP1/OPTICAL_KEYHOLES_NOTE.md
 
 The [O1 classical optics sanity test](experiments/PHMP1/OPTICAL_KEYHOLES_O1.md) uses Jones/Stokes calculus to check the `e^(iθ)` relative-phase cycle, global-phase blindness, polarization analyzer Keyholes, and the unit Poincaré sphere. Run `npm run test:phmp-optical-o1`. It is **established optics, not new NBG physics**, and it makes **no changes** to PHMP-3's reserved evaluation or frozen models.
 
+### Optical Keyhole O2 · Coherent reference and relative phase
+
+The [O2 interferometric observer audit](experiments/PHMP1/OPTICAL_KEYHOLES_O2.md) demonstrates when a coherent reference makes phase *differences* detectable, and when common phase, orthogonal polarization, or dephasing conceals them. Run `npm run test:phmp-optical-o2`. O2 is **standard classical wave optics** and doesn't use or alter PHMP-3 E2's reserved evaluation.
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
