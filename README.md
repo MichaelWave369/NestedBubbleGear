@@ -47,6 +47,10 @@ The [O1 classical optics sanity test](experiments/PHMP1/OPTICAL_KEYHOLES_O1.md) 
 
 The [O2 interferometric observer audit](experiments/PHMP1/OPTICAL_KEYHOLES_O2.md) demonstrates when a coherent reference makes phase *differences* detectable, and when common phase, orthogonal polarization, or dephasing conceals them. Run `npm run test:phmp-optical-o2`. O2 is **standard classical wave optics** and doesn't use or alter PHMP-3 E2's reserved evaluation.
 
+### Quantum Boundary Q1 · Bell correlations versus classical matching
+
+The [Q1 quantum-information sanity audit](experiments/PHMP1/QUANTUM_BOUNDARY_Q1.md) compares the pure Bell state `(|00>+|11>)/sqrt(2)` with a separable 00/11 mixture. Both give identical matching-bit measurements, but their multi-setting CHSH **mathematical predictions** differ. It includes the finite-commutator obstruction and `7,539` deterministic checks. Run `npm run test:phmp-quantum-q1`. **No physical entanglement experiment, NBG quantum behavior, or PHMP-3 reserved scoring is claimed.**
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/

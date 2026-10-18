@@ -59,6 +59,10 @@ The [O1 protocol](OPTICAL_KEYHOLES_O1.md) makes the original optical-observer an
 
 The [O2 protocol](OPTICAL_KEYHOLES_O2.md) tests relative phase vs common phase, two-port interference, Jones polarization overlap, phase averaging and sine/cosine quadrature recovery. `npm run test:phmp-optical-o2` runs only mathematical simulations and preserves the PHMP-3 E2 holdout.
 
+## Quantum Boundary Q1 · Matched bits are not an entanglement witness
+
+The [Q1 protocol](QUANTUM_BOUNDARY_Q1.md) evaluates standard Born probabilities and CHSH correlations for a pure Bell state, a separable 00/11 mixture, and a product state. It preserves the lesson that identical measurement outcomes in a single basis do not prove entanglement. This uses finite simulated density matrices and no physical quantum devices. Run `npm run test:phmp-quantum-q1`. No frozen PHMP-3 E2 scoring takes place.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
