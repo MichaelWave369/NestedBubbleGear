@@ -55,6 +55,10 @@ The [optical-observer note](OPTICAL_KEYHOLES_NOTE.md) records conventional Jones
 
 The [O1 protocol](OPTICAL_KEYHOLES_O1.md) makes the original optical-observer analogy reproducible: matched component intensities can conceal relative phase, but diagonal and circular analyzers reveal appropriate distinctions. It verifies global `π` / `2π` phase controls and unit Poincaré coordinates. Run `npm run test:phmp-optical-o1`. This remains classical optics, outside PHMP-3 E2 held-out scoring.
 
+## Optical Keyhole O2 · Coherent-reference interference
+
+The [O2 protocol](OPTICAL_KEYHOLES_O2.md) tests relative phase vs common phase, two-port interference, Jones polarization overlap, phase averaging and sine/cosine quadrature recovery. `npm run test:phmp-optical-o2` runs only mathematical simulations and preserves the PHMP-3 E2 holdout.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
