@@ -63,6 +63,10 @@ The [O2 protocol](OPTICAL_KEYHOLES_O2.md) tests relative phase vs common phase, 
 
 The [Q1 protocol](QUANTUM_BOUNDARY_Q1.md) evaluates standard Born probabilities and CHSH correlations for a pure Bell state, a separable 00/11 mixture, and a product state. It preserves the lesson that identical measurement outcomes in a single basis do not prove entanglement. This uses finite simulated density matrices and no physical quantum devices. Run `npm run test:phmp-quantum-q1`. No frozen PHMP-3 E2 scoring takes place.
 
+## Quantum Boundary Q2 · Coherence loss with observer sensitivity
+
+The [Q2 protocol](QUANTUM_BOUNDARY_Q2.md) extends the Bell-vs-mixture Q1 sanity check to a dephasing continuum. It separately computes 0/1 Keyhole blindness, X/X visibility, fixed CHSH settings and gamma-optimized settings. Run `npm run test:phmp-quantum-q2`. It introduces no NBG-specific quantum prediction or PHMP-3 E2 scoring.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
