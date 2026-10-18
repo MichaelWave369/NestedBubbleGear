@@ -67,7 +67,7 @@ function ci95(historyFractions,seed=1099,reps=1000){
   const samples=[];
   for(let b=0;b<reps;b++){
     let sum=0;
-    for(let i=0;i<historyFractions.length;i++)sum+=historyFractions[pick()%historyFractions.length];
+    for(let i=0;i<historyFractions.length;i++)sum+=historyFractions[Math.floor((pick()/4294967296)*historyFractions.length)];
     samples.push(sum/historyFractions.length);
   }
   samples.sort((a,b)=>a-b);
@@ -126,8 +126,8 @@ for(const r of exact){
 const get=(id,budget)=>runResults.find(r=>r.model===id&&r.budget_bytes===budget);
 for(const budget of [2,4]){
   assert.deepEqual(get('classical-exact',budget).by_modulus,get('nbg-typed-interfaces',budget).by_modulus);
-  assert.equal(get('mod2-only',budget).by_modulus[3].abstained,1024/2);
-  assert.equal(get('mod3-only',budget).by_modulus[2].abstained,1024/2);
+  assert.equal(get('mod2-only',budget).by_modulus[3].abstained,1024);
+  assert.equal(get('mod3-only',budget).by_modulus[2].abstained,1024);
 }
 const telemetry={node:process.version,platform:process.platform,arch:process.arch,
   elapsed_ms:performance.now()-start,
