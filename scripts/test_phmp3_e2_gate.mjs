@@ -2,8 +2,9 @@
 // THIS FILE MUST NOT GENERATE OR SCORE RESERVED HISTORIES.
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
-const execute=(args)=>spawnSync(process.execPath,[new URL('./run_phmp3_e2.mjs',import.meta.url).pathname,...args],{
+const execute=(args)=>spawnSync(process.execPath,[fileURLToPath(new URL('./run_phmp3_e2.mjs',import.meta.url)),...args],{
   encoding:'utf8',maxBuffer:1024*1024
 });
 const valid=execute(['--verify-freeze']);
