@@ -51,6 +51,10 @@ The [O2 interferometric observer audit](experiments/PHMP1/OPTICAL_KEYHOLES_O2.md
 
 The [Q1 quantum-information sanity audit](experiments/PHMP1/QUANTUM_BOUNDARY_Q1.md) compares the pure Bell state `(|00>+|11>)/sqrt(2)` with a separable 00/11 mixture. Both give identical matching-bit measurements, but their multi-setting CHSH **mathematical predictions** differ. It includes the finite-commutator obstruction and `7,539` deterministic checks. Run `npm run test:phmp-quantum-q1`. **No physical entanglement experiment, NBG quantum behavior, or PHMP-3 reserved scoring is claimed.**
 
+### Quantum Boundary Q2 · How observer choice exposes residual coherence
+
+The [Q2 dephasing observer study](experiments/PHMP1/QUANTUM_BOUNDARY_Q2.md) sweeps Bell-state coherence from a separable 00/11 mixture (`gamma=0`) to the pure Bell state (`gamma=1`). A coarse 0/1 Keyhole cannot distinguish the entire family, while X/X correlation and correctly selected CHSH settings can reveal coherence. Run `npm run test:phmp-quantum-q2`. It is **established quantum mathematics simulated in software**, not physical entanglement evidence or an NBG-specific prediction. PHMP-3's reserved evaluation is unaffected.
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
