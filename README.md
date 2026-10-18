@@ -13,7 +13,7 @@
 
 The [PHMP-1 H/S sanity benchmark](experiments/PHMP1/README.md) reproduces standard complex-unitary delayed observability and corrected loop-holonomy invariants with controls. Run `npm run test:phmp1`.
 
-The [PHMP-2 native correspondence audit](experiments/PHMP1/PHMP2_AUDIT.md) is **PROPOSED**, not executed: frozen AH9/AH10 operators use real `SL(2,Z)` row-vector transport, whereas the H/S witness uses complex `U(2)` column vectors. A faithful mapping must be demonstrated, not assumed. Neither establishes new physics or an NBG-specific AI advantage.
+**PHMP-2 Stage 1** [native exact AH9/AH10 audit](experiments/PHMP1/PHMP2_NATIVE_AUDIT.md) now independently checks row-vector `SL(2,Z)` transport and a basic U(2)-similarity obstruction. Run `npm run test:phmp2`. The [full correspondence and phase/Dirac plan](experiments/PHMP1/PHMP2_AUDIT.md) remains prospective. Neither stage establishes new physics or an NBG-specific AI advantage.
 
 ## Live research site
 

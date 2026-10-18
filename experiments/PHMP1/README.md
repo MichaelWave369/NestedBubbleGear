@@ -23,6 +23,10 @@ No runtime dependencies, network, model weights, quantum hardware, or external A
 
 The corrected trace discrepancy is retained as part of the discussion's error record rather than retroactively erased.
 
+## Native PHMP-2 Stage 1
+
+[PHMP-2 exact AH9/AH10 transport audit](PHMP2_NATIVE_AUDIT.md) independently reproduces the native integer-matrix loop/connector identities; [decision ledger](PHMP2_FINDINGS.md) records the supported correspondence and the unproven phase/Dirac bridge. Run `npm run test:phmp2`. No frozen AH input was changed.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
