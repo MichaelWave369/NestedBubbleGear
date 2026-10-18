@@ -31,6 +31,14 @@ The [PHMP-3 frozen experiment contract](experiments/PHMP1/PHMP3_PROTOCOL.md) def
 
 The [E1 benchmark protocol](experiments/PHMP1/PHMP3_E1.md) compares conventional exact two-byte group-state memory with an NBG-inspired typed-interface implementation and explicitly lossy memories. Both exact designs retain the same sufficient statistic and **tie on accuracy** on this synthetic task. Run `npm run test:phmp3-memories`. The reserved evaluation split is **not scored**. Active-state bytes and lower-bound codebook storage are reported separately. This is not an NBG-specific advantage, physical memory improvement, or new physics.
 
+### PHMP-3 E2 · Explicit one-shot held-out evaluation gate
+
+[PHMP-3 E2](experiments/PHMP1/PHMP3_E2_GATE.md) pins the merged E1 source and adds a **manual, explicit evaluation command**. Regular `npm test` runs only `npm run test:phmp3-e2-gate` to verify source fingerprints; the reserved 512 histories are **not generated or scored by CI**. Review and merge the frozen runner before deliberately scoring the reserved split once.
+
+### Optical Keyholes · exploratory research note
+
+The [classical optical analyzer note](experiments/PHMP1/OPTICAL_KEYHOLES_NOTE.md) relates Jones-vector phase and polarization projection to PHMP-1 delayed observability. It is conventional optics and does **not** modify PHMP-3 memory models or reserve evaluation.
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
