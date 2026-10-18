@@ -31,6 +31,10 @@ The corrected trace discrepancy is retained as part of the discussion's error re
 
 The [finite edge-gauge covariance study](PHMP2_GAUGE_COVARIANCE.md) covers 6 vertex-frame assignments across all 12 AH9 and 16 AH10 native cases and intentionally inconsistent-edge controls. See the [Stage 2 ledger](PHMP2_STAGE2_LEDGER.md), and run `npm run test:phmp2-gauge`. This is ordinary group-valued transport, not new physical or NBG-specific validation.
 
+## PHMP-2 Stage 3 · Finite unitary quotient Keyholes
+
+The [quotient experiment](PHMP2_UNITARY_QUOTIENTS.md) demonstrates a composition-preserving but **information-losing** map from native `SL(2,Z)` to permutation unitaries `U(3)` and `U(8)`. It reproduces AH9/AH10 connector-composition identities, quantifies which naive-composition failures each observer hides, and verifies complex roots-of-unity modes. Read the [Stage 3 decision ledger](PHMP2_STAGE3_LEDGER.md). Run `npm run test:phmp2-quotients`.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)

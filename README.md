@@ -19,6 +19,10 @@ The [PHMP-1 H/S sanity benchmark](experiments/PHMP1/README.md) reproduces standa
 
 The [native AH9/AH10 frame-covariance audit](experiments/PHMP1/PHMP2_GAUGE_COVARIANCE.md) independently checks edge-wise SL(2,Z) transport under local basis changes (72 AH9 and 96 AH10 exact finite checks, plus deliberately broken-edge controls). Run `npm run test:phmp2-gauge`. The [Stage 2 decision ledger](experiments/PHMP1/PHMP2_STAGE2_LEDGER.md) retains the claim boundaries: this is standard discrete connection mathematics, **not** evidence of physical gauge fields or a new NBG-specific law.
 
+### PHMP-2 Stage 3 · Finite unitary quotient Keyholes
+
+The [exact finite quotient audit](experiments/PHMP1/PHMP2_UNITARY_QUOTIENTS.md) maps native `SL(2,Z)` row-vector transport to **nonfaithful** 3D and 8D real-orthogonal (hence complex-unitary) permutation representations. It tests how much incorrect native AH9/AH10 connector composition becomes invisible under those coarse observers, including mandatory kernel witnesses and complex Fourier phase cycles. Run `npm run test:phmp2-quotients`. See [Stage 3 findings](experiments/PHMP1/PHMP2_STAGE3_LEDGER.md). These are ordinary group representations, **not** a Dirac embedding or NBG-specific AI advantage.
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
