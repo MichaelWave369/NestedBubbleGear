@@ -27,6 +27,10 @@ The corrected trace discrepancy is retained as part of the discussion's error re
 
 [PHMP-2 exact AH9/AH10 transport audit](PHMP2_NATIVE_AUDIT.md) independently reproduces the native integer-matrix loop/connector identities; [decision ledger](PHMP2_FINDINGS.md) records the supported correspondence and the unproven phase/Dirac bridge. Run `npm run test:phmp2`. No frozen AH input was changed.
 
+## PHMP-2 Stage 2 · Independent local frames
+
+The [finite edge-gauge covariance study](PHMP2_GAUGE_COVARIANCE.md) covers 6 vertex-frame assignments across all 12 AH9 and 16 AH10 native cases and intentionally inconsistent-edge controls. See the [Stage 2 ledger](PHMP2_STAGE2_LEDGER.md), and run `npm run test:phmp2-gauge`. This is ordinary group-valued transport, not new physical or NBG-specific validation.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)

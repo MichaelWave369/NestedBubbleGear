@@ -15,6 +15,10 @@ The [PHMP-1 H/S sanity benchmark](experiments/PHMP1/README.md) reproduces standa
 
 **PHMP-2 Stage 1** [native exact AH9/AH10 audit](experiments/PHMP1/PHMP2_NATIVE_AUDIT.md) now independently checks row-vector `SL(2,Z)` transport and a basic U(2)-similarity obstruction. Run `npm run test:phmp2`. The [full correspondence and phase/Dirac plan](experiments/PHMP1/PHMP2_AUDIT.md) remains prospective. Neither stage establishes new physics or an NBG-specific AI advantage.
 
+### PHMP-2 Stage 2 · Vertex-frame covariance
+
+The [native AH9/AH10 frame-covariance audit](experiments/PHMP1/PHMP2_GAUGE_COVARIANCE.md) independently checks edge-wise SL(2,Z) transport under local basis changes (72 AH9 and 96 AH10 exact finite checks, plus deliberately broken-edge controls). Run `npm run test:phmp2-gauge`. The [Stage 2 decision ledger](experiments/PHMP1/PHMP2_STAGE2_LEDGER.md) retains the claim boundaries: this is standard discrete connection mathematics, **not** evidence of physical gauge fields or a new NBG-specific law.
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
