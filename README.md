@@ -39,6 +39,10 @@ The [E1 benchmark protocol](experiments/PHMP1/PHMP3_E1.md) compares conventional
 
 The [classical optical analyzer note](experiments/PHMP1/OPTICAL_KEYHOLES_NOTE.md) relates Jones-vector phase and polarization projection to PHMP-1 delayed observability. It is conventional optics and does **not** modify PHMP-3 memory models or reserve evaluation.
 
+### Optical Keyhole O1 · π, phase, and polarization geometry
+
+The [O1 classical optics sanity test](experiments/PHMP1/OPTICAL_KEYHOLES_O1.md) uses Jones/Stokes calculus to check the `e^(iθ)` relative-phase cycle, global-phase blindness, polarization analyzer Keyholes, and the unit Poincaré sphere. Run `npm run test:phmp-optical-o1`. It is **established optics, not new NBG physics**, and it makes **no changes** to PHMP-3's reserved evaluation or frozen models.
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/

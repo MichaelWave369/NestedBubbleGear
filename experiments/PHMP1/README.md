@@ -51,6 +51,10 @@ The [E2 gate protocol](PHMP3_E2_GATE.md) introduces a deliberately non-automatic
 
 The [optical-observer note](OPTICAL_KEYHOLES_NOTE.md) records conventional Jones-vector and polarization-projection mathematics relevant to PHMP-1, with no new NBG or physical claim and no effect on E2 frozen scoring.
 
+## Optical Keyhole O1 · Exact Jones/Stokes tests
+
+The [O1 protocol](OPTICAL_KEYHOLES_O1.md) makes the original optical-observer analogy reproducible: matched component intensities can conceal relative phase, but diagonal and circular analyzers reveal appropriate distinctions. It verifies global `π` / `2π` phase controls and unit Poincaré coordinates. Run `npm run test:phmp-optical-o1`. This remains classical optics, outside PHMP-3 E2 held-out scoring.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
