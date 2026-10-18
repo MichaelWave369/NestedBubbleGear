@@ -21,6 +21,12 @@ for(const row of [...train,...validation]){
   counts[row.regime]=(counts[row.regime]||0)+1;
   assert.deepEqual(outerFromEvents(row.events,2),outerFromEvents(structuredClone(row.events),2));
   assert.deepEqual(outerFromEvents(row.events,3),outerFromEvents(structuredClone(row.events),3));
+  // Cross-lane interleaving is not part of the target; each lane's internal order is.
+  const canonicalInterleaving=[...row.events.filter(e=>e.lane===0),...row.events.filter(e=>e.lane===1)];
+  for(const p of [2,3])assert.deepEqual(outerFromEvents(row.events,p),outerFromEvents(canonicalInterleaving,p));
+  // Append an exact adjacent inverse pair to one lane without changing the transport.
+  const compensated=[...row.events,{lane:0,seq:each[0],token:'A'},{lane:0,seq:each[0]+1,token:'a'}];
+  for(const p of [2,3])assert.deepEqual(outerFromEvents(row.events,p),outerFromEvents(compensated,p));
 }
 for(const p of [2,3,6]){
   const I=[1,0,0,1],A=[1,1,0,1],a=[1,-1,0,1];
@@ -31,6 +37,10 @@ for(const p of [2,3,6]){
 }
 for(const bad of [ [{lane:0,seq:1,token:'A'}], [{lane:3,seq:0,token:'B'}], [{lane:1,seq:0,token:'INVALID'}] ])
   assert.throws(()=>outerFromEvents(bad,2));
+// Within-lane order is genuinely relevant; AB and BA are distinguishable.
+for(const p of [2,3])assert.notDeepEqual(
+  outerFromEvents([{lane:0,seq:0,token:'A'},{lane:0,seq:1,token:'B'}],p),
+  outerFromEvents([{lane:0,seq:0,token:'B'},{lane:0,seq:1,token:'A'}],p));
 // E0 only validates train and validation; reserved split is NEVER called here.
 const receipt={experiment:'PHMP-3 E0 prospective fixture-contract qualification',origin:'SIMULATED',authority:'NONE',
   status:'TRAIN_VALIDATION_ONLY; NO HOLDOUT SCORING',version:PROTOCOL.version,
