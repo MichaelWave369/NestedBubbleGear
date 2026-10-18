@@ -27,6 +27,10 @@ The [exact finite quotient audit](experiments/PHMP1/PHMP2_UNITARY_QUOTIENTS.md) 
 
 The [PHMP-3 frozen experiment contract](experiments/PHMP1/PHMP3_PROTOCOL.md) defines two typed connector histories, delayed modular queries, 1/2/4-byte memory budgets, an ordinary exact group-state baseline, and reserved evaluation rules. The deterministic [train/validation fixture generator and task oracle](scripts/phmp3_contract.mjs) are qualified with `npm run test:phmp3-contract`. **No candidate has been scored, and the reserved split is not evaluated in E0.** The study remains `SIMULATED / authority NONE`.
 
+### PHMP-3 E1 · Bounded memory competition (train/validation only)
+
+The [E1 benchmark protocol](experiments/PHMP1/PHMP3_E1.md) compares conventional exact two-byte group-state memory with an NBG-inspired typed-interface implementation and explicitly lossy memories. Both exact designs retain the same sufficient statistic and **tie on accuracy** on this synthetic task. Run `npm run test:phmp3-memories`. The reserved evaluation split is **not scored**. Active-state bytes and lower-bound codebook storage are reported separately. This is not an NBG-specific advantage, physical memory improvement, or new physics.
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
