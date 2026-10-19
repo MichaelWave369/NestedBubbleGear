@@ -79,6 +79,10 @@ The [K4 change-point observer audit](experiments/PHMP1/KEYHOLE_BUDGET_K4.md) che
 
 The [K5 model-mismatch observer experiment](experiments/PHMP1/KEYHOLE_BUDGET_K5.md) compares a restricted classical change-point model, an expanded Bayesian model, target-focused classical inference, and an independent NBG-inspired surprise-triggered calibration policy. On 320 exploratory synthetic validation cases, **classical target-focused Bayes scored best** at 89.06% accuracy / 0.0796 Brier; NBG surprise calibration scored 88.13% / 0.0919. Run `npm run test:phmp-keyhole-k5`. This is not a new NBG advantage. **All reserved cohorts remain untouched.**
 
+### Keyhole Budget K6 · Source contamination and hash-linked evidence
+
+The [K6 synthetic trust-boundary audit](experiments/PHMP1/KEYHOLE_BUDGET_K6.md) tests compromised sensors, changes outside a limited model's duration support, time-scoped observation receipts and SHA-256 hash-chain integrity checks. A conventional robust Bayesian target-focused controller achieved 84.26% validation accuracy (tied with fixed X), with the **best Brier score** (0.1090), while an NBG-style quarantine heuristic achieved 75%. Critically, the benchmark **records actual compromised sensor requests**, not merely hypothetical attack schedules. Run `npm run test:phmp-keyhole-k6`. **Synthetic exploratory results only; unsigned ledger, no secured external provenance or NBG-specific advantage. All reserved cohorts untouched.**
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
