@@ -71,6 +71,10 @@ The [Q2 protocol](QUANTUM_BOUNDARY_Q2.md) extends the Bell-vs-mixture Q1 sanity 
 
 The [Q3 protocol and results ledger](QUANTUM_BOUNDARY_Q3.md) extends Q2's ideal Bell-coherence equations with known visibility noise, predeclared measurement settings, four finite-shot budgets, deterministic Monte Carlo parity draws, and Bonferroni-corrected thresholds across 320 planned comparisons. Reproduce with `npm run test:phmp-quantum-q3`. This is a synthetic statistical qualification, not a physical Bell test or NBG-specific quantum discovery.
 
+## Keyhole Budget K1 · Active observation under limited cost
+
+The [K1 pilot protocol and results](KEYHOLE_BUDGET_K1.md) formalize a synthetic observation-cost budget, known binary hypothesis contexts, conditional Keyholes, and a conventional Bayesian information-gain baseline. The NBG-inspired typed policy uses the **same** update and choice rule, so its validation tie is expected, not new mathematical or physical evidence. Run `npm run test:phmp-keyhole-k1`; both K1 and PHMP-3 E2 reserved cohorts stay unscored.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
