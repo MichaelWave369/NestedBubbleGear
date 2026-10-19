@@ -7,7 +7,7 @@ import { writeFileSync } from 'node:fs';
 const T=14,BUDGET=12,STOP=.975;
 const SENSORS=['X','Z'], MODES=['target','calibrate'];
 const COST={target:2,calibrate:1},DELAY={target:1,calibrate:2};
-const GOOD=.90,BAD=.10;
+const GOOD=.75,BAD=.25;
 const PLANS=[
   {id:'clean',x:null,z:null,family:'clean'},
   {id:'early-X',x:[3,3],z:null,family:'shifted'},
@@ -144,6 +144,12 @@ function verify(entry,now,ledger,seen){
     seen.has(entry.id))throw Error('causality or access failure');
   const index=ledger.findIndex(e=>e.id===entry.id);
   if(index<0)throw Error('not present in issuance ledger');
+  for(let i=0;i<=index;i++){
+    const item=ledger[i];const {hash:itemHash,...itemBody}=item;
+    const expectedPrior=i?ledger[i-1].hash:'K6-GENESIS';
+    if(itemBody.prev_hash!==expectedPrior||hash(itemBody)!==itemHash)
+      throw Error('ledger prefix integrity failure');
+  }
   const prior=index?ledger[index-1].hash:'K6-GENESIS';
   const {hash:claimed,...body}=entry;
   if(body.prev_hash!==prior||hash(body)!==claimed||
@@ -154,6 +160,7 @@ function evaluate(row,policy){
   const kind=policy==='restricted-target-bayes'?'restricted':'robust';
   const states=STATE[kind];
   let w=uniform(states),spent=0,calibrations=0;
+  let attackedRequests=0;
   const ledger=[],seen=new Set(),control={pending:[],cusum:{X:0,Z:0},
     quarantineUntil:{X:-1,Z:-1},calibrationCounts:{X:0,Z:0}};
   const activities=[];
@@ -179,6 +186,7 @@ function evaluate(row,policy){
     const a=nextAction(policy,w,states,t,spent,control);
     if(!a)continue;
     const entry=append(ledger,t,a.s,a.mode,row.potential[a.s+':'+a.mode][t],spent);
+    if(active(PLANS[row.plan][a.s.toLowerCase()],t))attackedRequests++;
     control.pending.push(entry);
     spent+=entry.cost;calibrations+=Number(entry.mode==='calibrate');
     if(entry.mode==='calibrate')control.calibrationCounts[entry.s]++;
@@ -188,7 +196,7 @@ function evaluate(row,policy){
   assert.ok(spent<=BUDGET);
   const p=beliefH(w,states),decision=Number(p>=.5);
   return {correct:Number(decision===row.h),brier:(p-row.h)**2,spent,
-    calibrations,issued:ledger.length,activities,
+    calibrations,attackedRequests,issued:ledger.length,activities,
     quarantine_events:Object.values(control.quarantineUntil).filter(v=>v>0).length};
 }
 // Structural ledger and statistical sanity controls.
@@ -211,6 +219,8 @@ assert.throws(()=>append([],0,'Z','target',1,0),'revoked Z');
 assert.throws(()=>append([],T-1,'X','calibrate',1,0),'late delivery');
 const tamperedLedger=[{...entry,bit:0}];
 assert.throws(()=>verify(entry,3,tamperedLedger,new Set()),'ledger content replaced');
+const second=append(chain,4,'X','target',1,0);
+assert.throws(()=>verify(second,5,[{...entry,bit:0},second],new Set()),'modified earlier receipt invalidates chain');
 const a=STATE.robust.find(s=>s.h===1&&active(s.plan.x,3)&&!active(s.plan.x,5));
 assert.ok(a,'test includes a source whose attack ended before delivery');
 assert.ok(prob(a,'X','calibrate',3)!==prob(a,'X','calibrate',5),'wrong delivery-time quality differs');
@@ -221,19 +231,23 @@ const result=[];
 for(const [split,rows] of Object.entries(ds)){
   assert.equal(hash(cases(split)),hash(rows),'reproducible seeded dataset');
   for(const policy of POLICIES){
-    let correct=0,brier=0,spent=0,calibrations=0;
+    let correct=0,brier=0,spent=0,calibrations=0,attackedRequests=0;
     const family={};
     for(const sample of rows){
       const score=evaluate(sample,policy);
       assert.ok(score.activities.every(x=>x.due<=T&&allowed(x.t,x.sensor,x.mode,0)));
-      const bucket=family[PLANS[sample.plan].family]??={n:0,correct:0,brier:0,spent:0};
+      const bucket=family[PLANS[sample.plan].family]??={n:0,correct:0,brier:0,spent:0,attack:0,exposedCases:0};
       bucket.n++;bucket.correct+=score.correct;bucket.brier+=score.brier;bucket.spent+=score.spent;
+      bucket.attack+=score.attackedRequests;bucket.exposedCases+=Number(score.attackedRequests>0);
       correct+=score.correct;brier+=score.brier;spent+=score.spent;calibrations+=score.calibrations;
+      attackedRequests+=score.attackedRequests;
     }
     result.push({split,policy,n:rows.length,correct,accuracy:correct/rows.length,
       brier:brier/rows.length,mean_cost:spent/rows.length,mean_calibrations:calibrations/rows.length,
+      mean_attacked_requests:attackedRequests/rows.length,
       by_family:Object.fromEntries(Object.entries(family).map(([name,v])=>[name,{
-        n:v.n,correct:v.correct,accuracy:v.correct/v.n,brier:v.brier/v.n,mean_cost:v.spent/v.n}]))});
+        n:v.n,correct:v.correct,accuracy:v.correct/v.n,brier:v.brier/v.n,mean_cost:v.spent/v.n,
+        attacked_requests:v.attack,exposed_cases:v.exposedCases}]))});
   }
 }
 const receipt={
@@ -256,6 +270,7 @@ if(process.argv.length>2){
 console.log('K6 E1 PASS '+ds.train.length+' train, '+ds.validation.length+' validation, '+result.length+' summary rows.');
 console.log('VALIDATION '+JSON.stringify(result.filter(r=>r.split==='validation').map(x=>({policy:x.policy,
   correct:x.correct,accuracy:x.accuracy,brier:x.brier,cost:x.mean_cost,
-  out_of_support_accuracy:x.by_family['out-of-support']?.accuracy}))));
+  out_of_support_accuracy:x.by_family['out-of-support']?.accuracy,
+  attacked_requests:x.mean_attacked_requests,exposed_cases:x.by_family['out-of-support']?.exposed_cases}))));
 console.log('RESERVED COHORTS NOT GENERATED / SCORED. All receipt digests unsigned.');
 console.log('receipt_sha256 '+checksum);
