@@ -79,6 +79,10 @@ The [K1 pilot protocol and results](KEYHOLE_BUDGET_K1.md) formalize a synthetic 
 
 The [K2 pilot](KEYHOLE_BUDGET_K2.md) audits per-tick sensor likelihoods, valid authorization at request time, delayed information arrival, snapshot-based Bayesian updates, and legal controls. The NBG-themed policy explicitly ties the conventional Bayesian baseline. Run `npm run test:phmp-keyhole-k2`. All frozen AH/PHMP experiments and all reserved sets remain unchanged.
 
+## Keyhole Budget K3 · Calibrating unknown observation sources
+
+The [K3 test protocol and pilot report](KEYHOLE_BUDGET_K3.md) use joint inference over hidden label and two unknown stationary sensor reliabilities. Conventional joint Bayes, an identical NBG-style typed observer, target-only Bayes, calibration-first Bayes, and fixed-sensor controls all obey identical permissions, delays, and cost rules. The identical NBG/classical controllers tie; the classical calibration-first heuristic leads on this pilot. Run `npm run test:phmp-keyhole-k3`; all reserved cohorts remain unscored.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
