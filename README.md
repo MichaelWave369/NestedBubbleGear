@@ -59,6 +59,10 @@ The [Q2 dephasing observer study](experiments/PHMP1/QUANTUM_BOUNDARY_Q2.md) swee
 
 The [Q3 finite-shot CHSH benchmark](experiments/PHMP1/QUANTUM_BOUNDARY_Q3.md) explicitly tests when mathematical residual coherence is detectable under finite Born-parity samples, known white-noise visibility, and familywise error correction. It preserves null cases, predeclares measurement settings, and does **not** treat computed entanglement as a physical experiment. Run `npm run test:phmp-quantum-q3`. **PHMP-3 E2's separately reserved memory dataset remains unscored.**
 
+### Keyhole Budget K1 · Cost-aware observer selection (synthetic pilot)
+
+The [K1 observer policy benchmark](experiments/PHMP1/KEYHOLE_BUDGET_K1.md) compares Bayesian information gain per cost with an **NBG-inspired identical typed-Keyhole policy**, plus fixed and alternating observer controls. The standard Bayesian and typed NBG policies tie by construction (92.97% validation accuracy), while weaker static controls lose information or spend budget inefficiently. Run `npm run test:phmp-keyhole-k1`. **Train/validation only:** neither K1's new reserved seed 413 nor PHMP-3 E2's independent seed 203 is scored. No physical quantum or novel NBG claim.
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
