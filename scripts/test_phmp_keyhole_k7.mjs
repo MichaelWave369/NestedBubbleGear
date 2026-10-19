@@ -148,9 +148,10 @@ reject('modified source key',()=>verifyTimeline(substitute(7,{key_id:'beta-v1'})
 reject('duplicate delivery',()=>verifyTimeline([...ledger,ledger[7]],anchor));
 reject('deleted intermediate signed receipt',()=>verifyTimeline(ledger.filter((_,i)=>i!==7),anchor));
 reject('truncated history before anchor',()=>verifyTimeline(ledger.slice(5),anchor));
-reject('swapped signed receipts',()=>verifyTimeline([ledger[1],ledger[0],...ledger.slice(2)].map((e,i)=>i<2?e:clone(e)),anchor));
-// Note: entry order in the transport stream isn't a security failure;
-// the actual tamper here is signing a sequence-to-predecessor mismatch.
+// Arrival order can be shuffled freely: the verifier reconstructs the signed
+// issuance order using the sequence and predecessor hashes.
+assert.equal(verifyTimeline([ledger[1],ledger[0],...ledger.slice(2)],anchor).accepted.length,15);
+reject('renumbered signed sequence',()=>verifyTimeline(substitute(1,{seq:0}),anchor));
 const oldKey=makeReceipt([], 'alpha','alpha-v1',4,'target',1);
 const revoked={...oldKey,payload:{...oldKey.payload,seq:15,issued_at:6,due_at:8,
   prev_hash:ledger[14].hash}};
