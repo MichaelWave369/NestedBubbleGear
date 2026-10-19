@@ -75,6 +75,10 @@ The [K3 reliability-learning study](experiments/PHMP1/KEYHOLE_BUDGET_K3.md) test
 
 The [K4 change-point observer audit](experiments/PHMP1/KEYHOLE_BUDGET_K4.md) checks delayed receipts against **issuance-time reliability**, unknown per-sensor switch times, finite authorization windows and a shared observation budget. Conventional Bayesian joint change-point inference (87.15% validation accuracy) outscored an independently designed NBG-style four-tick trust-expiration heuristic (84.38%) on this synthetic pilot. A Bayesian target-focused policy attained the best Brier score. Run `npm run test:phmp-keyhole-k4`. **No held-out cohorts or prior frozen research were altered.** This is exploratory software evidence, not a new NBG-specific advantage.
 
+### Keyhole Budget K5 · Trust under model mismatch
+
+The [K5 model-mismatch observer experiment](experiments/PHMP1/KEYHOLE_BUDGET_K5.md) compares a restricted classical change-point model, an expanded Bayesian model, target-focused classical inference, and an independent NBG-inspired surprise-triggered calibration policy. On 320 exploratory synthetic validation cases, **classical target-focused Bayes scored best** at 89.06% accuracy / 0.0796 Brier; NBG surprise calibration scored 88.13% / 0.0919. Run `npm run test:phmp-keyhole-k5`. This is not a new NBG advantage. **All reserved cohorts remain untouched.**
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/

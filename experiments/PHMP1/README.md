@@ -87,6 +87,10 @@ The [K3 test protocol and pilot report](KEYHOLE_BUDGET_K3.md) use joint inferenc
 
 The [K4 protocol and experimental decision ledger](KEYHOLE_BUDGET_K4.md) extend K3 to unknown within-episode sensor switches at specified possible time points. Both classical change-point Bayesian controllers and the distinct NBG-inspired trust-expiration policy see the same observations, permissions and costs; the independent NBG heuristic scored below the correctly specified Bayesian baselines on the exploratory validation. Run `npm run test:phmp-keyhole-k4`. The K4 and earlier reserved datasets remain unscored.
 
+## Keyhole Budget K5 · Incorrect source-change assumptions
+
+The [K5 study protocol](KEYHOLE_BUDGET_K5.md) compares 72-state versus expanded 200-state classical Bayesian models under shifted sensor-change times, with identical delayed evidence permissions and costs. The NBG-inspired surprise-triggered calibration policy is distinct but does **not** outperform classical target-focused Bayes on exploratory validation. Train/validation only; K5 and all earlier reserved cohorts remain unscored. Run `npm run test:phmp-keyhole-k5`.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
