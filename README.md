@@ -83,6 +83,10 @@ The [K5 model-mismatch observer experiment](experiments/PHMP1/KEYHOLE_BUDGET_K5.
 
 The [K6 synthetic trust-boundary audit](experiments/PHMP1/KEYHOLE_BUDGET_K6.md) tests compromised sensors, changes outside a limited model's duration support, time-scoped observation receipts and SHA-256 hash-chain integrity checks. A conventional robust Bayesian target-focused controller achieved 84.26% validation accuracy (tied with fixed X), with the **best Brier score** (0.1090), while an NBG-style quarantine heuristic achieved 75%. Critically, the benchmark **records actual compromised sensor requests**, not merely hypothetical attack schedules. Run `npm run test:phmp-keyhole-k6`. **Synthetic exploratory results only; unsigned ledger, no secured external provenance or NBG-specific advantage. All reserved cohorts untouched.**
 
+### Keyhole Budget K7 · Signed evidence isn't necessarily true evidence
+
+The [K7 signed-receipt protocol test](experiments/PHMP1/KEYHOLE_BUDGET_K7.md) upgrades K6's unsigned hash-linked receipts with **actual Ed25519 signature checks**, pinned per-source public keys, issuance-time key rotation/revocation, out-of-order delivery handling, and a simulated independent ledger checkpoint. The decisive negative control is an **authorized signer that signs false readings**: classical known-reference quarantine and the NBG-style typed rule tie exactly, admitting 5/8 synthetic targets with 5/5 correct among the admitted. Run `npm run test:phmp-keyhole-k7`. **Test-only publicly derivable keys; not deployed authentication, source truth, or an NBG-specific discovery.** Earlier reserved data and frozen experiments untouched.
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
