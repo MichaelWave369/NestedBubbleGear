@@ -75,6 +75,10 @@ The [Q3 protocol and results ledger](QUANTUM_BOUNDARY_Q3.md) extends Q2's ideal 
 
 The [K1 pilot protocol and results](KEYHOLE_BUDGET_K1.md) formalize a synthetic observation-cost budget, known binary hypothesis contexts, conditional Keyholes, and a conventional Bayesian information-gain baseline. The NBG-inspired typed policy uses the **same** update and choice rule, so its validation tie is expected, not new mathematical or physical evidence. Run `npm run test:phmp-keyhole-k1`; both K1 and PHMP-3 E2 reserved cohorts stay unscored.
 
+## Keyhole Budget K2 · Deferred observations under evolving access
+
+The [K2 pilot](KEYHOLE_BUDGET_K2.md) audits per-tick sensor likelihoods, valid authorization at request time, delayed information arrival, snapshot-based Bayesian updates, and legal controls. The NBG-themed policy explicitly ties the conventional Bayesian baseline. Run `npm run test:phmp-keyhole-k2`. All frozen AH/PHMP experiments and all reserved sets remain unchanged.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
