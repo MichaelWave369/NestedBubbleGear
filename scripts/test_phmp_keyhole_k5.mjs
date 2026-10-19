@@ -108,7 +108,7 @@ function receipt(t,s,mode,reading,spent){
     reference:mode==='calibrate'?1:null});
 }
 function audit(e,now,seen){
-  if(!e||!Number.isInteger(e.t)||!SENSORS.includes(e.s)||!MODES.includes(e.mode)||
+  if(!e||!Number.isInteger(e.t)||e.t<0||e.t>=T||!SENSORS.includes(e.s)||!MODES.includes(e.mode)||
     e.id!==e.t+':'+e.s+':'+e.mode||seen.has(e.id)||
     !(e.s==='X'?e.t%6!==2:e.t%6!==0)||
     !e.issued_permission||e.cost!==COST[e.mode]||
@@ -139,7 +139,6 @@ function fixtures(split){
         }
         scenario++;
       }
-    }
   }
   return out;
 }
