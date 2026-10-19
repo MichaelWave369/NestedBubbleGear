@@ -67,6 +67,10 @@ The [K1 observer policy benchmark](experiments/PHMP1/KEYHOLE_BUDGET_K1.md) compa
 
 The [K2 synthetic observer audit](experiments/PHMP1/KEYHOLE_BUDGET_K2.md) extends K1 with changing public sensor quality, request authorization, delayed receipt delivery, and structural provenance checks. A **conventional myopic Bayesian sensor-selection baseline** and an **NBG-labeled identical policy** tie at 71.09% validation accuracy; fixed observers score lower. Run `npm run test:phmp-keyhole-k2`. This does not establish novel NBG decision theory or cryptographically secure provenance. No reserved K2, K1, or PHMP-3 E2 histories are scored.
 
+### Keyhole Budget K3 · Unknown reliability and calibration
+
+The [K3 reliability-learning study](experiments/PHMP1/KEYHOLE_BUDGET_K3.md) tests whether an observer can learn source reliability from delayed **known-reference calibration** while obeying issuance permissions and finite measurement budgets. The NBG-style typed observer intentionally **ties** its conventional joint Bayesian counterpart; a classical calibration-first policy scored somewhat higher on the exploratory validation. Run `npm run test:phmp-keyhole-k3`. This is a software simulation with no new NBG physical claim, no signed provenance, and **no reserved datasets evaluated**.
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
