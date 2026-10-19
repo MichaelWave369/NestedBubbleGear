@@ -71,6 +71,10 @@ The [K2 synthetic observer audit](experiments/PHMP1/KEYHOLE_BUDGET_K2.md) extend
 
 The [K3 reliability-learning study](experiments/PHMP1/KEYHOLE_BUDGET_K3.md) tests whether an observer can learn source reliability from delayed **known-reference calibration** while obeying issuance permissions and finite measurement budgets. The NBG-style typed observer intentionally **ties** its conventional joint Bayesian counterpart; a classical calibration-first policy scored somewhat higher on the exploratory validation. Run `npm run test:phmp-keyhole-k3`. This is a software simulation with no new NBG physical claim, no signed provenance, and **no reserved datasets evaluated**.
 
+### Keyhole Budget K4 · Trust under sensor reliability drift
+
+The [K4 change-point observer audit](experiments/PHMP1/KEYHOLE_BUDGET_K4.md) checks delayed receipts against **issuance-time reliability**, unknown per-sensor switch times, finite authorization windows and a shared observation budget. Conventional Bayesian joint change-point inference (87.15% validation accuracy) outscored an independently designed NBG-style four-tick trust-expiration heuristic (84.38%) on this synthetic pilot. A Bayesian target-focused policy attained the best Brier score. Run `npm run test:phmp-keyhole-k4`. **No held-out cohorts or prior frozen research were altered.** This is exploratory software evidence, not a new NBG-specific advantage.
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
