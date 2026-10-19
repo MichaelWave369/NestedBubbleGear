@@ -83,6 +83,10 @@ The [K2 pilot](KEYHOLE_BUDGET_K2.md) audits per-tick sensor likelihoods, valid a
 
 The [K3 test protocol and pilot report](KEYHOLE_BUDGET_K3.md) use joint inference over hidden label and two unknown stationary sensor reliabilities. Conventional joint Bayes, an identical NBG-style typed observer, target-only Bayes, calibration-first Bayes, and fixed-sensor controls all obey identical permissions, delays, and cost rules. The identical NBG/classical controllers tie; the classical calibration-first heuristic leads on this pilot. Run `npm run test:phmp-keyhole-k3`; all reserved cohorts remain unscored.
 
+## Keyhole Budget K4 · Hidden reliability changes
+
+The [K4 protocol and experimental decision ledger](KEYHOLE_BUDGET_K4.md) extend K3 to unknown within-episode sensor switches at specified possible time points. Both classical change-point Bayesian controllers and the distinct NBG-inspired trust-expiration policy see the same observations, permissions and costs; the independent NBG heuristic scored below the correctly specified Bayesian baselines on the exploratory validation. Run `npm run test:phmp-keyhole-k4`. The K4 and earlier reserved datasets remain unscored.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
