@@ -95,6 +95,10 @@ The [K5 study protocol](KEYHOLE_BUDGET_K5.md) compares 72-state versus expanded 
 
 The [K6 E1 protocol](KEYHOLE_BUDGET_K6.md) extends K5 to temporarily anti-correlated sensors, including long attacks outside Bayesian model duration support. Source-quality changes are interpreted at observation issuance time; hash-linked receipt checks reject unsynchronized tampering but provide **no signature or external cryptographic authenticity**. A conventional robust Bayesian baseline leads the Brier score on exploratory validation; NBG quarantine does not improve on classical controls. Run `npm run test:phmp-keyhole-k6`; none of the reserved cohorts are evaluated.
 
+## Keyhole Budget K7 · Authenticated provenance versus claim truth
+
+The [K7 deterministic security-control protocol](KEYHOLE_BUDGET_K7.md) tests genuine Ed25519 fixture signatures, source-bound and time-scoped public keys, key rotation, delayed receipt buffering, SHA-256 ledger chaining with simulated independent checkpoint, forgery/replay/tamper rejection, and a **cryptographically authentic but false calibration**. The classical known-reference quarantine policy and NBG-style typed policy are identical and tie. All private keys are explicitly **public test-only deterministic fixtures**. Run `npm run test:phmp-keyhole-k7`; no reserved statistical cohort is scored.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
