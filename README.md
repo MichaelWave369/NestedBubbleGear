@@ -63,6 +63,10 @@ The [Q3 finite-shot CHSH benchmark](experiments/PHMP1/QUANTUM_BOUNDARY_Q3.md) ex
 
 The [K1 observer policy benchmark](experiments/PHMP1/KEYHOLE_BUDGET_K1.md) compares Bayesian information gain per cost with an **NBG-inspired identical typed-Keyhole policy**, plus fixed and alternating observer controls. The standard Bayesian and typed NBG policies tie by construction (92.97% validation accuracy), while weaker static controls lose information or spend budget inefficiently. Run `npm run test:phmp-keyhole-k1`. **Train/validation only:** neither K1's new reserved seed 413 nor PHMP-3 E2's independent seed 203 is scored. No physical quantum or novel NBG claim.
 
+### Keyhole Budget K2 · Time-scoped permissions and delayed evidence
+
+The [K2 synthetic observer audit](experiments/PHMP1/KEYHOLE_BUDGET_K2.md) extends K1 with changing public sensor quality, request authorization, delayed receipt delivery, and structural provenance checks. A **conventional myopic Bayesian sensor-selection baseline** and an **NBG-labeled identical policy** tie at 71.09% validation accuracy; fixed observers score lower. Run `npm run test:phmp-keyhole-k2`. This does not establish novel NBG decision theory or cryptographically secure provenance. No reserved K2, K1, or PHMP-3 E2 histories are scored.
+
 ## Live research site
 
 **GitHub Pages:** https://michaelwave369.github.io/NestedBubbleGear/
