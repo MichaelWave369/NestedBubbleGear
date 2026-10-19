@@ -85,7 +85,7 @@ function evaluate(caseData,policy){
     logOdds=updatePosterior(logOdds,caseData.context,kind,observed);
     chosen.push(kind);
   }
-  const probability=posterior(logOdds),prediction=Number(prob>=.5);
+  const probability=posterior(logOdds),prediction=Number(probability>=.5);
   return {prediction,correct:Number(prediction===caseData.label),costSpent,
     observations:counts.X+counts.Z,counts,posterior:probability,
     sequence:chosen.join(''),stopped_confident:probability>=CONFIDENCE||probability<=1-CONFIDENCE};
@@ -130,12 +130,6 @@ for(const [split,cases] of Object.entries(data)){
       }
       total.observations+=run.observations;
     }
-    const summary=group=>({
-      cases:group.n,correct:group.correct,accuracy:group.correct/group.n,
-      mean_cost:group.cost/group.n,confident_fraction:group.confident/group.n,
-      informative_fraction_of_budgeted_observations:group.informative/
-        (group===total?total.observations:cases.filter(c=>c.context===Object.entries(byContext).find(([name,item])=>item===group)?.[0]).reduce((sum,c)=>sum+evaluate(c,policy).observations,0))
-    });
     const contextSummaries=Object.fromEntries(Object.entries(byContext).map(([name,group])=>[name,{
       cases:group.n,correct:group.correct,accuracy:group.correct/group.n,
       mean_cost:group.cost/group.n,confident_fraction:group.confident/group.n
