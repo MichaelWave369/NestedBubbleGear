@@ -67,6 +67,10 @@ The [Q1 protocol](QUANTUM_BOUNDARY_Q1.md) evaluates standard Born probabilities 
 
 The [Q2 protocol](QUANTUM_BOUNDARY_Q2.md) extends the Bell-vs-mixture Q1 sanity check to a dephasing continuum. It separately computes 0/1 Keyhole blindness, X/X visibility, fixed CHSH settings and gamma-optimized settings. Run `npm run test:phmp-quantum-q2`. It introduces no NBG-specific quantum prediction or PHMP-3 E2 scoring.
 
+## Quantum Boundary Q3 · Finite-shot inference gate
+
+The [Q3 protocol and results ledger](QUANTUM_BOUNDARY_Q3.md) extends Q2's ideal Bell-coherence equations with known visibility noise, predeclared measurement settings, four finite-shot budgets, deterministic Monte Carlo parity draws, and Bonferroni-corrected thresholds across 320 planned comparisons. Reproduce with `npm run test:phmp-quantum-q3`. This is a synthetic statistical qualification, not a physical Bell test or NBG-specific quantum discovery.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
