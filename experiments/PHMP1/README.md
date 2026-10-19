@@ -91,6 +91,10 @@ The [K4 protocol and experimental decision ledger](KEYHOLE_BUDGET_K4.md) extend 
 
 The [K5 study protocol](KEYHOLE_BUDGET_K5.md) compares 72-state versus expanded 200-state classical Bayesian models under shifted sensor-change times, with identical delayed evidence permissions and costs. The NBG-inspired surprise-triggered calibration policy is distinct but does **not** outperform classical target-focused Bayes on exploratory validation. Train/validation only; K5 and all earlier reserved cohorts remain unscored. Run `npm run test:phmp-keyhole-k5`.
 
+## Keyhole Budget K6 · Source contamination and evidence integrity
+
+The [K6 E1 protocol](KEYHOLE_BUDGET_K6.md) extends K5 to temporarily anti-correlated sensors, including long attacks outside Bayesian model duration support. Source-quality changes are interpreted at observation issuance time; hash-linked receipt checks reject unsynchronized tampering but provide **no signature or external cryptographic authenticity**. A conventional robust Bayesian baseline leads the Brier score on exploratory validation; NBG quarantine does not improve on classical controls. Run `npm run test:phmp-keyhole-k6`; none of the reserved cohorts are evaluated.
+
 ## Read next
 
 - [PHMP-1 protocol](SPEC.md)
