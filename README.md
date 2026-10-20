@@ -240,6 +240,12 @@ The purpose is not to argue that the cosmic web visually resembles NBG. CW1 asks
 
 See [experiments/CW1](experiments/CW1/).
 
+## Interpersonal Synchrony Keyhole (NBG-IS1) · proposed research
+
+The [IS1 evidence-tier research note](docs/INTERPERSONAL_SYNCHRONY.md) reviews the **Energy–Mass–Information (EMI)** theoretical framework alongside independent interpersonal-synchrony literature and HeartMath's source-attributed heart-field claims. It maps subjective connection, behavioral cues, physiological recordings and direct field measurements to increasingly informative Keyholes, without conflating correlation, ordinary sensory coordination, electromagnetic signal detection or conscious communication.
+
+The [IS1 E0 draft falsification protocol](experiments/IS1/PROTOCOL.md) proposes conventional time-series baselines, shared-stimulus and shuffled-pair controls, sensor-cross-talk checks, whole-dyad holdouts, and an independent physical/ethical gate before considering field mediation. **IDEA / PROPOSED only; no human subjects, measurements, model outcomes, shared-consciousness evidence or NBG-specific physics result.** Existing NBG-RB, NBG-BR, PHMP and frozen research gates are unchanged.
+
 ## Resonant-bubbles application line (NBG-RB)
 
 **NBG-RB** tests whether nested systems exhibit state-dependent response spectra whose cross-scale coupling preserves future-relevant information.
