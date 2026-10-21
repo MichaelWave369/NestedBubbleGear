@@ -73,6 +73,10 @@ BR3 changes horizon, perturbation location, numeric step and recovery threshold 
 - NBG-W1H gate-retention-without-keep-pressure protocol. This new protocol asks whether the W1G commit-aligned learned hard gate can retain the preregistered hidden distinctions when the explicit keep-cost term is removed. Protocol status is not a result.
 
 
+## Proposed · NBG-EFG1 emotional frequency-gear coupling
+
+[EFG1 research note](docs/EMOTIONAL_FREQUENCY_GEARS.md) and [E0 prospective protocol](experiments/EFG1/PROTOCOL.md) map agents (bubbles), action histories (paths), recurrent routines (gears), declared event timing (frequencies), and coupling constraints (metaphorical "Altermath teeth"). This analogy **does not redefine formal NBG Altermath**, and no frequency is asserted to carry a universal emotion or special power. EFG1 proposes matched conventional baselines, common-driver and shuffled-network nulls, an emotion-present/absent generator pair, and policy-revision controls. **Status: PROPOSED / UNFROZEN / UNEXECUTED; origin INFERRED/PROPOSED, authority NONE.** It establishes no real-world emotional transmission, unusual electromagnetic fields, consciousness, Demiurge, simulation or physical energy-harvesting mechanism. Synthetic test success in a later version would validate only the synthetic model.
+
 ## Speculative
 
 - Application to event horizons or black/white causal boundaries.

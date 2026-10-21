@@ -9,6 +9,12 @@
 
 > **Core question:** When two states look identical through the current Keyhole, can an admissible future interaction reveal that they were never behaviorally equivalent?
 
+## EFG1 · Emotional feedback and frequency-gear coupling (proposed)
+
+[Research note](docs/EMOTIONAL_FREQUENCY_GEARS.md) · [Prospective E0 protocol](experiments/EFG1/PROTOCOL.md)
+
+EFG1 asks whether explicit emotional feedback improves held-out predictions of collective routines after accounting for schedules, shared causes, ordinary network interactions and model complexity. The proposed 250-agent **synthetic** A/B/C/D comparison includes common-driver and shuffled-network negatives, matched non-oscillator baselines, constraint/toothwork tests and an agent-policy revision control. **This is an unfrozen, unexecuted hypothesis; no EFG1 effect or result has been demonstrated.** Frequency is an event-timing variable, not an emotional field; the Spark/Demiurge language is philosophical metaphor, not a physical mechanism or consciousness claim. Existing NBG formal Altermath definitions and frozen experiments are unchanged.
+
 ## PHMP complex-phase correspondence track (experimental)
 
 The [PHMP-1 H/S sanity benchmark](experiments/PHMP1/README.md) reproduces standard complex-unitary delayed observability and corrected loop-holonomy invariants with controls. Run `npm run test:phmp1`.
