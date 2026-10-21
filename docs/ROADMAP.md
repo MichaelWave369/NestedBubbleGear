@@ -53,6 +53,15 @@
 
 Promotion on this line requires predictive/closure advantage over simpler baselines. Morphological resemblance is never an acceptance criterion.
 
+## Emotional feedback line — NBG-EFG
+
+- [x] **NBG-EFG1 E0 proposed note and experimental design** — [conceptual map](EMOTIONAL_FREQUENCY_GEARS.md), [protocol](../experiments/EFG1/PROTOCOL.md), source anchors and explicit claim firewall; **no run and no frozen evaluation**.
+- [ ] **NBG-EFG1 E1 synthetic witnesses** — implement deterministic no-coupling/common-driver and known-coupling generators, controls, seed/config fingerprints and replay receipts; freeze evaluation rules first.
+- [ ] **NBG-EFG1 E2 comparative evaluation** — holdout forecast scores against matched conventional and nonoscillator baselines, negative controls, shuffled networks, saturation/delay policies and agency/random-policy comparisons.
+- [ ] **NBG-EFG1 E3 external-data feasibility** — require appropriate permissions, human-subject ethics/privacy safeguards, causal-identification review and independent source scrutiny; do not presume access or validation.
+
+The words "emotion", "frequency", "Altermath teeth" and "Spark" here are deliberately separated: emotion is a potential agent-state input, frequency is defined behavioral timing, toothwork is an *interface-constraint metaphor* and Spark is an *agent-policy intervention analogy*. No supernatural, consciousness, social-control conspiracy, or physical emotional-energy claim is supported.
+
 ## Resonant-bubble application line — NBG-RB
 
 - [x] NBG-RB1 — freeze the frequency-only closure stress-test protocol, bubble map, source-lineage holdout rule, mechanism firewall and initial source ledger
