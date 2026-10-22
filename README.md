@@ -9,6 +9,10 @@
 
 > **Core question:** When two states look identical through the current Keyhole, can an admissible future interaction reveal that they were never behaviorally equivalent?
 
+## ASTRO-OBS-01 · JWST line-emitter case study (external evidence)
+
+[Evidence-tier ledger, competing astrophysical explanations, and proposed falsification checks](docs/JWST_MOCSS_SINGLE_LINE_CASE_STUDY.md). A 2026 JWST/NIRSpec publication reports an otherwise uncatalogued 1.60 μm emission line with no earlier imaging counterpart. This is a **source-attributed observational case**, not a new NBG result or proof of hidden cosmic structure. The earlier imaging and spectroscopy were taken at different times; an evolving source remains possible.
+
 ## EFG1 · Emotional feedback and frequency-gear coupling (proposed)
 
 [Research note](docs/EMOTIONAL_FREQUENCY_GEARS.md) · [Prospective E0 protocol](experiments/EFG1/PROTOCOL.md)
