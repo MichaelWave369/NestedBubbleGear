@@ -1,0 +1,60 @@
+import assert from 'node:assert/strict'
+import { readFileSync, existsSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { resolve, dirname } from 'node:path'
+import { RESEARCH_TRACKS, RESEARCH_CATEGORIES, RESEARCH_STATUS, findResearch } from '../src/researchAtlasData.js'
+
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..')
+const src=(path)=>readFileSync(resolve(root,path),'utf8')
+let checks=0
+const check=(name,fn)=>{fn();checks++;console.log('PASS '+name)}
+check('public research registry is source linked, unique and within repository',()=>{
+ const ids=new Set(), paths=new Set()
+ assert(RESEARCH_TRACKS.length>=30)
+ for(const t of RESEARCH_TRACKS){
+  assert(!ids.has(t.id),'duplicate study ID '+t.id);ids.add(t.id)
+  assert(t.path.startsWith('experiments/')||t.path.startsWith('docs/'),'source path expected')
+  assert(!t.path.includes('..') && !t.path.startsWith('/'),'no path traversal')
+  assert(existsSync(resolve(root,t.path)),'missing source '+t.path)
+  assert(t.url==='https://github.com/MichaelWave369/NestedBubbleGear/blob/main/'+t.path)
+  assert(t.title.length>5 && t.summary.length>20)
+  assert(RESEARCH_STATUS[t.status], 'uncategorized state '+t.status)
+  assert(RESEARCH_CATEGORIES.includes(t.category) && t.category!=='All')
+  paths.add(t.path)
+ }
+ assert(paths.size>=30)
+})
+check('recent PHMP-SM1 and RB3 follow-ups are discoverable',()=>{
+ const required=['SM-E0','SM-E1A','SM-E1B','PHMP-1','PHMP-2','PHMP-3','OPT-O1','OPT-O2',
+  'K1','K2','K3','K4','K5','K6','K7','RB3','RB3-R5','RB3-E8','AH44','PROV']
+ for(const id of required)assert(RESEARCH_TRACKS.some(x=>x.id===id),'missing '+id)
+})
+check('browser search and category filtering support real research names',()=>{
+ const ph=findResearch('phase','Semantic Memory')
+ assert(ph.some(x=>x.id==='SM-E0'))
+ assert(!ph.some(x=>x.category!=='Semantic Memory'))
+ assert(findResearch('rB3').some(x=>x.id==='RB3'))
+ assert(findResearch('K7').some(x=>x.id==='K7'))
+ assert.deepEqual(findResearch('unfindable_qzx9'),[])
+ assert.equal(findResearch().length,RESEARCH_TRACKS.length)
+})
+check('high-risk status claims are conservatively labeled',()=>{
+ for(const id of ['SM-E0','SM-E1A'])assert.equal(RESEARCH_TRACKS.find(x=>x.id===id).status,'SIMULATED')
+ assert.equal(RESEARCH_TRACKS.find(x=>x.id==='SM-E1B').status,'DEV PILOT')
+ assert.equal(RESEARCH_TRACKS.find(x=>x.id==='PHMP-3').status,'PREPARED')
+ for(const t of RESEARCH_TRACKS.filter(x=>x.id.startsWith('RB3')))assert.equal(t.status,'REVIEW BLOCKED')
+ assert.equal(RESEARCH_TRACKS.find(x=>x.id==='EFG1').status,'PROPOSED')
+})
+check('site exposes research atlas with accessible search, links and no live-model claim',()=>{
+ const ui=src('src/ResearchAtlas.jsx')
+ const app=src('src/App.jsx')
+ const nav=src('src/labNavigation.js')
+ const css=src('src/researchAtlas.css')
+ assert(app.includes('<ResearchAtlas />'))
+ assert(ui.includes('id="research-atlas"'))
+ assert(nav.includes("{label:'Research Atlas',href:'#research-atlas'}"))
+ for(const token of ['type="search"','aria-live','aria-pressed','noopener noreferrer','role="table"'])assert(ui.includes(token))
+ for(const word of ['manually','without APIs','source'])assert(ui.toLowerCase().includes(word.toLowerCase()))
+ assert(css.includes('@media(max-width:760px)'))
+})
+console.log('NBG-RESEARCH-ATLAS '+checks+'/'+checks+' PASS · links, labels, filters, accessibility and boundaries')
