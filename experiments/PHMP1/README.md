@@ -120,3 +120,7 @@ The [E1A evaluation protocol](PHMP_SM1_E1A.md) accepts operator-supplied fixed e
 ## PHMP-SM1 E1B · Explicit local Ollama embedding pilot
 
 The [E1B operator protocol](PHMP_SM1_E1B.md) adds a dependency-free, opt-in exporter for an **already installed, exact-digest-pinned local Ollama embedding model**. CLI `--inspect` and `--preflight` do not embed text; `--execute` is required before public development-fixture text is sent to fixed `127.0.0.1:11434`. It outputs an E1A-compatible corpus only to a **new local file**. Tests use **mock transport exclusively** (no Ollama, model weights, external service or private user memory). A future operator-run model trial and held-out labels are needed before any real retrieval claim. Run `npm run test:phmp-sm1-e1b`; PHMP-3's reserved split remains untouched.
+
+## PHMP-SM1 E1C · Calibrated abstention and governed candidate admission
+
+[E1C protocol and reproducibility](PHMP_SM1_E1C.md) add a synthetic, subject-disjoint development/validation pilot that separates ranking from candidate admission. Five equal-access comparators include ordinary full-claim metadata filtering; the `complex_phase` and `signed_real` modes must tie. High-scoring contradictions or mismatched claims are **deferred**, not promoted. The publicly exposed development data is **not** an independent held-out benchmark and does not establish general-purpose AI memory improvement. Run `npm run test:phmp-sm1-e1c`. No Ollama models or PHMP-3 reserved datasets are invoked by CI.
