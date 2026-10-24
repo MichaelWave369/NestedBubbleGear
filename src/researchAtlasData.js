@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('SM-E1E','Click-to-run hosted embedding pilot','Semantic Memory','DEV PILOT',
+    'GitHub-only manual Actions workflow downloads fixed-revision public embeddings model on an ephemeral runner; produces E1A/E1C/E1D summary receipts from synthetic development text.',
+    'experiments/PHMP1/PHMP_SM1_E1E.md','No actual hosted model evidence exists until the operator manually runs the workflow and downloads its report.'),
   row('SM-E1D','One-command local memory measurement','Semantic Memory','DEV PILOT',
     'Operator-approved local Ollama experiment bundles E1A retrieval and E1C abstention with source/model hashes, elapsed time and paired subject-level comparisons.',
     'experiments/PHMP1/PHMP_SM1_E1D.md','CI uses mock embeddings only; actual local model measurements require operator execution.'),
