@@ -52,7 +52,7 @@ const battery=corpus.queries.find(q=>q.id==='q-battery');
 const wrong=decide(corpus,battery,'raw_cosine',-1);
 assert.equal(wrong.status,'CLAIM_MISMATCH_DEFER');checks++;
 assert.equal(wrong.admittedId,null);checks++;
-assert.equal(decide(corpus,battery,'metadata_filter',-1).status,'INSUFFICIENT');checks++;
+assert.equal(decide(corpus,battery,'metadata_filter',-1).status,'CLAIM_MISMATCH_DEFER');checks++;
 assert.equal(decide(corpus,battery,'exact_claim_filter',-1).status,'INSUFFICIENT');checks++;
 // Exact-claim metadata baseline is allowed the same typed claim as phase.
 assert.equal(rankedCandidates(corpus,battery,'exact_claim_filter').poolCount,0);checks++;
