@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('SM-E1D','One-command local memory measurement','Semantic Memory','DEV PILOT',
+    'Operator-approved local Ollama experiment bundles E1A retrieval and E1C abstention with source/model hashes, elapsed time and paired subject-level comparisons.',
+    'experiments/PHMP1/PHMP_SM1_E1D.md','CI uses mock embeddings only; actual local model measurements require operator execution.'),
   row('SM-E1C','Calibrated abstention & contradiction gates','Semantic Memory','SIMULATED',
     'Development-only comparison adds exact-claim metadata baseline, score cutoffs learned from development queries, and explicit conflict/claim-mismatch deferral.',
     'experiments/PHMP1/PHMP_SM1_E1C.md','Exposed synthetic labels only; no local Ollama benchmark or held-out result.'),

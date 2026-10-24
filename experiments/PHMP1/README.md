@@ -124,3 +124,7 @@ The [E1B operator protocol](PHMP_SM1_E1B.md) adds a dependency-free, opt-in expo
 ## PHMP-SM1 E1C · Calibrated abstention and governed candidate admission
 
 [E1C protocol and reproducibility](PHMP_SM1_E1C.md) add a synthetic, subject-disjoint development/validation pilot that separates ranking from candidate admission. Five equal-access comparators include ordinary full-claim metadata filtering; the `complex_phase` and `signed_real` modes must tie. High-scoring contradictions or mismatched claims are **deferred**, not promoted. The publicly exposed development data is **not** an independent held-out benchmark and does not establish general-purpose AI memory improvement. Run `npm run test:phmp-sm1-e1c`. No Ollama models or PHMP-3 reserved datasets are invoked by CI.
+
+## PHMP-SM1 E1D · Explicit local-model measurement and paired comparison
+
+The [E1D local evidence pilot](PHMP_SM1_E1D.md) makes the public E1B development fixture, E1A ranking scores and E1C calibrated candidate admission executable as one **operator-approved** local Ollama workflow. It stores a single summary receipt under ignored `artifacts/local/`; no raw vectors/text are included in the report. Paired subject-level comparisons include a strong exact-claim classical baseline and the mathematically identical binary-phase/signed-real control. **CI uses synthetic mock embeddings only**, never contacting Ollama. A real local model run is still operator-dependent, and four exposed validation subjects cannot establish generalization. Run `npm run test:phmp-sm1-e1d`.
