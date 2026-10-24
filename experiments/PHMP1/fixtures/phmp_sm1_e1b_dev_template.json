@@ -1,0 +1,400 @@
+{
+  "schema": "PHMP-SM1-E1B-TEMPLATE",
+  "split": "DEVELOPMENT",
+  "records": [
+    {
+      "scope": "lab",
+      "sourceId": "fixture:authored",
+      "origin": "OBSERVED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "id": "solar-yes",
+      "text": "The solar inverter passed inspection and acceptance.",
+      "claim": {
+        "subject": "solar",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      }
+    },
+    {
+      "scope": "lab",
+      "sourceId": "fixture:authored",
+      "origin": "OBSERVED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "id": "solar-no",
+      "text": "The solar inverter did not pass inspection and acceptance.",
+      "claim": {
+        "subject": "solar",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      }
+    },
+    {
+      "scope": "lab",
+      "sourceId": "fixture:authored",
+      "origin": "OBSERVED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "id": "router-yes",
+      "text": "The routing adapter passed its acceptance tests.",
+      "claim": {
+        "subject": "router",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      }
+    },
+    {
+      "scope": "lab",
+      "sourceId": "fixture:authored",
+      "origin": "OBSERVED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "id": "router-no",
+      "text": "The routing adapter failed its acceptance tests.",
+      "claim": {
+        "subject": "router",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      }
+    },
+    {
+      "scope": "lab",
+      "sourceId": "fixture:authored",
+      "origin": "OBSERVED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": "2026-04-01",
+      "id": "bridge-old",
+      "text": "The network bridge passed acceptance before April.",
+      "claim": {
+        "subject": "bridge",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      }
+    },
+    {
+      "scope": "lab",
+      "sourceId": "fixture:authored",
+      "origin": "OBSERVED",
+      "authority": "NONE",
+      "validFrom": "2026-04-01",
+      "validTo": null,
+      "id": "bridge-new",
+      "text": "The network bridge did not pass acceptance after April.",
+      "claim": {
+        "subject": "bridge",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      }
+    },
+    {
+      "scope": "lab",
+      "sourceId": "fixture:authored",
+      "origin": "OBSERVED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "id": "deck-yes",
+      "text": "The audio deck passed the integration tests.",
+      "claim": {
+        "subject": "deck",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      }
+    },
+    {
+      "scope": "lab",
+      "sourceId": "fixture:authored",
+      "origin": "OBSERVED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "id": "backup-no",
+      "text": "The backup system failed the acceptance test.",
+      "claim": {
+        "subject": "backup",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      }
+    },
+    {
+      "scope": "lab",
+      "sourceId": "fixture:authored",
+      "origin": "DREAMED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "id": "solar-dream",
+      "text": "In a dream, the solar inverter passed inspection.",
+      "claim": {
+        "subject": "solar",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      }
+    },
+    {
+      "scope": "private",
+      "sourceId": "fixture:authored",
+      "origin": "OBSERVED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "id": "router-private",
+      "text": "The private routing adapter passed acceptance.",
+      "claim": {
+        "subject": "router",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      }
+    },
+    {
+      "scope": "lab",
+      "sourceId": "fixture:authored",
+      "origin": "OBSERVED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "id": "battery-no",
+      "text": "The battery controller did not pass acceptance.",
+      "claim": {
+        "subject": "battery",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      }
+    },
+    {
+      "scope": "lab",
+      "sourceId": "fixture:authored",
+      "origin": "SIMULATED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "id": "simulation-yes",
+      "text": "A simulation said the firewall passed acceptance.",
+      "claim": {
+        "subject": "firewall",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      }
+    }
+  ],
+  "queries": [
+    {
+      "id": "q-solar-passed",
+      "text": "Did the solar inverter clear acceptance testing?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "family": "paraphrase",
+      "claim": {
+        "subject": "solar",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "expectedIds": [
+        "solar-yes"
+      ]
+    },
+    {
+      "id": "q-solar-failed",
+      "text": "Was the solar inverter rejected by inspection?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "family": "negation",
+      "claim": {
+        "subject": "solar",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      },
+      "expectedIds": [
+        "solar-no"
+      ]
+    },
+    {
+      "id": "q-router-passed",
+      "text": "Did the routing adapter pass the tests?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "family": "negation",
+      "claim": {
+        "subject": "router",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "expectedIds": [
+        "router-yes"
+      ]
+    },
+    {
+      "id": "q-router-failed",
+      "text": "Did the routing adapter fail its tests?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "family": "negation",
+      "claim": {
+        "subject": "router",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      },
+      "expectedIds": [
+        "router-no"
+      ]
+    },
+    {
+      "id": "q-bridge-march",
+      "text": "Did the network bridge pass acceptance in March?",
+      "scope": "lab",
+      "asOf": "2026-03-20",
+      "family": "time",
+      "claim": {
+        "subject": "bridge",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "expectedIds": [
+        "bridge-old"
+      ]
+    },
+    {
+      "id": "q-bridge-may",
+      "text": "Was the network bridge unsuccessful in May?",
+      "scope": "lab",
+      "asOf": "2026-05-15",
+      "family": "time",
+      "claim": {
+        "subject": "bridge",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      },
+      "expectedIds": [
+        "bridge-new"
+      ]
+    },
+    {
+      "id": "q-deck",
+      "text": "Was the mixing board successfully integrated?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "family": "paraphrase",
+      "claim": {
+        "subject": "deck",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "expectedIds": [
+        "deck-yes"
+      ]
+    },
+    {
+      "id": "q-backup",
+      "text": "Did backup functionality fail certification?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "family": "paraphrase",
+      "claim": {
+        "subject": "backup",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      },
+      "expectedIds": [
+        "backup-no"
+      ]
+    },
+    {
+      "id": "q-battery",
+      "text": "Was the battery controller approved?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "family": "negation",
+      "claim": {
+        "subject": "battery",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "expectedIds": []
+    },
+    {
+      "id": "q-private-router",
+      "text": "What does the private routing adapter say?",
+      "scope": "private",
+      "asOf": "2026-03-15",
+      "family": "scope",
+      "claim": {
+        "subject": "router",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "expectedIds": [
+        "router-private"
+      ]
+    },
+    {
+      "id": "q-nonexistent",
+      "text": "Did the totally unrecorded thermal pump pass?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "family": "abstention",
+      "claim": {
+        "subject": "thermal-pump",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "expectedIds": []
+    },
+    {
+      "id": "q-isolated",
+      "text": "Was anything approved in another tenant?",
+      "scope": "isolated",
+      "asOf": "2026-03-15",
+      "family": "scope",
+      "claim": {
+        "subject": "solar",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "expectedIds": []
+    },
+    {
+      "id": "q-firewall",
+      "text": "Did the firewall really pass acceptance?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "family": "abstention",
+      "claim": {
+        "subject": "firewall",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "expectedIds": []
+    }
+  ]
+}
