@@ -1,0 +1,427 @@
+{
+  "schema": "PHMP-SM1-E1A-CORPUS",
+  "embeddingSource": {
+    "kind": "SIMULATED_FIXTURE",
+    "model": "hand-authored-four-component-vectors",
+    "note": "These four-dimensional vectors are manually supplied controls, NOT model-produced embeddings."
+  },
+  "dimension": 4,
+  "records": [
+    {
+      "id": "solar-affirmed",
+      "text": "Solar inverter passed inspection.",
+      "scope": "lab",
+      "sourceId": "fixture:solar-affirmed",
+      "origin": "VERIFIED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "claim": {
+        "subject": "solar",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "vector": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "solar-denied",
+      "text": "Solar inverter did not pass inspection.",
+      "scope": "lab",
+      "sourceId": "fixture:solar-denied",
+      "origin": "VERIFIED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "claim": {
+        "subject": "solar",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      },
+      "vector": [
+        0.999,
+        0.001,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "safety-affirmed",
+      "text": "Safety interlock passed acceptance.",
+      "scope": "lab",
+      "sourceId": "fixture:safety-affirmed",
+      "origin": "VERIFIED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "claim": {
+        "subject": "safety",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "vector": [
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "safety-denied",
+      "text": "Safety interlock failed acceptance.",
+      "scope": "lab",
+      "sourceId": "fixture:safety-denied",
+      "origin": "VERIFIED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "claim": {
+        "subject": "safety",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      },
+      "vector": [
+        0,
+        0,
+        0.99,
+        0.01
+      ]
+    },
+    {
+      "id": "bridge-old",
+      "text": "Bridge passed acceptance in February.",
+      "scope": "lab",
+      "sourceId": "fixture:bridge-old",
+      "origin": "VERIFIED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": "2026-04-01",
+      "claim": {
+        "subject": "bridge",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "vector": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "bridge-new",
+      "text": "Bridge does not pass acceptance in April.",
+      "scope": "lab",
+      "sourceId": "fixture:bridge-new",
+      "origin": "VERIFIED",
+      "authority": "NONE",
+      "validFrom": "2026-04-01",
+      "validTo": null,
+      "claim": {
+        "subject": "bridge",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      },
+      "vector": [
+        0,
+        0.99,
+        0,
+        0.01
+      ]
+    },
+    {
+      "id": "private-solar",
+      "text": "Private solar inverter passed inspection.",
+      "scope": "private",
+      "sourceId": "fixture:private-solar",
+      "origin": "VERIFIED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "claim": {
+        "subject": "solar",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "vector": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "dream-solar",
+      "text": "Imagined solar inverter passed inspection.",
+      "scope": "lab",
+      "sourceId": "fixture:dream-solar",
+      "origin": "DREAMED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "claim": {
+        "subject": "solar",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "vector": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "router-accepted",
+      "text": "Routing adapter accepted after the suite passed.",
+      "scope": "lab",
+      "sourceId": "fixture:router-accepted",
+      "origin": "VERIFIED",
+      "authority": "NONE",
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "claim": {
+        "subject": "router",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "vector": [
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "id": "q-solar-yes",
+      "text": "Did the solar inverter pass inspection?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "claim": {
+        "subject": "solar",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "family": "negation",
+      "expectedIds": [
+        "solar-affirmed"
+      ],
+      "vector": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "q-solar-no",
+      "text": "Was the solar inverter rejected at inspection?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "claim": {
+        "subject": "solar",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      },
+      "family": "negation",
+      "expectedIds": [
+        "solar-denied"
+      ],
+      "vector": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "q-safety-yes",
+      "text": "Did the interlock succeed?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "claim": {
+        "subject": "safety",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "family": "negation",
+      "expectedIds": [
+        "safety-affirmed"
+      ],
+      "vector": [
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "q-safety-no",
+      "text": "Did the interlock fail?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "claim": {
+        "subject": "safety",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      },
+      "family": "negation",
+      "expectedIds": [
+        "safety-denied"
+      ],
+      "vector": [
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "q-bridge-feb",
+      "text": "Was the bridge accepted in February?",
+      "scope": "lab",
+      "asOf": "2026-02-15",
+      "claim": {
+        "subject": "bridge",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "family": "time",
+      "expectedIds": [
+        "bridge-old"
+      ],
+      "vector": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "q-bridge-april",
+      "text": "Was the bridge rejected in April?",
+      "scope": "lab",
+      "asOf": "2026-04-15",
+      "claim": {
+        "subject": "bridge",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": -1
+      },
+      "family": "time",
+      "expectedIds": [
+        "bridge-new"
+      ],
+      "vector": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "q-router-paraphrase",
+      "text": "Was the forwarding module approved following validation?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "claim": {
+        "subject": "router",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "family": "paraphrase",
+      "expectedIds": [
+        "router-accepted"
+      ],
+      "vector": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "q-private",
+      "text": "What is the private solar acceptance?",
+      "scope": "private",
+      "asOf": "2026-03-15",
+      "claim": {
+        "subject": "solar",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "family": "scope",
+      "expectedIds": [
+        "private-solar"
+      ],
+      "vector": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "q-empty-scope",
+      "text": "Anything accepted in an isolated tenant?",
+      "scope": "isolated",
+      "asOf": "2026-03-15",
+      "claim": {
+        "subject": "absent",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "family": "abstention",
+      "expectedIds": [],
+      "vector": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "q-unknown",
+      "text": "Was this unknown service accepted?",
+      "scope": "lab",
+      "asOf": "2026-03-15",
+      "claim": {
+        "subject": "unknown",
+        "predicate": "passes",
+        "object": "acceptance",
+        "polarity": 1
+      },
+      "family": "abstention",
+      "expectedIds": [],
+      "vector": [
+        1,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}
