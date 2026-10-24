@@ -1,0 +1,60 @@
+name: PHMP-SM1 E1E Hosted Embedding Pilot
+
+# Operator-only. Never triggered by push/PR, schedules, or public Pages traffic.
+on:
+  workflow_dispatch:
+    inputs:
+      acknowledge_public_model_download:
+        description: 'I approve downloading the fixed public model onto a temporary GitHub runner and embedding ONLY 25 synthetic public fixture texts'
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: phmp-sm1-e1e-public-dev
+  cancel-in-progress: false
+
+jobs:
+  run-public-development-pilot:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Verify explicit opt-in before any model installation
+        env:
+          PUBLIC_MODEL_APPROVED: ${{ inputs.acknowledge_public_model_download }}
+        run: |
+          if [ "$PUBLIC_MODEL_APPROVED" != "true" ]; then
+            echo "::error::E1E requires explicit opt-in for a temporary public model download."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # This dependency is installed on the EPHEMERAL GITHUB RUNNER only.
+      # Exact npm version and Hugging Face model git revision are fixed.
+      - name: Install CPU embedding engine on disposable runner
+        run: |
+          npm install --no-save --package-lock=false --no-audit --no-fund @huggingface/transformers@3.8.1
+
+      - name: Run fixed public development data through real hosted model
+        env:
+          PHMP_E1E_ACK: YES_PUBLIC_FIXTURE_AND_HOSTED_MODEL_DOWNLOAD
+        run: node scripts/phmp_semantic_memory_e1e.mjs --run-public-fixture
+
+      - name: Upload summary report (NO raw text, embeddings or weights)
+        uses: actions/upload-artifact@v4
+        with:
+          name: phmp-sm1-e1e-public-development-summary
+          path: artifacts/local/phmp-sm1-e1e-hosted-report.json
+          if-no-files-found: error
+          retention-days: 7
