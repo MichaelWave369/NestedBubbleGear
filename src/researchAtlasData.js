@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('SM-E1C','Calibrated abstention & contradiction gates','Semantic Memory','SIMULATED',
+    'Development-only comparison adds exact-claim metadata baseline, score cutoffs learned from development queries, and explicit conflict/claim-mismatch deferral.',
+    'experiments/PHMP1/PHMP_SM1_E1C.md','Exposed synthetic labels only; no local Ollama benchmark or held-out result.'),
   row('SM-E1B','Local Ollama memory pilot','Semantic Memory','DEV PILOT',
     'Explicit local-only embedding export, SHA-256 model digest pin, E1A-compatible development corpus. Real model run requires operator action.',
     'experiments/PHMP1/PHMP_SM1_E1B.md','No real Ollama model was executed by repository CI.'),
