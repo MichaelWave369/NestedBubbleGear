@@ -1,0 +1,21 @@
+{
+  "schema": "PHMP-SM1-E1C-SPLIT",
+  "purpose": "DEVELOPMENT_ONLY",
+  "developmentQueryIds": [
+    "q-solar-passed",
+    "q-solar-failed",
+    "q-router-passed",
+    "q-router-failed",
+    "q-bridge-march",
+    "q-bridge-may",
+    "q-backup",
+    "q-private-router",
+    "q-isolated"
+  ],
+  "validationQueryIds": [
+    "q-deck",
+    "q-battery",
+    "q-nonexistent",
+    "q-firewall"
+  ]
+}
