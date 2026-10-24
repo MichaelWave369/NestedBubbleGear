@@ -94,7 +94,7 @@ export async function createHostedCorpus({makeExtractor,clock=()=>performance.no
   return {corpus:c,embeddingWallMilliseconds};
 }
 export function buildHostedReport(c,{inputs=readPublicInputs(),embeddingWallMilliseconds=null,
-  evaluationWallMilliseconds=null,commit='UNKNOWN'}={}){
+  evaluationWallMilliseconds=null,commit='UNKNOWN',execution='SIMULATED_TEST_ONLY'}={}){
   validateCorpus(c);
   requireThat(c.embeddingSource.kind==='OPERATOR_SUPPLIED_HOSTED'&&
     c.embeddingSource.model===MODEL_ID&&c.embeddingSource.modelRevision===MODEL_REVISION&&
@@ -115,7 +115,7 @@ export function buildHostedReport(c,{inputs=readPublicInputs(),embeddingWallMill
   const body={
     schema:'PHMP-SM1-E1E-GITHUB-HOSTED-DEVELOPMENT-REPORT',
     origin:'SIMULATED',authority:'NONE',
-    embeddingStatus:'REAL_MODEL_INFERENCE_WHEN_MANUALLY_DISPATCHED',
+    embeddingStatus:execution==='GITHUB_ACTIONS_REAL_MODEL'?'REAL_HOSTED_ONNX_EMBEDDINGS':'MOCK_INJECTED_EMBEDDINGS',
     evaluationStatus:'PUBLIC_SYNTHETIC_DEVELOPMENT_NOT_HELD_OUT',
     commit,
     model:{id:MODEL_ID,revision:MODEL_REVISION,dtype:MODEL_DTYPE,device:MODEL_DEVICE,
@@ -138,10 +138,10 @@ export function verifyHostedReport(r){
     verifyReport(r.retrieval)&&verifyPilotReceipt(r.admission);
 }
 export async function runHosted({makeExtractor,inputs=readPublicInputs(),clock=()=>performance.now(),
-  commit='UNKNOWN'}={}){
+  commit='UNKNOWN',execution='SIMULATED_TEST_ONLY'}={}){
   const {corpus,embeddingWallMilliseconds}=await createHostedCorpus({makeExtractor,clock,inputs});
   const start=clock();
-  const report=buildHostedReport(corpus,{inputs,embeddingWallMilliseconds,commit});
+  const report=buildHostedReport(corpus,{inputs,embeddingWallMilliseconds,commit,execution});
   const scoring=Number((clock()-start).toFixed(3));
   requireThat(scoring>=0&&Number.isFinite(scoring),'invalid scoring wall time');
   const {receiptSha256,...body}=report;
@@ -160,7 +160,8 @@ export async function main(args=process.argv.slice(2),env=process.env){
   requireThat(args.length===1&&args[0]==='--run-public-fixture',
     'E1E only accepts --run-public-fixture, with explicit GitHub Actions acknowledgement');
   assertHostedContext(env);
-  const report=await runHosted({makeExtractor:realExtractor,commit:env.GITHUB_SHA||'UNKNOWN'});
+  const report=await runHosted({makeExtractor:realExtractor,commit:env.GITHUB_SHA||'UNKNOWN',
+    execution:'GITHUB_ACTIONS_REAL_MODEL'});
   requireThat(verifyHostedReport(report),'result receipt failed validation');
   const destination=resolve(ROOT,REPORT_RELATIVE_PATH);
   mkdirSync(dirname(destination),{recursive:true});
