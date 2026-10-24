@@ -116,3 +116,7 @@ The [synthetic semantic phase memory protocol](PHMP_SM1_E0.md) compares unsigned
 ## PHMP-SM1 E1A · Offline fixed-embedding retrieval comparisons
 
 The [E1A evaluation protocol](PHMP_SM1_E1A.md) accepts operator-supplied fixed embedding vectors alongside typed contextual claims and compares raw cosine, metadata-filter cosine, signed-real cosine, and binary phase coherence under equal context access. It reports recall/ranking and abstention by family, with scope/provenance/time gates, explicit conflict status and deterministic SHA-256 receipts. The committed vectors are manually authored synthetic controls, not model-produced embeddings, and phase/signed-real tie by construction. **No real AI retrieval advantage is claimed**, and PHMP-3 reserved data is untouched. Run `npm run test:phmp-sm1-e1a`.
+
+## PHMP-SM1 E1B · Explicit local Ollama embedding pilot
+
+The [E1B operator protocol](PHMP_SM1_E1B.md) adds a dependency-free, opt-in exporter for an **already installed, exact-digest-pinned local Ollama embedding model**. CLI `--inspect` and `--preflight` do not embed text; `--execute` is required before public development-fixture text is sent to fixed `127.0.0.1:11434`. It outputs an E1A-compatible corpus only to a **new local file**. Tests use **mock transport exclusively** (no Ollama, model weights, external service or private user memory). A future operator-run model trial and held-out labels are needed before any real retrieval claim. Run `npm run test:phmp-sm1-e1b`; PHMP-3's reserved split remains untouched.
