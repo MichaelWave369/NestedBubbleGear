@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import LabNavigation from './LabNavigation.jsx'
+import ResearchAtlas from './ResearchAtlas.jsx'
 import SpiralGearLab from './SpiralGearLab.jsx'
 import PhaseClosureLab from './PhaseClosureLab.jsx'
 import AdaptivePhaseKeyhole from './AdaptivePhaseKeyhole.jsx'
@@ -542,7 +543,8 @@ function App() {
           <span>∃ w : P(ρ(w)X) ≠ P(ρ(w)X′)</span>
         </Formula>
         <div className="hero-actions">
-          <a className="button primary" href="#experiments">Explore the evidence ladder</a>
+          <a className="button primary" href="#research-atlas">Explore the Research Atlas</a>
+          <a className="button ghost" href="#experiments">AH2–AH44 evidence ladder</a>
           <a className="button ghost" href="#keyholes">Open the keyhole</a>
           <a className="button ghost" href="#resonance-observatory">Explore real recordings ↗</a>
           <a className="button ghost" href="#phase-dynamics">Explore waveform phases ↗</a>
@@ -572,6 +574,8 @@ function App() {
           </div>
         </div>
       </section>
+
+      <ResearchAtlas />
 
       <section id="stack" className="section">
         <div className="section-label">THE STACK</div>
