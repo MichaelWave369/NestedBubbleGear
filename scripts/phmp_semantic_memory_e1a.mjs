@@ -32,7 +32,7 @@ function uniqueIDs(xs, keyName) {
 }
 export function validateCorpus(c) {
   requireThat(c && c.schema === 'PHMP-SM1-E1A-CORPUS', 'invalid corpus schema');
-  requireThat(c.embeddingSource && ['SIMULATED_FIXTURE', 'OPERATOR_SUPPLIED_LOCAL'].includes(c.embeddingSource.kind), 'invalid embedding source');
+  requireThat(c.embeddingSource && ['SIMULATED_FIXTURE', 'OPERATOR_SUPPLIED_LOCAL', 'OPERATOR_SUPPLIED_HOSTED'].includes(c.embeddingSource.kind), 'invalid embedding source');
   requireThat(str(c.embeddingSource.model), 'missing model name');
   requireThat(Number.isInteger(c.dimension) && c.dimension >= 2 && c.dimension <= 2048, 'invalid dimension');
   requireThat(Array.isArray(c.records) && c.records.length >= 1 && c.records.length <= 2500, 'invalid records length');
