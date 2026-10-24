@@ -108,3 +108,7 @@ The [K7 deterministic security-control protocol](KEYHOLE_BUDGET_K7.md) tests gen
 - [Claim firewall](../../CLAIMS.md)
 
 **Important:** A pair of delayed-distinguishable states does not by itself establish nontrivial connection holonomy. This demonstration is established complex linear algebra, not evidence for a new physical law, energy recovery, or an advantage over conventional neural networks.
+
+## PHMP-SM1 E0 · Typed semantic phase retrieval, with same-information baselines
+
+The [synthetic semantic phase memory protocol](PHMP_SM1_E0.md) compares unsigned cosine, sign-aware real cosine, and complex-phase coherence on structured claims, with temporal/provenance filters, conflict detection, and receipt integrity checks. **Phase ties the sign-aware real baseline by mathematical equivalence**; the unsigned control lacks sign information by design. This is not evidence of quantum behavior, a new NBG law, or actual semantic retrieval improvement. It does not touch the PHMP-3 reserved split. Run `npm run test:phmp-sm1-e0`.
