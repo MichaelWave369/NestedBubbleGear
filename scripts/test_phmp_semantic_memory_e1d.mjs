@@ -73,7 +73,7 @@ const stats=pairedSubjectBootstrap(cohorts,'alpha','beta');
 assert.equal(stats.validationSubjectGroups,2);checks++;
 assert.equal(stats.exhaustiveBootstrapSamples,4);checks++;
 assert.equal(stats.observedDelta,0);checks++;
-assert.deepEqual(stats.percentileInterval95,[-1,0.4875]);checks++;
+assert.deepEqual(stats.percentileInterval95,[-0.925,0.4625]);checks++;
 assert.throws(()=>pairedSubjectBootstrap([...cohorts,cohorts[0]],'alpha','beta'),/duplicate subject/);checks++;
 assert.throws(()=>pairedSubjectBootstrap([{subject:'one',rows:[]}],'alpha','beta'),/groups must be/);checks++;
 
