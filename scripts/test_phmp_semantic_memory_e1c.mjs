@@ -32,7 +32,9 @@ assert.equal(report.status,'DEVELOPMENT_ONLY_NOT_HELD_OUT');checks++;
 assert.equal(report.developmentQueries,9);checks++;
 assert.equal(report.validationQueries,4);checks++;
 assert.equal(report.modes.signed_real.threshold,report.modes.complex_phase.threshold);checks++;
-assert.deepEqual(report.modes.signed_real.validationDecisions,report.modes.complex_phase.validationDecisions);checks++;
+const normalizedDecisions = mode => report.modes[mode].validationDecisions.map(
+  ({mode: _mode, ...decision}) => decision);
+assert.deepEqual(normalizedDecisions('signed_real'),normalizedDecisions('complex_phase'));checks++;
 assert.deepEqual(report.modes.signed_real.validation,report.modes.complex_phase.validation);checks++;
 assert.equal(report.modes.signed_real.development.wrongAdmissions,0);checks++;
 assert.equal(report.modes.metadata_filter.development.wrongAdmissions,0);checks++;
