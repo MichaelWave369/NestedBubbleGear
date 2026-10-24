@@ -112,3 +112,7 @@ The [K7 deterministic security-control protocol](KEYHOLE_BUDGET_K7.md) tests gen
 ## PHMP-SM1 E0 · Typed semantic phase retrieval, with same-information baselines
 
 The [synthetic semantic phase memory protocol](PHMP_SM1_E0.md) compares unsigned cosine, sign-aware real cosine, and complex-phase coherence on structured claims, with temporal/provenance filters, conflict detection, and receipt integrity checks. **Phase ties the sign-aware real baseline by mathematical equivalence**; the unsigned control lacks sign information by design. This is not evidence of quantum behavior, a new NBG law, or actual semantic retrieval improvement. It does not touch the PHMP-3 reserved split. Run `npm run test:phmp-sm1-e0`.
+
+## PHMP-SM1 E1A · Offline fixed-embedding retrieval comparisons
+
+The [E1A evaluation protocol](PHMP_SM1_E1A.md) accepts operator-supplied fixed embedding vectors alongside typed contextual claims and compares raw cosine, metadata-filter cosine, signed-real cosine, and binary phase coherence under equal context access. It reports recall/ranking and abstention by family, with scope/provenance/time gates, explicit conflict status and deterministic SHA-256 receipts. The committed vectors are manually authored synthetic controls, not model-produced embeddings, and phase/signed-real tie by construction. **No real AI retrieval advantage is claimed**, and PHMP-3 reserved data is untouched. Run `npm run test:phmp-sm1-e1a`.
