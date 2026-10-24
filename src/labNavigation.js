@@ -3,6 +3,7 @@
 export const NAV_GROUPS=Object.freeze([
   {
     id:'labs',label:'Core Labs',items:[
+      {label:'AH2–AH44 Evidence Ladder',href:'#experiments'},
       {label:'Bubble Atlas',href:'#atlas'},
       {label:'Spiral Gears',href:'#spiral-gears'},
       {label:'Phase & Closure',href:'#phase-closure'},
@@ -47,7 +48,7 @@ export const NAV_GROUPS=Object.freeze([
 export const NAV_DIRECT=Object.freeze([
   {label:'Stack',href:'#stack'},
   {label:'Temporal',href:'#temporal'},
-  {label:'Experiments',href:'#experiments'},
+  {label:'Research Atlas',href:'#research-atlas'},
   {label:'Claims',href:'#claims'},
   {label:'GitHub',href:'https://github.com/MichaelWave369/NestedBubbleGear',external:true},
 ])
@@ -60,7 +61,7 @@ export const NAV_ORDER=Object.freeze([
   {type:'group',id:'geometry'},
   {type:'group',id:'keyholes'},
   {type:'direct',href:'#temporal'},
-  {type:'direct',href:'#experiments'},
+  {type:'direct',href:'#research-atlas'},
   {type:'direct',href:'#claims'},
   {type:'direct',href:'https://github.com/MichaelWave369/NestedBubbleGear'},
 ])

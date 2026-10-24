@@ -9,6 +9,12 @@
 
 > **Core question:** When two states look identical through the current Keyhole, can an admissible future interaction reveal that they were never behaviorally equivalent?
 
+## Live Research Atlas · where to find recent NBG work
+
+[**Open the React Research Atlas**](https://michaelwave369.github.io/NestedBubbleGear/#research-atlas) · [Research Atlas usage and claim boundaries](docs/RESEARCH_ATLAS.md)
+
+The public React page now has a searchable, source-linked directory for PHMP semantic memory E0/E1A/E1B, optical/quantum Keyholes, K1–K7 budget tests, RB3 evidence-review stages and provenance/governance work. The original AH2–AH44 experiment ladder is still available from **Core Labs**. This is an editorial index of repository sources, **not an automatic CI feed or claim of scientific validation**. Deployment requires the corresponding Pages workflow to complete on the merged main branch.
+
 ## ASTRO-OBS-01 · JWST line-emitter case study (external evidence)
 
 [Evidence-tier ledger, competing astrophysical explanations, and proposed falsification checks](docs/JWST_MOCSS_SINGLE_LINE_CASE_STUDY.md). A 2026 JWST/NIRSpec publication reports an otherwise uncatalogued 1.60 μm emission line with no earlier imaging counterpart. This is a **source-attributed observational case**, not a new NBG result or proof of hidden cosmic structure. The earlier imaging and spectroscopy were taken at different times; an evolving source remains possible.
