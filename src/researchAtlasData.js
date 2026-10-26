@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('EG-03','Maxwell–London conventional screening baseline','Field & Gravity','SIMULATED',
+    'Independently solves a static planar Meissner-state London boundary problem using exact cosh profiles and a finite-difference tridiagonal solver, with current-sign, boundary and mesh-convergence controls.',
+    'experiments/EG03/PROTOCOL.md','Established superconductivity under idealized slab assumptions, not measured material behavior, Li–Torr gravitational reproduction, or anomalous gravity.'),
   row('EG-02','Independent model audit & differential controls','Field & Gravity','SIMULATED',
     'SI magnetic-dipole force budget and a synthetic two-mass / gradient-reversal design distinguish magnetic pickup, sensor offset and operator-injected weight-like signals only under declared conditions.',
     'experiments/EG02/PROTOCOL.md','Published Li–Torr/Kowitt abstracts are catalogued, not numerically reproduced. The Hathaway null experiment addressed Podkletnov, not Li–Torr. No measured gravity effect.'),
