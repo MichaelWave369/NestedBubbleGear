@@ -9,6 +9,7 @@ export const NAV_GROUPS=Object.freeze([
       {label:'Phase & Closure',href:'#phase-closure'},
       {label:'Body Ship',href:'#body-ship'},
       {label:'Bio Bridge',href:'#biological-bridge'},
+      {label:'NI1 · Neuroimmune Keyholes',href:'#ni1'},
       {label:'Boundary Crossing',href:'#boundary-crossing'},
       {label:'Lineage Recovery',href:'#boundary-lineage'},
       {label:'Evidence Custody',href:'#boundary-custody'},
