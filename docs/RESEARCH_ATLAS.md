@@ -64,3 +64,11 @@ A new first-class Atlas React lab at [#eg03](https://michaelwave369.github.io/Ne
 The reference uses established London electrodynamics with a planar parallel-field geometry and no vortices or finite-sample demagnetization, and does **not** implement Li–Torr gravitational couplings. See [EG-03 experimental protocol, equations, source bibliography and scope](../experiments/EG03/PROTOCOL.md).
 
 Run `npm run test:eg03 && npm run test:research-atlas && npm run build`. Existing EG-01, EG-02, AH and PHMP work remains unchanged.
+
+## EG-04 | Permeability-variable identity / inference firewall (SIMULATED)
+
+The Research Atlas includes [EG-04](https://michaelwave369.github.io/NestedBubbleGear/#eg04): a London slab comparison of the dimensionless macroscopic screening ratio `R=<B>/B_s` with a *deliberately invalid* proxy `1/R²`, inspired by the inverse-square dependence of **Li & Torr (1992), Eq. 48**. It shows how substituting a geometry-dependent screening ratio for a different microscopic permeability can fabricate huge-seeming amplification. This is an **audit of an inference**, not a full reproduction of Li & Torr or Kowitt, and the orange proxy is neither conductivity nor gravitational coupling.
+
+EG-04 imports the verified deterministic **EG-03 conventional London solver**, exposes analytical screening, magnetic field energy per area, current cancellation, source access and methods, and offers locally generated `SIMULATED / authority NONE` JSON receipts. Full-text access to Kowitt is not yet verified. [Detailed claim-boundary/source protocol](../experiments/EG04/PROTOCOL.md).
+
+Qualification: `npm run test:eg04 && npm run test:research-atlas && npm run build`. Earlier EG rungs and AH/PHMP are unchanged.
