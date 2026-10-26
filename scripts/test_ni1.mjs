@@ -25,6 +25,15 @@ check('contract refuses invalid world, seeds and giant interventions',()=>{
  assert.throws(()=>generateNI1({donorShiftAfterDetach:9}))
  assert.throws(()=>analyzeNI1({rows:[]}))
 })
+check('independent null and shared-driver impostor are distinct causal histories',()=>{
+ const none=generateNI1({world:'null',seed:369})
+ const shared=generateNI1({world:'shared-driver',seed:369})
+ assert.notDeepEqual(none.rows,shared.rows)
+ const corrNone=analyzeNI1(none).metrics.rawCorrelation
+ const corrShared=analyzeNI1(shared).metrics.rawCorrelation
+ assert(Math.abs(corrNone)<.3)
+ assert(corrShared>.45,'shared input can generate strong raw correlation without a direct edge')
+})
 check('non-path and shared driver worlds do not pass recovered pathway gate',()=>{
  for(const seed of [19,42,369,777]){
   for(const world of ['null','shared-driver']){
