@@ -1,0 +1,40 @@
+/* EG-03 London baseline: isolated from all earlier NBG Atlas styles. */
+.eg03-shell{scroll-margin-top:85px;margin:34px 0 55px;padding:clamp(17px,3vw,34px);border:1px solid rgba(112,226,200,.3);background:linear-gradient(138deg,#0a1e22,#091715);color:#e2f4ee}
+.eg03-intro{display:flex;justify-content:space-between;gap:24px;align-items:flex-start}
+.eg03-intro>div:first-child{max-width:850px}
+.eg03-intro h3{font-size:clamp(26px,3.6vw,44px);line-height:1.1;letter-spacing:-.04em;margin:13px 0}
+.eg03-intro h3 em{color:#76e3c1;font-style:normal}
+.eg03-intro p,.eg03-audit p{color:#a9cbc0;font-size:13px;line-height:1.75}
+.eg03-stamp{min-width:195px;padding:14px;border:1px solid rgba(245,195,128,.32);display:flex;flex-direction:column;gap:8px;color:#e2cbaa;font-size:11px}
+.eg03-stamp strong{font:700 11px Consolas,monospace}
+.eg03-formula{display:flex;align-items:center;flex-wrap:wrap;gap:15px;padding:16px;margin:25px 0;border:1px solid rgba(117,226,192,.2);background:#08231f;font:700 clamp(12px,1.6vw,17px)/1.6 Consolas,monospace;color:#a5ead4}
+.eg03-formula b{color:#e3b980}
+.eg03-workbench{display:grid;grid-template-columns:minmax(240px,.85fr) minmax(0,1.9fr);gap:17px}
+.eg03-controls,.eg03-results{min-width:0;padding:clamp(13px,2vw,23px);border:1px solid rgba(130,226,197,.18);background:rgba(1,10,11,.38)}
+.eg03-shell h4{font-size:15px;margin:0 0 18px}
+.eg03-controls label{display:flex;justify-content:space-between;flex-wrap:wrap;gap:9px;color:#bedad2;font-size:12px;font-weight:650;margin:21px 0 9px}
+.eg03-controls label:first-of-type{margin-top:0}
+.eg03-controls output{font:700 12px Consolas,monospace;color:#83e1c8}
+.eg03-controls input[type=range]{width:100%;accent-color:#74e8bc;cursor:pointer}
+.eg03-controls select{width:100%;padding:12px;background:#0c2a26;color:#e3f4ee;border:1px solid #49796f}
+.eg03-tip{font-size:11px;line-height:1.65;color:#9dbab1;margin:13px 0}
+.eg03-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:23px}
+.eg03-actions button{padding:10px 12px;border:1px solid rgba(117,232,188,.45);background:#12362c;color:#b4f5d8;font-size:11px;font-weight:700;cursor:pointer}
+.eg03-actions button:hover{background:#1a5141}
+.eg03-chart svg,.eg03-current{width:100%;display:block;height:auto}
+.eg03-legend{display:flex;flex-wrap:wrap;gap:12px;font-size:10px;color:#afcbc4}
+.eg03-legend i{width:16px;height:3px;display:inline-block;vertical-align:middle;margin-right:5px}
+.eg03-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:20px 0}
+.eg03-stats>div,.eg03-compare>div{padding:14px;background:rgba(114,228,188,.065);display:flex;flex-direction:column;gap:8px;min-width:0}
+.eg03-stats span,.eg03-compare span{font-size:10px;color:#91b8a9;text-transform:uppercase}
+.eg03-stats strong{font:700 clamp(14px,2vw,19px)/1.3 Consolas,monospace;color:#abefda;overflow-wrap:anywhere}
+.eg03-stats small{font-size:10px;color:#93b4a5}
+.eg03-current-head{margin-top:24px!important;margin-bottom:4px!important}
+.eg03-audit{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-top:27px;margin-top:23px;border-top:1px solid rgba(130,226,197,.2)}
+.eg03-compare{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:15px 0}
+.eg03-compare strong{font:700 13px/1.4 Consolas,monospace;color:#b9dff3;overflow-wrap:anywhere}
+.eg03-links{display:grid;gap:10px;margin:14px 0}
+.eg03-links a{font-size:12px;color:#8fd5ed}
+.eg03-shell button:focus-visible,.eg03-shell input:focus-visible,.eg03-shell a:focus-visible,.eg03-shell select:focus-visible{outline:2px solid #74e8bc;outline-offset:3px}
+@media(max-width:900px){.eg03-workbench,.eg03-audit{grid-template-columns:1fr}}
+@media(max-width:760px){.eg03-intro{flex-direction:column}.eg03-stamp{width:100%}.eg03-stats{grid-template-columns:1fr}.eg03-compare{grid-template-columns:1fr}}
