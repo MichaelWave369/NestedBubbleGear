@@ -11,6 +11,7 @@ import QM1Lab from './QM1Lab.jsx'
 import QM2Lab from './QM2Lab.jsx'
 import BodyShipResonanceLab from './BodyShipResonanceLab.jsx'
 import BiologicalOscillatorBridge from './BiologicalOscillatorBridge.jsx'
+import BiomechanicalCrystalBridge from './BiomechanicalCrystalBridge.jsx'
 import ResonanceObservatory from './ResonanceObservatory.jsx'
 import PhaseDynamicsLab from './PhaseDynamicsLab.jsx'
 import BalanceRecoveryLab from './BalanceRecoveryLab.jsx'
@@ -649,6 +650,7 @@ function App() {
       <PhaseClosureLab />
       <BodyShipResonanceLab />
       <BiologicalOscillatorBridge />
+      <BiomechanicalCrystalBridge />
       <ResonanceObservatory />
       <PhaseDynamicsLab />
       <BalanceRecoveryLab />
