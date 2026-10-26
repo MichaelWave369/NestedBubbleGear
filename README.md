@@ -9,6 +9,10 @@
 
 > **Core question:** When two states look identical through the current Keyhole, can an admissible future interaction reveal that they were never behaviorally equivalent?
 
+## EG-06 · Competing models, holdout predictions, and causal collisions (SIMULATED)
+
+The [EG-06 interactive Research Atlas testbench](https://michaelwave369.github.io/NestedBubbleGear/#eg06) compares an idealized *conventional* magnetic/thermal/vibration/offset force model against a **generic, injected** mass-scaled residual. Its independently controlled sample-mass and signed-field-gradient contrasts, training/holdout split, least-squares rank gate, and descriptive BIC/holdout scores show where model signatures can be distinguished. Crucially, a **mass-correlated conventional fixture artifact is exactly observationally indistinguishable** from the extra term even with a full-rank regression, so the model never claims the origin of the residual is gravity. The generic X1 term is **not derived from Li–Torr**. [Protocol and source gates](experiments/EG06/PROTOCOL.md) · `npm run test:eg06`.
+
 ## EG-05 · Primary equation custody and SI checks (SIMULATED)
 
 The [EG-05 Atlas workbench](https://michaelwave369.github.io/NestedBubbleGear/#eg05) now traces specific source-page equation forms in **Li & Torr (1992), printed pp. 5493–5494**. It runs machine-readable SI checks for the finite-relaxation-time reference `σ₀=nˢq²τ₀/m` and `τ₀=ℏ/(2πkBTλ*)`, then plots the paper's **conditional, contested** Eq. (49) log-log inverse-square sensitivity. An **explicit refusal gate** prevents the London slab's geometry-dependent bulk screening ratio from being silently identified with microscopic/material permeability. The full 1991 Li–Torr and 1994 Kowitt equations, contested Eq. (48)/(54) factors and experimental validation remain **unreproduced / blocked**. Every exported source receipt is `SIMULATED / authority NONE`. [EG-05 source custody and methods](experiments/EG05/PROTOCOL.md) · `npm run test:eg05`.

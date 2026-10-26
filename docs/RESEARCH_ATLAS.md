@@ -80,3 +80,11 @@ The [EG-05 page](https://michaelwave369.github.io/NestedBubbleGear/#eg05) displa
 The live panel checks the **SI dimensions** of the finite relaxation-time form `σ₀=nˢq²τ₀/m` and the auxiliary time scale `τ₀=ℏ/(2πkBTλ*)` under a stated dimensionless λ* assumption. A separate conditional plot of the printed 1992 approximate scaling `σ~10⁻²⁹/μᵣ²` is explicitly not measured conductivity, nor the paper's complete Eq. (48)/(54) derivation. London bulk shielding ratio `R=<B>/Bs` is never accepted as an authenticated material `μᵣ`. The module exports `SIMULATED / authority NONE` receipts only on user request. [Full source/claim ledger](../experiments/EG05/PROTOCOL.md).
 
 Qualification: `npm run test:eg05 && npm run test:research-atlas && npm run build`. Earlier frozen results untouched.
+
+## EG-06 | Competing Predictions and Exact Causal Collisions (SIMULATED)
+
+The [EG-06 Atlas experiment](https://michaelwave369.github.io/NestedBubbleGear/#eg06) compares a synthetic conventional force budget C0 (magnetic-dipole field gradient, current-even pickup, thermal lag, mechanical transient and offset) against a generic hypothetical X1 = C0 + fMgI² with known synthetic injections, two sample masses, signed-gradient reversal and a frozen 12-step drive. It uses the first 9 steps per fixture to fit, and the final 3 to check future-step errors. Linear least-squares, rank refusal, BIC and holdout RMSE are **software-model diagnostics only**. If either necessary intervention is missing, model attribution is refused.
+
+A distinct mass-correlated conventional pickup `cMgI²` can exactly mimic the X1 term: datasets with `(f,c)=(0.015,0)` and `(0,0.015)` have identical force readings. Therefore good regression does not uniquely identify gravity or any mechanism. Historical Li–Torr and Kowitt claims are linked and explicitly not implemented as validated force models. JSON export is operator-initiated, `SIMULATED / authority NONE`.
+
+[Read EG-06 protocol and provenance](../experiments/EG06/PROTOCOL.md). Qualification: `npm run test:eg06 && npm run test:research-atlas && npm run build`. Existing EG-01–05 and frozen AH/PHMP results remain unchanged.
