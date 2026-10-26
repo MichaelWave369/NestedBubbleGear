@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('EG-05','Equation custody and SI dimensional audit','Field & Gravity','SIMULATED',
+    'Page-level 1992 Li–Torr equation custody for Eqs. 46–50 and 54, SI checks of finite relaxation-time formulas, conditional Eq. 49 scaling, and explicitly blocked Kowitt/1991 full-derivation claims.',
+    'experiments/EG05/PROTOCOL.md','Source text inspection does not establish physical correctness. Gravitomagnetic Eq. 48/54 prefactors and Kowitt alternative have not been independently reproduced; no measured gravity anomaly.'),
   row('EG-04','Li–Torr / Kowitt permeability-identity audit','Field & Gravity','SIMULATED',
     'Source-scoped examination of Li–Torr (1992) inverse-square permeability dependence and Kowitt (1994) criticism. EG-03 London slab shows why a geometry-dependent bulk screening ratio must not be substituted as a microscopic permeability.',
     'experiments/EG04/PROTOCOL.md','Deliberately invalid inverse-square substitution is a diagnostic, NOT a Li–Torr conductivity calculation or a gravity prediction; full derivation audit awaits primary-text verification.'),
