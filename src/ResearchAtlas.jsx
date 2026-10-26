@@ -4,9 +4,10 @@ import EG01Lab from './EG01Lab.jsx'
 import EG02Lab from './EG02Lab.jsx'
 import EG03Lab from './EG03Lab.jsx'
 import EG04Lab from './EG04Lab.jsx'
+import EG05Lab from './EG05Lab.jsx'
 import './researchAtlas.css'
 
-const PINNED = ['EG-04','EG-03','EG-02','EG-01']
+const PINNED = ['EG-05','EG-04','EG-03','EG-02']
 function SourceLink({ track, children = 'Read research ↗' }) {
   return <a className="research-link" href={track.url} target="_blank" rel="noopener noreferrer">
     {children}<span className="research-link-path">{track.path}</span>
@@ -104,6 +105,7 @@ export default function ResearchAtlas() {
     <EG02Lab />
     <EG03Lab />
     <EG04Lab />
+    <EG05Lab />
     <PolarityToy />
     <div className="research-browser-head">
       <div>
