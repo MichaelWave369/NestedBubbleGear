@@ -6,6 +6,7 @@ import EG03Lab from './EG03Lab.jsx'
 import EG04Lab from './EG04Lab.jsx'
 import EG05Lab from './EG05Lab.jsx'
 import EG06Lab from './EG06Lab.jsx'
+import NI1Lab from './NI1Lab.jsx'
 import './researchAtlas.css'
 
 const PINNED = ['EG-06','EG-05','EG-04','EG-03']
@@ -108,6 +109,7 @@ export default function ResearchAtlas() {
     <EG04Lab />
     <EG05Lab />
     <EG06Lab />
+    <NI1Lab />
     <PolarityToy />
     <div className="research-browser-head">
       <div>

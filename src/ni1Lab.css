@@ -1,0 +1,47 @@
+.ni1-shell{margin:44px 0 54px;padding:clamp(18px,3vw,34px);border:1px solid rgba(115,255,197,.28);background:linear-gradient(135deg,rgba(18,44,51,.96),rgba(6,15,19,.98));color:#d4eee8;scroll-margin-top:90px}
+.ni1-shell h3{font-size:clamp(24px,3.3vw,41px);line-height:1.13;letter-spacing:-.04em;margin:13px 0 17px}
+.ni1-shell h3 em{font-style:normal;color:#7deab9}
+.ni1-shell h4{font-size:18px;margin:10px 0 16px}
+.ni1-shell p{font-size:13px;line-height:1.7;color:#bbd3d2}
+.ni1-hero{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(215px,.7fr);gap:28px;align-items:start;margin-bottom:27px}
+.ni1-hero a{font-size:12px;color:#8afbcf;display:inline-block;margin-top:9px}
+.ni1-stamp{border:1px solid rgba(245,191,125,.3);padding:18px;display:grid;gap:10px;background:rgba(32,34,23,.65);font:11px/1.5 Consolas,monospace;color:#d3c2a2}
+.ni1-stamp strong{color:#ffe0a2;font-size:12px}
+.ni1-layout{display:grid;grid-template-columns:minmax(240px,.64fr) minmax(0,1.65fr);gap:18px;align-items:start}
+.ni1-controls,.ni1-output{border:1px solid rgba(150,235,213,.18);padding:18px;background:#091b1c}
+.ni1-controls fieldset{border:0;padding:0;margin:0}
+.ni1-controls legend{font-size:11px;color:#9eb9bd;margin-bottom:10px}
+.ni1-world{display:flex;align-items:flex-start;gap:8px;border:1px solid rgba(115,255,197,.12);padding:9px;cursor:pointer;margin:6px 0;color:#d3e7e0}
+.ni1-world.active{background:rgba(115,255,197,.095);border-color:#54ad88}
+.ni1-world input{accent-color:#7deab9;flex-shrink:0;margin-top:4px}
+.ni1-world span{display:grid;gap:4px}
+.ni1-world strong{font-size:12px}
+.ni1-world small{font-size:11px;line-height:1.4;color:#8caeac}
+.ni1-seed{display:grid;gap:6px;margin-top:14px;font-size:12px}
+.ni1-seed input{max-width:180px;width:100%;padding:9px;color:#e3f7ec;border:1px solid #507a73;background:#061214}
+.ni1-checkbox{display:flex;align-items:flex-start;gap:8px;margin-top:16px;line-height:1.5;font-size:12px}
+.ni1-checkbox input{accent-color:#78e5ad;margin-top:2px}
+.ni1-shell .ni1-footnote{font-size:11px;color:#e3c69e}
+.ni1-controls button{cursor:pointer;min-height:42px;padding:10px 14px;border:1px solid #93e6bc;color:#091610;background:#7ee7b7;font-weight:700;font-size:12px}
+.ni1-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ni1-metrics article{padding:13px;border:1px solid rgba(172,255,226,.14);display:grid;gap:10px}
+.ni1-metrics span{color:#9fbfc3;font-size:11px}
+.ni1-metrics strong{font:700 clamp(15px,1.9vw,23px)/1.2 Consolas,monospace;letter-spacing:-.03em;color:#96e4bd}
+.ni1-conclusion{margin:14px 0;background:rgba(93,152,147,.12);border-left:3px solid #8dddb3;padding:13px 15px}
+.ni1-conclusion strong{font:700 12px/1.4 Consolas,monospace;color:#96e4bd}
+.ni1-conclusion p{margin:7px 0 0;font-size:11px}
+.ni1-chart-scroll{width:100%;overflow-x:auto}
+.ni1-chart-scroll svg{display:block;width:100%;min-width:460px}
+.ni1-chart-key{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+.ni1-chart-key span{display:flex;align-items:center;gap:6px;color:#a8c4c0;font-size:10px}
+.ni1-chart-key i{width:12px;height:3px;display:inline-block}
+.ni1-control-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:17px}
+.ni1-control-grid article{border:1px solid rgba(173,255,226,.19);padding:18px;background:rgba(12,31,33,.83)}
+.ni1-control-grid dl{margin:13px 0}
+.ni1-control-grid dl div{display:flex;gap:10px;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(171,254,225,.12);padding:12px 0}
+.ni1-control-grid dt{font-size:11px;line-height:1.5;color:#a9c6be}
+.ni1-control-grid dd{margin:0;color:#84edbc;font:700 14px Consolas,monospace}
+.ni1-control-grid small{font-size:11px;color:#e6c291}
+.ni1-reality{margin-top:18px;padding-top:14px;border-top:1px solid rgba(172,255,226,.15);font-size:11px;line-height:1.7;color:#a2b4b8}
+@media(max-width:900px){.ni1-hero,.ni1-layout{grid-template-columns:1fr}.ni1-stamp{max-width:none}}
+@media(max-width:680px){.ni1-metrics,.ni1-control-grid{grid-template-columns:1fr}.ni1-shell{padding:15px}}

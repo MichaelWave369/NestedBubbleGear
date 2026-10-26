@@ -88,3 +88,13 @@ The [EG-06 Atlas experiment](https://michaelwave369.github.io/NestedBubbleGear/#
 A distinct mass-correlated conventional pickup `cMgI²` can exactly mimic the X1 term: datasets with `(f,c)=(0.015,0)` and `(0,0.015)` have identical force readings. Therefore good regression does not uniquely identify gravity or any mechanism. Historical Li–Torr and Kowitt claims are linked and explicitly not implemented as validated force models. JSON export is operator-initiated, `SIMULATED / authority NONE`.
 
 [Read EG-06 protocol and provenance](../experiments/EG06/PROTOCOL.md). Qualification: `npm run test:eg06 && npm run test:research-atlas && npm run build`. Existing EG-01–05 and frozen AH/PHMP results remain unchanged.
+
+## NI1 E1 | Neuroimmune causal Keyholes (SIMULATED ONLY)
+
+A first-class, source-linked [NI1 browser lab](https://michaelwave369.github.io/NestedBubbleGear/#ni1) now presents five entirely invented worlds: no brain-to-cell edge, known conventional delayed connection, shared-driver impostor, detached sample, and instrument artifact. The lab compares a frozen known toy recurrence with a fitted lagged candidate on a 20-tick temporal holdout, shows raw correlation without causal interpretation, and can omit measured nuisance to demonstrate a false apparent connection.
+
+The disconnected-sample null changes donor state only **after** sample separation while holding local sample history/environment/noise fixed. The post-detachment synthetic sample must remain exactly invariant. A separate donor-before-detachment contrast establishes why a sample can retain history without any remote control. A formal K0 Altermath witness tests whether coarse-identical states can have distinguishable futures after a declared intervention. These are **software fixtures**, not biology, telepathy or a published Israeli detached-blood experiment.
+
+The model uses invented dimensionless coefficients and an oracle conventional recurrence. Good synthetic model recovery is not independent validation or an advantage over established modeling methods. All exports are operator-created local JSON receipts with origin **SIMULATED** and authority **NONE**.
+
+[Read the E1 frozen computational protocol](../experiments/NI1/E1_PROTOCOL.md) and the [E0 literature mapping](NEUROIMMUNE_CAUSAL_KEYHOLES.md). Run \`npm run test:ni1 && npm run test:research-atlas && npm run test:navigation && npm run build\`. Earlier frozen results and reserved datasets remain unchanged.
