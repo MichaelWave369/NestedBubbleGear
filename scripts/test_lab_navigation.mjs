@@ -21,7 +21,7 @@ let count=0
 const test=(name,fn)=>{fn();count++;console.log('PASS '+name)}
 test('all twenty-six original navigation destinations are preserved exactly once',()=>{
  const observed=allNavigationItems().map(item=>item.href)
- assert.equal(observed.length,LEGACY_DESTINATIONS.length+6)
+ assert.equal(observed.length,LEGACY_DESTINATIONS.length+7)
  assert.equal(observed.filter(href=>href==='#research-atlas').length,1,'research atlas top-level route')
  for(const legacy of LEGACY_DESTINATIONS)assert.equal(observed.filter(href=>href===legacy).length,1,'legacy route: '+legacy)
  assert.equal(observed.filter(href=>href==='#boundary-crossing').length,1,'new BC1 route')
@@ -29,6 +29,7 @@ test('all twenty-six original navigation destinations are preserved exactly once
  assert.equal(observed.filter(href=>href==='#boundary-custody').length,1,'new BC3 route')
  assert.equal(observed.filter(href=>href==='#horn-a1').length,1,'new HORN-A1 route')
  assert.equal(observed.filter(href=>href==='#ni1').length,1,'NI1 neuroimmune lab route')
+ assert.equal(observed.filter(href=>href==='#ni1-e1b').length,1,'NI1 E1B causal collision route')
  assert.equal(new Set(observed).size,observed.length)
 })
 test('all navigation entries have usable nonblank human labels',()=>{
@@ -67,7 +68,7 @@ test('all page section links have existing matching section IDs in source',()=>{
   readFileSync(new URL('../src/ResearchAtlas.jsx',import.meta.url),'utf8'),
   ...[
    'SpiralGearLab.jsx','PhaseClosureLab.jsx','BodyShipResonanceLab.jsx',
-   'BiologicalOscillatorBridge.jsx','NI1Lab.jsx','BoundaryCrossingLab.jsx','BoundaryLineageLab.jsx','BoundaryCustodyLab.jsx',
+   'BiologicalOscillatorBridge.jsx','NI1Lab.jsx','NI1CollisionLab.jsx','BoundaryCrossingLab.jsx','BoundaryLineageLab.jsx','BoundaryCustodyLab.jsx',
    'ResonanceObservatory.jsx',
    'PhaseDynamicsLab.jsx','BalanceRecoveryLab.jsx','ResilienceAtlas.jsx',
    'RecoveryRobustnessLab.jsx','GeometryKeyholeLab.jsx','HornA1Lab.jsx',
