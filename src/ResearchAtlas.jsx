@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react'
 import { findResearch, RESEARCH_CATEGORIES, RESEARCH_STATUS, RESEARCH_TRACKS } from './researchAtlasData.js'
 import EG01Lab from './EG01Lab.jsx'
+import EG02Lab from './EG02Lab.jsx'
 import './researchAtlas.css'
 
-const PINNED = ['EG-01','SM-E1B','PHMP-3','K7']
+const PINNED = ['EG-02','EG-01','SM-E1B','PHMP-3']
 function SourceLink({ track, children = 'Read research ↗' }) {
   return <a className="research-link" href={track.url} target="_blank" rel="noopener noreferrer">
     {children}<span className="research-link-path">{track.path}</span>
@@ -98,6 +99,7 @@ export default function ResearchAtlas() {
       {pinned.map(track=><TrackCard key={track.id} track={track} />)}
     </div>
     <EG01Lab />
+    <EG02Lab />
     <PolarityToy />
     <div className="research-browser-head">
       <div>
