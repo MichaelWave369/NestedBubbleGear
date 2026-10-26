@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('EG-02','Independent model audit & differential controls','Field & Gravity','SIMULATED',
+    'SI magnetic-dipole force budget and a synthetic two-mass / gradient-reversal design distinguish magnetic pickup, sensor offset and operator-injected weight-like signals only under declared conditions.',
+    'experiments/EG02/PROTOCOL.md','Published Li–Torr/Kowitt abstracts are catalogued, not numerically reproduced. The Hathaway null experiment addressed Podkletnov, not Li–Torr. No measured gravity effect.'),
   row('EG-01','Coupled field observability lab','Field & Gravity','SIMULATED',
     'Amy Eskridge-inspired source review and deterministic force-Keyhole toy: magnetic pickup, thermal lag, mechanical transients and an injected hypothetical extra coefficient. Matched fixture reversal addresses a synthetic identifiability collision.',
     'experiments/EG01/PROTOCOL.md','No real gravity experiment, superconducting simulation, anomalous measurement or new-physics discovery. Synthetic coefficient recovery depends on declared fixture assumptions.'),
