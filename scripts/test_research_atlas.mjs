@@ -162,6 +162,6 @@ check('NI1 E1B is separately indexed, source-linked and displays a controlled co
  assert(nav.includes("href:'#ni1-e1b'"))
  for(const token of ['id="ni1-e1b"','SIMULATED','runNI1B','Export E1B SIMULATED receipt','crossTalk'])assert(lab.includes(token))
  const doc=src('experiments/NI1/E1B_PROTOCOL.md')
- for(const token of ['identical','cross-talk','SIMULATED','NOT IDENTIFIABLE','none'])assert(doc.includes(token))
+ for(const token of ['identical','cross-talk','SIMULATED','NOT IDENTIFIABLE','authority NONE'])assert(doc.includes(token))
 })
 console.log('NBG-RESEARCH-ATLAS '+checks+'/'+checks+' PASS · links, labels, filters, accessibility and boundaries')
