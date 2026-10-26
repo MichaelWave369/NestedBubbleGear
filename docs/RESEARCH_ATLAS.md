@@ -56,3 +56,11 @@ The Atlas now includes a React force-forensics workbench at [#eg02](https://mich
 The synthetic 2×2 mass/gradient-reversal design recovers coefficients only with the explicitly assumed constant magnetic pickup and offset. Disabling either contrast forces **NOT IDENTIFIABLE**. Default anomaly coefficient is zero. The browser asks for no permissions, performs no measurement and exports a locally generated `SIMULATED / authority NONE` JSON receipt only when requested.
 
 [EG-02 protocol and source ledger](../experiments/EG02/PROTOCOL.md). Qualification: `npm run test:eg02 && npm run test:research-atlas && npm run build`.
+
+## EG-03 | Maxwell–London static slab baseline (SIMULATED)
+
+A new first-class Atlas React lab at [#eg03](https://michaelwave369.github.io/NestedBubbleGear/#eg03) compares a derived planar static London-field solution with an independently computed numerical finite-difference profile, contrasts an unscreened constant-field reference, and visualizes equal-and-opposite surface screening currents. UI controls vary the penetration length, slab thickness, surface field and numerical grid density; mesh-refinement diagnostics display discretization errors. The user can export a local `SIMULATED / authority NONE` JSON receipt.
+
+The reference uses established London electrodynamics with a planar parallel-field geometry and no vortices or finite-sample demagnetization, and does **not** implement Li–Torr gravitational couplings. See [EG-03 experimental protocol, equations, source bibliography and scope](../experiments/EG03/PROTOCOL.md).
+
+Run `npm run test:eg03 && npm run test:research-atlas && npm run build`. Existing EG-01, EG-02, AH and PHMP work remains unchanged.

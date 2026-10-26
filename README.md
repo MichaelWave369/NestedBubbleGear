@@ -9,6 +9,10 @@
 
 > **Core question:** When two states look identical through the current Keyhole, can an admissible future interaction reveal that they were never behaviorally equivalent?
 
+## EG-03 · Maxwell–London static slab baseline (SIMULATED)
+
+The [EG-03 live interactive Maxwell–London lab](https://michaelwave369.github.io/NestedBubbleGear/#eg03) reproduces the **established Meissner field-screening behavior** in a finite planar slab using two independent mathematical methods: a hyperbolic-cosine analytic reference and a tridiagonal finite-difference solver. It checks boundary conditions, opposite screening-current signs, field and length scaling, and mesh convergence. This is **not** a physical superconductor test or any evidence for gravity modification. [Protocol and primary physics sources](experiments/EG03/PROTOCOL.md) · `npm run test:eg03`.
+
 ## EG-02 · Independent model audit (synthetic)
 
 The [EG-02 force-forensics workbench](https://michaelwave369.github.io/NestedBubbleGear/#eg02) adds SI magnetic-dipole force calculations, two-mass and reversed-gradient synthetic controls, explicit refusal on rank-deficient observers, and a primary-source audit distinguishing Li–Torr papers from Kowitt's critique and Hathaway's **separate Podkletnov** negative replication. No real gravity measurement, Li–Torr numerical reconstruction or anomalous effect is claimed. Read the [EG-02 methods and citations](experiments/EG02/PROTOCOL.md) and run `npm run test:eg02`.
