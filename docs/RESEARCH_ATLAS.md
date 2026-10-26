@@ -72,3 +72,11 @@ The Research Atlas includes [EG-04](https://michaelwave369.github.io/NestedBubbl
 EG-04 imports the verified deterministic **EG-03 conventional London solver**, exposes analytical screening, magnetic field energy per area, current cancellation, source access and methods, and offers locally generated `SIMULATED / authority NONE` JSON receipts. Full-text access to Kowitt is not yet verified. [Detailed claim-boundary/source protocol](../experiments/EG04/PROTOCOL.md).
 
 Qualification: `npm run test:eg04 && npm run test:research-atlas && npm run build`. Earlier EG rungs and AH/PHMP are unchanged.
+
+## EG-05 | Equation custody, source visibility and SI audit (SIMULATED)
+
+The [EG-05 page](https://michaelwave369.github.io/NestedBubbleGear/#eg05) displays a complete, searchable source-custody ledger covering Li–Torr 1991, Li–Torr 1992 printed page 5493 Eqs. (46)–(50), printed page 5494 Eq. (54), and Kowitt 1994. The Li–Torr 1992 scanned paper has visual page confirmation. The 1991 and Kowitt full mathematical arguments remain **unreproduced**, with only publisher abstracts verified.
+
+The live panel checks the **SI dimensions** of the finite relaxation-time form `σ₀=nˢq²τ₀/m` and the auxiliary time scale `τ₀=ℏ/(2πkBTλ*)` under a stated dimensionless λ* assumption. A separate conditional plot of the printed 1992 approximate scaling `σ~10⁻²⁹/μᵣ²` is explicitly not measured conductivity, nor the paper's complete Eq. (48)/(54) derivation. London bulk shielding ratio `R=<B>/Bs` is never accepted as an authenticated material `μᵣ`. The module exports `SIMULATED / authority NONE` receipts only on user request. [Full source/claim ledger](../experiments/EG05/PROTOCOL.md).
+
+Qualification: `npm run test:eg05 && npm run test:research-atlas && npm run build`. Earlier frozen results untouched.
