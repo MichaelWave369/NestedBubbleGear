@@ -48,3 +48,11 @@ The Atlas now includes a first-class React EG-01 workbench and a source-linked *
 Use the export button to download a **SIMULATED / authority NONE** JSON receipt locally. No real magnetic hardware, superconductor, gravity sensor or remote service is involved. Primary sources and limitations are documented in [EG-01 PROTOCOL](../experiments/EG01/PROTOCOL.md). The historical source is Amy Eskridge's [HAL5 December 2018 presentation](https://www.hal5.org/PDF/HAL5-Dec2018-Talk-AntiGravity.pdf), not evidence of an operating anti-gravity apparatus. The 2003 Hathaway et al. replication reported no gravity-like force within instrument sensitivity.
 
 Qualification: `npm run test:eg01 && npm run test:research-atlas && npm run build`. All existing AH and PHMP frozen results retain their previous scope.
+
+## EG-02 | Independent Model Audit & Differential Controls (SIMULATED)
+
+The Atlas now includes a React force-forensics workbench at [#eg02](https://michaelwave369.github.io/NestedBubbleGear/#eg02). A conventional dipole force `F_z≈m_z·∂B_z/∂z` is contrasted against a **software-injected** fractional weight term and instrument offset. Source-linked cards distinguish the theoretical Li–Torr papers, Kowitt's critical analysis, and a **different** Podkletnov experiment whose replication found no apparent gravity-like response. This is an editorial publication-abstract audit, not an independent full-paper derivation.
+
+The synthetic 2×2 mass/gradient-reversal design recovers coefficients only with the explicitly assumed constant magnetic pickup and offset. Disabling either contrast forces **NOT IDENTIFIABLE**. Default anomaly coefficient is zero. The browser asks for no permissions, performs no measurement and exports a locally generated `SIMULATED / authority NONE` JSON receipt only when requested.
+
+[EG-02 protocol and source ledger](../experiments/EG02/PROTOCOL.md). Qualification: `npm run test:eg02 && npm run test:research-atlas && npm run build`.
