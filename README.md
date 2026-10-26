@@ -9,6 +9,10 @@
 
 > **Core question:** When two states look identical through the current Keyhole, can an admissible future interaction reveal that they were never behaviorally equivalent?
 
+## EG-05 · Primary equation custody and SI checks (SIMULATED)
+
+The [EG-05 Atlas workbench](https://michaelwave369.github.io/NestedBubbleGear/#eg05) now traces specific source-page equation forms in **Li & Torr (1992), printed pp. 5493–5494**. It runs machine-readable SI checks for the finite-relaxation-time reference `σ₀=nˢq²τ₀/m` and `τ₀=ℏ/(2πkBTλ*)`, then plots the paper's **conditional, contested** Eq. (49) log-log inverse-square sensitivity. An **explicit refusal gate** prevents the London slab's geometry-dependent bulk screening ratio from being silently identified with microscopic/material permeability. The full 1991 Li–Torr and 1994 Kowitt equations, contested Eq. (48)/(54) factors and experimental validation remain **unreproduced / blocked**. Every exported source receipt is `SIMULATED / authority NONE`. [EG-05 source custody and methods](experiments/EG05/PROTOCOL.md) · `npm run test:eg05`.
+
 ## EG-04 · Li–Torr / Kowitt permeability-inference audit (SIMULATED)
 
 The [EG-04 interactive Research Atlas lab](https://michaelwave369.github.io/NestedBubbleGear/#eg04) compares **ordinary, geometry-dependent London magnetic screening** against a deliberately **invalid** attempt to insert its macroscopic screening ratio as a microscopic material permeability into a formal inverse-square relation. This illustrates a specific identification pitfall raised by Kowitt's 1994 theoretical criticism of Li & Torr's 1992 paper. A scan of Li & Torr (1992), including Eq. 48, and APS abstracts inform a source-access ledger. **No published gravitational theory is fully rederived, no conductivity or gravity amplification calculated, and no physical effect measured.** See the [EG-04 source ledger and methods](experiments/EG04/PROTOCOL.md). Run `npm run test:eg04`.
