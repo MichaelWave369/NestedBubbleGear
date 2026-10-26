@@ -5,7 +5,7 @@ import {
 } from '../src/biomechanicalCrystalBridge.js'
 let passed = 0
 const check = (title, run) => { run(); passed++; console.log('PASS',title) }
-const near = (a,b,tol=1e-12) => assert.ok(Math.abs(a-b) <= tol*Math.max(1,Math.abs(a),Math.abs(b)),`expected ${a} ≈ ${b}`)
+const near = (a,b,tol=1e-12) => assert.ok(Math.abs(a-b) <= tol*Math.max(1e-30,Math.abs(a),Math.abs(b)),`expected ${a} ≈ ${b}`)
 const bundle = compareBSR3()
 check('frozen sample grid and finite synthetic traces', () => {
   const x=bundle.candidate
