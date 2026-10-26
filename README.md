@@ -9,6 +9,10 @@
 
 > **Core question:** When two states look identical through the current Keyhole, can an admissible future interaction reveal that they were never behaviorally equivalent?
 
+## EG-04 · Li–Torr / Kowitt permeability-inference audit (SIMULATED)
+
+The [EG-04 interactive Research Atlas lab](https://michaelwave369.github.io/NestedBubbleGear/#eg04) compares **ordinary, geometry-dependent London magnetic screening** against a deliberately **invalid** attempt to insert its macroscopic screening ratio as a microscopic material permeability into a formal inverse-square relation. This illustrates a specific identification pitfall raised by Kowitt's 1994 theoretical criticism of Li & Torr's 1992 paper. A scan of Li & Torr (1992), including Eq. 48, and APS abstracts inform a source-access ledger. **No published gravitational theory is fully rederived, no conductivity or gravity amplification calculated, and no physical effect measured.** See the [EG-04 source ledger and methods](experiments/EG04/PROTOCOL.md). Run `npm run test:eg04`.
+
 ## EG-03 · Maxwell–London static slab baseline (SIMULATED)
 
 The [EG-03 live interactive Maxwell–London lab](https://michaelwave369.github.io/NestedBubbleGear/#eg03) reproduces the **established Meissner field-screening behavior** in a finite planar slab using two independent mathematical methods: a hyperbolic-cosine analytic reference and a tridiagonal finite-difference solver. It checks boundary conditions, opposite screening-current signs, field and length scaling, and mesh convergence. This is **not** a physical superconductor test or any evidence for gravity modification. [Protocol and primary physics sources](experiments/EG03/PROTOCOL.md) · `npm run test:eg03`.
