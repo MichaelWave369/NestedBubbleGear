@@ -40,3 +40,11 @@ Source link integrity is checked by `scripts/test_research_atlas.mjs`; all index
 When a research PR introduces a new protocol, add a short, source-grounded record to `src/researchAtlasData.js`, choose the conservative correct status, run `npm run test:research-atlas` and the full build, and link it directly to the repository document. Never invent test results or promote a research candidate automatically.
 
 **Ledger Above Ego.**
+
+## EG-01 | Coupled Field Observability (SIMULATED)
+
+The Atlas now includes a first-class React EG-01 workbench and a source-linked **Field & Gravity** research track. Visitors can vary normalized drive amplitude, inject a hypothetical extra coefficient, toggle deterministic perturbation and compare a single-orientation coarse Keyhole against a paired, fixture-mirrored observation. The single run cannot distinguish magnetic pickup from the injected extra coefficient because the design matrix is rank deficient; the paired configuration can recover the injected coefficient **under explicit synthetic fixture-invariance and proxy-calibration assumptions**.
+
+Use the export button to download a **SIMULATED / authority NONE** JSON receipt locally. No real magnetic hardware, superconductor, gravity sensor or remote service is involved. Primary sources and limitations are documented in [EG-01 PROTOCOL](../experiments/EG01/PROTOCOL.md). The historical source is Amy Eskridge's [HAL5 December 2018 presentation](https://www.hal5.org/PDF/HAL5-Dec2018-Talk-AntiGravity.pdf), not evidence of an operating anti-gravity apparatus. The 2003 Hathaway et al. replication reported no gravity-like force within instrument sensitivity.
+
+Qualification: `npm run test:eg01 && npm run test:research-atlas && npm run build`. All existing AH and PHMP frozen results retain their previous scope.

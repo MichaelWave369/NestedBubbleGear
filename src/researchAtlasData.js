@@ -7,7 +7,7 @@ const row = (id, title, category, status, summary, path, note = '') => ({
 })
 export const RESEARCH_CATEGORIES = Object.freeze([
   'All', 'Semantic Memory', 'Phase & Optics', 'Keyhole Budgets',
-  'Resonance & Evidence', 'Governance & Time', 'Foundations',
+  'Resonance & Evidence', 'Field & Gravity', 'Governance & Time', 'Foundations',
 ])
 export const RESEARCH_STATUS = Object.freeze({
   'DEV PILOT': 'Working exploratory or operator-driven software, not validated deployment',
@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('EG-01','Coupled field observability lab','Field & Gravity','SIMULATED',
+    'Amy Eskridge-inspired source review and deterministic force-Keyhole toy: magnetic pickup, thermal lag, mechanical transients and an injected hypothetical extra coefficient. Matched fixture reversal addresses a synthetic identifiability collision.',
+    'experiments/EG01/PROTOCOL.md','No real gravity experiment, superconducting simulation, anomalous measurement or new-physics discovery. Synthetic coefficient recovery depends on declared fixture assumptions.'),
   row('SM-E1E','Click-to-run hosted embedding pilot','Semantic Memory','DEV PILOT',
     'GitHub-only manual Actions workflow downloads fixed-revision public embeddings model on an ephemeral runner; produces E1A/E1C/E1D summary receipts from synthetic development text.',
     'experiments/PHMP1/PHMP_SM1_E1E.md','No actual hosted model evidence exists until the operator manually runs the workflow and downloads its report.'),
