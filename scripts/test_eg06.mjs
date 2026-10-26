@@ -24,7 +24,8 @@ check('ground-truth null does not require a mass-like coefficient',()=>{
  near(r.conventional.coefficients.evenDrive,EG06.evenPickupN)
  assert(r.conventional.rmseN<1e-10)
  assert(r.extra.rmseN<1e-10)
- assert(r.evidence.favoredByBIC==='C0')
+ assert(r.evidence.deltaBIC<0,'baseline should have lower BIC on its exact clean null')
+ assert.equal(r.evidence.favoredByBIC,'UNDECIDED','a single added parameter should not pass the preregistered strong threshold by itself')
 })
 check('software-injected term is recoverable in an otherwise clean fixture',()=>{
  const r=runEG06({massLikeFraction:.015,noiseN:0})
