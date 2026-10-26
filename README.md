@@ -9,6 +9,10 @@
 
 > **Core question:** When two states look identical through the current Keyhole, can an admissible future interaction reveal that they were never behaviorally equivalent?
 
+## EG-02 · Independent model audit (synthetic)
+
+The [EG-02 force-forensics workbench](https://michaelwave369.github.io/NestedBubbleGear/#eg02) adds SI magnetic-dipole force calculations, two-mass and reversed-gradient synthetic controls, explicit refusal on rank-deficient observers, and a primary-source audit distinguishing Li–Torr papers from Kowitt's critique and Hathaway's **separate Podkletnov** negative replication. No real gravity measurement, Li–Torr numerical reconstruction or anomalous effect is claimed. Read the [EG-02 methods and citations](experiments/EG02/PROTOCOL.md) and run `npm run test:eg02`.
+
 ## EG-01 · Coupled Field Observability (synthetic)
 
 The [live Research Atlas](https://michaelwave369.github.io/NestedBubbleGear/#eg01) now includes an EG-01 browser lab comparing magnetic pickup, thermal drift, mechanical transients, and an **injected hypothetical** coefficient with a paired fixture-control Keyhole. It is a deterministic causal-identifiability study, **not** evidence of anti-gravity or a real superconductor experiment. Inspired by Amy Eskridge's historical HAL5 survey; grounded in primary literature and counterevidence. Read the [protocol and source audit](experiments/EG01/PROTOCOL.md). Run `npm run test:eg01` for the null, injection, ambiguity and paired-fit checks.
