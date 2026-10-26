@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('EG-04','Li–Torr / Kowitt permeability-identity audit','Field & Gravity','SIMULATED',
+    'Source-scoped examination of Li–Torr (1992) inverse-square permeability dependence and Kowitt (1994) criticism. EG-03 London slab shows why a geometry-dependent bulk screening ratio must not be substituted as a microscopic permeability.',
+    'experiments/EG04/PROTOCOL.md','Deliberately invalid inverse-square substitution is a diagnostic, NOT a Li–Torr conductivity calculation or a gravity prediction; full derivation audit awaits primary-text verification.'),
   row('EG-03','Maxwell–London conventional screening baseline','Field & Gravity','SIMULATED',
     'Independently solves a static planar Meissner-state London boundary problem using exact cosh profiles and a finite-difference tridiagonal solver, with current-sign, boundary and mesh-convergence controls.',
     'experiments/EG03/PROTOCOL.md','Established superconductivity under idealized slab assumptions, not measured material behavior, Li–Torr gravitational reproduction, or anomalous gravity.'),
