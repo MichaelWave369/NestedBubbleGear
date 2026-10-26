@@ -153,6 +153,10 @@ NBG
 - **Φ-System** — task-typed convergence/control layer, maintained as a conceptually separate line.
 - **Ledger** — replayable provenance.
 
+## LIQUID-BGA-01 · Liquid interface and ΦGrooveDrive (PROPOSED)
+
+[Formal conceptual protocol](docs/LIQUID_INTERFACE_BUBBLE_GEAR_ALTERMATH_V0_1.md) formalizes Liquid dance-inspired **hands-as-bubbles**, **fingers-as-gears**, and gap/phase choreography as a candidate distributed actuator controller. The interface is a measurable coupling zone; **Altermath retains its existing NBG meaning** of causally relevant information obscured by coarse cancellation, rather than becoming a new force or field. Proposed LIQ-E0/E1/E2 tests distinguish isolated-system conservation, fluid-coupled thrust, regenerative-energy accounting and Keyhole observability. This is an **unexecuted hypothesis**, not evidence of net thrust, reactionless propulsion, or recovered free energy. The proposed separate ΦGrooveDrive lab would eventually own runnable simulations and hardware interfaces. Existing frozen NBG protocols remain unchanged.
+
 ## NBG-HORN-A1 · Finite Bulk / Persistent Boundary
 
 [Interactive Gabriel's Horn laboratory](https://michaelwave369.github.io/NestedBubbleGear/#horn-a1) · [Formal protocol and controls](experiments/HORN-A1/SPEC.md) · [Reproduction guide](experiments/HORN-A1/README.md)
