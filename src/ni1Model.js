@@ -31,7 +31,7 @@ export function generateNI1({world='pathway',seed=369,donorShiftAfterDetach=0,do
   const inputs=[]
   for(let t=0;t<NI1.total;t++){
     const common=0.66*Math.sin(t*.17+.2)+0.31*Math.cos(t*.36)
-    const neuralBase=0.58*common+0.55*Math.sin(t*.31+seed*.001)
+    const neuralBase=(world==='null'?0:0.58*common)+0.55*Math.sin(t*.31+seed*.001)
       +(random()-.5)*.11
     const sampleNoise=(random()-.5)*.035
     const artifactNoise=(random()-.5)*.13
