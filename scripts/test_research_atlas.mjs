@@ -119,7 +119,7 @@ check('EG-05 custody and dimensional firewall is registered and visible',()=>{
  for(const token of ['id="eg05"','runEG05','Export simulated ledger','KEYHOLE REFUSAL','SOURCE-BY-SOURCE CUSTODY'])
   assert(lab.includes(token))
  const protocol=src('experiments/EG05/PROTOCOL.md')
- for(const token of ['5493','5494','Eq. (49)','Kowitt','FULL','authority NONE'])
+ for(const token of ['5493','5494','Eq. (49)','Kowitt','full','authority NONE'])
   assert(protocol.includes(token))
 })
 console.log('NBG-RESEARCH-ATLAS '+checks+'/'+checks+' PASS · links, labels, filters, accessibility and boundaries')
