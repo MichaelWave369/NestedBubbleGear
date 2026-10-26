@@ -49,7 +49,7 @@ For two idealized spherical module boundaries with centers x_i and x_j and radii
 
 For non-spherical modules, use the signed minimum surface separation rather than the spherical approximation. The interface state may include
 
-    c_ij(t) = (d_ij, ddot? NO: d_dot_ij, Delta_phi_ij, F_ij, P_ij).
+    c_ij(t) = (d_ij, d_dot_ij, Delta_phi_ij, F_ij, P_ij).
 
 Here d_dot_ij is separation velocity, Delta_phi_ij is phase difference, F_ij is interaction force, and P_ij is estimated instantaneous power flow. The symbols describe variables to observe or estimate, not measured phenomena already discovered.
 
