@@ -98,3 +98,11 @@ The disconnected-sample null changes donor state only **after** sample separatio
 The model uses invented dimensionless coefficients and an oracle conventional recurrence. Good synthetic model recovery is not independent validation or an advantage over established modeling methods. All exports are operator-created local JSON receipts with origin **SIMULATED** and authority **NONE**.
 
 [Read the E1 frozen computational protocol](../experiments/NI1/E1_PROTOCOL.md) and the [E0 literature mapping](NEUROIMMUNE_CAUSAL_KEYHOLES.md). Run \`npm run test:ni1 && npm run test:research-atlas && npm run test:navigation && npm run build\`. Earlier frozen results and reserved datasets remain unchanged.
+
+## NI1 E1B | Causal collisions and isolated probes (SIMULATED)
+
+The [NI1 E1B React lab](https://michaelwave369.github.io/NestedBubbleGear/#ni1-e1b) constructs two **exactly observationally equivalent** synthetic systems with different causes. Without a probe, two causal programs produce the same full passive traces, so a larger dataset or clever fit cannot uniquely identify the generating mechanism. The public UI reveals which generator was selected for education, but the *evaluator* receives only allowed time traces plus a declared intervention channel, not the generator's truth label.
+
+Controlled software interventions contrast a neural-like input against a measurement/handling nuisance. Properly isolated probes distinguish the two invented causes; deliberately leaked probes trigger **REFUSE: FAILED CHANNEL ISOLATION** even when response curves change. The tool reports \`SIMULATED / authority NONE\`, exports local JSON only when requested, and never claims an isolated-blood effect, clinical outcome or mind-to-mind biological field.
+
+Read the frozen [E1B protocol](../experiments/NI1/E1B_PROTOCOL.md). Run \`npm run test:ni1-collision && npm run test:research-atlas && npm run test:navigation && npm run build\`. E0/E1 and other frozen NBG datasets remain unchanged.

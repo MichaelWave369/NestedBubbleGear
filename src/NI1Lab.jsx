@@ -75,6 +75,7 @@ export default function NI1Lab(){
         <p>Explore five invented worlds that separate ordinary neural–immune feedback, shared inputs,
           post-collection history and measurement artifacts. Compare a known conventional model
           with a fitted candidate using future points held out from training.</p>
+        <p><a href="#ni1-e1b">Continue to NI1 E1B · exact causal collisions ↓</a></p>
         <a href="https://github.com/MichaelWave369/NestedBubbleGear/blob/main/experiments/NI1/E1_PROTOCOL.md"
           target="_blank" rel="noopener noreferrer">Review E1 synthetic protocol ↗</a>
       </div>
