@@ -35,6 +35,10 @@ If the existing project names the navigation task differently, `npm test` includ
 
 Source link integrity is checked by `scripts/test_research_atlas.mjs`; all indexed source paths must exist in the repository. Navigation regression checks ensure existing `#experiments` is retained while `#research-atlas` becomes visible.
 
+## CO-01 | Metabolite-gated chemistry (LITERATURE / PROPOSED NBG)
+
+The Atlas indexes [CO-01](CO01_METABOLITE_GATED_CHEMISTRY.md), a 2026 *Nature Communications* cell-line proof of concept in which an albumin-stabilized palladium reagent uses endogenous CO to synthesize a phenanthridinone compound. The **published cell-line measurements** are source-attributed; the **NBG compartment/causal-Keyhole mapping** is a proposed analogy without biological validation. A normal fibroblast line also yielded detectable chemical product, and the measured cytotoxic selectivity was modest. No animal tumor-treatment or clinical result is claimed.
+
 ## Future maintenance
 
 When a research PR introduces a new protocol, add a short, source-grounded record to `src/researchAtlasData.js`, choose the conservative correct status, run `npm run test:research-atlas` and the full build, and link it directly to the repository document. Never invent test results or promote a research candidate automatically.

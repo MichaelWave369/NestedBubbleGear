@@ -10,7 +10,7 @@ import NI1Lab from './NI1Lab.jsx'
 import NI1CollisionLab from './NI1CollisionLab.jsx'
 import './researchAtlas.css'
 
-const PINNED = ['NI1-E1B','EG-06','EG-05','EG-04']
+const PINNED = ['CO-01','NI1-E1B','EG-06','EG-05','EG-04']
 function SourceLink({ track, children = 'Read research ↗' }) {
   return <a className="research-link" href={track.url} target="_blank" rel="noopener noreferrer">
     {children}<span className="research-link-path">{track.path}</span>

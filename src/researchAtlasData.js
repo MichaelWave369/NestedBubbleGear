@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('CO-01','Metabolite-gated intracellular drug synthesis','Resonance & Evidence','PROPOSED',
+    'Peer-reviewed 2026 cell-line study: albumin-protected palladium chemistry uses endogenous CO as a carbonyl feedstock for intracellular phenanthridinone synthesis. NBG E0 proposes compartment, flux and causal-Keyhole comparisons.',
+    'docs/CO01_METABOLITE_GATED_CHEMISTRY.md','SOURCE-ATTRIBUTED in vitro work, not a tested NBG model or a cancer therapy. Normal fibroblasts also form product; cytotoxic selectivity is modest. No animal or clinical evidence.'),
   row('EG-06','Competing predictions & exact causal collisions','Field & Gravity','SIMULATED',
     'A source-scoped synthetic force-model testbench compares conventional magnetic, thermal and vibration pickup against a generic mass-scaled residual with gradient reversal, two masses, held-out scoring and a perfectly aliased conventional nuisance.',
     'experiments/EG06/PROTOCOL.md','X1 is a generic hypothetical term, NOT a published Li–Torr force equation. Even an improved model fit cannot identify gravity when a mass-correlated fixture artifact produces the identical signal.'),

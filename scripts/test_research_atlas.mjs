@@ -57,6 +57,16 @@ check('site exposes research atlas with accessible search, links and no live-mod
  for(const word of ['manually','without APIs','source'])assert(ui.toLowerCase().includes(word.toLowerCase()))
  assert(css.includes('@media(max-width:760px)'))
 })
+check('CO-01 literature entry preserves in vitro limits and the proposed NBG boundary',()=>{
+ const co=RESEARCH_TRACKS.find(x=>x.id==='CO-01')
+ assert(co && co.status==='PROPOSED' && co.category==='Resonance & Evidence')
+ assert.equal(co.path,'docs/CO01_METABOLITE_GATED_CHEMISTRY.md')
+ assert(findResearch('metabolite','Resonance & Evidence').some(x=>x.id==='CO-01'))
+ const note=src(co.path)
+ for(const token of ['10.1038/s41467-026-77616-8','HepG2','TIG3','13.99','37.54','ex vivo','NONE','PROPOSED','not a cancer therapy']){
+  assert((note+' '+co.note).toLowerCase().includes(token.toLowerCase()),'CO-01 missing '+token)
+ }
+})
 // Featured Atlas cards may rotate; persistent lab mounts and indexed source paths may not.
 check('EG-01 is indexed with an honest claim status and visible interactive lab',()=>{
  const eg=RESEARCH_TRACKS.find(x=>x.id==='EG-01')
