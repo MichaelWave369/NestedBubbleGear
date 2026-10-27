@@ -1,0 +1,230 @@
+{
+  "id": "ES-01",
+  "version": "0.1.0",
+  "updated": "2026-10-27",
+  "status": "PROPOSED / literature-only",
+  "families": [
+    "LSD",
+    "Cannabis",
+    "Opioids / opium",
+    "Psilocybin",
+    "DMT / 5-MeO-DMT",
+    "MDMA",
+    "MDA",
+    "Ketamine"
+  ],
+  "evidenceTiers": {
+    "regulatory": "Approved product for its labeled indication only; not proof of molecular effect separation",
+    "human-safety": "Human tolerability, not therapeutic efficacy",
+    "human-comparison": "Human pharmacology or acute-effects comparison, not therapeutic efficacy",
+    "preclinical": "Cell and/or animal findings; no validated human treatment"
+  },
+  "records": [
+    {
+      "id": "ES01-LSD-JRT",
+      "family": "LSD",
+      "compound": "JRT",
+      "comparator": "LSD",
+      "relationship": "structural analogue",
+      "mechanism": "Serotonin-receptor pharmacology; cortical spinogenesis",
+      "desiredEffect": "Neuronal structural plasticity and disease-relevant behavioral outcomes",
+      "undesiredEffect": "Hallucinogenic-like responses and psychosis-relevant signatures",
+      "studyDesign": "Preclinical neurons and rodent behavior",
+      "evidenceTier": "preclinical",
+      "separationMode": "analogue",
+      "observed": "JRT promoted cortical spine growth and behavioral effects in preclinical tests with reduced hallucinogenic potential relative to LSD.",
+      "boundary": "No demonstrated human efficacy or assurance that hallucinations are absent in people.",
+      "source": {
+        "title": "Molecular design of a therapeutic LSD analogue with reduced hallucinogenic potential",
+        "year": 2025,
+        "url": "https://doi.org/10.1073/pnas.2416106122",
+        "doi": "10.1073/pnas.2416106122"
+      }
+    },
+    {
+      "id": "ES01-CAN-CBD",
+      "family": "Cannabis",
+      "compound": "Purified cannabidiol (Epidiolex)",
+      "comparator": "THC-containing cannabis-related products",
+      "relationship": "distinct cannabinoid, not THC modification",
+      "mechanism": "Multiple targets; not simply CB1 agonism",
+      "desiredEffect": "Seizure control for specific approved epilepsy indications",
+      "undesiredEffect": "THC-like intoxication",
+      "studyDesign": "Regulatory approval supported by clinical trials",
+      "evidenceTier": "regulatory",
+      "separationMode": "distinct-compound",
+      "observed": "FDA-approved purified CBD treats seizures in Lennox-Gastaut syndrome, Dravet syndrome and tuberous sclerosis complex without THC-like intoxication.",
+      "boundary": "This does not show that removing intoxication from THC preserves THC's effects, nor that CBD treats other conditions.",
+      "source": {
+        "title": "FDA regulation of cannabis and cannabis-derived products",
+        "year": 2026,
+        "url": "https://www.fda.gov/news-events/public-health-focus/fda-regulation-cannabis-and-cannabis-derived-products-including-cannabidiol-cbd"
+      }
+    },
+    {
+      "id": "ES01-OPI-DFNZ",
+      "family": "Opioids / opium",
+      "compound": "DFNZ",
+      "comparator": "Other mu-opioid agonists including fentanyl and morphine",
+      "relationship": "synthetic opioid example (not isolated from opium)",
+      "mechanism": "Mu-opioid receptor signaling, brain entry and receptor trafficking",
+      "desiredEffect": "Analgesia in rodents",
+      "undesiredEffect": "Respiratory depression, tolerance, withdrawal and strong reinforcement",
+      "studyDesign": "Preclinical receptor assays and rodent studies",
+      "evidenceTier": "preclinical",
+      "separationMode": "pharmacokinetic-signaling",
+      "observed": "DFNZ showed analgesia with markedly different respiratory, tolerance and reinforcing profiles in the reported rodent experiments.",
+      "boundary": "Not demonstrated safe, effective or non-addictive in humans. Some reinforcement occurred. Nitazene chemical family carries serious overdose concerns.",
+      "source": {
+        "title": "A µ-opioid receptor superagonist analgesic with minimal adverse effects",
+        "year": 2026,
+        "url": "https://doi.org/10.1038/s41586-026-10299-9",
+        "doi": "10.1038/s41586-026-10299-9"
+      }
+    },
+    {
+      "id": "ES01-PSI-L5",
+      "family": "Psilocybin",
+      "compound": "Psilocybin",
+      "comparator": "Cell-type-specific 5-HT2A receptor perturbations",
+      "relationship": "cell-specific mechanism, not a new drug",
+      "mechanism": "Cortical layer-5 pyramidal-neuron 5-HT2A receptors",
+      "desiredEffect": "Synaptic remodeling in mouse cortex",
+      "undesiredEffect": "Head-twitch response (limited rodent proxy for hallucination)",
+      "studyDesign": "Cell-type-specific mouse intervention",
+      "evidenceTier": "preclinical",
+      "separationMode": "cell-specific",
+      "observed": "Layer-5 pyramidal-neuron 5-HT2A signaling was necessary and sufficient for induced synaptic remodeling but dispensable for head twitch in tested mice.",
+      "boundary": "Head twitch cannot establish the presence or absence of human hallucinations; no human antidepressant separation is demonstrated.",
+      "source": {
+        "title": "5-HT2A receptors in layer 5 pyramidal neurons mediate the neuroplastic but not the hallucinogenic effects of psilocybin",
+        "year": 2026,
+        "url": "https://www.nature.com/articles/s41593-026-02490-y",
+        "doi": "10.1038/s41593-026-02490-y"
+      }
+    },
+    {
+      "id": "ES01-DMT-1A",
+      "family": "DMT / 5-MeO-DMT",
+      "compound": "5-HT1A-selective 5-MeO-DMT analogue",
+      "comparator": "5-MeO-DMT",
+      "relationship": "structural analogue",
+      "mechanism": "Serotonin 5-HT1A versus 5-HT2A receptor selectivity",
+      "desiredEffect": "Antidepressant-like and anxiolytic-like responses in rodents",
+      "undesiredEffect": "Hallucinogenic-like rodent responses",
+      "studyDesign": "Structural biology, in vitro pharmacology and rodent behavior",
+      "evidenceTier": "preclinical",
+      "separationMode": "receptor-selective",
+      "observed": "A 5-HT1A-selective 5-MeO-DMT analogue retained selected mood-related behaviors without the tested hallucinogenic-like readout.",
+      "boundary": "No proof of efficacy or non-hallucinogenic action in humans; 5-MeO-DMT is not interchangeable with DMT.",
+      "source": {
+        "title": "Structural pharmacology and therapeutic potential of 5-methoxytryptamines",
+        "year": 2024,
+        "url": "https://doi.org/10.1038/s41586-024-07403-2",
+        "doi": "10.1038/s41586-024-07403-2"
+      }
+    },
+    {
+      "id": "ES01-MDMA-RMDDMA",
+      "family": "MDMA",
+      "compound": "R-MDDMA",
+      "comparator": "MDMA enantiomers",
+      "relationship": "structural analogue, not metabolic product",
+      "mechanism": "Monoamine-release profile and neuroplasticity",
+      "desiredEffect": "Fear extinction, synaptic plasticity and antidepressant-like animal outcomes",
+      "undesiredEffect": "Monoamine release, hyperthermia and stimulation proxies",
+      "studyDesign": "In vitro experiments and rodent behavior",
+      "evidenceTier": "preclinical",
+      "separationMode": "analogue",
+      "observed": "R-MDDMA showed plasticity and behavioral effects without several classic MDMA pharmacology/readouts at the tested doses.",
+      "boundary": "Human PTSD efficacy and long-term safety are not established. Therapeutic psychological experience may contribute to MDMA-assisted therapy.",
+      "source": {
+        "title": "R-MDDMA is a Safer Analogue of MDMA with Therapeutic Potential",
+        "year": 2026,
+        "url": "https://doi.org/10.1021/acschemneuro.5c00891",
+        "doi": "10.1021/acschemneuro.5c00891"
+      }
+    },
+    {
+      "id": "ES01-MDA-COMP",
+      "family": "MDA",
+      "compound": "MDA",
+      "comparator": "MDMA",
+      "relationship": "related molecule and MDMA metabolite",
+      "mechanism": "Monoamine transporters and other serotonergic activity",
+      "desiredEffect": "Acute comparative pharmacology (not a demonstrated treatment)",
+      "undesiredEffect": "Longer and stronger adverse subjective effects and visual alterations",
+      "studyDesign": "Randomized double-blind human crossover comparison",
+      "evidenceTier": "human-comparison",
+      "separationMode": "head-to-head",
+      "observed": "MDA had longer and stronger subjective and more psychedelic-like effects than MDMA at equimolar doses in the studied volunteers.",
+      "boundary": "A direct acute-effects comparison is not proof of therapeutic benefit or a safe therapeutic MDA formulation.",
+      "source": {
+        "title": "Acute effects of MDMA, MDA, lysine-MDMA, and lysine-MDA in a randomized crossover trial",
+        "year": 2025,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40999236/"
+      }
+    },
+    {
+      "id": "ES01-KET-HNK",
+      "family": "Ketamine",
+      "compound": "(2R,6R)-hydroxynorketamine",
+      "comparator": "Ketamine",
+      "relationship": "ketamine metabolite",
+      "mechanism": "Metabolite pharmacology distinct from parent ketamine; mechanisms under study",
+      "desiredEffect": "Candidate antidepressant outcomes from animal studies",
+      "undesiredEffect": "Dissociation and anesthesia/sedation",
+      "studyDesign": "Phase 1 healthy-human safety/PK/PD study",
+      "evidenceTier": "human-safety",
+      "separationMode": "metabolite",
+      "observed": "The tested metabolite was tolerated without appreciable dissociation or sedation at the investigated doses in healthy volunteers.",
+      "boundary": "Phase 1 did not establish antidepressant efficacy in patients; this is not an approved treatment.",
+      "source": {
+        "title": "A Phase 1 Assessment of (2R,6R)-Hydroxynorketamine in Healthy Volunteers",
+        "year": 2024,
+        "url": "https://doi.org/10.1002/cpt.3391",
+        "doi": "10.1002/cpt.3391"
+      }
+    },
+    {
+      "id": "ES01-MDMA-MDA-MET",
+      "family": "MDMA",
+      "compound": "MDA (MDMA metabolite)",
+      "comparator": "MDMA",
+      "relationship": "N-demethylation product",
+      "mechanism": "Human hepatic metabolism; CYP-dependent pathways",
+      "desiredEffect": "Mechanistic mapping of exposure and effects (no therapeutic outcome tested)",
+      "undesiredEffect": "Variable exposure, autonomic and subjective effects",
+      "studyDesign": "Pooled controlled human pharmacogenetic analysis",
+      "evidenceTier": "human-comparison",
+      "separationMode": "metabolite",
+      "observed": "Human CYP2D6 variation changed MDMA and MDA exposures and some response measures; MDA is a metabolite, not merely a comparison drug.",
+      "boundary": "Observed metabolic variation is not evidence that increasing or blocking MDA improves therapeutic outcomes.",
+      "source": {
+        "title": "CYP2D6 function moderates the pharmacokinetics and pharmacodynamics of MDMA",
+        "year": 2016,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27253829/"
+      }
+    },
+    {
+      "id": "ES01-KET-ESK",
+      "family": "Ketamine",
+      "compound": "Esketamine (Spravato)",
+      "comparator": "Investigational ketamine metabolites",
+      "relationship": "approved enantiomer comparator, not a non-dissociative derivative",
+      "mechanism": "NMDA-antagonist pharmacology and downstream signaling",
+      "desiredEffect": "Treatment-resistant depression under labeled conditions",
+      "undesiredEffect": "Dissociation, sedation, misuse risk and blood pressure elevation",
+      "studyDesign": "Regulatory labeling and clinical evidence",
+      "evidenceTier": "regulatory",
+      "separationMode": "clinical-baseline",
+      "observed": "Esketamine is a regulated, FDA-approved treatment for specified depression indications; its known dissociation and sedation hazards remain.",
+      "boundary": "Regulatory approval is not evidence that dissociative effects can be eliminated without changing benefit; monitoring requirements apply.",
+      "source": {
+        "title": "FDA: Depression Medicines (esketamine warnings)",
+        "year": 2026,
+        "url": "https://www.fda.gov/consumers/womens-health-topics/depression-medicines"
+      }
+    }
+  ]
+}
