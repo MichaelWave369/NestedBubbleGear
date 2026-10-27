@@ -36,6 +36,10 @@ If the existing project names the navigation task differently, `npm test` includ
 Source link integrity is checked by `scripts/test_research_atlas.mjs`; all indexed source paths must exist in the repository. Navigation regression checks ensure existing `#experiments` is retained while `#research-atlas` becomes visible.
 
 
+## ES-01 E3 | Falsifiability-first question contracts (DRAFT)
+
+The [E3 question contracts](ES01_E3_FALSIFIABILITY_CONTRACTS.md) add an interactive, source-linked reader for ten *draft, untested, not-preregistered* research questions. Every candidate interpretation has an alternative, a possible disconfirming observation and missing-evidence requirements. No NBG empirical result, biological experiment, causal claim, or drug prediction follows. The E0 evidence registry, E1 comparison gates and E2 claim-custody records are unchanged. Qualification: `npm run test:es01-e3 && npm run test:research-atlas && npm run build`.
+
 ## ES-01 E2 | Claim provenance and source-scope custody (PROPOSED)
 
 The [ES-01 E2 claim audit](ES01_E2_CLAIM_PROVENANCE.md) links every evidence-card observation to one manually reviewed primary abstract or regulatory page, states what that source supports, and explicitly refuses stronger therapeutic claims. This editorial review does not independently reproduce any biomedical study. Run `npm run test:es01-e2` for local integrity checks.
