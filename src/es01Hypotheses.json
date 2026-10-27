@@ -1,0 +1,199 @@
+{
+  "schema": "ES01-E3-QUESTION-CONTRACT",
+  "version": "0.1.0",
+  "created": "2026-10-27",
+  "status": "DRAFT / NOT PREREGISTERED / NOT EXECUTED",
+  "purpose": "Structured falsification-first research questions. These are not reported results, biological simulations, clinical designs, approval pathways, or executable tests on humans or animals.",
+  "records": [
+    {
+      "id": "ES01-E3-H01",
+      "sourceRecordId": "ES01-LSD-JRT",
+      "family": "LSD",
+      "question": "Can the reported plasticity versus hallucinogenic-like response contrast persist in independently replicated, exposure-comparable preclinical comparisons?",
+      "candidate": "A reproducible contrast between separate neural remodeling and animal behavioral readouts may indicate partially separable pathways.",
+      "alternative": "Differences in exposure, timing, assay sensitivity, or laboratory context explain the observed contrast.",
+      "discriminatingEvidence": "Independent work reproduces both endpoint classes with aligned exposure and observation periods, while checking target engagement and assay sensitivity.",
+      "couldCountAgainst": "The candidate contrast disappears or reverses under an adequately controlled and sensitive comparison; the apparent selectivity is not reproducible.",
+      "requiredEvidence": [
+        "Independent study reproducing paired endpoint classes",
+        "Exposure and target-engagement comparability",
+        "Measurement uncertainty and negative controls"
+      ],
+      "interpretationBoundary": "Even consistent animal behavioral proxies cannot establish absence of human hallucinations or clinical efficacy.",
+      "status": "DRAFT_UNTESTED",
+      "result": "NONE",
+      "evidenceAuthority": "NONE"
+    },
+    {
+      "id": "ES01-E3-H02",
+      "sourceRecordId": "ES01-CAN-CBD",
+      "family": "Cannabis",
+      "question": "Does the cited approved cannabidiol indication demonstrate selective preservation of THC therapeutic effects without THC intoxication?",
+      "candidate": "The CBD record establishes labeled seizure benefits of a distinct cannabinoid, not a transformed version of THC.",
+      "alternative": "The superficial similarity of shared plant origin creates a false molecular-equivalence story.",
+      "discriminatingEvidence": "Evidence specifically compares a defined candidate, a prespecified therapeutic outcome and relevant intoxication measures under a scientifically interpretable design.",
+      "couldCountAgainst": "If there is no direct THC-related target benefit comparison, the claimed THC benefit-without-high separation is unsupported, regardless of CBD approval.",
+      "requiredEvidence": [
+        "A defined molecule-to-molecule causal comparison",
+        "Same indication and interpretable therapeutic endpoints",
+        "Independent measurement of relevant intoxication or adverse effects"
+      ],
+      "interpretationBoundary": "This record is a scope-control question, not a claim that CBD reproduces THC benefits or treats pain.",
+      "status": "DRAFT_UNTESTED",
+      "result": "NONE",
+      "evidenceAuthority": "NONE"
+    },
+    {
+      "id": "ES01-E3-H03",
+      "sourceRecordId": "ES01-OPI-DFNZ",
+      "family": "Opioids / opium",
+      "question": "Do reported rodent antinociception and adverse-physiology profiles remain dissociable under independent exposure-matched checks?",
+      "candidate": "The DFNZ animal findings suggest an opioid response profile worth separating into analgesia, breathing and reinforcement measurements.",
+      "alternative": "Differences in exposure duration, receptor engagement, species or assay sensitivity explain an apparent safety gap.",
+      "discriminatingEvidence": "Independent preclinical datasets evaluate analgesia and respiratory/reinforcement outcomes on comparable exposure and timescales.",
+      "couldCountAgainst": "The apparent separation is lost with matched relevant exposure or sensitive adverse-effect readouts.",
+      "requiredEvidence": [
+        "Replicated pain and respiratory measures in suitable preclinical contexts",
+        "Exposure and timing controls",
+        "Full adverse-effect and reinforcing-behavior assessment"
+      ],
+      "interpretationBoundary": "Synthetic nitazenes are high-risk opioids. No safe human dose, low-overdose-risk claim, or non-addiction claim follows.",
+      "status": "DRAFT_UNTESTED",
+      "result": "NONE",
+      "evidenceAuthority": "NONE"
+    },
+    {
+      "id": "ES01-E3-H04",
+      "sourceRecordId": "ES01-PSI-L5",
+      "family": "Psilocybin",
+      "question": "Is the mouse neuron-subtype remodeling response separable from the head-twitch proxy across independent conditions?",
+      "candidate": "Specified cortical cell populations may influence distinct measured mouse endpoints.",
+      "alternative": "Different assay windows or neural adaptation explain a seeming dissociation, and head twitch does not measure subjective experience.",
+      "discriminatingEvidence": "Independent cell-type-specific readouts establish both structural remodeling and behavioral-proxy behavior with appropriate controls.",
+      "couldCountAgainst": "The distinct endpoint relationship is not reproducible under independent, sufficiently powered measurements.",
+      "requiredEvidence": [
+        "Independent replication of cell-specific functional contrast",
+        "Timing and neural-state controls",
+        "Alternative readouts beyond a single behavioral proxy"
+      ],
+      "interpretationBoundary": "No conclusion about human consciousness, hallucination absence, or antidepressant treatment benefit.",
+      "status": "DRAFT_UNTESTED",
+      "result": "NONE",
+      "evidenceAuthority": "NONE"
+    },
+    {
+      "id": "ES01-E3-H05",
+      "sourceRecordId": "ES01-DMT-1A",
+      "family": "DMT / 5-MeO-DMT",
+      "question": "Is a reported 5-HT1A-preferring analogue's animal behavioral profile robust to off-target and exposure explanations?",
+      "candidate": "A selective receptor profile may correlate with different measurable preclinical outcomes.",
+      "alternative": "Off-target signaling, pharmacokinetics or species-specific behavior account for measured endpoint differences.",
+      "discriminatingEvidence": "Replicated receptor and behavioral observations converge after suitable exposure and specificity controls.",
+      "couldCountAgainst": "The desired-versus-adverse preclinical contrast does not reproduce when confounders are constrained.",
+      "requiredEvidence": [
+        "Independent receptor-selectivity measurements",
+        "Comparable exposure and off-target assessment",
+        "Convergent, separately measured behavioral outcomes"
+      ],
+      "interpretationBoundary": "5-MeO-DMT and DMT are different molecules; no guarantee of non-hallucinogenic action or benefit in humans.",
+      "status": "DRAFT_UNTESTED",
+      "result": "NONE",
+      "evidenceAuthority": "NONE"
+    },
+    {
+      "id": "ES01-E3-H06",
+      "sourceRecordId": "ES01-MDMA-RMDDMA",
+      "family": "MDMA",
+      "question": "Can the R-MDDMA preclinical fear-extinction and plasticity signals be reproduced independently of MDMA-like physiological responses?",
+      "candidate": "Published preclinical findings motivate investigating differentiated behavioral and physiological endpoints.",
+      "alternative": "Pharmacokinetic mismatch, temperature-related confounding or different behavioral sensitivity explain the apparent contrast.",
+      "discriminatingEvidence": "Independent studies assess target effects and unwanted physiological/behavioral measures with appropriate exposure and timing controls.",
+      "couldCountAgainst": "The separation disappears or the target outcomes fail to replicate under interpretable comparison conditions.",
+      "requiredEvidence": [
+        "Independent neural and behavioral outcome replication",
+        "Physiology and exposure controls",
+        "Longer-window safety observations and multiple outcome measures"
+      ],
+      "interpretationBoundary": "Fear extinction in rodents is not a clinical PTSD outcome or a prediction of long-term human safety.",
+      "status": "DRAFT_UNTESTED",
+      "result": "NONE",
+      "evidenceAuthority": "NONE"
+    },
+    {
+      "id": "ES01-E3-H07",
+      "sourceRecordId": "ES01-MDA-COMP",
+      "family": "MDA",
+      "question": "Do differences in acute human MDA-versus-MDMA experiences tell us anything about relative therapeutic effectiveness?",
+      "candidate": "The controlled human crossover provides acute subjective and autonomic comparison, not therapy outcomes.",
+      "alternative": "Acute drug experiences are unrelated to long-term clinical benefit or have confounding contextual effects.",
+      "discriminatingEvidence": "Any proposed prediction would require independent therapeutic outcomes and prospectively defined relationships to acute measures.",
+      "couldCountAgainst": "The proposed acute-to-therapy relationship fails when evaluated against adequate patient outcomes; without patient outcomes it is not testable from this record.",
+      "requiredEvidence": [
+        "Independent appropriate clinical outcome evidence",
+        "Predeclared outcome alignment and follow-up",
+        "Controls for expectancy, context and exposure"
+      ],
+      "interpretationBoundary": "Do not turn stronger or longer acute intoxication into an assertion of greater or lesser therapeutic efficacy.",
+      "status": "DRAFT_UNTESTED",
+      "result": "NONE",
+      "evidenceAuthority": "NONE"
+    },
+    {
+      "id": "ES01-E3-H08",
+      "sourceRecordId": "ES01-KET-HNK",
+      "family": "Ketamine",
+      "question": "Does (2R,6R)-hydroxynorketamine retain a meaningful antidepressant patient benefit despite reduced acute dissociation in healthy volunteers?",
+      "candidate": "The Phase 1 source supports tolerability and lack of appreciable dissociation at studied doses, leaving efficacy as an open question.",
+      "alternative": "Any favorable tolerability contrast need not imply clinical antidepressant activity.",
+      "discriminatingEvidence": "Independently assessed patient benefit and adverse-effect measurements would have to be observed on compatible time windows and under appropriate controls.",
+      "couldCountAgainst": "Adequate patient outcomes fail to show clinically meaningful benefit despite confirmed tolerability; the proposed joint profile is not supported.",
+      "requiredEvidence": [
+        "Appropriate patient-level efficacy evidence",
+        "Independent dissociation and longer-term safety measures",
+        "Controlled comparison accounting for expectation and exposure"
+      ],
+      "interpretationBoundary": "A Phase 1 healthy-volunteer study alone cannot establish antidepressant efficacy or non-dissociative clinical treatment.",
+      "status": "DRAFT_UNTESTED",
+      "result": "NONE",
+      "evidenceAuthority": "NONE"
+    },
+    {
+      "id": "ES01-E3-H09",
+      "sourceRecordId": "ES01-MDMA-MDA-MET",
+      "family": "MDMA",
+      "question": "Does MDMA-to-MDA metabolism causally explain meaningful variation in therapeutic benefit, rather than only acute exposure differences?",
+      "candidate": "Human metabolic data show variation in parent and metabolite exposures and selected acute responses.",
+      "alternative": "CYP2D6-related differences in parent exposure and correlated factors, not MDA itself, account for associations.",
+      "discriminatingEvidence": "Any candidate explanation would require independent separation of metabolite exposure from parent-drug exposure and genuinely therapeutic outcomes.",
+      "couldCountAgainst": "Under interpretable evidence the metabolite-specific effect is absent once the parent and confounders are considered; current acute data are insufficient.",
+      "requiredEvidence": [
+        "Metabolite-versus-parent attribution and confounding controls",
+        "Clinically relevant outcomes measured separately from acute drug responses",
+        "Independent replication of exposure-response relationships"
+      ],
+      "interpretationBoundary": "No inference that deliberately increasing or blocking MDA generation is safe or clinically beneficial.",
+      "status": "DRAFT_UNTESTED",
+      "result": "NONE",
+      "evidenceAuthority": "NONE"
+    },
+    {
+      "id": "ES01-E3-H10",
+      "sourceRecordId": "ES01-KET-ESK",
+      "family": "Ketamine",
+      "question": "Can an approved esketamine indication be used as a baseline without confusing product-label evidence with mechanistic proof of dissociation necessity?",
+      "candidate": "Esketamine's labeled depression indications and known risks offer a clinical reference for future outcome comparisons.",
+      "alternative": "Observed dissociation accompanies treatment but may not be a necessary or sufficient mechanism of antidepressant action.",
+      "discriminatingEvidence": "Mechanistic claims would need independent, interpretable evidence distinguishing antidepressant response from dissociative effects.",
+      "couldCountAgainst": "A proposed necessity claim fails if benefit occurs without the putatively required subjective effect in an appropriately controlled and interpretable context.",
+      "requiredEvidence": [
+        "Endpoint definitions distinguishing experience from clinical benefit",
+        "Exposure and expectation/confounding safeguards",
+        "Independent safety and follow-up data"
+      ],
+      "interpretationBoundary": "FDA approval does not establish that dissociation causes efficacy or that any metabolite can replace a labeled treatment.",
+      "status": "DRAFT_UNTESTED",
+      "result": "NONE",
+      "evidenceAuthority": "NONE"
+    }
+  ]
+}

@@ -23,3 +23,26 @@
 .es01-audit-content p{margin:.45rem 0}
 .es01-audit-status{color:#cddce0;font-size:.78rem}
 .es01-audit a{color:#b8f6de;text-decoration:underline;text-underline-offset:3px}
+
+/* ES-01 E3 question reader. Draft-only, qualitative and accessible. */
+.es01-e3{margin:1.4rem 0;padding:1.2rem;border:1px solid rgba(174,210,215,.46);border-radius:1rem;background:rgba(8,26,37,.72)}
+.es01-e3-head h4{font-size:1.38rem;margin:.45rem 0}.es01-e3-head p{max-width:70ch;line-height:1.55;color:#d1e6e8}
+.es01-e3-selector{display:flex;flex-direction:column;gap:.45rem;margin:1rem 0;color:#e2f3f4;font-size:.86rem;font-weight:700}
+.es01-e3-selector select{background:#071e29;color:#f5fbfe;border:1px solid #9abec3;border-radius:.55rem;padding:.7rem;font:inherit;max-width:100%;min-width:0}
+.es01-e3 select:focus-visible,.es01-e3 summary:focus-visible,.es01-e3 a:focus-visible{outline:3px solid #ffe39b;outline-offset:3px}
+.es01-e3-card{padding:1rem;border:1px solid rgba(176,216,217,.24);border-radius:.75rem;background:rgba(4,18,29,.68)}
+.es01-e3-meta{display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap;color:#b7d4da;font-size:.76rem}
+.es01-e3-meta strong{color:#ffdda9;font-size:.73rem;letter-spacing:.02em}
+.es01-e3-card h5{font-size:1.1rem;margin:.75rem 0 1rem;line-height:1.43}
+.es01-e3-card h6{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:#a3d9d4;margin:0 0 .25rem}
+.es01-e3-card p{line-height:1.5;margin:.25rem 0 .65rem}
+.es01-e3-contrasts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+.es01-e3-contrasts section{padding:.8rem;border:1px solid rgba(150,208,208,.28);border-radius:.6rem}
+.es01-e3-falsifier{margin:1rem 0;padding:.85rem;border-left:3px solid #e4c98b;background:rgba(208,175,95,.08)}
+.es01-e3-falsifier h6:not(:first-child){margin-top:.85rem}
+.es01-e3-gaps{padding:.8rem;border:1px solid rgba(176,216,217,.27);border-radius:.65rem}
+.es01-e3-gaps summary{cursor:pointer;font-weight:700;color:#beece7}
+.es01-e3-gaps ul{padding-left:1.3rem}.es01-e3-gaps li{margin:.4rem 0}
+.es01-e3-footer{border-top:1px solid rgba(190,219,223,.19);margin-top:1rem;padding-top:.8rem;display:flex;flex-wrap:wrap;gap:.55rem 1rem;font-size:.8rem;color:#cbdfe2}
+.es01-e3-footer p{width:100%}.es01-e3 a{color:#b8f6de;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:760px){.es01-e3{padding:.85rem}.es01-e3-contrasts{grid-template-columns:1fr}}
