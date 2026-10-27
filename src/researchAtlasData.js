@@ -7,7 +7,7 @@ const row = (id, title, category, status, summary, path, note = '') => ({
 })
 export const RESEARCH_CATEGORIES = Object.freeze([
   'All', 'Semantic Memory', 'Phase & Optics', 'Keyhole Budgets',
-  'Resonance & Evidence', 'Field & Gravity', 'Governance & Time', 'Foundations',
+  'Resonance & Evidence', 'Pharmacology & Effects', 'Field & Gravity', 'Governance & Time', 'Foundations',
 ])
 export const RESEARCH_STATUS = Object.freeze({
   'DEV PILOT': 'Working exploratory or operator-driven software, not validated deployment',
@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('ES-01','Effect Separation Atlas: cross-family pharmacology','Pharmacology & Effects','PROPOSED',
+    'Source-linked literature atlas comparing desired and unwanted endpoints across LSD, cannabis, opioids, psilocybin, DMT/5-MeO-DMT, MDMA, MDA and ketamine; includes analogues, metabolites and claim boundaries.',
+    'docs/ES01_EFFECT_SEPARATION_ATLAS.md','E0 source registry only. No NBG compound design, experimental biology, patient benefit or demonstration that subjective effects can be removed without changing efficacy.'),
   row('CO-01','Metabolite-gated intracellular drug synthesis','Resonance & Evidence','PROPOSED',
     'Peer-reviewed 2026 cell-line study: albumin-protected palladium chemistry uses endogenous CO as a carbonyl feedstock for intracellular phenanthridinone synthesis. NBG E0 proposes compartment, flux and causal-Keyhole comparisons.',
     'docs/CO01_METABOLITE_GATED_CHEMISTRY.md','SOURCE-ATTRIBUTED in vitro work, not a tested NBG model or a cancer therapy. Normal fibroblasts also form product; cytotoxic selectivity is modest. No animal or clinical evidence.'),
