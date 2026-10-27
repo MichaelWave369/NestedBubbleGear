@@ -8,9 +8,10 @@ import EG05Lab from './EG05Lab.jsx'
 import EG06Lab from './EG06Lab.jsx'
 import NI1Lab from './NI1Lab.jsx'
 import NI1CollisionLab from './NI1CollisionLab.jsx'
+import ES01Explorer from './ES01Explorer.jsx'
 import './researchAtlas.css'
 
-const PINNED = ['CO-01','NI1-E1B','EG-06','EG-05','EG-04']
+const PINNED = ['ES-01','CO-01','NI1-E1B','EG-06','EG-05','EG-04']
 function SourceLink({ track, children = 'Read research ↗' }) {
   return <a className="research-link" href={track.url} target="_blank" rel="noopener noreferrer">
     {children}<span className="research-link-path">{track.path}</span>
@@ -104,6 +105,7 @@ export default function ResearchAtlas() {
     <div className="research-feature-grid">
       {pinned.map(track=><TrackCard key={track.id} track={track} />)}
     </div>
+    <ES01Explorer />
     <EG01Lab />
     <EG02Lab />
     <EG03Lab />

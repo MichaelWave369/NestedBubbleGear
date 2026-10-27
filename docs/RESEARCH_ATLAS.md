@@ -35,6 +35,13 @@ If the existing project names the navigation task differently, `npm test` includ
 
 Source link integrity is checked by `scripts/test_research_atlas.mjs`; all indexed source paths must exist in the repository. Navigation regression checks ensure existing `#experiments` is retained while `#research-atlas` becomes visible.
 
+
+## ES-01 | Effect Separation Atlas (LITERATURE / PROPOSED)
+
+The Research Atlas now embeds an interactive ES-01 explorer with eight families (LSD, cannabis, opioids, psilocybin, DMT/5-MeO-DMT, MDMA, MDA and ketamine), source-linked evidence cards, relationship and evidence-type labels, full-text search, filters, and explicit claim boundaries. The [E0 protocol](ES01_EFFECT_SEPARATION_ATLAS.md) and [committed evidence data](../src/es01Evidence.json) distinguish regulatory indications, healthy-human Phase 1 safety, acute human pharmacology comparisons, and preclinical outcomes. The NBG mapping is only a proposed observability analysis: no molecular design, therapeutic validation, or biological experiments were performed.
+
+Qualification: `npm run test:es01 && npm run test:research-atlas && npm run build`.
+
 ## CO-01 | Metabolite-gated chemistry (LITERATURE / PROPOSED NBG)
 
 The Atlas indexes [CO-01](CO01_METABOLITE_GATED_CHEMISTRY.md), a 2026 *Nature Communications* cell-line proof of concept in which an albumin-stabilized palladium reagent uses endogenous CO to synthesize a phenanthridinone compound. The **published cell-line measurements** are source-attributed; the **NBG compartment/causal-Keyhole mapping** is a proposed analogy without biological validation. A normal fibroblast line also yielded detectable chemical product, and the measured cytotoxic selectivity was modest. No animal tumor-treatment or clinical result is claimed.
