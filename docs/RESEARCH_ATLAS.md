@@ -36,6 +36,10 @@ If the existing project names the navigation task differently, `npm test` includ
 Source link integrity is checked by `scripts/test_research_atlas.mjs`; all indexed source paths must exist in the repository. Navigation regression checks ensure existing `#experiments` is retained while `#research-atlas` becomes visible.
 
 
+## ES-01 E5 | Local reviewer handoff packets (DEV PILOT)
+
+The [ES-01 E5 packet builder](ES01_E5_REVIEW_HANDOFF.md) is a browser-local workflow for making downloadable **DRAFT_UNVERIFIED** JSON review packets. Each packet binds the original source E0 record, E1 context, E2 audit, E3 draft question, E4 blocked readiness checklist and optional unverified reviewer notes. The export makes research gaps portable but **never** certifies review completion or alters source evidence. No server receives notes. Run `npm run test:es01-e5`.
+
 ## ES-01 E4 | Evidence review readiness (SCREENING REQUIRED)
 
 The [E4 literature review-readiness ledger](ES01_E4_EVIDENCE_READINESS.md) adds a source-bound interactive review queue covering each of the ten E3 questions and six pending source-method/endpoint/replication checks. E4 is **not** a completed systematic review or an evidence-quality score. `NOT_EXTRACTED` never means a source omitted data, and `NOT_SEARCHED` never means no independent replication exists. All cross-study quantitative effect-separation inference remains **HOLD**. Run `npm run test:es01-e4`.
