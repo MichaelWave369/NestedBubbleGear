@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('ES-01-E5','Effect Separation: Portable Reviewer Handoff','Pharmacology & Effects','DEV PILOT',
+    'Source-bound, browser-local draft review packet generator covering the ten E0 through E4 study chains. Allows optional six-field notes and plain JSON export, with all inferences held.',
+    'docs/ES01_E5_REVIEW_HANDOFF.md','Interactive software only. Reviewer notes are unverified; no external upload, study validation, efficacy estimate or claim promotion. E4 remains HOLD.'),
   row('ES-01-E4','Effect Separation: Evidence Review Readiness','Pharmacology & Effects','PROPOSED',
     'Ten source-bound review queues showing six unreviewed/extraction-pending domains, confounds and high-priority documentary evidence needs without false quality scores.',
     'docs/ES01_E4_EVIDENCE_READINESS.md','Not a systematic review, source-data extraction, comparative effect-size computation, independent replication search or human clinical assessment. All inference gates remain HOLD.'),
