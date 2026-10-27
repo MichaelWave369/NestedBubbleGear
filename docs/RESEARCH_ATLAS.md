@@ -36,6 +36,10 @@ If the existing project names the navigation task differently, `npm test` includ
 Source link integrity is checked by `scripts/test_research_atlas.mjs`; all indexed source paths must exist in the repository. Navigation regression checks ensure existing `#experiments` is retained while `#research-atlas` becomes visible.
 
 
+## ES-01 E6 | Local reviewer packet intake (DEV PILOT)
+
+The [E6 local packet intake validator](ES01_E6_LOCAL_PACKET_INTAKE.md) accepts a previously exported E5 JSON draft (up to 256 KiB) in the browser without network submission. It compares protected source-bound fields against the locally bundled E0-E5 canonical dataset, rejects altered provenance and elevated approval flags, and permits inspection of notes as **untrusted text**. Its optional JSON receipt excludes the notes. A matching **unsigned** packet is **NOT authenticated**, independently reviewed or approved; E4 gates remain HOLD. Run `npm run test:es01-e6`.
+
 ## ES-01 E5 | Local reviewer handoff packets (DEV PILOT)
 
 The [ES-01 E5 packet builder](ES01_E5_REVIEW_HANDOFF.md) is a browser-local workflow for making downloadable **DRAFT_UNVERIFIED** JSON review packets. Each packet binds the original source E0 record, E1 context, E2 audit, E3 draft question, E4 blocked readiness checklist and optional unverified reviewer notes. The export makes research gaps portable but **never** certifies review completion or alters source evidence. No server receives notes. Run `npm run test:es01-e5`.
