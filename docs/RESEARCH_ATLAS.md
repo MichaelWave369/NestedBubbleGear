@@ -36,6 +36,10 @@ If the existing project names the navigation task differently, `npm test` includ
 Source link integrity is checked by `scripts/test_research_atlas.mjs`; all indexed source paths must exist in the repository. Navigation regression checks ensure existing `#experiments` is retained while `#research-atlas` becomes visible.
 
 
+## ES-01 E2 | Claim provenance and source-scope custody (PROPOSED)
+
+The [ES-01 E2 claim audit](ES01_E2_CLAIM_PROVENANCE.md) links every evidence-card observation to one manually reviewed primary abstract or regulatory page, states what that source supports, and explicitly refuses stronger therapeutic claims. This editorial review does not independently reproduce any biomedical study. Run `npm run test:es01-e2` for local integrity checks.
+
 ## ES-01 E1 | Conservative evidence comparison gates (PREPARED)
 
 The [E1 comparability protocol](ES01_E1_COMPARABILITY_GATES.md) adds a source-linked, interactive *context-only* comparator for the ES-01 evidence registry. It blocks false rankings based on mismatched human, animal, regulatory or cell endpoints and makes required future controls explicit. This is a software review gate only; no new drug claims or real comparative treatment evaluation are made. Run `npm run test:es01-e1`.

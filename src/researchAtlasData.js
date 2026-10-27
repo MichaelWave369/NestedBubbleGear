@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('ES-01-E2','Effect Separation: Claim Provenance Audit','Pharmacology & Effects','PROPOSED',
+    'Ten source-bound editorial scope reviews: each links one primary study/regulatory record to measured setting, narrowly supported observation, and explicitly unsupported inference.',
+    'docs/ES01_E2_CLAIM_PROVENANCE.md','Editorial abstract and label scope checks only. No independent replication, full study reproducibility audit, novel chemistry, patient data or validated biomedical mechanism.'),
   row('ES-01-E1','Effect Separation: Evidence Comparison Gates','Pharmacology & Effects','PREPARED',
     'Conservative cross-record study-setting and endpoint-domain comparison tool that refuses clinical rankings, universal benefit-versus-harm scores and independent-replication claims.',
     'docs/ES01_E1_COMPARABILITY_GATES.md','Software-only literature metadata comparison. No new compound, biological experiment, matched effect size or efficacy inference. E0 evidence registry unchanged.'),

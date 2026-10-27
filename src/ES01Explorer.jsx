@@ -1,9 +1,11 @@
 import { useMemo, useState } from 'react'
 import registry from './es01Evidence.json'
+import claimAudit from './es01ClaimAudit.json'
 import ES01Comparator from './ES01Comparator.jsx'
 import './es01Explorer.css'
 
 const ALL = 'All families'
+const auditById = Object.fromEntries(claimAudit.records.map(item => [item.recordId, item]))
 const tiers = registry.evidenceTiers
 const FAMILIES = [ALL, ...registry.families]
 const sorted = (records) => [...records].sort((a, b) => registry.families.indexOf(a.family) - registry.families.indexOf(b.family))
@@ -44,6 +46,19 @@ export default function ES01Explorer() {
         <dl><div><dt>Mechanistic Keyhole</dt><dd>{r.mechanism}</dd></div><div><dt>Desired endpoint</dt><dd>{r.desiredEffect}</dd></div><div><dt>Unwanted endpoint</dt><dd>{r.undesiredEffect}</dd></div></dl>
         <p><strong>Published observation:</strong> {r.observed}</p>
         <p className="es01-limitation"><strong>Claim boundary:</strong> {r.boundary}</p>
+        <details className="es01-audit">
+          <summary>Claim provenance · E2</summary>
+          <div className="es01-audit-content">
+            <p className="es01-audit-status">Editorial source-scope check · not independently replicated · {auditById[r.id].reviewDate}</p>
+            <p><strong>Scope inspected:</strong> {auditById[r.id].basis}</p>
+            <p><strong>Study setting:</strong> {auditById[r.id].observedSetting}</p>
+            <p><strong>What the source supports:</strong> {auditById[r.id].supported}</p>
+            <p><strong>What is NOT established:</strong> {auditById[r.id].notEstablished}</p>
+            <p className="es01-audit-status">Source context: {auditById[r.id].primaryLocation}; no independent verification of study results.</p>
+            <a href={auditById[r.id].sourceUrl} target="_blank" rel="noopener noreferrer">Inspect original source ↗</a>
+            {auditById[r.id].additionalSource && <> · <a href={auditById[r.id].additionalSource} target="_blank" rel="noopener noreferrer">Prescription label ↗</a></>}
+          </div>
+        </details>
         <footer><span>{r.studyDesign}</span><a href={r.source.url} target="_blank" rel="noopener noreferrer">Primary source ↗</a></footer>
       </article>)}
     </div>
