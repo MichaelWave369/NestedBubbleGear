@@ -1,9 +1,9 @@
 // ES-01 E5: deterministic, human-readable reviewer handoff. No evidence certification.
 // Independent reviewer input is UNVERIFIED and never mutates E0-E4 or passes E4 gates.
-import evidence from './es01Evidence.json'
-import claims from './es01ClaimAudit.json'
-import hypotheses from './es01Hypotheses.json'
-import readiness from './es01Readiness.json'
+import evidence from './es01Evidence.json' with { type: 'json' }
+import claims from './es01ClaimAudit.json' with { type: 'json' }
+import hypotheses from './es01Hypotheses.json' with { type: 'json' }
+import readiness from './es01Readiness.json' with { type: 'json' }
 import {ES01_E4_FIELDS,checkES01ReviewReadiness} from './es01ReadinessModel.js'
 import {ES01_STUDY_CONTEXT} from './es01Comparison.js'
 
