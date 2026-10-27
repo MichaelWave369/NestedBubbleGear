@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('ES-01-E7','Effect Separation: Offline Reviewer Note Differences','Pharmacology & Effects','DEV PILOT',
+    'Compares two E6-validated unsigned E5 drafts for the same E0 record, labeling literal note matches, differences and blanks without scientific-agreement claims.',
+    'docs/ES01_E7_REVIEWER_DIFFERENCES.md','No proof of reviewer identity, independence, truth, consensus, source replication or medical efficacy. E4 inference gate stays HOLD.'),
   row('ES-01-E6','Effect Separation: Local Reviewer Packet Intake','Pharmacology & Effects','DEV PILOT',
     'Offline JSON packet intake checks source-chain metadata against canonical E0–E5 records, refuses altered protected claims and produces separate no-notes validation receipts.',
     'docs/ES01_E6_LOCAL_PACKET_INTAKE.md','Unsigned JSON structure matching is NOT author authentication, peer review, independent replication, full-text evidence verification or drug-safety validation. E4 stays HOLD.'),
