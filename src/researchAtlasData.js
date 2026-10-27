@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('ES-01-E1','Effect Separation: Evidence Comparison Gates','Pharmacology & Effects','PREPARED',
+    'Conservative cross-record study-setting and endpoint-domain comparison tool that refuses clinical rankings, universal benefit-versus-harm scores and independent-replication claims.',
+    'docs/ES01_E1_COMPARABILITY_GATES.md','Software-only literature metadata comparison. No new compound, biological experiment, matched effect size or efficacy inference. E0 evidence registry unchanged.'),
   row('ES-01','Effect Separation Atlas: cross-family pharmacology','Pharmacology & Effects','PROPOSED',
     'Source-linked literature atlas comparing desired and unwanted endpoints across LSD, cannabis, opioids, psilocybin, DMT/5-MeO-DMT, MDMA, MDA and ketamine; includes analogues, metabolites and claim boundaries.',
     'docs/ES01_EFFECT_SEPARATION_ATLAS.md','E0 source registry only. No NBG compound design, experimental biology, patient benefit or demonstration that subjective effects can be removed without changing efficacy.'),

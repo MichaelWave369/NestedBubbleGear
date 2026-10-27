@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import registry from './es01Evidence.json'
+import ES01Comparator from './ES01Comparator.jsx'
 import './es01Explorer.css'
 
 const ALL = 'All families'
@@ -34,6 +35,7 @@ export default function ES01Explorer() {
       {FAMILIES.map(f => <button key={f} type="button" aria-pressed={family === f} className={family === f ? 'active' : ''} onClick={() => setFamily(f)}>{f}</button>)}
     </div>
     <p className="es01-count" aria-live="polite">Showing {records.length} of {registry.records.length} records</p>
+    <ES01Comparator />
     <div className="es01-cards">
       {records.map(r => <article className="es01-card" key={r.id}>
         <div className="es01-card-head"><span className="es01-family">{r.family}</span><span className="es01-tier">{r.evidenceTier.replaceAll('-', ' ')}</span></div>
