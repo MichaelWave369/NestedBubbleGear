@@ -46,3 +46,22 @@
 .es01-e3-footer{border-top:1px solid rgba(190,219,223,.19);margin-top:1rem;padding-top:.8rem;display:flex;flex-wrap:wrap;gap:.55rem 1rem;font-size:.8rem;color:#cbdfe2}
 .es01-e3-footer p{width:100%}.es01-e3 a{color:#b8f6de;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:760px){.es01-e3{padding:.85rem}.es01-e3-contrasts{grid-template-columns:1fr}}
+
+/* E4 documentation-gate UI: pending status is informational, not a ranking. */
+.es01-e4{margin:1.4rem 0;padding:1.2rem;border:1px solid rgba(161,213,216,.4);border-radius:1rem;background:rgba(7,29,37,.83)}
+.es01-e4-header h4{font-size:1.38rem;margin:.4rem 0}.es01-e4-header p{line-height:1.55;max-width:72ch;color:#d5e7ea}
+.es01-e4-select{display:flex;flex-direction:column;gap:.5rem;margin:1rem 0;font-size:.85rem;font-weight:700}
+.es01-e4-select select{padding:.72rem;background:#071d29;border:1px solid #9abac2;border-radius:.6rem;color:#f5fbfd;font:inherit;max-width:100%;min-width:0}
+.es01-e4 select:focus-visible,.es01-e4 a:focus-visible{outline:3px solid #ffe39b;outline-offset:3px}
+.es01-e4-report{border:1px solid rgba(178,218,220,.26);background:rgba(4,20,33,.72);border-radius:.8rem;padding:1rem}
+.es01-e4-report h5{font-size:1.05rem;margin:.95rem 0 .3rem}.es01-e4-question{line-height:1.5}
+.es01-e4-gate{display:flex;flex-direction:column;gap:.35rem;padding:.8rem;border-left:3px solid #e8c995;background:rgba(222,180,109,.09)}
+.es01-e4-gate strong{color:#ffe3a7;font-size:.92rem}.es01-e4-gate span{color:#d9e4eb;font-size:.8rem;line-height:1.45}
+.es01-e4-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem;margin:1rem 0}
+.es01-e4-check{display:flex;flex-direction:column;gap:.35rem;border:1px solid rgba(155,195,202,.3);border-radius:.5rem;padding:.72rem;min-width:0}
+.es01-e4-check span{color:#d5e9e9;font-size:.79rem}.es01-e4-check strong{color:#f6d59c;font-size:.77rem;text-transform:capitalize;font-weight:700}
+.es01-e4-actions{border-top:1px solid rgba(178,218,220,.24);padding-top:.7rem}.es01-e4-actions p{line-height:1.5;margin:.45rem 0}
+.es01-e4-links{display:flex;gap:1.1rem;flex-wrap:wrap;margin-top:1rem;font-size:.83rem}
+.es01-e4 a{color:#b8f6de;text-decoration:underline;text-underline-offset:3px}
+.es01-e4-note{font-size:.78rem;color:#d2dee2;line-height:1.5}
+@media(max-width:760px){.es01-e4{padding:.85rem}.es01-e4-grid{grid-template-columns:1fr}}
