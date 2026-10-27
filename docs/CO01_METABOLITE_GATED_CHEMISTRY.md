@@ -21,7 +21,7 @@ The paper reports an albumin-palladacycle-complex (APC) system. Albumin binds an
 | Colony assay | MCF7 colony formation was reduced by APC-17 at 5 and 10 μM over 12 days. | In vitro colony formation, not tumor regression. |
 | Ex vivo mouse-blood check | APC-9 produced no detectable reporter product in whole mouse blood over 4 hours under the study conditions. | Ex vivo stability for a reporter is not systemic pharmacokinetics or an animal efficacy/safety test for APC-17. |
 
-The authors themselves describe the observed cytotoxicity as **modest**. Nothing in this record supports use in people, homemade administration, or exposure to CO, palladium complexes, or chemical precursors.
+The authors themselves describe the observed cytotoxicity as **modest**. **Clinical boundary: this is not a cancer therapy.** Nothing in this record supports use in people, homemade administration, or exposure to CO, palladium complexes, or chemical precursors.
 
 ## The NBG bridge: a proposed causal Keyhole, not a new biochemical discovery
 
