@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import registry from '../src/es01Evidence.json' with { type:'json' }
+const registry = JSON.parse(readFileSync(resolve(process.cwd(),'src/es01Evidence.json'),'utf8'))
 import { RESEARCH_TRACKS, findResearch } from '../src/researchAtlasData.js'
 const read=(path)=>readFileSync(resolve(process.cwd(),path),'utf8')
 const expected=['LSD','Cannabis','Opioids / opium','Psilocybin','DMT / 5-MeO-DMT','MDMA','MDA','Ketamine']
@@ -30,7 +30,7 @@ for(const id of ['ES01-CAN-CBD','ES01-KET-HNK','ES01-MDMA-RMDDMA','ES01-OPI-DFNZ
 for(const r of registry.records.filter(r=>r.evidenceTier==='human-safety'))assert(/not establish|not an approved/i.test(r.boundary))
 const indexed=RESEARCH_TRACKS.find(r=>r.id==='ES-01')
 assert(indexed && indexed.status==='PROPOSED' && indexed.path==='docs/ES01_EFFECT_SEPARATION_ATLAS.md')
-assert(findResearch('ES-01','Resonance & Evidence').some(r=>r.id==='ES-01'))
+assert(findResearch('ES-01','Pharmacology & Effects').some(r=>r.id==='ES-01'))
 const doc=read(indexed.path)
 for(const term of ['NONE','PROPOSED','not a drug-design recipe','MDA','hydroxynorketamine','Cannabiverse','head twitch','Ledger Above Ego'])assert(doc.toLowerCase().includes(term.toLowerCase()),'missing caution/context '+term)
 const ui=read('src/ES01Explorer.jsx')
