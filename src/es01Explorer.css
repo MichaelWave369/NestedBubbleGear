@@ -14,3 +14,12 @@
 .es01-compare-citations{display:flex;flex-wrap:wrap;gap:1rem;font-size:.84rem}
 .es01-comparator select:focus-visible{outline:3px solid #ffe39b;outline-offset:3px}
 @media(max-width:760px){.es01-compare-selects,.es01-compare-context{grid-template-columns:1fr}}
+
+/* E2 claim custody: expandable text stays source-focused and accessible. */
+.es01-audit{margin:.8rem 0;padding:.65rem .75rem;border:1px solid rgba(160,208,222,.4);border-radius:.7rem;background:rgba(28,53,65,.38)}
+.es01-audit summary{cursor:pointer;font-weight:750;color:#b4eee4;text-underline-offset:3px}
+.es01-audit summary:focus-visible{outline:3px solid #ffe39b;outline-offset:3px}
+.es01-audit-content{padding:.6rem .1rem .2rem;line-height:1.5}
+.es01-audit-content p{margin:.45rem 0}
+.es01-audit-status{color:#cddce0;font-size:.78rem}
+.es01-audit a{color:#b8f6de;text-decoration:underline;text-underline-offset:3px}
