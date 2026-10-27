@@ -4,6 +4,7 @@ import claimAudit from './es01ClaimAudit.json'
 import ES01Comparator from './ES01Comparator.jsx'
 import ES01HypothesisLab from './ES01HypothesisLab.jsx'
 import ES01ReadinessPanel from './ES01ReadinessPanel.jsx'
+import ES01ReviewHandoff from './ES01ReviewHandoff.jsx'
 import './es01Explorer.css'
 
 const ALL = 'All families'
@@ -42,6 +43,7 @@ export default function ES01Explorer() {
     <ES01Comparator />
     <ES01HypothesisLab />
     <ES01ReadinessPanel />
+    <ES01ReviewHandoff />
     <div className="es01-cards">
       {records.map(r => <article className="es01-card" key={r.id}>
         <div className="es01-card-head"><span className="es01-family">{r.family}</span><span className="es01-tier">{r.evidenceTier.replaceAll('-', ' ')}</span></div>
