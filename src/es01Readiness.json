@@ -130,7 +130,7 @@
       "replicationSearch": "NOT_SEARCHED",
       "nextExtraction": "Extract measured MDMA/MDA exposures and acute outcomes under CYP2D6 variation.",
       "mostImportantConfound": "Check parent/metabolite attribution and confounding before inferring causal mediation.",
-      "prohibitedInference": "Changing MDA formation has no established therapeutic benefit."
+      "prohibitedInference": "Changing MDA formation has no established therapeutic benefit or demonstrated clinical safety."
     },
     {
       "recordId": "ES01-KET-ESK",
