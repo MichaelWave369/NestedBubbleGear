@@ -36,6 +36,10 @@ If the existing project names the navigation task differently, `npm test` includ
 Source link integrity is checked by `scripts/test_research_atlas.mjs`; all indexed source paths must exist in the repository. Navigation regression checks ensure existing `#experiments` is retained while `#research-atlas` becomes visible.
 
 
+## ES-01 E1 | Conservative evidence comparison gates (PREPARED)
+
+The [E1 comparability protocol](ES01_E1_COMPARABILITY_GATES.md) adds a source-linked, interactive *context-only* comparator for the ES-01 evidence registry. It blocks false rankings based on mismatched human, animal, regulatory or cell endpoints and makes required future controls explicit. This is a software review gate only; no new drug claims or real comparative treatment evaluation are made. Run `npm run test:es01-e1`.
+
 ## ES-01 | Effect Separation Atlas (LITERATURE / PROPOSED)
 
 The Research Atlas now embeds an interactive ES-01 explorer with eight families (LSD, cannabis, opioids, psilocybin, DMT/5-MeO-DMT, MDMA, MDA and ketamine), source-linked evidence cards, relationship and evidence-type labels, full-text search, filters, and explicit claim boundaries. The [E0 protocol](ES01_EFFECT_SEPARATION_ATLAS.md) and [committed evidence data](../src/es01Evidence.json) distinguish regulatory indications, healthy-human Phase 1 safety, acute human pharmacology comparisons, and preclinical outcomes. The NBG mapping is only a proposed observability analysis: no molecular design, therapeutic validation, or biological experiments were performed.
