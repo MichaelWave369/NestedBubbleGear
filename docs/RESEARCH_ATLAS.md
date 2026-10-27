@@ -36,6 +36,10 @@ If the existing project names the navigation task differently, `npm test` includ
 Source link integrity is checked by `scripts/test_research_atlas.mjs`; all indexed source paths must exist in the repository. Navigation regression checks ensure existing `#experiments` is retained while `#research-atlas` becomes visible.
 
 
+## ES-01 E4 | Evidence review readiness (SCREENING REQUIRED)
+
+The [E4 literature review-readiness ledger](ES01_E4_EVIDENCE_READINESS.md) adds a source-bound interactive review queue covering each of the ten E3 questions and six pending source-method/endpoint/replication checks. E4 is **not** a completed systematic review or an evidence-quality score. `NOT_EXTRACTED` never means a source omitted data, and `NOT_SEARCHED` never means no independent replication exists. All cross-study quantitative effect-separation inference remains **HOLD**. Run `npm run test:es01-e4`.
+
 ## ES-01 E3 | Falsifiability-first question contracts (DRAFT)
 
 The [E3 question contracts](ES01_E3_FALSIFIABILITY_CONTRACTS.md) add an interactive, source-linked reader for ten *draft, untested, not-preregistered* research questions. Every candidate interpretation has an alternative, a possible disconfirming observation and missing-evidence requirements. No NBG empirical result, biological experiment, causal claim, or drug prediction follows. The E0 evidence registry, E1 comparison gates and E2 claim-custody records are unchanged. Qualification: `npm run test:es01-e3 && npm run test:research-atlas && npm run build`.
