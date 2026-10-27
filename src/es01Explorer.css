@@ -88,3 +88,24 @@
 .es01-e5-footnote{font-size:.77rem;line-height:1.5;color:#cfdee2;margin:1rem 0 0}
 .es01-e5 select:focus-visible,.es01-e5 textarea:focus-visible,.es01-e5 button:focus-visible,.es01-e5 a:focus-visible{outline:3px solid #ffe29a;outline-offset:3px}
 @media(max-width:760px){.es01-e5{padding:.8rem}.es01-e5-fields{grid-template-columns:1fr}}
+
+/* E6 local untrusted JSON intake: source-custody comparison, never scientific verification. */
+.es01-e6{margin:1.5rem 0;padding:1.15rem;border:1px solid rgba(170,215,215,.42);border-radius:1rem;background:rgba(6,29,39,.83)}
+.es01-e6-heading h4{font-size:1.38rem;margin:.5rem 0}.es01-e6-heading p{line-height:1.55;max-width:72ch;color:#d7e5e9}
+.es01-e6-file{display:flex;flex-direction:column;gap:.55rem;margin:1rem 0;font-weight:700;font-size:.85rem}
+.es01-e6-file input{max-width:100%;min-width:0;border:1px solid rgba(162,205,210,.58);border-radius:.6rem;padding:.65rem;color:#e9f6f6}
+.es01-e6-outcome{border:1px solid rgba(174,206,209,.32);border-radius:.75rem;padding:1rem;background:rgba(3,16,25,.68)}
+.es01-e6-outcome>strong{color:#ffe1a7}.es01-e6-outcome p{line-height:1.48;color:#e1e8eb}
+.es01-e6-errors{background:rgba(191,125,109,.13);border-left:3px solid #ffb099;padding:.6rem .8rem}
+.es01-e6-errors h5{font-size:.94rem;margin:.2rem 0}.es01-e6-errors ul{margin:.5rem 0;padding-left:1.2rem}
+.es01-e6-actions{display:flex;align-items:center;flex-wrap:wrap;gap:.6rem}
+.es01-e6-actions button{border:1px solid #b2e5df;border-radius:.55rem;background:#b2e5df;color:#082836;font:inherit;font-size:.85rem;font-weight:750;padding:.65rem .85rem;cursor:pointer}
+.es01-e6-actions button.es01-e6-secondary{background:transparent;color:#e3eceb;border-color:#97b7bb}
+.es01-e6 a{color:#b8f6de;text-decoration:underline;text-underline-offset:3px}
+.es01-e6-notes{padding:.8rem;border:1px solid rgba(155,199,200,.3);border-radius:.65rem;margin:1rem 0}
+.es01-e6-notes>div{border-top:1px solid rgba(169,210,212,.15);padding-top:.6rem;margin-top:.6rem}
+.es01-e6-notes>div p{white-space:pre-wrap;overflow-wrap:anywhere}
+.es01-e6-boundary{border-left:3px solid #e9c895;padding:.55rem .8rem;background:rgba(218,173,97,.08);font-size:.83rem;line-height:1.5}
+.es01-e6-footnote{font-size:.81rem}
+.es01-e6 input:focus-visible,.es01-e6 button:focus-visible,.es01-e6 a:focus-visible{outline:3px solid #ffe2aa;outline-offset:3px}
+@media(max-width:760px){.es01-e6{padding:.85rem}}
