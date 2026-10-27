@@ -1,0 +1,41 @@
+import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+import registry from '../src/es01Evidence.json' with { type:'json' }
+import { RESEARCH_TRACKS, findResearch } from '../src/researchAtlasData.js'
+const read=(path)=>readFileSync(resolve(process.cwd(),path),'utf8')
+const expected=['LSD','Cannabis','Opioids / opium','Psilocybin','DMT / 5-MeO-DMT','MDMA','MDA','Ketamine']
+assert.equal(registry.id,'ES-01')
+assert.deepEqual(registry.families,expected)
+assert.equal(registry.status,'PROPOSED / literature-only')
+assert(registry.records.length>=10)
+const ids=new Set()
+for(const r of registry.records){
+ assert(!ids.has(r.id),'duplicate evidence ID '+r.id);ids.add(r.id)
+ assert(r.id.startsWith('ES01-'))
+ assert(expected.includes(r.family),'unknown family '+r.family)
+ for(const k of ['compound','comparator','relationship','mechanism','desiredEffect','undesiredEffect','studyDesign','separationMode','observed','boundary'])assert(typeof r[k]==='string' && r[k].length>=5,'missing '+k+' in '+r.id)
+ assert(Object.hasOwn(registry.evidenceTiers,r.evidenceTier),'unknown tier '+r.id)
+ assert(r.source.year>=2010 && r.source.year<=2026)
+ const url=new URL(r.source.url)
+ assert(url.protocol==='https:')
+ assert(['doi.org','www.nature.com','www.fda.gov','pubmed.ncbi.nlm.nih.gov'].includes(url.hostname),'unreviewed citation host '+url.hostname)
+ assert(r.source.title.length>15)
+}
+assert.equal(new Set(registry.records.map(r=>r.family)).size,8)
+assert(registry.records.some(r=>r.family==='MDMA' && r.separationMode==='metabolite'))
+assert(registry.records.some(r=>r.family==='Ketamine' && r.separationMode==='metabolite'))
+assert(registry.records.some(r=>r.family==='MDA' && r.evidenceTier==='human-comparison'))
+for(const id of ['ES01-CAN-CBD','ES01-KET-HNK','ES01-MDMA-RMDDMA','ES01-OPI-DFNZ','ES01-PSI-L5'])assert(ids.has(id))
+for(const r of registry.records.filter(r=>r.evidenceTier==='human-safety'))assert(/not establish|not an approved/i.test(r.boundary))
+const indexed=RESEARCH_TRACKS.find(r=>r.id==='ES-01')
+assert(indexed && indexed.status==='PROPOSED' && indexed.path==='docs/ES01_EFFECT_SEPARATION_ATLAS.md')
+assert(findResearch('ES-01','Resonance & Evidence').some(r=>r.id==='ES-01'))
+const doc=read(indexed.path)
+for(const term of ['NONE','PROPOSED','not a drug-design recipe','MDA','hydroxynorketamine','Cannabiverse','head twitch','Ledger Above Ego'])assert(doc.toLowerCase().includes(term.toLowerCase()),'missing caution/context '+term)
+const ui=read('src/ES01Explorer.jsx')
+const atlas=read('src/ResearchAtlas.jsx')
+assert(atlas.includes('<ES01Explorer />'))
+for(const token of ['type="search"','aria-live="polite"','aria-pressed','noopener noreferrer','Primary source','Claim boundary'])assert(ui.includes(token))
+assert(read('src/es01Explorer.css').includes('@media(max-width:760px)'))
+console.log('PASS ES-01 registry, eight families, primary sources, boundaries and Atlas wiring ('+registry.records.length+' records)')
