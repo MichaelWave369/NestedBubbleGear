@@ -36,6 +36,10 @@ If the existing project names the navigation task differently, `npm test` includ
 Source link integrity is checked by `scripts/test_research_atlas.mjs`; all indexed source paths must exist in the repository. Navigation regression checks ensure existing `#experiments` is retained while `#research-atlas` becomes visible.
 
 
+## ES-01 E7 | Offline reviewer-note difference map (DEV PILOT)
+
+The [E7 reviewer-note difference map](ES01_E7_REVIEWER_DIFFERENCES.md) checks two *unsigned* E5 JSON packets through E6, rejects different study IDs or altered source-bound fields, and displays literal matches, different text and unfilled notes across six fields. It can export a note-free difference receipt. **Exact text matches are not independent agreement, and different text does not establish scientific disagreement.** No authentication or efficacy review occurs; E4 remains `HOLD_REVIEW_INCOMPLETE`. Run `npm run test:es01-e7`.
+
 ## ES-01 E6 | Local reviewer packet intake (DEV PILOT)
 
 The [E6 local packet intake validator](ES01_E6_LOCAL_PACKET_INTAKE.md) accepts a previously exported E5 JSON draft (up to 256 KiB) in the browser without network submission. It compares protected source-bound fields against the locally bundled E0-E5 canonical dataset, rejects altered provenance and elevated approval flags, and permits inspection of notes as **untrusted text**. Its optional JSON receipt excludes the notes. A matching **unsigned** packet is **NOT authenticated**, independently reviewed or approved; E4 gates remain HOLD. Run `npm run test:es01-e6`.
