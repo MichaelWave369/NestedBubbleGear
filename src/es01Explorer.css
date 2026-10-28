@@ -136,3 +136,24 @@
 .es01-e7-footnote{font-size:.81rem}
 .es01-e7 input:focus-visible,.es01-e7 button:focus-visible,.es01-e7 a:focus-visible{outline:3px solid #ffe2aa;outline-offset:3px}
 @media(max-width:760px){.es01-e7{padding:.8rem}.es01-e7-grid,.es01-e7-note-pair{grid-template-columns:1fr}}
+
+/* E8 pending documentary follow-ups, never proof or adjudication. */
+.es01-e8{margin:1.5rem 0;padding:1.2rem;border:1px solid rgba(168,211,216,.45);border-radius:1rem;background:rgba(6,28,37,.84)}
+.es01-e8-head h4{font-size:1.36rem;margin:.45rem 0}.es01-e8-head p{line-height:1.55;color:#d5e6e8;max-width:72ch}
+.es01-e8-picker{display:flex;flex-direction:column;gap:.5rem;font-weight:700;font-size:.84rem;margin:1rem 0}
+.es01-e8-picker input{max-width:100%;min-width:0;padding:.72rem;border-radius:.6rem;border:1px solid #96b5bf;color:#f1f8fa}
+.es01-e8-status{border-left:3px solid #eac98d;background:rgba(227,186,115,.08);padding:.7rem .95rem;font-size:.84rem;line-height:1.5}
+.es01-e8-status strong{color:#ffe2a7}.es01-e8-status p{margin:.35rem 0}
+.es01-e8-workspace{margin-top:1rem}.es01-e8-item{border:1px solid rgba(168,205,211,.28);border-radius:.7rem;padding:.8rem;margin:.65rem 0;background:rgba(3,19,30,.68)}
+.es01-e8-item-head{display:flex;flex-wrap:wrap;gap:.4rem 1rem;justify-content:space-between;margin-bottom:.8rem}
+.es01-e8-item-head strong{font-size:.88rem}.es01-e8-item-head span{font-size:.76rem;color:#ffe0ae}
+.es01-e8-item label{display:flex;flex-direction:column;gap:.4rem;margin-top:.7rem;font-size:.8rem;font-weight:650;color:#d6ecec}
+.es01-e8-item select,.es01-e8-item textarea{border:1px solid #9ab6bf;border-radius:.55rem;padding:.65rem;background:#051b29;color:#eff9fb;font:inherit;line-height:1.45;min-width:0;width:100%;box-sizing:border-box}
+.es01-e8-item textarea{resize:vertical;min-height:5rem}
+.es01-e8-boundary{border-left:3px solid #e2c18a;background:rgba(227,186,115,.08);padding:.7rem .9rem;font-size:.82rem;line-height:1.5}
+.es01-e8-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
+.es01-e8-actions button{font:inherit;font-size:.86rem;font-weight:750;border:1px solid #b5e9e2;border-radius:.6rem;color:#062d36;background:#b5e9e2;padding:.73rem 1rem;cursor:pointer}
+.es01-e8 a{color:#b8f6de;text-underline-offset:3px}
+.es01-e8-footnote{color:#cfdee2;line-height:1.55;font-size:.8rem;margin-top:1rem}
+.es01-e8 input:focus-visible,.es01-e8 select:focus-visible,.es01-e8 textarea:focus-visible,.es01-e8 button:focus-visible,.es01-e8 a:focus-visible{outline:3px solid #ffe29a;outline-offset:3px}
+@media(max-width:760px){.es01-e8{padding:.85rem}}

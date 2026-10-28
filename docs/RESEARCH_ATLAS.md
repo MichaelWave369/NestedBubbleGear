@@ -36,6 +36,10 @@ If the existing project names the navigation task differently, `npm test` includ
 Source link integrity is checked by `scripts/test_research_atlas.mjs`; all indexed source paths must exist in the repository. Navigation regression checks ensure existing `#experiments` is retained while `#research-atlas` becomes visible.
 
 
+## ES-01 E8 | Source-bound reviewer follow-up queue (DEV PILOT)
+
+The [E8 draft follow-up queue](ES01_E8_REVIEW_FOLLOWUPS.md) combines two E6-validated, same-source E5 drafts via the E7 text comparison, then allows six independent **OPEN, UNVERIFIED** documentary follow-up tasks. Exported JSON retains source ID, E7 field status, selected follow-up action and newly authored question while excluding the original reviewer-note text. E8 never declares a reviewer correct, resolves disagreements, verifies identities, or promotes therapeutic evidence. E4 remains `HOLD_REVIEW_INCOMPLETE`. Run `npm run test:es01-e8`.
+
 ## ES-01 E7 | Offline reviewer-note difference map (DEV PILOT)
 
 The [E7 reviewer-note difference map](ES01_E7_REVIEWER_DIFFERENCES.md) checks two *unsigned* E5 JSON packets through E6, rejects different study IDs or altered source-bound fields, and displays literal matches, different text and unfilled notes across six fields. It can export a note-free difference receipt. **Exact text matches are not independent agreement, and different text does not establish scientific disagreement.** No authentication or efficacy review occurs; E4 remains `HOLD_REVIEW_INCOMPLETE`. Run `npm run test:es01-e7`.
