@@ -18,6 +18,9 @@ export const RESEARCH_STATUS = Object.freeze({
   'PROPOSED': 'Research proposal; effect not established',
 })
 export const RESEARCH_TRACKS = Object.freeze([
+  row('ES-01-E8','Effect Separation: Open Reviewer Follow-up Queue','Pharmacology & Effects','DEV PILOT',
+    'Source-bound two-packet follow-up queue records unresolved research questions and proposed documentary checks after E7 literal text comparisons, with locally exported draft JSON.',
+    'docs/ES01_E8_REVIEW_FOLLOWUPS.md','No completed adjudication, reviewer identity verification, original note export, causal evidence, scientific consensus, or biomedical claim promotion. E4 remains HOLD.'),
   row('ES-01-E7','Effect Separation: Offline Reviewer Note Differences','Pharmacology & Effects','DEV PILOT',
     'Compares two E6-validated unsigned E5 drafts for the same E0 record, labeling literal note matches, differences and blanks without scientific-agreement claims.',
     'docs/ES01_E7_REVIEWER_DIFFERENCES.md','No proof of reviewer identity, independence, truth, consensus, source replication or medical efficacy. E4 inference gate stays HOLD.'),
