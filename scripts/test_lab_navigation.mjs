@@ -21,7 +21,7 @@ let count=0
 const test=(name,fn)=>{fn();count++;console.log('PASS '+name)}
 test('all twenty-six original navigation destinations are preserved exactly once',()=>{
  const observed=allNavigationItems().map(item=>item.href)
- assert.equal(observed.length,LEGACY_DESTINATIONS.length+10)
+ assert.equal(observed.length,LEGACY_DESTINATIONS.length+11)
  assert.equal(observed.filter(href=>href==='#research-atlas').length,1,'research atlas top-level route')
  for(const legacy of LEGACY_DESTINATIONS)assert.equal(observed.filter(href=>href===legacy).length,1,'legacy route: '+legacy)
  assert.equal(observed.filter(href=>href==='#boundary-crossing').length,1,'new BC1 route')
@@ -30,6 +30,7 @@ test('all twenty-six original navigation destinations are preserved exactly once
  assert.equal(observed.filter(href=>href==='#horn-a1').length,1,'new HORN-A1 route')
  assert.equal(observed.filter(href=>href==='#boundary-discovery').length,1,'new BD-01 route')
  assert.equal(observed.filter(href=>href==='#boundary-discovery-mismatch').length,1,'new BD-02 route')
+ assert.equal(observed.filter(href=>href==='#boundary-rule-synthesis').length,1,'new BD-03 route')
  assert.equal(observed.filter(href=>href==='#ni1').length,1,'NI1 neuroimmune lab route')
  assert.equal(observed.filter(href=>href==='#ni1-e1b').length,1,'NI1 E1B causal collision route')
  assert.equal(new Set(observed).size,observed.length)
@@ -76,7 +77,7 @@ test('all page section links have existing matching section IDs in source',()=>{
    'RecoveryRobustnessLab.jsx','GeometryKeyholeLab.jsx','HornA1Lab.jsx',
    'DimensionalRecoveryLab.jsx','NoisyKeyholeLab.jsx','BoundaryDiscoveryLab.jsx',
    'IndependentSignalValidationLab.jsx','AdaptivePhaseKeyhole.jsx',
-   'UnknownGearLab.jsx','ModelMismatchRecoveryLab.jsx','BoundaryDiscoveryMismatchLab.jsx',
+   'UnknownGearLab.jsx','ModelMismatchRecoveryLab.jsx','BoundaryDiscoveryMismatchLab.jsx','BoundaryRuleSynthesisLab.jsx',
    'DiscoveryLoop.jsx','QM1Lab.jsx','QM2Lab.jsx'
   ].map(name=>readFileSync(new URL('../src/'+name,import.meta.url),'utf8'))
  ].join('\n')
