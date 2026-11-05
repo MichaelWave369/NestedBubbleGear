@@ -28,6 +28,7 @@ export const NAV_GROUPS=Object.freeze([
       {label:'Model Recovery',href:'#model-recovery'},
       {label:'Discovery Loop',href:'#discovery-loop'},
       {label:'Model Mismatch · BD-02',href:'#boundary-discovery-mismatch'},
+      {label:'Rule Synthesis · BD-03',href:'#boundary-rule-synthesis'},
     ]
   },
   {
