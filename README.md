@@ -1,5 +1,11 @@
 # Nested Bubble/Gear (NBG)
 
+## POLY-02 · Geometry-versus-Dynamics Robustness (SIMULATED)
+
+[Rule/prior sensitivity and falsification ledger](docs/POLY02_RULE_PRIOR_ROBUSTNESS.md) · [Altermath R25 implementation PR #27](https://github.com/MichaelWave369/Altermath/pull/27).
+
+Four synchronous pocket update laws, including a strict identity/null control, are tested under three exact Bernoulli priors on the same 4/8/12 face-adjacency dual graphs. The independent oracle and degree-preserving controls probe whether POLY-01's hidden-prediction observations are robust to assumptions; no physical dimensions, causal novelty, NBG advantage, or PocketMesh authorization is claimed.
+
 ## POLY-01 · Polyhedral Keyhole research track (SIMULATED)
 
 [Research ledger and falsification gates](docs/POLY01_POLYHEDRAL_KEYHOLE.md) · [Altermath R24 implementation PR #26](https://github.com/MichaelWave369/Altermath/pull/26).
