@@ -1,5 +1,11 @@
 # Nested Bubble/Gear (NBG)
 
+## POLY-03 · Complete Eight-Pocket Graph Census (SIMULATED)
+
+[Exact matched-size research ledger](docs/POLY03_EXHAUSTIVE_CUBIC_ENSEMBLE.md) · [Altermath implementation PR #28](https://github.com/MichaelWave369/Altermath/pull/28).
+
+R26 now holds graph size and degree fixed: exact enumeration covers all 19,355 labeled eight-vertex 3-regular simple graphs (19,320 connected). In five triangle/four-cycle signature groups, hidden aggregate predictive entropy varies under the same uniform initial-state distribution and neighbor-majority law; all connected graphs receive the complete majority census. Other rule/prior calculations use representatives only. This is a synthetic finite graph result, **not** evidence of extra physical realms, quantum mechanisms, or improved PocketMesh routing.
+
 ## POLY-02 · Geometry-versus-Dynamics Robustness (SIMULATED)
 
 [Rule/prior sensitivity and falsification ledger](docs/POLY02_RULE_PRIOR_ROBUSTNESS.md) · [Altermath R25 implementation PR #27](https://github.com/MichaelWave369/Altermath/pull/27).
