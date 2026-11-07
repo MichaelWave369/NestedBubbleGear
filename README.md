@@ -1,5 +1,11 @@
 # Nested Bubble/Gear (NBG)
 
+## POLY-01 · Polyhedral Keyhole research track (SIMULATED)
+
+[Research ledger and falsification gates](docs/POLY01_POLYHEDRAL_KEYHOLE.md) · [Altermath R24 implementation PR #26](https://github.com/MichaelWave369/Altermath/pull/26).
+
+A controlled 4/8/12 face-pocket graph experiment tests whether identical aggregate observations can conceal distinct next states under a deterministic neighbor-majority rule. Altermath provides an exact enumerator, graph controls, interactive viewer, tests and export. The numbers are conditional entropy from a toy model, **not** evidence of dimensional realms, consciousness, new physics or a routing advantage. PocketMesh integration is deliberately gated pending real use-case evaluation.
+
 [![CI](https://github.com/MichaelWave369/NestedBubbleGear/actions/workflows/ci.yml/badge.svg)](https://github.com/MichaelWave369/NestedBubbleGear/actions/workflows/ci.yml)
 [![Pages](https://github.com/MichaelWave369/NestedBubbleGear/actions/workflows/pages.yml/badge.svg)](https://github.com/MichaelWave369/NestedBubbleGear/actions/workflows/pages.yml)
 [![Code License: MIT](https://img.shields.io/badge/code-MIT-73ffc5.svg)](LICENSE)
