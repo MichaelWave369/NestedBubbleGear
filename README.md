@@ -1,5 +1,12 @@
 # Nested Bubble/Gear (NBG)
 
+## POLY-05 · Cross-Topology Keyhole Transfer (SIMULATED)
+
+[Unseen graph-family transfer ledger](docs/POLY05_CROSS_TOPOLOGY_TRANSFER.md) · [Altermath R28 implementation PR #30](https://github.com/MichaelWave369/Altermath/pull/30).
+
+POLY-05 extends the controlled Keyhole forecast into five leave-one-network-out folds: train on three graph-family representatives, tune sensor placement on a fourth, and score on an unseen fifth under fixed raw-sensor budgets. The heldout graph is also subjected to three seeded **vertex relabelings**, a negative control for arbitrary index dependence. Exact-match accuracy, error and negative outcomes are preserved. All data are still **synthetic**, with no PocketMesh integration, physical-realm implication, neural advantage or production authority.
+
+
 ## POLY-04 · Held-Out Predictive Keyholes (SIMULATED)
 
 [Research protocol and strict promotion gates](docs/POLY04_HELDOUT_FORECAST.md) · [Altermath R27 implementation PR #29](https://github.com/MichaelWave369/Altermath/pull/29).
