@@ -1,5 +1,12 @@
 # Nested Bubble/Gear (NBG)
 
+## POLY-04 · Held-Out Predictive Keyholes (SIMULATED)
+
+[Research protocol and strict promotion gates](docs/POLY04_HELDOUT_FORECAST.md) · [Altermath R27 implementation PR #29](https://github.com/MichaelWave369/Altermath/pull/29).
+
+A controlled synthetic benchmark tests whether adding one or two observed raw pocket bits improves prediction of the next aggregate compared with no additional sensing, fixed sensing, and same-budget randomly selected sensing. Five predeclared eight-node cubic graph representatives, 128/64/64 train/validation/holdout masks and seeds 369/636/963 prevent using holdout labels for sensor selection. Zero or negative results remain visible. This is **not** real-task evidence for new NBG capabilities, physical claims or PocketMesh deployment.
+
+
 ## POLY-03 · Complete Eight-Pocket Graph Census (SIMULATED)
 
 [Exact matched-size research ledger](docs/POLY03_EXHAUSTIVE_CUBIC_ENSEMBLE.md) · [Altermath implementation PR #28](https://github.com/MichaelWave369/Altermath/pull/28).
