@@ -15,7 +15,7 @@ assert.throws(()=>step([1,-1],[[0,2],[0]]),/Invalid/);
 assert.deepEqual(study({trials:32}),study({trials:32}));
 const output=study();
 assert.equal(output.authority,'NONE');
-assert.equal(output.distributions.phi47.histogram[1]??0,output.distributions.phi47.histogram[1]??0);
+assert.equal(output.distributions.phi47.initialAggregate,1);
 assert.ok(output.distributions.phi47.distinctFutures>1,'coarse Keyhole must admit distinct futures');
 for (const v of Object.values(output.distributions)) {
   assert.equal(Object.values(v.histogram).reduce((s,n)=>s+n,0),512);
