@@ -1,5 +1,11 @@
 # Nested Bubble/Gear (NBG)
 
+## OBS-01 · Observer & Reality Lab (SIMULATED)
+
+[Open the five interactive thought experiments](https://michaelwave369.github.io/NestedBubbleGear/#observer-reality) · [Read the protocol, equations and limitations](docs/OBSERVER_REALITY_LAB.md).
+
+The new research console links Plato's Cave to formal observability: lossy 4D→3D projections, reference-frame invariance, graph-cycle topology, observationally equivalent causal models distinguishable by intervention, sampling aliasing and time-delay reconstruction. Includes deterministic offline tests and JSON ledger export. Every result is synthetic, with explicit negative controls and **no claim of new physical dimensions, cosmic imprisonment or new laws of physics**.
+
 ## POLY-05 · Cross-Topology Keyhole Transfer (SIMULATED)
 
 [Unseen graph-family transfer ledger](docs/POLY05_CROSS_TOPOLOGY_TRANSFER.md) · [Altermath R28 implementation PR #30](https://github.com/MichaelWave369/Altermath/pull/30).

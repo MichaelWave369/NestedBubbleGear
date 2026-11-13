@@ -21,8 +21,9 @@ let count=0
 const test=(name,fn)=>{fn();count++;console.log('PASS '+name)}
 test('all twenty-six original navigation destinations are preserved exactly once',()=>{
  const observed=allNavigationItems().map(item=>item.href)
- assert.equal(observed.length,LEGACY_DESTINATIONS.length+11)
+ assert.equal(observed.length,LEGACY_DESTINATIONS.length+12)
  assert.equal(observed.filter(href=>href==='#research-atlas').length,1,'research atlas top-level route')
+ assert.equal(observed.filter(href=>href==='#observer-reality').length,1,'OBS-01 route')
  for(const legacy of LEGACY_DESTINATIONS)assert.equal(observed.filter(href=>href===legacy).length,1,'legacy route: '+legacy)
  assert.equal(observed.filter(href=>href==='#boundary-crossing').length,1,'new BC1 route')
  assert.equal(observed.filter(href=>href==='#boundary-lineage').length,1,'new BC2 route')
@@ -74,7 +75,7 @@ test('all page section links have existing matching section IDs in source',()=>{
    'BiologicalOscillatorBridge.jsx','BiomechanicalCrystalBridge.jsx','NI1Lab.jsx','NI1CollisionLab.jsx','BoundaryCrossingLab.jsx','BoundaryLineageLab.jsx','BoundaryCustodyLab.jsx',
    'ResonanceObservatory.jsx',
    'PhaseDynamicsLab.jsx','BalanceRecoveryLab.jsx','ResilienceAtlas.jsx',
-   'RecoveryRobustnessLab.jsx','GeometryKeyholeLab.jsx','HornA1Lab.jsx',
+   'RecoveryRobustnessLab.jsx','GeometryKeyholeLab.jsx','ObserverRealityLab.jsx','HornA1Lab.jsx',
    'DimensionalRecoveryLab.jsx','NoisyKeyholeLab.jsx','BoundaryDiscoveryLab.jsx',
    'IndependentSignalValidationLab.jsx','AdaptivePhaseKeyhole.jsx',
    'UnknownGearLab.jsx','ModelMismatchRecoveryLab.jsx','BoundaryDiscoveryMismatchLab.jsx','BoundaryRuleSynthesisLab.jsx',

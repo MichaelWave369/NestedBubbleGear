@@ -1,0 +1,43 @@
+.obs-lab{scroll-margin-top:82px;border-top:1px solid var(--line);background:radial-gradient(ellipse at 78% 0%,rgba(89,150,201,.08),transparent 44%)}
+.obs-lab h2{max-width:930px}.obs-lab h2 em{color:#8bc9ff;font-style:normal}
+.obs-lede{max-width:850px;color:#b4c9c2;font-size:clamp(16px,2vw,20px);line-height:1.6;margin:17px 0 30px}
+.obs-tabs,.obs-choices{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.obs-tabs button,.obs-choices button,.obs-action{font:inherit;color:#c3ddd3;background:#0c1715;border:1px solid rgba(172,255,226,.18);border-radius:8px;padding:11px 14px;cursor:pointer}
+.obs-tabs button[aria-pressed=true],.obs-choices button[aria-pressed=true],.obs-action{border-color:#73ffc5;background:rgba(115,255,197,.12);color:#caffea}
+.obs-tabs button:hover,.obs-choices button:hover,.obs-action:hover{border-color:#8bc9ff}
+.obs-tabs button:focus-visible,.obs-choices button:focus-visible,.obs-action:focus-visible,.obs-links a:focus-visible,.obs-lab select:focus-visible{outline:3px solid #8bc9ff;outline-offset:3px}
+.obs-panel-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(300px,.9fr);gap:16px;margin:20px 0}
+.obs-card{min-width:0;padding:clamp(18px,2.4vw,30px);border:1px solid rgba(172,255,226,.16);background:rgba(6,17,15,.83);border-radius:16px}
+.obs-card h3,.obs-bottom h3{font-size:clamp(19px,2.1vw,27px);letter-spacing:-.03em;margin:12px 0}
+.obs-card p,.obs-bottom p{color:#acbdb7;line-height:1.6}
+.obs-overline{color:#8bc9ff;letter-spacing:.14em;text-transform:uppercase;font-size:10px;font-weight:750}
+.obs-result{border-color:rgba(139,201,255,.2);background:rgba(11,24,26,.77)}
+.obs-pill{display:inline-flex;margin:20px 0 6px;padding:7px 10px;border-radius:5px;font-weight:800;letter-spacing:.1em;font-size:11px}
+.obs-good{color:#aaf4cb;background:rgba(115,255,197,.1)}
+.obs-change{color:#f3d19d;background:rgba(224,181,110,.11)}
+.obs-state-pair,.obs-causal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}
+.obs-state-pair>div,.obs-causal>div{padding:14px;background:rgba(139,201,255,.055);border:1px solid rgba(139,201,255,.12);min-width:0;border-radius:8px}
+.obs-state-pair small,.obs-state-pair code,.obs-state-pair strong,.obs-causal small,.obs-causal code,.obs-causal strong{display:block;margin-bottom:7px;overflow-wrap:anywhere}
+.obs-state-pair small,.obs-causal small{color:#8da39c;font-size:11px}
+.obs-state-pair code,.obs-causal code{color:#8bc9ff;font-size:12px}
+.obs-state-pair strong{color:#73ffc5;font-size:14px}
+.obs-metric{display:flex;justify-content:space-between;align-items:baseline;gap:18px;border-bottom:1px solid rgba(172,255,226,.12);padding:11px 0}
+.obs-metric span{color:#a7bdb4;font-size:13px}.obs-metric strong{color:#d4f7eb;font-family:ui-monospace,monospace}
+.obs-note{font-size:12px;color:#93aea5!important;margin-top:15px}
+.obs-result a,.obs-links a{display:inline-block;color:#8bc9ff;font-size:13px;text-decoration:underline;text-underline-offset:4px;margin:10px 0}
+.obs-input-row{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}
+.obs-input-row label,.obs-wide-label{display:grid;gap:8px;color:#b7cec3;font-size:12px}
+.obs-lab select{background:#0d201c;color:#e9fff8;padding:10px;border:1px solid rgba(172,255,226,.3);border-radius:6px;max-width:100%}
+.obs-wide-label{max-width:220px;margin:0 0 15px}
+.obs-card svg{display:block;width:100%;height:auto;max-height:255px}
+.obs-table{width:100%;border-collapse:collapse;table-layout:fixed;margin:15px 0;font-size:12px}
+.obs-table th,.obs-table td{padding:9px 4px;border-bottom:1px solid rgba(172,255,226,.12);text-align:center;overflow-wrap:anywhere}
+.obs-table th{color:#8bc9ff;font-size:11px}
+.obs-bottom{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,280px);gap:24px;padding:26px;border:1px solid rgba(115,255,197,.16);border-radius:14px;background:rgba(9,25,20,.65);margin:24px 0}
+.obs-checks{display:flex;flex-wrap:wrap;gap:8px}
+.obs-checks span{font-size:11px;padding:8px 10px;border:1px solid rgba(172,255,226,.14);border-radius:6px}
+.obs-pass{color:#9fe2c5}.obs-fail{color:#e6ab94}
+.obs-links{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.obs-firewall{font-size:12px;line-height:1.6;color:#d1b984;max-width:1100px}
+@media(max-width:900px){.obs-panel-grid,.obs-bottom{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:580px){.obs-state-pair,.obs-causal{grid-template-columns:1fr}.obs-table{font-size:10px}.obs-card{padding:16px}.obs-tabs button{flex:1 1 46%;font-size:12px}}
