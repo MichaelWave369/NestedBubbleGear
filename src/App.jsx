@@ -21,6 +21,7 @@ import BoundaryRuleSynthesisLab from './BoundaryRuleSynthesisLab.jsx'
 import BoundaryDiscoveryMismatchLab from './BoundaryDiscoveryMismatchLab.jsx'
 import BoundaryDiscoveryLab from './BoundaryDiscoveryLab.jsx'
 import GeometryKeyholeLab from './GeometryKeyholeLab.jsx'
+import ObserverRealityLab from './ObserverRealityLab.jsx'
 import HornA1Lab from './HornA1Lab.jsx'
 import DimensionalRecoveryLab from './DimensionalRecoveryLab.jsx'
 import NoisyKeyholeLab from './NoisyKeyholeLab.jsx'
@@ -659,6 +660,7 @@ function App() {
       <BalanceRecoveryLab />
       <ResilienceAtlas />
       <RecoveryRobustnessLab />
+      <ObserverRealityLab />
       <GeometryKeyholeLab />
       <HornA1Lab />
       <DimensionalRecoveryLab />
