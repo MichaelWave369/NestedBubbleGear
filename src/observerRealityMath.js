@@ -11,7 +11,7 @@ export const OBS_TABS=Object.freeze([
   {id:'causality',label:'Interventions'},
   {id:'time',label:'Time & aliasing'},
 ])
-const near=(a,b)=>Math.abs(a-b)<1e-10
+const near=(a,b)=>Math.abs(a-b)<1e-7
 const distance=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1])
 export function projectionWitness(reveal=false){
   const a=[1,1,1,-1],b=[1,1,1,1]
