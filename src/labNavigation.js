@@ -33,6 +33,7 @@ export const NAV_GROUPS=Object.freeze([
   },
   {
     id:'geometry',label:'Geometry',items:[
+      {label:'Observer & Reality Lab · OBS-01',href:'#observer-reality'},
       {label:'Geometry Keyhole',href:'#geometry-keyhole'},
       {label:'Gabriel’s Horn · Altermath',href:'#horn-a1'},
       {label:'Dimensional Recovery',href:'#dimensional-recovery'},
