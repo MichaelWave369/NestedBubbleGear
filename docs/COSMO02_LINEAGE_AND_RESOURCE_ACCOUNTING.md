@@ -14,7 +14,7 @@ COSMO-02 addresses the **computational analogy only**: a new child domain can be
 
 **Initial state:** two bounded parent domains, A and B, each with four labeled 0/1-signal tokens (eight unique tokens total). All 256 binary configurations have uniform prior.
 
-**Actions:** (a) hold, (b) local rotation/transform, (c) authorized endpoint swap/transfer, (d) explicitly operator-approved child birth by rehoming the A-last and B-first tokens into a 2-token child with \`parentIds=[A,B]\`. A subsequent, separately authorized merge can retire the child and restore its tokens to their origin parents. The ancestry event remains.
+**Actions:** (a) hold, (b) local rotation/transform, (c) authorized endpoint swap/transfer, (d) explicitly operator-approved child birth by rehoming the A-last and B-first tokens into a 2-token child with `parentIds=[A,B]`. A subsequent, separately authorized merge can retire the child and restore its tokens to their origin parents. The ancestry event remains.
 
 **Invariants:** unique token inventory of eight and sum of initial 1-valued signals unchanged for these exact permutation operations. A failed authorization must not change any token arrangement.
 
