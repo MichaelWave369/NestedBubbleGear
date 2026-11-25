@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
@@ -20,6 +21,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -31,6 +34,30 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+          name: ${{ env.PAGES_ARTIFACT_NAME }}
+      - name: Wait for Pages artifact metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in {1..12}; do
+            if count=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts?name=${PAGES_ARTIFACT_NAME}" --jq '.total_count'); then
+              if [[ "$count" == 1 ]]; then
+                echo "Pages artifact is visible: $PAGES_ARTIFACT_NAME"
+                exit 0
+              fi
+              if [[ "$count" =~ ^[0-9]+$ ]] && (( count > 1 )); then
+                echo "::error::Multiple artifacts for this attempt: $PAGES_ARTIFACT_NAME"
+                exit 1
+              fi
+            fi
+            if (( attempt < 12 )); then sleep 5; fi
+          done
+          echo "::error::Pages artifact metadata did not become visible: $PAGES_ARTIFACT_NAME"
+          exit 1
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ env.PAGES_ARTIFACT_NAME }}
